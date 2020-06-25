@@ -3,23 +3,31 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="css/style.css">
 	<title>New Project</title>
 </head>
 <body>
-	This is a new project.
-	<header>
-		<h1>New</h1>
+	
+	<header class="navbar">
+		<div class="container display-flex">
+			<div class="flex-none">
+				<h1>Cool Website</h1>
+			</div>
+			<div class="flex-stretch"></div>
+
+			<nav class="nav flex-none">
+				<ul class="display-flex">
+					<li><a href="#article1">Article 1</a></li>
+					<li><a href="#article2">Article 2</a></li>
+					<li><a href="#article3">Article 3</a></li>
+					<li><a href="#article4">Article 4</a></li>
+				</ul>
+			</nav>
+		</div>
 	</header>
-</body>
-	<nav class="nav">
-		<ul>
-			<li><a href="#articles1">Article 1</a></li>
-			<li><a href="#articles2">Article 2</a></li>
-			<li><a href="#articles3">Article 3</a></li>
-			<li><a href="#articles4">Article 4</a></li>
-		</ul>
-	</nav>
+
+
+	
 	<div class="container">
 		<article class="article" id="article1">
 			<h2>Article 1</h2>
@@ -59,4 +67,5 @@
 		</article>
 	</div>
 	<!-- .container>article.article#article$*4>h2{Article $}+div.article-body>p*4>lorem50 -->
+	</body>
 </html>
