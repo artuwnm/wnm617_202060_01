@@ -15,19 +15,25 @@
 	<!-- cmd+/,c,v,/ -->
 
 	<!-- header>h1 -->
-	<header>
-		<h1>Cool Website</h1>
+	<header class="navbar">
+		<div class="container display-flex">
+			<div class="flex-none">
+				<h1>Cool Website</h1>
+			</div>
+			<div class="flex-stretch"></div>
+
+			<nav class="nav flex-none">
+				<ul  class="display-flex">
+					<li><a href="#article1">Article 1</a></li>
+					<li><a href="#article2">Article 2</a></li>
+					<li><a href="#article3">Article 3</a></li>
+					<li><a href="#article4">Article 4</a></li>
+				</ul>
+			</nav>
+		</div>
 	</header>
 
 	<!-- nav.nav>ul>li*4>a[href=#article$]>{Article $} -->
-	<nav class="nav">
-		<ul>
-			<li><a href="#article1">Article 1</a></li>
-			<li><a href="#article2">Article 2</a></li>
-			<li><a href="#article3">Article 3</a></li>
-			<li><a href="#article4">Article 4</a></li>
-		</ul>
-	</nav>
 
 	<!-- .container>article.article#article$*4>h2{Article $}+div.article-body>p*4>lorem50 -->
 	<div class="container">
