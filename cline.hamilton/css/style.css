@@ -107,6 +107,16 @@ a {
 
 
 
+.article {
+	margin-top:1em;
+	margin-bottom:1em;
+}
+.article h2 {
+	margin:0;
+}
+
+
+
 @media (max-width:1000px) {
 	.article,.navbar {
 		padding-left: 1em;
