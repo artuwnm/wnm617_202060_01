@@ -1,13 +1,8 @@
-# wnm617_202060_01
-
-This is the class README, do not edit.
+# danqi yu
 
 
-## Git process
 
-- git status
-- git add .
-- git commit -m "[message]"
-- git push origin master
-- git pull origin master
-- git pull [somerepository] master
+## Links
+
+http://dyu99.com/public_html/AAU/wnm617/about.html
+
