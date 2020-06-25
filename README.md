@@ -2,11 +2,10 @@
 
 This is the class README, do not edit.
 
-
 ## Git process
 
 - git status
-- git add .
+- git add . (just adds everything)
 - git commit -m "[message]"
 - git push origin master
 - git pull origin master
