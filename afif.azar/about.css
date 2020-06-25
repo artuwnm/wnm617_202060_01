@@ -1,0 +1,104 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.content {
+  min-height: 100%;
+  text-align: center;
+}
+
+.title {
+	text-align: center;
+	margin-bottom: 5%;
+	margin-top: 50px; 
+}
+
+.navbar {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+.navbar li {
+	display: inline;
+}
+
+.navbar a {
+	display: inline-block;
+	padding: 20px;
+}
+
+.navbar a {
+	font-size: 16px;
+	color: #404040;
+	font-weight: normal;
+}
+
+img {
+	max-width: 50%;
+
+}
+
+.par-1 {
+	font-size: 14px;
+	margin-top: 5vh;
+	margin-bottom: 5vh;
+	line-height: 150%;
+}
+
+.par-2 {
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 150%;
+}
+
+.column {
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 2%;
+  margin-bottom: 10vh;
+  padding: 1%;
+}
+
+.card {
+  margin: 1%;
+  padding: 5%;
+}
+
+.container {
+  padding: 0 16px;
+  max-width: 65%;
+  margin: auto;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+.footer {
+	padding-top: 35px;
+	padding-bottom: 35px;
+	padding-left: 60px;
+	background-color: #f0e1e8;
+	margin-top: -50px;
+}
+
+.link-block {
+	margin-left: 60px;
+}
+
+.link-block-2 {
+	margin-left: 60px;
+}
+
+===================== Jquary ====================
