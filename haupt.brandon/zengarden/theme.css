@@ -1,0 +1,99 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+footer {
+    display: flex;
+    background-color: orange;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    padding: 1.5rem;
+    width: 100vw;
+    height: 3rem;
+}
+
+p,
+h1,
+h2,
+h3 {
+    padding: .3rem;
+}
+
+.page-wrapper {
+    display: grid;
+    grid-template-areas:
+        'sideBar intro intro intro intro intro'
+        'main main main main main main';
+    position: relative;
+    height: 100vh;
+}
+
+.intro {
+    background-color: purple;
+    grid-area: intro;
+    padding: 1%;
+}
+
+.main {
+    background-color: grey;
+    grid-area: main;
+}
+
+.design-selection h3,
+.design-archives h3,
+.zen-resources h3 {
+    text-align: center;
+    background-color: blue;
+    color: white;
+}
+
+.sidebar {
+    background-color: green;
+    display: flex;
+    grid-area: sideBar;
+}
+
+.sidebar ul li {
+    list-style-type: none;
+}
+
+.design-archives {
+    grid-area: dArchives;
+}
+
+.requirements {
+    padding: 1.5rem;
+}
+
+@media (max-width: 880px) {
+    .page-wrapper {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+    .design-selection h3,
+    .design-archives h3,
+    .zen-resources h3 {
+        text-align: center;
+        width: 100vw;
+        background-color: blue;
+        color: white;
+    }
+
+    footer {
+        background-color: orange;
+        text-align: center;
+        position: absolute;
+        bottom: 0;
+        width: 100vw;
+        height: 2.5rem;
+    }
+}
+
+/* Used https://www.w3schools.com/cssref/pr_grid-template-areas.asp to learn some grid stuff */
