@@ -3,10 +3,10 @@ html {
 	padding: 0;
 	}
 body { 
-	font: 75% Noto Sans, sans-serif;
-	line-height: 1.88889;
-	color: #555753; 
-	background: #fff url(http://csszengarden.com/001/blossoms.jpg) no-repeat bottom right; 
+	font: 80% Noto Sans, sans-serif;
+	line-height: 1.6;
+	color: #2c0366; 
+	background: #fcfcfc; 
 	margin: 0; 
 	padding: 0;
 	}
@@ -16,9 +16,10 @@ p {
 	}
 h3 { 
 	font-family: Noto Serif;
-	letter-spacing: 1px; 
-	margin-bottom: 0; 
-	color: #7D775C;
+	letter-spacing: 1px;
+	margin-top: 15px;
+	margin-bottom: 15px; 
+	color: #7851ad;
 
 	}
 a:link { 
@@ -37,4 +38,17 @@ a:hover, a:focus, a:active {
 	}
 abbr {
 	border-bottom: none;
+	}
+
+
+.page-wrapper { 
+	background: #fcfcfc; 
+	padding: 50px 50px 0 50px;  
+	margin: 0; 
+	position: relative;
+	}
+
+.intro { 
+	min-width: 470px;
+	width: 100%;
 	}
