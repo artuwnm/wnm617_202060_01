@@ -1,99 +1,166 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 footer {
-    display: flex;
-    background-color: orange;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    bottom: 0;
-    padding: 1.5rem;
-    width: 100vw;
-    height: 3rem;
+  display: flex;
+  background-color: #252525;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  padding: 1.5rem;
+  width: 100%;
+  height: 5rem;
+  grid-area: footer;
+}
+
+footer a {
+  margin: 3%;
+  text-decoration: none;
+  color: white;
 }
 
 p,
 h1,
 h2,
 h3 {
-    padding: .3rem;
+  padding: 0.3rem;
 }
 
 .page-wrapper {
-    display: grid;
-    grid-template-areas:
-        'sideBar intro intro intro intro intro'
-        'main main main main main main';
-    position: relative;
-    height: 100vh;
+  display: grid;
+  grid-template-areas:
+    "sideBar intro intro intro intro intro"
+    "main main main main main main";
+  position: relative;
+  height: 100vh;
 }
 
 .intro {
-    background-color: purple;
-    grid-area: intro;
-    padding: 1%;
+  background-color: #b4b4b4;
+  grid-area: intro;
+  padding: 1%;
 }
 
 .main {
-    background-color: grey;
-    grid-area: main;
+  background-color: grey;
+  grid-area: main;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.design-selection h3,
-.design-archives h3,
-.zen-resources h3 {
-    text-align: center;
-    background-color: blue;
-    color: white;
+.select,
+.archives,
+.resources {
+  text-align: center;
+  background-color: #252525;
+  color: white;
+}
+
+.design-selection nav,
+.design-archives nav,
+.zen-resources ul {
+  margin: 10px;
+}
+
+.design-selection li a:nth-child(1),
+.design-archives li a,
+.zen-resources li a {
+  text-decoration: none;
+  color: #ffffff;
+  padding: 10px;
+}
+
+.design-selection li a:nth-child(2) {
+  text-decoration: none;
+  color: black;
+  padding: 10px;
 }
 
 .sidebar {
-    background-color: green;
-    display: flex;
-    grid-area: sideBar;
+  background-color: #757575;
+  display: flex;
+  grid-area: sideBar;
+}
+
+.wrapper {
+  width: 100%;
 }
 
 .sidebar ul li {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 .design-archives {
-    grid-area: dArchives;
+  grid-area: dArchives;
 }
 
 .requirements {
-    padding: 1.5rem;
+  padding: 1.5rem;
+}
+
+.explanation,
+.participation,
+.benefits,
+.requirements {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
 }
 
 @media (max-width: 880px) {
-    .page-wrapper {
-        display: flex;
-        flex-direction: column;
-        position: relative;
-    }
+  .page-wrapper {
+    display: grid;
+    grid-template-areas:
+      "intro"
+      "sideBar"
+      "main"
+      "footer";
+    position: relative;
+  }
 
-    .design-selection h3,
-    .design-archives h3,
-    .zen-resources h3 {
-        text-align: center;
-        width: 100vw;
-        background-color: blue;
-        color: white;
-    }
+  .main,
+  .intro {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
 
-    footer {
-        background-color: orange;
-        text-align: center;
-        position: absolute;
-        bottom: 0;
-        width: 100vw;
-        height: 2.5rem;
-    }
+  .design-selection h3,
+  .design-archives h3,
+  .zen-resources h3 {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 100vw;
+    background-color: blue;
+    color: white;
+  }
+
+  .design-selection li,
+  .design-archives li,
+  .zen-resources li {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 0.3rem;
+  }
+
+  footer {
+    background-color: #252525;
+    text-align: center;
+    bottom: 0;
+    width: 100vw;
+    height: 2.5rem;
+  }
 }
 
 /* Used https://www.w3schools.com/cssref/pr_grid-template-areas.asp to learn some grid stuff */
