@@ -5,27 +5,26 @@ html {
 body { 
 	font: 80% Noto Sans, sans-serif;
 	line-height: 1.6;
-	color: #2c0366; 
-	background: #fcfcfc; 
+	color: #cf7500; 
+	background: #f4f7c5; 
 	margin: 0; 
 	padding: 0;
 	}
 p { 
-	margin-top: 0; 
 	text-align: justify;
 	}
+
 h3 { 
 	font-family: Noto Serif;
 	letter-spacing: 1px;
-	margin-top: 15px;
-	margin-bottom: 15px; 
-	color: #7851ad;
+
+	color: #303960;
 
 	}
 a:link { 
 	font-weight: bold; 
 	text-decoration: none; 
-	color: #B7A5DF;
+	color: #726a95;
 	}
 a:visited { 
 	font-weight: bold; 
@@ -41,14 +40,47 @@ abbr {
 	}
 
 
+
 .page-wrapper { 
-	background: #fcfcfc; 
-	padding: 50px 50px 0 50px;  
-	margin: 0; 
+	background: #f4f7c5; 
+	margin: 50px 50px 0 50px; 
 	position: relative;
 	}
 
 .intro { 
 	min-width: 470px;
 	width: 100%;
-	}
+}
+
+
+header{
+	background-color: #fbc687;
+display: inline-block;	
+
+}
+
+h1 {
+	background-color: #303960; 
+	font-size: 200%;
+	text-align: center;
+    display: inline-block;
+    margin-bottom: 1em;
+    padding: 0.5em 1em;
+    color: #fbc687;
+    
+}
+
+h2{
+	font-size: 	430%;
+	color: 	#f4f7c5;
+	margin: 0;
+	padding:0;
+}
+
+.summary{
+
+	padding:25px;
+	background-color: #ea907a;
+	color: #fcfcfc;
+	font-size: 110%;
+}
