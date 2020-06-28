@@ -1,0 +1,135 @@
+/* ELEMENT RESETS */
+
+*,*::before,*::after {
+	box-sizing: border-box;
+}
+
+:root{
+	--color-neutral-light:#eaeeef;
+	--color-neutral-medium:#9aa2a4;
+	--color-neutral-dark:#363c3e;
+
+	--color-white:#fff;
+	--color-black:#000;
+
+	--header-height:3rem;
+	--gap-size:1rem;
+
+	--font-serif: Georgia, "times new roman", serif;
+	--font-sans: Helvetica, arial, sans-serif;
+}
+
+body{
+	margin: 0;
+	font-size: 100%;
+	font-family: Helvetica, sans-serif;
+}
+
+h1,h2, h3, h4, h5, h6 {
+	font-family: var(--font-serif);
+}
+
+a {
+	display: inline-block;
+	color: inherit;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+
+
+
+
+/* small classes */
+
+.container{
+	max-width: var(--contianer-width);
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.hidden{ display: none; }
+
+
+/* layout classes*/
+
+.display-flex { display: flex; }
+.display-inline-flex { display: inline-flex; }
+.display-block { display: block; }
+.display-inline-block { display: inline-block; }
+
+.flex-stretch{ flex: 1 1 auto; }
+.flex-none { flex: none; }
+
+.flex-justify-center {justify-content: center;}
+.flex-aline-center {align-items: center;}
+
+
+
+
+
+/* components */
+
+.navbar {
+	background-color: var(--color-neutral-dark);
+	color: var(--color-neutral-light);
+	line-height: var(--header-height);
+}
+
+.navbar h1 {
+	font-size: 1em;
+	margin: 0;
+}
+
+.nav ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+
+}
+
+.navbar li:not(:last-child) a {
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+
+}
+
+.navbar li:last-child a {
+	padding-left: 0.5em;
+
+}
+
+
+
+
+@media (max-width: 1000px) {
+	.article, .navbar{
+		padding-left: 1em;
+		padding-right: 1em;
+	}
+}
+
+@media (max-width: 500px) {
+	.navbar > .display-flex{
+		display: block;
+	}
+	.navbar .nav li{
+		line-height: calc(var(--header-height) * 0.66);
+	}
+	.navbar .nav{
+		padding-bottom: 0.5em;
+		width: 100%;
+	}
+
+	#menu-button{
+		display: block;
+	}
+
+	.navbar .nav ul{
+		display: none;
+	}
+
+	#menu: checked + .naver .nav ul{
+		display: block;
+		padding-bottom: 0.5em;}
+}

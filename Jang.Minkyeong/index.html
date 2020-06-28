@@ -1,10 +1,79 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>New Project</title>
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-	This is a new Project. 
+	
+
+	<!-- header>h1 -->
+	
+	<input type="checkbox" id="menu" class="hidden">
+
+	<header class="navbar">
+		<div class="contatiner display-flex">
+	 		<div class="flex-none">
+	 			<h1>Cool Website</h1>
+	 		</div>
+	 		
+	 		<div class="flex-stretch"></div>
+			
+			<label class="flex-none menu-button " for="menu">&equiv;</label>
+	<!-- nav.nav>ul>li*4>a[href=#articles$>{Article $} -->
+			<nav class="nav flex-none">
+				<ul class="display-flex">
+					<li><a href="#article1">Article 1</a></li>
+					<li><a href="#article2">Article 2</a></li>
+					<li><a href="#article3">Article 3</a></li>
+					<li><a href="#article4">Article 4</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header> 
+	
+	<!-- .container>article.article#article$*4>h2{article $}+div.article-body>p*4>lorem15 -->
+	<div class="container">
+		<article class="article" id="article1">
+				<h2>article 1</h2>
+				<div class="article-body">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum reprehenderit eveniet, repellat omnis sapiente praesentium.</p>
+					<p>Id repellendus est, maiores eveniet ea voluptas in molestias optio magni blanditiis, vitae cupiditate doloribus.</p>
+					<p>Fugit nesciunt sunt natus facilis iure voluptas id, libero magnam expedita consectetur. Suscipit, repellendus, facilis!</p>
+					<p>Alias ipsa distinctio eum, atque incidunt nemo harum laborum fugiat quia facere, esse doloribus unde?</p>
+				</div>
+		
+		</article>
+		<article class="article" id="article2">
+			<h2>article 2</h2>
+			<div class="article-body">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non animi odio provident, quisquam dolores fugiat.</p>
+				<p>Beatae nam, doloremque sapiente, nesciunt alias earum tenetur corporis consequatur atque repellat qui, natus maxime.</p>
+				<p>Consequuntur, laboriosam velit? Laborum quaerat sunt consequatur laudantium facilis sit illo velit praesentium facere eaque.</p>
+				<p>Nihil accusantium, commodi vitae, voluptate velit enim esse voluptatem, dolorum quasi perferendis impedit reiciendis veritatis.</p>
+			</div>
+		</article>
+		<article class="article" id="article3">
+			<h2>article 3</h2>
+			<div class="article-body">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati sunt consequuntur reprehenderit itaque, minima, enim!</p>
+				<p>Laudantium cupiditate esse, quaerat adipisci reiciendis modi, deleniti excepturi vero dolores velit, voluptas. Esse, ratione!</p>
+				<p>Officia beatae amet iusto consequatur adipisci voluptatum, vel cumque, laudantium. Voluptate iusto earum accusamus quia.</p>
+				<p>In, error, fuga. Doloremque consectetur sunt blanditiis, reiciendis. Dolorum, culpa ad nesciunt adipisci mollitia debitis.</p>
+			</div>
+		</article>
+		<article class="article" id="article4">
+			<h2>article 4</h2>
+			<div class="article-body">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque neque iure cum, quo, sint perspiciatis.</p>
+				<p>Explicabo itaque ex corporis minus provident earum, placeat aspernatur amet neque, laboriosam exercitationem dignissimos sit.</p>
+				<p>Beatae ad blanditiis eum minima dignissimos labore dolore nostrum fugit sit voluptatum! Dolorum, facere temporibus.</p>
+				<p>Ullam, animi, suscipit. Earum veritatis provident perferendis iste blanditiis culpa architecto voluptas deserunt, esse cupiditate!</p>
+			</div>
+		</article>
+	</div>
 </body>
 </html>
