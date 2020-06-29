@@ -3,8 +3,9 @@
 <head>
 	<meta charset="utf-8">
 	<title>CSS Zen Garden: The Beauty of CSS Design</title>
-
-	<link rel="stylesheet" media="screen" href="style.css?v=8may2013">
+<!-- 
+	<link rel="stylesheet" media="screen" href="style.css?v=8may2013"> -->
+	<link rel="stylesheet" href="theme.css?v=8may2013">
 	<link rel="alternate" type="application/rss+xml" title="RSS" href="http://www.csszengarden.com/zengarden.xml">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,6 +51,8 @@
 
 <body id="css-zen-garden">
 <div class="page-wrapper">
+
+<input type="checkbox" id="menu" class="hidden">
 
 	<section class="intro" id="zen-intro">
 		<header role="banner">
@@ -107,13 +110,15 @@
 		</footer>
 
 	</div>
-
-
 	<aside class="sidebar" role="complementary">
+		<label class="flex-none menu-botton" for="menu">&equiv;</label>
+		
 		<div class="wrapper">
 
 			<div class="design-selection" id="design-selection">
 				<h3 class="select">Select a Design:</h3>
+				
+
 				<nav role="navigation">
 					<ul>
 					<li>

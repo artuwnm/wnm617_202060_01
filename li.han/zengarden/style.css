@@ -111,6 +111,9 @@ header {
 	padding-left: 10px; 
 	margin-bottom: 40px;
 	}
+	.hidden{
+		display: none;
+	}
 
 footer { 
 	text-align: center; 
