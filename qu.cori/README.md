@@ -1,4 +1,4 @@
-# Hamilton Cline
+# Cori Qu
 
 ## Links
 - http://coriq.co
