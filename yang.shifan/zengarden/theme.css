@@ -1,0 +1,142 @@
+*，*：：before,*::after {
+	box-sizing: border-box;
+}
+
+:root {
+	--color-neutral-light:#eebb4d;
+	--color-neutral-light:#d6efc7;
+	--color-neutral-light:#96bb7c;
+	--color-neutral-dark:#184d47;
+    --header-height:3rem;
+    --gap-size:1rem;
+    --container-width:1000px;
+    --font-serif:Georgia, "Times New Roman", serif;
+    --font-sans:Helvetica, arial, sans-serif;
+}
+
+body {
+	margin:0;
+	font-size:100%;
+	font-family:var(--font-sans);
+}
+
+h1 {
+	font-family:var(--font-serif);
+	font-size: 5em;
+	background-color:#eebb4d;
+	font-color:#ffff;
+}
+h2 {	
+	background-color:#eebb4d;
+	font-family:var(--font-serif);
+	font-size: 3em;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+}
+h3,
+h4,
+h5,
+h6 {
+	font-family:var(--font-serif);
+}
+
+
+a {
+	display:inline-block;
+	color:inherit;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+a:link { 
+	font-weight: bold; 
+	text-decoration: none; 
+	color: #B7A5DF;
+}
+
+.page-wrapper {
+	max-width: var(--container-width);
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.summary {
+    background-color:#96bb7c;
+    position: relative;
+    width: 50%;
+    left: 30%;
+    padding: 1em;
+}
+
+.preamble {
+	background-color:#eebb4d;
+    position: relative;
+    width: 50%;
+    padding: 1em;
+}
+
+.explanation {
+	background-color:#184d47;
+	width: 50%;
+	left: 30%;
+	padding: 1em;
+	position: relative;
+}
+
+.participation {
+    background-color:#eebb4d;
+    position: relative;
+    width: 50%;
+    padding: 1em;
+}
+
+.benefits {
+	background-color:#96bb7c;
+	position: relative;
+	width: 50%;
+    left: 30%;
+    margin: 0 1em;
+    padding: 1em;
+}
+
+.requirements {
+	background-color:#184d47;
+	position: relative;
+	width: 50%;
+    margin: 0 1em;
+    padding: 1em;
+}
+
+.sidebar {
+	padding: 1rem;
+}
+
+.sidebar .wrapper { 
+	font: 15px verdana, sans-serif; 
+	background: #5a3d55;
+	width: 50%;
+}
+
+/*@media (max-width: 768px) {
+	.summary
+	.preamble,
+	.explanation,
+	.participation,
+	.benefits,
+	.requirements,
+	.sidebar {
+		width: 100%;
+		left: 0%;
+		right: 0%;
+	}
+	.summary {
+		width: 100%;
+		left: 0%;
+	}
+
+	.preamble {
+		width: 100%;
+	}
+}*/
+
