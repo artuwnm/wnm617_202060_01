@@ -136,6 +136,7 @@ a {
 	margin: 0;
 	border: 2px solid var(--color-main-medium);
 	border-top-width: 0;
+	display:none;
 }
 
 
