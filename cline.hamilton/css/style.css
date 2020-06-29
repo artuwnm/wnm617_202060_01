@@ -9,6 +9,10 @@
    --color-neutral-medium: #9aa2a4;
    --color-neutral-dark: #363c3e;
 
+	--color-main-light: #b9f1fe;
+	--color-main-medium: #20b3d5;
+	--color-main-dark: #054352;
+
    --color-white: #fff;
    --color-black: #000;
 
@@ -114,6 +118,32 @@ a {
 .article h2 {
 	margin:0;
 }
+
+
+
+
+/* Accordion */
+.accordion dt {
+	background-color: var(--color-main-medium);
+	padding: 0.2em calc(1em + 2px);
+	color: var(--color-white);
+}
+.accordion dt~dt {
+	margin-top:1em;
+}
+.accordion dd {
+	padding: 1em;
+	margin: 0;
+	border: 2px solid var(--color-main-medium);
+	border-top-width: 0;
+}
+
+
+
+
+
+
+
 
 
 
