@@ -15,35 +15,33 @@ p {
 	}
 
 h3 { 
-	font-family: Noto Serif;
+	font-family: Futura;
 	letter-spacing: 1px;
-
-	color: #303960;
+	color: #b5076b;
 
 	}
 a:link { 
 	font-weight: bold; 
 	text-decoration: none; 
-	color: #726a95;
+	color: #0c9463;
 	}
 a:visited { 
 	font-weight: bold; 
 	text-decoration: none; 
-	color: #D4CDDC;
+	color: #0c9463;
 	}
+
 a:hover, a:focus, a:active { 
 	text-decoration: underline; 
-	color: #9685BA;
 	}
+
 abbr {
 	border-bottom: none;
 	}
 
-
-
 .page-wrapper { 
 	background: #f4f7c5; 
-	margin: 50px 50px 0 50px; 
+	margin: 50px 100px 0 100px; 
 	position: relative;
 	}
 
@@ -54,14 +52,13 @@ abbr {
 
 
 header{
-	background-color: #fbc687;
-display: inline-block;	
+	background-color: #fbc687;	
 
 }
 
 h1 {
 	background-color: #303960; 
-	font-size: 200%;
+	font-size: 160%;
 	text-align: center;
     display: inline-block;
     margin-bottom: 1em;
@@ -77,10 +74,152 @@ h2{
 	padding:0;
 }
 
-.summary{
+section {
+	display: inline-flex;
+}
 
-	padding:25px;
+.summary , .preamble{
+	padding:35px;
 	background-color: #ea907a;
 	color: #fcfcfc;
-	font-size: 110%;
+	font-size: 120%;
+}
+
+.summary{
+	padding-top: 150px;
+}
+
+.preamble {
+	background-color: #ffa299;
+	color: #fcfcfc;
+	padding:50px;
+}
+
+#zen-supporting{
+	display: table;
+	float: left;
+}
+.main {
+	background-color: #e5cfe5;
+	width: 60%;
+	padding: 3%;
+	margin-top: 2em;
+	margin-bottom: 2em;
+
+}
+
+.explanation, .participation, .benefits, .requirements{
+	margin-bottom: 3em;
+
+}
+
+aside {
+    display: flex;
+    float: right;
+    width: 25%;
+}
+
+aside.sidebar { 
+	background:rgba(246,247,146,0.9); 
+	padding:3%; 
+	margin-top: 2em;
+}
+aside.sidebar ul { 
+	padding:0.5em 0 2em 1.5em; 
+}
+aside.sidebar ul li { 
+	list-style:none; 
+	margin:0; 
+	padding-bottom: 0.825em; 
+}
+
+.select, .archives, .resources{
+ 	color:#8cba51;
+ }
+
+footer{
+	float: right;
+	background-color: #cff6cf;
+	padding:2em;
+	margin-top: 5em;
+}
+
+footer > a{
+	padding-right: 0.5em;
+	color: #1b6ca8;
+}
+
+
+
+
+/* media */
+
+@media (max-width: 900px){
+	section{
+		display: block;
+	}
+	h2{
+		font-size: 300%;
+	}
+	.summary{
+	padding-top: 50px;
+	}
+
+	.page-wrapper {
+		margin: 25px 50px 0 50px;
+	}
+	#zen-supporting{
+		float: none;
+	}
+	
+	.main{
+		width: 0;
+	}
+
+	aside{
+		width: 94%;
+		margin-bottom: 50px;
+	}
+	.sidebar {
+		display: block;
+		float: none;
+	}
+
+}
+
+@media (max-width: 500px) {
+	html{
+		display: inline-flex;
+	}
+
+	.page-wrapper{
+		margin: 0;
+	}
+
+	h2{
+		font-size: 250%;
+	}
+	
+	.summary, .preamble{
+		padding:20px;
+	}
+
+
+	.main{
+		margin:0;
+	}
+
+	footer{
+		float: none;
+		text-align: center;
+		margin: 0;
+	}
+	
+	footer >a {
+		padding-right: 2em;
+	}
+
+	aside.sidebar{
+		margin-top: 0;
+	}
 }
