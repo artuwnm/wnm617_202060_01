@@ -107,6 +107,8 @@ a{
 	.navbar .nav li{
 		line-height:calc(var(--header-height) * 0.5);
 	}
+
+	
 }
 
 
