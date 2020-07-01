@@ -12,5 +12,3 @@ This is the class README, do not edit.
 - git push origin master
 - git pull origin master
 - git pull [somerepository] master
-
--yyy

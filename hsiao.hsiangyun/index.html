@@ -2,27 +2,39 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
- 
+     <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scaleable=no, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
 	<title>New Project</title>
 
 </head>
-<body>
-	<header>
-	<!-- header>h1 -->
-		<h1>Cool Website</h1>
-
-	</header>
 	<!-- cmd+/ -->
 	<!-- cmd+c,v -->
 	<!-- cmd+/,c,v,/ -->
- 	<nav class="nav">
- 		<ul>
- 			<li><a href="#article1">Article 1</a></li>
- 			<li><a href="#article2">Article 2</a></li>
- 			<li><a href="#article3">Article 3</a></li>
- 			<li><a href="#article4">Article 4</a></li>
- 		</ul>
- 	</nav>
+<body>
+	<input type="checkbox" id="menu" class="hidden">
+	<heade class="navbar">
+		<div class="container display-flex">
+			<div class="flex-none">
+				<!-- header>h1 -->
+				<h1>Cool Website</h1>
+			</div>
+			<div class="flex-stretch"></div>
+
+			<label class="flex-none menu-button" for="menu">&equiv;</label>
+			<!-- for="menu" click menu button the checkbox will be checked -->
+
+ 			<nav class="nav flex-none">
+ 				<ul class="display-flex">
+ 					<li><a href="#article1">Article 1</a></li>
+ 					<li><a href="#article2">Article 2</a></li>
+ 					<li><a href="#article3">Article 3</a></li>
+ 					<li><a href="#article4">Article 4</a></li>
+ 				</ul>
+ 			</nav>
+		</div>
+	</header>
+
 
  	<div class="container">
  		<article class="article" id="article1">
