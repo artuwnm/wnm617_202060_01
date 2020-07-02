@@ -6,8 +6,7 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0 user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
 
-
-    <link rel="stylesheet" href="./css/app.ui-collapsible-set">
+    <link rel="stylesheet" href="./css/app.css">
     <link rel="stylesheet" href="./lib/css/jquery.mobile.structure-1.4.5.min.css">
 
     <script src="./lib/js/jquery-2.2.4.min.js"></script>
@@ -17,6 +16,62 @@
 </head>
 
 <body>
+
+    <section data-role="page" id="page1">
+        <header data-role="header">
+            <h1>Header</h1>
+
+            <ul>
+                <li>
+                    <a href="#page2">Page Two</a>
+                </li>
+                <li>
+                    <a href="#page3">Page Three</a>
+                </li>
+            </ul>
+        </header>
+        <h2>This page</h2>
+        </div>
+        <footer data-role="footer">
+            <h1>Footer</h1>
+        </footer>
+    </section>
+
+    <section data-role="page" id="page2">
+        <header data-role="header">
+            <h1>Header</h1>
+
+            <ul>
+                <li>
+                    <a href="#page1">Page One</a>
+                </li>
+                <li>
+                    <a href="#page3">Page Three</a>
+                </li>
+            </ul>
+        </header>
+        <div data-role="main">
+            <h2>This page</h2>
+        </div>
+        <footer data-role="footer">
+            <h1>Footer</h1>
+        </footer>
+    </section>
+
+    <section data-role="page" id="page3">
+        <header data-role="header">
+            <h1>Header</h1>
+            <a href="#" data-rel="back">Back</a>
+            <ul>
+
+            </ul>
+        </header>
+        <div data-role="main">
+            <h2>This is also a page</h2>
+        </div>
+    </section>
+
+    <section data-role="page"></section>
 
 </body>
 
