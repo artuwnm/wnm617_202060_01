@@ -101,6 +101,26 @@ a {
 
 
 
+/* Accordion */
+
+dt {
+	display: block;
+}
+
+.accordion dt{
+	background-color: var(--color-main-medium);
+	
+}
+
+
+
+
+
+
+
+
+/*media*/
+
 
 @media (max-width: 1000px) {
 	.article, .navbar{
@@ -133,3 +153,8 @@ a {
 		display: block;
 		padding-bottom: 0.5em;}
 }
+
+
+
+
+
