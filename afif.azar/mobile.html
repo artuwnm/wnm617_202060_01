@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
 	<title>Unicorn Forest App</title>
 
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -37,20 +38,85 @@
 
 	<section data-role="page" id="signin-page"></section>
 
-	<section data-role="page" id="recent-page"></section>
+	<section data-role="page" id="recent-page">
 	    <div data-role="main">
 	    	Map
 	    </div>
 	    <footer data-role="footer">
 	    	<ul>
-	    		<li><a href="#">Recent</a></li>
-	    		<li><a href="#">List</a></li>
-	    		<li><a href="#">Profile</a></li>
+	    		<li><a href="#recent-page">Recent</a></li>
+	    		<li><a href="#list-page">List</a></li>
+	    		<li><a href="#profile-page">Profile</a></li>
 	    	</ul>
 	    </footer>
-	<section data-role="page" id="list-page"></section>
-	<section data-role="page" id="unicorn-profile-page"></section>
-	<section data-role="page" id="profile-page"></section>
+	</section>
+
+	<section data-role="page" id="list-page">
+		<header data-role="header">
+			<h1>Animal List</h1>
+			<ul>
+				<li class="flex-stretch"></li>
+				<li class="flex-none">
+					<a href="#">&plus;</a></li>
+			</ul>
+	</header>
+	<div data-role="main">
+		<ul>
+			<li><a href="#animal-profile-page">Animal 1</a></li>
+			<li><a href="#animal-profile-page">Animal 2</a></li>
+			<li><a href="#animal-profile-page">Animal 3</a></li>
+			<li><a href="#animal-profile-page">Animal 4</a></li>
+			<li><a href="#animal-profile-page">Animal 5</a></li>
+			<li><a href="#animal-profile-page">Animal 6</a></li>
+			<li><a href="#animal-profile-page">Animal 7</a></li>
+			<li><a href="#animal-profile-page">Animal 8</a></li>
+			<li><a href="#animal-profile-page">Animal 9</a></li>
+			<li><a href="#animal-profile-page">Animal 10</a></li>
+		</ul>
+	</div>
+
+		<footer data-role="footer" role="contactinfo">
+	    	<ul>
+	    		<li><a href="#recent-page">Recent</a></li>
+	    		<li><a href="#list-page">List</a></li>
+	    		<li><a href="#profile-page">Profile</a></li>
+	    	</ul>
+	    </footer>
+	</section>
+
+	<section data-role="page" id="animal-profile-page">
+		<header data-role="header">
+			<h1>Animal Profile</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">Back</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			Unicorn Profile
+		</div>
+		<footer data-role="footer">
+	        <ul>
+	    		<li><a href="#recent-page">Recent</a></li>
+	    		<li><a href="#list-page">List</a></li>
+	    		<li><a href="#profile-page">Profile</a></li>
+	    	</ul>
+	    </footer>
+	</section>
+
+	<section data-role="page" id="profile-page">
+		<div data-role="main">
+			Profile
+		</div>
+		<footer data-role="footer">
+	        <ul>
+	    		<li><a href="#recent-page">Recent</a></li>
+	    		<li><a href="#list-page">List</a></li>
+	    		<li><a href="#profile-page">Profile</a></li>
+	    	</ul>
+	    </footer>
+	</section>
 
 </body>
 </html>
