@@ -1,0 +1,58 @@
+/************* ELEMENT RESETS */
+
+*,*::before,*::after {
+	box-sizing:border-box;
+}
+
+:root {
+	--color-neutral-light: #eaeeef;
+   --color-neutral-medium: #9aa2a4;
+   --color-neutral-dark: #363c3e;
+
+   --color-white: #fff;
+   --color-black: #000;
+
+	--header-height:3rem;
+	--gap-size:1rem;
+	--container-width:1000px;
+
+	--font-serif:Georgia, "Times New Roman", serif;
+	--font-sans:Helvetica, arial, sans-serif;
+}
+
+body {
+	margin:0;
+	font-size:100%;
+	font-family:var(--font-sans);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family:var(--font-serif);
+}
+
+a {
+	display:inline-block;
+	color:inherit;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+
+
+
+
+
+/************* Small Classes */
+
+.container {
+	max-width:var(--container-width);
+	margin-right: auto;
+	margin-left: auto;
+}
+.hidden { display:none; }
+
