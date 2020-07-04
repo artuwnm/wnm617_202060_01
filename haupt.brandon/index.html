@@ -1,138 +1,281 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0 user-scalable=no, maximum-scale=1.0, minimum-scale=1.0"
+    />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0 user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
-
-    <link rel="stylesheet" href="./css/app.css">
-    <link rel="stylesheet" href="./lib/css/jquery.mobile.structure-1.4.5.min.css">
+    <link rel="stylesheet" href="./css/app.css" />
+    <link
+      rel="stylesheet"
+      href="./lib/css/jquery.mobile.structure-1.4.5.min.css"
+    />
 
     <script src="./lib/js/jquery-2.2.4.min.js"></script>
     <script src="./js/app.js"></script>
     <script src="./lib/js/jquery.mobile-1.4.5.min.js"></script>
     <title>ResourceApp</title>
-</head>
+  </head>
 
-<body>
-
+  <body>
+    <!-------------------- Sign In Page ------------------->
     <section data-role="page" id="signin-page">
-        <div data-role="main">
-            <form data-ajax="false" id="signin-form" class="center-child">
-                <div class="form-control">
-                    <label for="signin-username" class="form-label">Username</label>
-                    <input type="text" class="form-input" id="signin-username" placeholder="Type your username"
-                        data-role="none">
-                </div>
+      <div data-role="main">
+        <ul class="navMenu">
+          <li><a href="#map-page">Map</a></li>
+          <li><a href="#list-page">List</a></li>
+          <li><a href="#profile-page">Profile</a></li>
+        </ul>
+        <div class="signup-box">
+          <h1>Sign Up</h1>
+          <form id="signin-form" data-ajax="false" class="center-child">
+            <div class="form-control">
+              <label for="signin-username" class="form-label">Username</label>
+              <input
+                type="text"
+                class="form-input"
+                id="signin-username"
+                placeholder="Type your username"
+                data-role="none"
+              />
+            </div>
 
-                <div class="form-control">
-                    <label for="signin-password" class="form-label">Password</label>
-                    <input type="password" class="form-input" id="signin-password" placeholder="Type your password"
-                        data-role="none">
-                </div>
+            <div class="form-control">
+              <label for="signin-password" class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-input"
+                id="signin-password"
+                placeholder="Type your password"
+                data-role="none"
+              />
+            </div>
 
-                <div class="form-control">
-                    <input type="submit" class="form-button" value="Sign In" data-role="none">
-                    <a href="#recent-page">Navigate</a>
-                </div>
-            </form>
+            <div class="form-control">
+              <input
+                type="submit"
+                class="form-button"
+                value="Sign In"
+                data-role="none"
+              />
+              <a href="#signup-page">Signup</a>
+            </div>
+          </form>
         </div>
+      </div>
     </section>
+    <!--------------------- Sign Up Page ------------------>
     <section data-role="page" id="signup-page">
-        <div data-role="main">
-            <form data-ajax="false" id="signup-form" class="center-child">
-                <div class="form-control">
-                    <label for="signup-username" class="form-label">Username</label>
-                    <input type="text" class="form-input" id="signup-username" placeholder="Type your username"
-                        data-role="none">
-                </div>
+      <div data-role="main">
+        <div class="signup-box">
+          <form data-ajax="false" id="signup-form" class="center-child">
+            <div class="form-control">
+              <label for="signup-username" class="form-label">Username</label>
+              <input
+                type="text"
+                class="form-input"
+                id="signup-username"
+                placeholder="Type your username"
+                data-role="none"
+              />
+            </div>
 
-                <div class="form-control">
-                    <label for="signup-password" class="form-label">Password</label>
-                    <input type="password" class="form-input" id="signup-password" placeholder="Type your password"
-                        data-role="none">
-                </div>
+            <div class="form-control">
+              <label for="signup-password" class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-input"
+                id="signup-password"
+                placeholder="Type your password"
+                data-role="none"
+              />
+            </div>
 
-                <div class="form-control">
-                    <input type="submit" class="form-button" value="Sign Up" data-role="none">
-                    <a href="#recent-page">Navigate</a>
-                </div>
-            </form>
+            <div class="form-control">
+              <input
+                type="submit"
+                class="form-button"
+                value="Sign Up"
+                data-role="none"
+              />
+              <a href="#" data-rel="back">Back</a>
+            </div>
+          </form>
         </div>
+      </div>
     </section>
 
-    <section data-role="page" id="recent-page">
-        <div data-role="main">
-            Map
+    <!---------------------------- Recent Page ------------------------->
+    <section data-role="page" id="map-page">
+      <div data-role="main">
+        <ul class="navMenu">
+          <li><a href="#map-page">Map</a></li>
+          <li><a href="#list-page">List</a></li>
+          <li><a href="#resource-add-page">Resource add</a></li>
+          <li><a href="#resource-profile-page">Resource Profile</a></li>
+          <li><a href="#profile-page">Profile</a></li>
+        </ul>
+        map
+        <img
+          class="mapimage"
+          src="./img/googlemaps.JPG"
+          alt="a placeholder for google maps"
+        />
+        <div class="resource-profile-add">
+          <button>&plus;</button>
         </div>
-        <footer data-role="footer">
-            <ul>
-                <li><a href="#recent-page">Recent</a></li>
-                <li><a href="#list-page">List</a></li>
-                <li><a href="#profile-page">Profile</a></li>
-            </ul>
-        </footer>
+      </div>
     </section>
+
+    <!-------------------------- List Page --------------------------->
     <section data-role="page" id="list-page">
+      <header data-role="header">
+        <h1>Resource List</h1>
+        <ul>
+          <li class="flex-stretch"></li>
+          <li class="flex-none"><a href="#">&plus;</a></li>
 
-        <header data-role="header">
-            <h1>Animal List</h1>
-            <ul>
-                <li class="flex-stretch"></li>
-                <li class="flex-none"><a href="#">&plus;</a></li>
-            </ul>
-        </header>
+          <ul class="navMenu">
+            <li><a href="#map-page">Map</a></li>
+            <li><a href="#list-page">List</a></li>
+            <li><a href="#profile-page">Profile</a></li>
+          </ul>
+        </ul>
+      </header>
 
-        <div data-role="main">
-            <ul>
-                <li><a href="#animal-profile-page">Animal 1</a></li>
-                <li><a href="#animal-profile-page">Animal 2</a></li>
-                <li><a href="#animal-profile-page">Animal 3</a></li>
-                <li><a href="#animal-profile-page">Animal 4</a></li>
-                <li><a href="#animal-profile-page">Animal 5</a></li>
-                <li><a href="#animal-profile-page">Animal 6</a></li>
-                <li><a href="#animal-profile-page">Animal 7</a></li>
-                <li><a href="#animal-profile-page">Animal 8</a></li>
-                <li><a href="#animal-profile-page">Animal 9</a></li>
-                <li><a href="#animal-profile-page">Animal 10</a></li>
-            </ul>
-        </div>
-        <footer data-role="footer">
-            <ul>
-                <li><a href="#recent-page">Recent</a></li>
-                <li><a href="#list-page">List</a></li>
-                <li><a href="#profile-page">Profile</a></li>
-            </ul>
-        </footer>
+      <div data-role="main">
+        <ul>
+          <li><a href="#resource-profile-page">Resource 1</a></li>
+          <li><a href="#resource-profile-page">Resource 2</a></li>
+          <li><a href="#resource-profile-page">Resource 3</a></li>
+          <li><a href="#resource-profile-page">Resource 4</a></li>
+          <li><a href="#resource-profile-page">Resource 5</a></li>
+          <li><a href="#resource-profile-page">Resource 6</a></li>
+          <li><a href="#resource-profile-page">Resource 7</a></li>
+          <li><a href="#resource-profile-page">Resource 8</a></li>
+          <li><a href="#resource-profile-page">Resource 9</a></li>
+          <li><a href="#resource-profile-page">Resource 10</a></li>
+        </ul>
+      </div>
     </section>
-    <!-- rename to  something about my app VVV-->
-    <section data-role="page" id="animal-profile-page">
-        <div data-role="main">
-            <h1>Animal Profile</h1>
+
+    <!--------------------- Resource add Page ----------------------->
+    <section data-role="page" id="resource-add-page">
+      <div id="resource-add-container">
+        <div class="resource-add-content">
+          <div data-role="main">
+            <div class="resource-add-img">
+              <img
+                src="./img/png/tree-beehive_black.png"
+                alt="A Picture of a beehive"
+              />
+              <div class="add-picture">
+                <p>&plus;</p>
+              </div>
+            </div>
+            <textarea
+              name="resource-add-name"
+              id="resource-add-name"
+              placeholder="Resource Name"
+              cols="1"
+              rows="1"
+            ></textarea>
+            <textarea
+              name="resource-add-description"
+              id="resource-add-description"
+              placeholder="Description"
+              cols="20"
+              rows="20"
+            ></textarea>
+            <button id="resource-add-save-btn">Save</button>
+          </div>
         </div>
-        <footer data-role="footer">
-            <ul>
-                <li><a href="#recent-page">Recent</a></li>
-                <li><a href="#list-page">List</a></li>
-                <li><a href="#profile-page">Profile</a></li>
-            </ul>
+
+        <footer class="footer" data-role="footer">
+          <div class="backBtn">
+            <a href="#" data-rel="back">&LeftArrow;</a>
+          </div>
         </footer>
+      </div>
     </section>
+
+    <!--------------------- Resource Profile Page ----------------------->
+    <section data-role="page" id="resource-profile-page">
+      <div id="resource-profile-container">
+        <div data-role="main">
+          <div class="resource-profile-header">
+            <img
+              src="./img/png/tree-beehive_black.png"
+              alt="A Picture of a beehive"
+            />
+            <h1>Bee Hive</h1>
+          </div>
+          <div class="resource-profile-content">
+            <p>
+              A beehive is an enclosed, man-made structure in which some honey
+              bee species of the subgenus apis live and raise their young. The
+              bees use the cells to store food (honey and pollen) and to house
+              the brood (egg, larvae, pupae). Can be used to gather honey. lots
+              of ouch if prevoked.
+            </p>
+            <textarea
+              name="resource-profile-name"
+              id="resource-profile-name"
+              placeholder="Last Seen"
+              cols="1"
+              rows="1"
+            ></textarea>
+            <textarea
+              name="resource-profile-description"
+              id="resource-profile-description"
+              placeholder="Add other notes here"
+              cols="20"
+              rows="20"
+            ></textarea>
+          </div>
+        </div>
+
+        <footer class="footer" data-role="footer">
+          <div class="backBtn">
+            <a href="#" data-rel="back">&LeftArrow;</a>
+          </div>
+        </footer>
+      </div>
+    </section>
+
+    <!------------------------- User Profile Page ------------------------>
     <section data-role="page" id="profile-page">
-        <div data-role="main">
-            <div class="user-profile"><img src="./img/Eijirou_Kirishima.png" alt=""></div>
+      <div id="profile-page-container">
+        <div class="profile-page-content">
+          <div data-role="main">
+            <div class="user-profile">
+              <img src="./img/Eijirou_Kirishima.png" alt="" />
+            </div>
+
+            <textarea
+              name="user-profile-notes"
+              id="user-profile-notes"
+              placeholder="Notes"
+              cols="30"
+              rows="20"
+            ></textarea>
+          </div>
         </div>
         <footer data-role="footer">
-            <ul>
-                <li><a href="#recent-page">Recent</a></li>
-                <li><a href="#list-page">List</a></li>
-                <li><a href="#profile-page">Profile</a></li>
-            </ul>
+          <ul class="navMenu">
+            <div class="backBtn">
+              <a href="#" data-rel="back">&LeftArrow;</a>
+            </div>
 
+            <!-- <li><a href="#map-page">Map</a></li>
+            <li><a href="#list-page">List</a></li>
+            <li><a href="#profile-page">Profile</a></li> -->
+            <li><a href="#signin-page">Sign Out</a></li>
+          </ul>
         </footer>
+      </div>
     </section>
-
-</body>
-
+  </body>
 </html>

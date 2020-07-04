@@ -2,6 +2,9 @@
 *::before,
 *::after {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
 }
 
 :root {
@@ -99,9 +102,9 @@ li {
     align-items: center;
 }
 
+/* 
 
-
-/* Puts the signin in the middle of the page */
+/Puts the signin in the middle of the page 
 .center-child {
     position: absolute;
     top: 50%;
@@ -182,4 +185,238 @@ li {
     height: 200px;
     border-radius: 50%;
     object-fit: cover;
+} */
+
+.center-child {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* -------------------- Sign up ------------------ */
+.signup-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 318px;
+    height: 359px;
+    border-radius: 4px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, .5);
+    background-color: #858585;
+}
+
+.signup-box h1 {
+    padding: 5%;
+}
+
+
+/* -------------------------- Map Page ----------------------- */
+
+.mapimage {
+    object-fit: contain;
+    height: 100%;
+}
+
+.resource-profile-add {
+    position: absolute;
+    bottom: 0;
+    right: 10%;
+}
+
+.resource-profile-add button {
+    background-color: #00B2FF;
+    border-radius: 50%;
+    border: none;
+    width: 84px !important;
+    height: 84px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, .5);
+    float: right;
+    font-size: 2em;
+    color: white;
+}
+
+
+
+
+/* ----------------------- Other stuff? --------------------- */
+.navMenu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navMenu li {
+    padding: 3%;
+}
+
+
+/* ------------------------- User Profile --------------------- */
+.user-profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.user-profile img {
+    background-color: grey;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#user-profile-notes {
+    border-radius: 4px;
+    height: 80% !important;
+}
+
+#profile-page-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.profile-page-content,
+.resource-profile-page-content,
+.resource-add-content {
+    min-height: calc(100vh - 50px);
+}
+
+.footer {
+    height: 50px;
+}
+
+.backBtn {
+    font-size: 40px;
+    font-weight: bolder;
+}
+
+/* -------------------- Resource Profile Page ---------------- */
+#resource-profile-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+}
+
+.resource-profile-content p {
+    margin: 0 auto;
+    width: 80%;
+    padding: 2em;
+    background-color: #cdcdcd;
+    border-radius: 4px;
+    font-size: .8em;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, .5);
+}
+
+.resource-profile-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
+
+.resource-profile-header img {
+    width: 40%;
+}
+
+.resource-profile-header h1 {
+    font-size: 2.3em;
+    font-family: sans-serif;
+}
+
+#resource-profile-name,
+#resource-profile-description {
+    border-radius: 4px;
+    width: 80%;
+    margin: 1em auto;
+    border: none;
+    background-color: #cdcdcd;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, .5);
+}
+
+#resource-profile-description {
+    height: 300px !important;
+}
+
+/* -------------------- Resource Add Page ---------------- */
+
+#resource-add-page {
+    background-color: #444;
+}
+
+.resource-add-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.resource-add-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.resource-add-img img {
+    background-color: white;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.add-picture {
+    position: absolute;
+    top: 20%;
+    right: 20%;
+
+    font-size: 40px;
+    font-weight: bolder;
+    background-color: #00B2FF;
+    border-radius: 50%;
+    width: 46px;
+    height: 46px;
+    text-align: center;
+    color: white;
+}
+
+.resource-add-page-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#resource-add-name {
+    border-radius: 4px;
+}
+
+#resource-add-description {
+    border-radius: 4px;
+    height: 80% !important;
+}
+
+#resource-add-save-btn {
+    border: none;
+    background-color: #00B2FF;
+    width: 132px;
+    border-radius: 4px;
+    float: right;
+    color: white;
+    font-size: 1.3em;
+}
+
+.footer {
+    background-color: white;
+    border-style: none !important;
 }
