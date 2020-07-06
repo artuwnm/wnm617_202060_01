@@ -14,8 +14,12 @@
     />
 
     <script src="./lib/js/jquery-2.2.4.min.js"></script>
+
+    <script src="./js/signin.js"></script>
     <script src="./js/app.js"></script>
+
     <script src="./lib/js/jquery.mobile-1.4.5.min.js"></script>
+
     <title>ResourceApp</title>
   </head>
 
@@ -23,16 +27,19 @@
     <!-------------------- Sign In Page ------------------->
     <section data-role="page" id="signin-page">
       <div data-role="main">
+        <!-- <div class="login-image">
+          <img src="./img/landscape-5356009_1920.jpg" alt="" />
+        </div> -->
         <ul class="navMenu">
           <li><a href="#map-page">Map</a></li>
           <li><a href="#list-page">List</a></li>
           <li><a href="#profile-page">Profile</a></li>
         </ul>
+
         <div class="signup-box">
-          <h1>Sign In</h1>
           <form id="signin-form" data-ajax="false" class="center-child">
             <div class="form-control">
-              <label for="signin-username" class="form-label">Username</label>
+              <!-- <label for="signin-username" class="form-label">Username</label> -->
               <input
                 type="text"
                 class="form-input"
@@ -43,7 +50,7 @@
             </div>
 
             <div class="form-control">
-              <label for="signin-password" class="form-label">Password</label>
+              <!-- <label for="signin-password" class="form-label">Password</label> -->
               <input
                 type="password"
                 class="form-input"
@@ -53,15 +60,15 @@
               />
             </div>
 
-            <div class="form-control">
+            <div class="form-control-sign-in">
               <input
                 type="submit"
                 class="form-button"
                 value="Sign In"
                 data-role="none"
               />
-              <a href="#signup-page">Signup</a>
             </div>
+            <a href="#signup-page">Signup</a>
           </form>
         </div>
       </div>
@@ -71,8 +78,8 @@
       <div data-role="main">
         <div class="signup-box">
           <form data-ajax="false" id="signup-form" class="center-child">
-            <div class="form-control">
-              <label for="signup-username" class="form-label">Username</label>
+            <div class="form-control-sign-up">
+              <!-- <label for="signup-username" class="form-label">Username</label> -->
               <input
                 type="text"
                 class="form-input"
@@ -82,8 +89,19 @@
               />
             </div>
 
-            <div class="form-control">
-              <label for="signup-password" class="form-label">Password</label>
+            <div class="form-control-sign-up">
+              <!-- <label for="signup-username" class="form-label">Email</label> -->
+              <input
+                type="text"
+                class="form-input"
+                id="signup-email"
+                placeholder="Type your email"
+                data-role="none"
+              />
+            </div>
+
+            <div class="form-control-sign-up">
+              <!-- <label for="signup-password" class="form-label">Password</label> -->
               <input
                 type="password"
                 class="form-input"
@@ -91,9 +109,19 @@
                 placeholder="Type your password"
                 data-role="none"
               />
+              <!-- <label for="signup-password" class="form-label"
+                >Confirm password</label
+              > -->
+              <input
+                type="password"
+                class="form-input"
+                id="signup-password-confirm"
+                placeholder="Confirm your password"
+                data-role="none"
+              />
             </div>
 
-            <div class="form-control">
+            <div class="form-control-sign-up-btn">
               <input
                 type="submit"
                 class="form-button"
@@ -135,7 +163,9 @@
         <h1>Resource List</h1>
         <ul>
           <li class="flex-stretch"></li>
-          <li class="flex-none"><a href="#">&plus;</a></li>
+          <li class="add-new-resource">
+            <a href="#" data-activate="#list-add-resource-modal">&plus;</a>
+          </li>
 
           <ul class="navMenu">
             <li><a href="#map-page">Map</a></li>
@@ -158,6 +188,32 @@
           <li><a href="#resource-profile-page">Resource 9</a></li>
           <li><a href="#resource-profile-page">Resource 10</a></li>
         </ul>
+      </div>
+
+      <div class="modal" id="list-add-resource-modal">
+        <div
+          class="modal-back"
+          data-deactivate="#list-add-resource-modal"
+        ></div>
+        <div class="modal-popup">
+          <div class="modal-head">
+            header
+          </div>
+          <div class="modal-body">
+            <form data-ajax="false" action=""></form>
+          </div>
+          <div class="modal-footer">
+            <div class="form-control">
+              <input
+                type="text"
+                class="form-input"
+                id="list-add-name"
+                placeholder="Add resource name"
+                data-role="none"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -272,7 +328,7 @@
             <!-- <li><a href="#map-page">Map</a></li>
             <li><a href="#list-page">List</a></li>
             <li><a href="#profile-page">Profile</a></li> -->
-            <li><a href="#signin-page">Sign Out</a></li>
+            <li><a href="#signin-page" class="js-logout">Log Out</a></li>
           </ul>
         </footer>
       </div>
