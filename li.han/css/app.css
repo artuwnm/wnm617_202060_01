@@ -51,6 +51,7 @@ a {
 
 
 
+
 /* Small Classes */
 
 .container {
@@ -78,6 +79,9 @@ a {
 
 
 
+[data-role="page"] h1{
+	text-align: center;
+}
 
 
 [data-role="header"] ul,
@@ -96,10 +100,15 @@ a {
 }
 
 
+[data-role="main"] ul{
+		list-style-type:none;
+}
 
-
-
-
+.list-img{
+	display: block;
+	  margin-left: auto;
+  margin-right: auto;
+}
 
 
 .ui-mobile .ui-page-active {
