@@ -13,21 +13,21 @@
 	--color-main-medium: #20b3d5;
 	--color-main-dark: #054352;
 
-   --color-white: #fff;
-   --color-black: #000;
+   --color-white: #fcfcfc;
+   --color-black: #181818;
 
 	--header-height:3rem;
 	--gap-size:1rem;
 	--container-width:1000px;
 
-	--font-serif:Georgia, "Times New Roman", serif;
-	--font-sans:Helvetica, arial, sans-serif;
+	--font-sans:"nunito regular", sans-serif;
 }
 
 body {
 	margin:0;
 	font-size:100%;
 	font-family:var(--font-sans);
+	background-color: #fcfcfc;
 }
 
 h1,
@@ -117,7 +117,7 @@ a {
 	flex: 1 1 100%;
 	overflow:hidden;
 	position:relative;
-	background-color:white;
+	background-color:#fcfcfc;
 	z-index:1;
 }
 [data-role="header"],
@@ -150,4 +150,41 @@ a {
 	width: 100%;
 	height: 100%;
 	text-align: center;	
+}
+
+
+
+
+
+
+
+/* css */
+
+
+
+.signin-logo{
+	width: 60px;
+	display: block;
+	margin-bottom: 1em;
+}
+.signin-logo2{
+	width: 150px;
+	margin-bottom: 1em;
+
+}
+
+label{
+	font-weight: bold;
+}
+input{
+	margin-bottom: 0.5em;
+}
+
+.form-button{
+	background: linear-gradient(90deg, rgba(210,66,5,1) 0%, rgba(241,117,55,1) 53%, rgba(214,184,10,1) 100%);
+	border: none;
+	margin: 0.5em;
+	padding: 1em;
+	color: #fcfcfc;
+
 }
