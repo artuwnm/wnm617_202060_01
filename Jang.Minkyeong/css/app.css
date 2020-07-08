@@ -289,9 +289,20 @@ input{
 }
 
 
+.dog-profile-container{
+	display: block;
+	justify-content: center;
+	margin: 2em;
+}
 
+.dog-profile-paw{
+	width: 40%;
 
+}
 
+.back{
+	margin-left: 1em;
+}
 
 
 /*  MODAL  */
