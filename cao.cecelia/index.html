@@ -2,70 +2,263 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<link rel="stylesheet" href="css/style.css">
 	<title>New Project</title>
+
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+	<link rel="stylesheet" href="lib/css/jquery.mobile.structure-1.4.5.min.css">
+	<link rel="stylesheet" href="css/app.css">
+	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+
+	<script src="lib/js/jquery-2.2.4.min.js"></script>
+
+	<script src="js/signin.js"></script>
+	<script src="js/app.js"></script>
+
+	<script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
 </head>
 <body>
 	
-	<header class="navbar">
-		<div class="container display-flex">
-			<div class="flex-none">
-				<h1>Cool Website</h1>
+	<section data-role="page" id="signin-page">
+		<div data-role="main" class="display-flex flex-column">
+			<div class="flex-stretch"></div>
+			<div class="flex-none" style="text-align:center">
+				<img src="img/logo.png" alt="" class="login-logo">
+				<h2>ALMap</h2>
+			</div>
+			<div class="display-flex flex-justify-center" style="padding:1em">
+				<form id="signin-form" data-ajax="false">
+					<div class="form-control">
+						<!-- <label for="signin-username" class="form-label">Username</label> -->
+						<input type="text" class="hotdog" id="signin-username" placeholder="Type your Username" data-role="none">
+					</div>
+					<div class="form-control">
+						<!-- <label for="signin-password" class="form-label">Password</label> -->
+						<input type="password" class="hotdog" id="signin-password" placeholder="Type your Password" data-role="none">
+					</div>
+					<div class="form-control">
+						<button type="submit" class="form-button" value="Sign In" data-role="none">Sign In</button>
+					</div>
+					<div class="form-control" style="font-size:0.8em;text-align:center;">
+						Don't have an account? <a href="#signup-page">Sign Up</a>
+					</div>
+				</form>
 			</div>
 			<div class="flex-stretch"></div>
-
-			<nav class="nav flex-none">
-				<ul class="display-flex">
-					<li><a href="#article1">Article 1</a></li>
-					<li><a href="#article2">Article 2</a></li>
-					<li><a href="#article3">Article 3</a></li>
-					<li><a href="#article4">Article 4</a></li>
-				</ul>
-			</nav>
 		</div>
-	</header>
+	</section>
 
 
-	
-	<div class="container">
-		<article class="article" id="article1">
-			<h2>Article 1</h2>
-			<div class="article-body">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, sit!</p>
-				<p>Quam nesciunt illo soluta cupiditate adipisci hic nisi nihil corporis.</p>
-				<p>Reprehenderit voluptatem perspiciatis eum harum quam, laudantium, distinctio quod quae.</p>
-				<p>Delectus dolores, tenetur alias quisquam corporis, iure repellat officiis quaerat.</p>
+	<section data-role="page" id="signup-page">
+		<div data-role="main" class="display-flex flex-column">
+			<div class="flex-stretch"></div>
+			<div class="flex-none" style="padding:1em">
+				<form id="signup-form" data-ajax="false">
+					<div class="form-control">
+						<!-- <label for="signup-username" class="form-label">Username</label> -->
+						<input type="text" class="hotdog" id="signup-username" placeholder="Type your Username" data-role="none">
+					</div>
+					<div class="form-control">
+						<!-- <label for="signup-email" class="form-label">Email</label> -->
+						<input type="text" class="hotdog" id="signup-email" placeholder="Type your Email" data-role="none">
+					</div>
+					<div class="form-control">
+						<!-- <label for="signup-password" class="form-label">Password</label> -->
+						<input type="password" class="hotdog" id="signup-password" placeholder="Type your Phone Number" data-role="none">
+					</div>
+					<div class="form-control">
+						<!-- <label for="signup-password2" class="form-label">Confirm Password</label> -->
+						<input type="password" class="hotdog" id="signup-password2" placeholder="Type your Password" data-role="none">
+					</div>
+					<div class="form-control">
+						<input type="submit" class="form-button" value="Sign Up" data-role="none">
+					</div>
+					<div class="form-control" style="font-size:0.8em;text-align:center;">
+						Already have an account? <a href="#signin-page">Sign In</a>
+					</div>
+				</form>
 			</div>
-		</article>
-		<article class="article" id="article2">
-			<h2>Article 2</h2>
-			<div class="article-body">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, delectus.</p>
-				<p>Amet nostrum non debitis. Explicabo quidem rem exercitationem aut accusamus.</p>
-				<p>Ex mollitia dolore molestias deserunt voluptates impedit nesciunt necessitatibus sint.</p>
-				<p>Qui fuga molestiae necessitatibus quam eum laborum maxime debitis aliquid!</p>
+			<div class="flex-stretch"></div>
+		</div>
+	</section>
+
+
+
+
+
+
+
+	<section data-role="page" id="recent-page">
+		<div data-role="main" class="map">
+			
+		</div>
+		<footer data-role="footer">
+			<ul>
+				<li><a href="#recent-page">Map</a></li>
+				<li><a href="#list-page">List</a></li>
+				<li> <a href="#" class="appbar__bottom" title="add" aria-label="Add">
+        <svg fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
+          <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"/>
+        </svg></a></li>
+				<li><a href="#list-page">Love</a></li>
+				<li><a href="#profile-page">Profile</a></li>
+			</ul>
+		</footer>
+	</section>
+
+
+
+
+
+	<section data-role="page" id="list-page">
+		<header data-role="header">
+			<h1>Animal List</h1>
+			<ul>
+				<li class="flex-stretch"></li>
+				<li class="flex-none">
+					<a href="#" data-activate="#list-add-animal-modal">&plus;</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<div class="scrollable">
+				<ul>
+					<li><a href="#animal-profile-page">Animal 1</a></li>
+					<li><a href="#animal-profile-page">Animal 2</a></li>
+					<li><a href="#animal-profile-page">Animal 3</a></li>
+					<li><a href="#animal-profile-page">Animal 4</a></li>
+					<li><a href="#animal-profile-page">Animal 5</a></li>
+					<li><a href="#animal-profile-page">Animal 6</a></li>
+					<li><a href="#animal-profile-page">Animal 7</a></li>
+					<li><a href="#animal-profile-page">Animal 8</a></li>
+					<li><a href="#animal-profile-page">Animal 9</a></li>
+					<li><a href="#animal-profile-page">Animal 10</a></li>
+					<li><a href="#animal-profile-page">Animal 1</a></li>
+					<li><a href="#animal-profile-page">Animal 2</a></li>
+					<li><a href="#animal-profile-page">Animal 3</a></li>
+					<li><a href="#animal-profile-page">Animal 4</a></li>
+					<li><a href="#animal-profile-page">Animal 5</a></li>
+					<li><a href="#animal-profile-page">Animal 6</a></li>
+					<li><a href="#animal-profile-page">Animal 7</a></li>
+					<li><a href="#animal-profile-page">Animal 8</a></li>
+					<li><a href="#animal-profile-page">Animal 9</a></li>
+					<li><a href="#animal-profile-page">Animal 10</a></li>
+					<li><a href="#animal-profile-page">Animal 1</a></li>
+					<li><a href="#animal-profile-page">Animal 2</a></li>
+					<li><a href="#animal-profile-page">Animal 3</a></li>
+					<li><a href="#animal-profile-page">Animal 4</a></li>
+					<li><a href="#animal-profile-page">Animal 5</a></li>
+					<li><a href="#animal-profile-page">Animal 6</a></li>
+					<li><a href="#animal-profile-page">Animal 7</a></li>
+					<li><a href="#animal-profile-page">Animal 8</a></li>
+					<li><a href="#animal-profile-page">Animal 9</a></li>
+					<li><a href="#animal-profile-page">Animal 10</a></li>
+					<li><a href="#animal-profile-page">Animal 1</a></li>
+					<li><a href="#animal-profile-page">Animal 2</a></li>
+					<li><a href="#animal-profile-page">Animal 3</a></li>
+					<li><a href="#animal-profile-page">Animal 4</a></li>
+					<li><a href="#animal-profile-page">Animal 5</a></li>
+					<li><a href="#animal-profile-page">Animal 6</a></li>
+					<li><a href="#animal-profile-page">Animal 7</a></li>
+					<li><a href="#animal-profile-page">Animal 8</a></li>
+					<li><a href="#animal-profile-page">Animal 9</a></li>
+					<li><a href="#animal-profile-page">Animal 10</a></li>
+					<li><a href="#animal-profile-page">Animal 1</a></li>
+					<li><a href="#animal-profile-page">Animal 2</a></li>
+					<li><a href="#animal-profile-page">Animal 3</a></li>
+					<li><a href="#animal-profile-page">Animal 4</a></li>
+					<li><a href="#animal-profile-page">Animal 5</a></li>
+					<li><a href="#animal-profile-page">Animal 6</a></li>
+					<li><a href="#animal-profile-page">Animal 7</a></li>
+					<li><a href="#animal-profile-page">Animal 8</a></li>
+					<li><a href="#animal-profile-page">Animal 9</a></li>
+					<li><a href="#animal-profile-page">Animal 10</a></li>
+				</ul>
 			</div>
-		</article>
-		<article class="article" id="article3">
-			<h2>Article 3</h2>
-			<div class="article-body">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, ipsam.</p>
-				<p>Inventore repellat suscipit neque nemo, dicta minima, animi reiciendis numquam.</p>
-				<p>Ab harum natus odio architecto. Perspiciatis, maxime, nam. Ratione, facilis.</p>
-				<p>Iusto vel temporibus veritatis inventore ea maiores velit nisi optio!</p>
+		</div>
+		<footer data-role="footer">
+			<ul>
+				<li><a href="#recent-page">Map</a></li>
+				<li><a href="#list-page">List</a></li>
+				<li> <a href="#" class="appbar__bottom" title="add" aria-label="Add">
+        <svg fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
+          <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"/>
+        </svg></a></li>
+				<li><a href="#list-page">Love</a></li>
+				<li><a href="#profile-page">Profile</a></li>
+			</ul>
+		</footer>
+
+		<div class="modal" id="list-add-animal-modal">
+			<div class="modal-back" data-deactivate="#list-add-animal-modal"></div>
+			<div class="modal-popup">
+				<div class="modal-head">Header</div>
+				<div class="modal-body">
+					<div class="scrollable">
+						<form data-ajax="false" id="list-add-form" style="padding:1em">
+							<div class="form-control">
+								<label for="list-add-name" class="form-label">Animal Name</label>
+								<input type="text" class="form-input" id="list-add-name" placeholder="Type Animal Name" data-role="none">
+							</div>
+							<div class="form-control">
+								<label for="list-add-type" class="form-label">Animal Type</label>
+								<input type="text" class="form-input" id="list-add-type" placeholder="Type Animal Type" data-role="none">
+							</div>
+							<div class="form-control">
+								<label for="list-add-breed" class="form-label">Animal Breed</label>
+								<input type="text" class="form-input" id="list-add-breed" placeholder="Type Animal Breed" data-role="none">
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="modal-foot">Footer</div>
 			</div>
-		</article>
-		<article class="article" id="article4">
-			<h2>Article 4</h2>
-			<div class="article-body">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, sed.</p>
-				<p>Esse officiis soluta alias ducimus eaque delectus porro blanditiis harum.</p>
-				<p>Reiciendis sunt sed exercitationem, natus optio culpa! Perspiciatis, vitae, id!</p>
-				<p>Aspernatur a quasi dolores sit commodi iste quia accusamus dolor.</p>
-			</div>
-		</article>
-	</div>
-	<!-- .container>article.article#article$*4>h2{Article $}+div.article-body>p*4>lorem50 -->
-	</body>
+		</div>
+	</section>
+
+
+
+
+
+	<section data-role="page" id="animal-profile-page">
+		<header data-role="header">
+			<h1>Animal Profile</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">Back</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			Cool Animal
+		</div>
+	</section>
+
+
+
+
+	<!-- PROFILE PAGE -->
+	<section data-role="page" id="profile-page">
+		<div data-role="main">
+			User Profile
+			<p>
+				<a href="#" class="js-logout">Logout</a>
+			</p>
+		</div>
+		<footer data-role="footer">
+			<ul>
+				<li><a href="#recent-page">Map</a></li>
+				<li><a href="#list-page">List</a></li>
+				<li> <a href="#" class="appbar__bottom" title="add" aria-label="Add">
+        <svg fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
+          <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"/>
+        </svg></a></li>
+				<li><a href="#list-page">Love</a></li>
+				<li><a href="#profile-page">Profile</a></li>
+			</ul>
+		</footer>
+	</section>
+
+</body>
 </html>
