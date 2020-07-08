@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+	<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<link rel="stylesheet" href="public/css/jquery-ui.css">
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<!-- 
+	<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+	<script href="https://code.jquery.com/mobile/1.4.5-rc1/jquery.mobile-1.4.5-rc1.min.js"></script> -->
+	<!-- <link rel="stylesheet" href="public/css/style.css"> -->
+
+	<link rel="stylesheet" href="public/css/system.css">
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8erqiFPDLjaL0jG_EXnAR_Zlf72RDEb8"
+    async defer></script>
+	<!-- <link rel="stylesheet" href="public/css/theme.css"> -->
+	<!-- <link rel="stylesheet" href="public/css/style.css"> -->
+</head>
+<body>
+	<!-- <header class="navbar">
+		<div class="nav-container flex-justify-between">
+			<div class="logo">
+				logo
+			</div>
+			
+			<nav>
+				<label for="menu" class="menu-icon">&equiv;</label>
+				<input data-role="none" type="checkbox" id="menu" style="display: none;"> 
+				<ul class="">
+					<li><a href="#link1">link1</a></li>
+					<li><a href="#link2">link2</a></li>
+					<li><a href="#link3">link3</a></li>
+				</ul>
+			</nav>
+			
+		</div>
+	</header> -->
+	<section data-role="page" class="flex-center" id="signin-page">
+		<div data-role="main" class="container">
+			<header>
+				<!-- logo -->
+			</header>
+			<main class="flex-center">
+				<form class="line-style-form" action="">
+					<div class="">
+					    <label for="username">Username</label>
+					    <input data-role="none" type="text" name="username" id="username" required>
+					</div>
+					<div class="">
+					    <label for="password">Password</label>
+					    <input data-role="none" type="text" name="password" id="password" required>
+					</div>
+					<div data-role="none" class="button-confirm">SIGN IN</div>
+
+					<a href="#signup-page">
+						<div data-role="none" class="button-cancel">SIGN UP</div>
+					</a>
+					
+				</form>
+			</main>
+			<footer class="flex-center">
+				<a href="#map-page">Navigate</a>
+			</footer>
+			
+		</div>
+			
+	</section>
+
+
+	<section data-role="page" id="signup-page">
+		<div data-role="main" class="container">
+			<header>
+				<!-- logo -->
+			</header>
+			<main class="flex-center">
+				<form class="line-style-form" action="">
+					<div class="">
+					    <label for="name">Name</label>
+					    <input data-role="none" type="text" name="name" id="name" required>
+					</div>
+					<div class="">
+					    <label for="username">Username</label>
+					    <input data-role="none" type="text" name="username" id="username" required>
+					</div>
+					<div class="">
+					    <label for="email">Email</label>
+					    <input data-role="none" type="text" name="email" id="email" required>
+					</div>
+					<div class="">
+					    <label for="password">Password</label>
+					    <input data-role="none" type="text" name="password" id="password" required>
+					</div>
+
+					<div data-role="none" class="button-confirm">Create Account</button>
+				</form>
+			</main>
+			<footer class="flex-center">
+				<p>Have an account? <a href="#signin-page"> Log in</a></p>
+			</footer>
+		</div>
+			
+	</section>
+
+	<section data-role="page" id="map-page">
+		<header class="map-header">
+			<input type="search" id="site-search" name="search">
+			<div class="button-add" id="add-new-buddy"></div>
+		</header>
+		<div data-role="main" class="map" class="main">
+			Map
+		</div>
+		<nav data-role="nav">
+			<ul class="flex">
+				<li class="flex-center">
+					<a href="#map-page" class="flex-center-column active">
+						<img src="public/img/icon/icon-map.png" alt="">
+						<span>Map</span>
+					</a>
+				</li>
+				<li class="flex-center">
+					<a href="#buddy-page" class="flex-center-column">
+						<img src="public/img/icon/icon-buddy.png" alt="">
+						<span>Buddy</span>
+					</a>
+				</li>
+				<li class="flex-center">
+					<a href="#profile-page" class="flex-center-column">
+						<img src="public/img/icon/icon-profile.png" alt="">
+						<span>Profile</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</section>
+
+
+	<section data-role="page" id="buddy-page">
+		<header class="map-header">
+			<input type="search" id="site-search" name="search">
+			<div class="button-add" id="add-new-buddy"></div>
+		</header>
+		<div data-role="main" class="main">
+			<ul class="buddy-list">
+				<li class="buddy-list-item"></li>
+				<li class="buddy-list-item"></li>
+				<li class="buddy-list-item"></li>
+				<li class="buddy-list-item"></li>
+				<li class="buddy-list-item"></li>
+				<li class="buddy-list-item"></li>
+				<li class="buddy-list-item"></li>
+				<li class="buddy-list-item"></li>
+			</ul>
+		</div>
+		<nav data-role="nav">
+			<ul class="flex">
+				<li class="flex-center">
+					<a href="#map-page" class="flex-center-column">
+						<img src="public/img/icon/icon-map.png" alt="">
+						<span>Map</span>
+					</a>
+				</li>
+				<li class="flex-center">
+					<a href="#buddy-page" class="flex-center-column active">
+						<img src="public/img/icon/icon-buddy.png" alt="">
+						<span>Buddy</span>
+					</a>
+				</li>
+				<li class="flex-center">
+					<a href="#profile-page" class="flex-center-column">
+						<img src="public/img/icon/icon-profile.png" alt="">
+						<span>Profile</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</section>
+
+	<section data-role="page" id="profile-page">
+		<div data-role="main">
+			User Profile
+		</div>
+		<nav data-role="nav">
+			<ul class="flex">
+				<li class="flex-center">
+					<a href="#map-page" class="flex-center-column">
+						<img src="public/img/icon/icon-map.png" alt="">
+						<span>Map</span>
+					</a>
+				</li>
+				<li class="flex-center">
+					<a href="#buddy-page" class="flex-center-column">
+						<img src="public/img/icon/icon-buddy.png" alt="">
+						<span>Buddy</span>
+					</a>
+				</li>
+				<li class="flex-center">
+					<a href="#profile-page" class="flex-center-column active">
+						<img src="public/img/icon/icon-profile.png" alt="">
+						<span>Profile</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</section>
+</body>
+</html>
