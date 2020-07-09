@@ -1,4 +1,4 @@
-<!<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -10,6 +10,8 @@
 	<link rel="stylesheet" href="css/app.css">
 
 	<script src="lib/js/jquery-2.2.4.min.js"></script>
+
+	<script src="js/signin.js"></script>
 	<script src="js/app.js"></script>
 
 	<script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
@@ -17,74 +19,156 @@
 <body>
 	
 	<section data-role="page" id="signin-page">
-		<div data-role="main">
-			<form id="signin-form" data-ajax="false" class="center-child">
-				<img src="img/logo.png" alt="" class="logo">
-				
-				<div class="form-control">
-					<label for="signin-username" class="form-label">Username</label>
-					<input type="text" class="form-input" id="signin-username" placeholder="Type your Username" data-role="none">
-				</div>
-				<div class="form-control">
-					<label for="signin-password" class="form-label">Password</label>
-					<input type="password" class="form-input" id="signin-password" placeholder="Type your Password" data-role="none">
-				</div>
-				<div class="form-control">
-					<input type="submit" class="form-button" value="Sign In" data-role="none">
-					<a href="#recent-page">Navigate</a>
-				</div>
-			</form>
+		<div data-role="main" class="display-flex flex-column">
+			<div class="flex-stretch"></div>
+			<div class="flex-none" style="text-align:center">
+				<img src="http://zijianliu.com/aau/wnm617/zijianliu/img/logo.png" alt="" class="login-logo">
+			</div>
+			<div class="flex-none" style="padding:1em">
+				<form id="signin-form" data-ajax="false">
+					<div class="form-control">
+						
+						<input type="text" class="hotdog" id="signin-username" placeholder="User ID" data-role="none">
+					</div>
+					<div class="form-control">
+						
+						<input type="password" class="hotdog" id="signin-password" placeholder="User Password" data-role="none">
+					</div>
+					<div class="form-control">
+						<input type="submit" class="hotdog-button" value="Sign In" data-role="none">
+					</div>
+					<div class="form-control" style="font-size:0.8em;text-align:center;">
+						Don't have an account? <a href="#signup-page" class="ui-link">Sign Up</a>
+					</div>
+				</form>
+			</div>
+			<div class="flex-stretch"></div>
 		</div>
 	</section>
-	<section data-role="page" id="signup-page"></section>
+
+
+	<section data-role="page" id="signup-page">
+		<div data-role="main" class="display-flex flex-column">
+			<div class="flex-stretch"></div>
+			<div class="flex-none" style="padding:1em">
+				<form id="signup-form" data-ajax="false">
+					<div class="form-control">
+						<label for="signup-username" class="form-label">User ID</label>
+						<input type="text" class="form-input" id="signup-username" placeholder="Type your User ID" data-role="none">
+					</div>
+					<div class="form-control">
+						<label for="signup-email" class="form-label">Email</label>
+						<input type="text" class="form-input" id="signup-email" placeholder="Type your Email" data-role="none">
+					</div>
+					<div class="form-control">
+						<label for="signup-password" class="form-label">Password</label>
+						<input type="password" class="form-input" id="signup-password" placeholder="Type your Password" data-role="none">
+					</div>
+					<div class="form-control">
+						<label for="signup-password2" class="form-label">Confirm Password</label>
+						<input type="password" class="form-input" id="signup-password2" placeholder="Type your Password" data-role="none">
+					</div>
+					<div class="form-control">
+						<input type="submit" class="form-button" value="Sign Up" data-role="none">
+					</div>
+					<div class="form-control" style="font-size:0.8em;text-align:center;">
+						Already have an account? <a href="#signin-page">Sign In</a>
+					</div>
+				</form>
+			</div>
+			<div class="flex-stretch"></div>
+		</div>
+	</section>
+
+
+
+
+
+
 
 	<section data-role="page" id="recent-page">
 		<div data-role="main">
-			<img src="img/map.png" alt="" class="map">
+			<img src="http://zijianliu.com/aau/wnm617/zijianliu/img/map.png" alt="" class="map">
 		</div>
 		<footer data-role="footer">
 			<ul>
-				<!-- li*3>a[href=#] -->
 				<li><a href="#recent-page">Recent</a></li>
 				<li><a href="#list-page">List</a></li>
 				<li><a href="#profile-page">Profile</a></li>
 			</ul>
 		</footer>
 	</section>
+
+
+
+
+
 	<section data-role="page" id="list-page">
 		<header data-role="header">
 			<h1>Animal List</h1>
 			<ul>
 				<li class="flex-stretch"></li>
 				<li class="flex-none">
-					<a href="#">&plus;</a>
+					<a href="#" data-activate="#list-add-animal-modal">&plus;</a>
 				</li>
 			</ul>
 		</header>
 		<div data-role="main">
-			<!-- ul>li*10>a[href=#animal-profile-page]>{Animal $} -->
-			<ul>
-				<li><a href="#animal-profile-page">Animal 1</a></li>
-				<li><a href="#animal-profile-page">Animal 2</a></li>
-				<li><a href="#animal-profile-page">Animal 3</a></li>
-				<li><a href="#animal-profile-page">Animal 4</a></li>
-				<li><a href="#animal-profile-page">Animal 5</a></li>
-				<li><a href="#animal-profile-page">Animal 6</a></li>
-				<li><a href="#animal-profile-page">Animal 7</a></li>
-				<li><a href="#animal-profile-page">Animal 8</a></li>
-				<li><a href="#animal-profile-page">Animal 9</a></li>
-				<li><a href="#animal-profile-page">Animal 10</a></li>
-			</ul>
+			<div class="scrollable">
+				<ul>
+					<li><a href="#animal-profile-page">Animal 1</a></li>
+					<li><a href="#animal-profile-page">Animal 2</a></li>
+					<li><a href="#animal-profile-page">Animal 3</a></li>
+					<li><a href="#animal-profile-page">Animal 4</a></li>
+					<li><a href="#animal-profile-page">Animal 5</a></li>
+					<li><a href="#animal-profile-page">Animal 6</a></li>
+					<li><a href="#animal-profile-page">Animal 7</a></li>
+					<li><a href="#animal-profile-page">Animal 8</a></li>
+					<li><a href="#animal-profile-page">Animal 9</a></li>
+					<li><a href="#animal-profile-page">Animal 10</a></li>
+					
+				</ul>
+			</div>
 		</div>
 		<footer data-role="footer">
 			<ul>
-				<!-- li*3>a[href=#] -->
 				<li><a href="#recent-page">Recent</a></li>
 				<li><a href="#list-page">List</a></li>
 				<li><a href="#profile-page">Profile</a></li>
 			</ul>
 		</footer>
+
+		<div class="modal" id="list-add-animal-modal">
+			<div class="modal-back" data-deactivate="#list-add-animal-modal"></div>
+			<div class="modal-popup">
+				<div class="modal-head">Adding animal</div>
+				<div class="modal-body">
+					<div class="scrollable">
+						<form data-ajax="false" id="list-add-form" style="padding:1em">
+							<div class="form-control">
+								<label for="list-add-name" class="form-label">Animal Name</label>
+								<input type="text" class="form-input" id="list-add-name" placeholder="Type Animal Name" data-role="none">
+							</div>
+							<div class="form-control">
+								<label for="list-add-type" class="form-label">Animal Type</label>
+								<input type="text" class="form-input" id="list-add-type" placeholder="Type Animal Type" data-role="none">
+							</div>
+							<div class="form-control">
+								<label for="list-add-breed" class="form-label">Animal Breed</label>
+								<input type="text" class="form-input" id="list-add-breed" placeholder="Type Animal Breed" data-role="none">
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="modal-foot">Confirm</div>
+			</div>
+		</div>
 	</section>
+
+
+
+
+
 	<section data-role="page" id="animal-profile-page">
 		<header data-role="header">
 			<h1>Animal Profile</h1>
@@ -95,16 +179,23 @@
 			</ul>
 		</header>
 		<div data-role="main">
-			Cool Animal
+			<img src="http://zijianliu.com/aau/wnm617/zijianliu/img/dog1.png" alt="" class="dog1">
 		</div>
 	</section>
+
+
+
+
+	<!-- PROFILE PAGE -->
 	<section data-role="page" id="profile-page">
 		<div data-role="main">
 			User Profile
+			<p>
+				<a href="#" class="js-logout">Logout</a>
+			</p>
 		</div>
 		<footer data-role="footer">
 			<ul>
-				<!-- li*3>a[href=#] -->
 				<li><a href="#recent-page">Recent</a></li>
 				<li><a href="#list-page">List</a></li>
 				<li><a href="#profile-page">Profile</a></li>
