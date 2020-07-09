@@ -1,15 +1,18 @@
-$(() => {
+$(document).ready(function () {
 
 
     checkUserId();
 
+    console.log("no")
+
     // Event Delegation
-    $("document")
+    $(document)
 
         // Form Submissions
         .on("submit", "#signin-form", function (e) {
             e.preventDefault();
             checkLoginForm();
+            console.log("honk")
         })
 
 
