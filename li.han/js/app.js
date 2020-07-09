@@ -1,6 +1,8 @@
 
 $(()=>{
 
+	checkUserId();
+
 	// EVENT DELEGATION
 	$(document)
 

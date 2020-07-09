@@ -195,7 +195,7 @@ a {
 .form-label {
     margin: 0.6em 0 !important;
     font-size: 0.8em;
-    color: var(--color-neutral-medium);
+    color: var(--color-main-dark);
 }
 
 .form-input {
@@ -241,7 +241,7 @@ a {
     outline:0;
 }
 .hotdog-button {
-    background-color: var(--color-main-light);
+    background-color: var(--color-main-medium);
     text-align: center;
 }
 
