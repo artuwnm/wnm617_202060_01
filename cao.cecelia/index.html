@@ -68,14 +68,14 @@
 					</div>
 					<div class="form-control">
 						<!-- <label for="signup-password" class="form-label">Password</label> -->
-						<input type="password" class="hotdog" id="signup-password" placeholder="Type your Phone Number" data-role="none">
+						<input type="password" class="hotdog" id="signup-phonenumber" placeholder="Type your Phone Number" data-role="none">
 					</div>
 					<div class="form-control">
 						<!-- <label for="signup-password2" class="form-label">Confirm Password</label> -->
-						<input type="password" class="hotdog" id="signup-password2" placeholder="Type your Password" data-role="none">
+						<input type="password" class="hotdog" id="signup-password" placeholder="Type your Password" data-role="none">
 					</div>
 					<div class="form-control">
-						<input type="submit" class="form-button" value="Sign Up" data-role="none">
+						<button type="submit" class="form-button" value="Sign Up" data-role="none">Sign In</button>
 					</div>
 					<div class="form-control" style="font-size:0.8em;text-align:center;">
 						Already have an account? <a href="#signin-page">Sign In</a>
@@ -100,11 +100,11 @@
 			<ul>
 				<li><a href="#recent-page">Map</a></li>
 				<li><a href="#list-page">List</a></li>
-				<li> <a href="#add-product" class="appbar__bottom" title="add" aria-label="Add">
+			<li>	<a href="#add-product" class="appbar__bottom" title="add" aria-label="Add">
         <svg fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
           <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"/>
-        </svg></a></li>
-				<li><a href="#list-page">Love</a></li>
+        </svg></a> </li>
+				<li><a href="#love-page">Love</a></li>
 				<li><a href="#profile-page">Profile</a></li>
 			</ul>
 		</footer>
@@ -208,7 +208,7 @@
 				</li>
 			</ul> -->
 			<div class="searchstyle">
-				<input type="search" class="searchbar" placeholder="Search">
+				<input type="search" class="searchbar" placeholder="Search" data-role="none">
 			</div>
 		<!-- </header> -->
 		<div data-role="main">
@@ -294,7 +294,7 @@
         <svg fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
           <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"/>
         </svg></a></li>
-				<li><a href="#list-page">Love</a></li>
+				<li><a href="#love-page">Love</a></li>
 				<li><a href="#profile-page">Profile</a></li>
 			</ul>
 		</footer>
@@ -302,7 +302,107 @@
 		
 	</section>
 
+	<section data-role="page" id="love-page">
+		<!-- <header data-role="header"> -->
+			<!-- <h1>Animal List</h1>
+			<ul>
+				<li class="flex-stretch"></li>
+				<li class="flex-none">
+					<a href="#" data-activate="#list-add-animal-modal">&plus;</a>
+				</li>
+			</ul> -->
+			
+		<!-- </header> -->
+		<div data-role="main">
 
+			<div class="scrollable">
+				<div class="display-flex flex-justify-center flexbox">
+		          <a href="#animal-profile-page">
+		          <div class="productone"></div>
+				  <div class="productname">Mojito</div>
+		          </a> 
+		          <a href="#animal-profile-page">
+		          	<div class="productone"></div>
+		          	<div class="productname">Mojito</div>
+		          </a>
+        		</div>
+        		<div class="display-flex flex-justify-center flexbox">
+		          <a href="#animal-profile-page">
+		          <div class="productone"></div>
+				  <div class="productname">Mojito</div>
+		          </a> 
+		          <a href="#animal-profile-page">
+		          	<div class="productone"></div>
+		          	<div class="productname">Mojito</div>
+		          </a>
+        		</div>
+        		<div class="display-flex flex-justify-center flexbox">
+		          <a href="#animal-profile-page">
+		          <div class="productone"></div>
+				  <div class="productname">Mojito</div>
+		          </a> 
+		          <a href="#animal-profile-page">
+		          	<div class="productone"></div>
+		          	<div class="productname">Mojito</div>
+		          </a>
+        		</div>
+        		<div class="display-flex flex-justify-center flexbox">
+		          <a href="#animal-profile-page">
+		          <div class="productone"></div>
+				  <div class="productname">Mojito</div>
+		          </a> 
+		          <a href="#animal-profile-page">
+		          	<div class="productone"></div>
+		          	<div class="productname">Mojito</div>
+		          </a>
+        		</div>
+        		<div class="display-flex flex-justify-center flexbox">
+		          <a href="#animal-profile-page">
+		          <div class="productone"></div>
+				  <div class="productname">Mojito</div>
+		          </a> 
+		          <a href="#animal-profile-page">
+		          	<div class="productone"></div>
+		          	<div class="productname">Mojito</div>
+		          </a>
+        		</div>
+        		<div class="display-flex flex-justify-center flexbox">
+		          <a href="#animal-profile-page">
+		          <div class="productone"></div>
+				  <div class="productname">Mojito</div>
+		          </a> 
+		          <a href="#animal-profile-page">
+		          	<div class="productone"></div>
+		          	<div class="productname">Mojito</div>
+		          </a>
+        		</div>
+        		<div class="display-flex flex-justify-center flexbox">
+		          <a href="#animal-profile-page">
+		          <div class="productone"></div>
+				  <div class="productname">Mojito</div>
+		          </a> 
+		          <a href="#animal-profile-page">
+		          	<div class="productone"></div>
+		          	<div class="productname">Mojito</div>
+		          </a>
+        		</div>
+			</div>
+		</div>
+		<footer data-role="footer">
+			<ul>
+				<li><a href="#recent-page">Map</a></li>
+				<li><a href="#list-page">List</a></li>
+				<li> <a href="#add-product" class="appbar__bottom" title="add" aria-label="Add">
+        <svg fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
+          <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"/>
+        </svg></a></li>
+				<li><a href="#love-page">Love</a></li>
+				<li><a href="#profile-page">Profile</a></li>
+			</ul>
+		</footer>
+
+		
+	</section>
 
 
 
@@ -331,7 +431,7 @@
 				  <tr>
 				    <td style="text-align: right;">Location</td>
 				    <td></td>
-				    <td style="text-align: left;"><strong>4th St, San Francisco</strong></td>
+				    <td style="text-align: left;"><strong>4th St, San Francisco<br>16 Market St, San Francisco<br>129 Fremont st, San Francisco</strong></td>
 				  </tr>
 				  <tr>
 				    <td style="text-align: right;">Taste</td>

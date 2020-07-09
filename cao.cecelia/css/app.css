@@ -300,8 +300,11 @@ a {
 }
 
 [data-role="footer"] li {
-	flex:1 1 auto;
-	text-align:center;
+    flex: 1 1 auto;
+    text-align: center;
+    width: -moz-available;          /* WebKit-based browsers will ignore this. */
+    width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+    width: fill-available;
 }
 
 .ui-header .ui-title {
