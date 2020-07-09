@@ -32,18 +32,20 @@
 		<div class="flex-none" style="padding: 1em">
 
 			<form id="signin-form" data-ajax="false">
-				<div class="form-control">
+				<div class="form-control-signin">
 					<label for="signin-username" class="form-label">Email</label>
-					<input type="text" class="unisignin" id="signin-username" placeholder="Type your email address" data-role="none">
+					<input type="text" class="unisignin" id="signin-username" placeholder="Email address" data-role="none">
 				</div>
 
-				<div class="form-control">
+				<div class="form-control-signin">
 					<label for="signin-password" class="form-label">Password</label>
-					<input type="password" class="unisignin" id="signin-password" placeholder="Type your password" data-role="none">
+					<input type="password" class="unisignin" id="signin-password" placeholder="Password" data-role="none">
 				</div>
-				<div class="form-control">
-					<input type="submit" class="unisignin-button" value="Sign In" data-role="none">
-					<div class="link-signup"> Not a memebr yet? <a href="#signup-page"> Sign Up now </a></div>
+				<div class="form-control-signin">
+					<input type="submit" class="unisignin-button" value="Sign In" data-role="none"/>
+				
+					<div class="link-signup"> Not a memebr yet? <a href="#signup-page"> Sign Up now </a>
+				</div>
 				</div>
 			</form>
 		</div>
@@ -52,62 +54,79 @@
 	</section>
 
 
+
+
+<!--------------- Sign Up Page --------------------->
+
+	<section data-role="page" id="signup-page">
+		<div data-role="main" class="display-flex flex-column">
+			<div class="flex-stretch"></div>
+
+			<div class="flex-none" style="padding: 1em">
+
+			<form id="signup-form" data-ajax="false">
+				<div class="form-control-signup">
+					<label for="signup" class="form-label">Name</label>
+					<input type="name" class="unisignin" id="signup-name" placeholder="" data-role="none">
+				</div>
+				<div class="form-control-signup">
+					<label for="signup-username" class="form-label">Email (Username)</label>
+					<input type="text" class="unisignin" id="signup-username" placeholder=""data-role="none">
+				</div>
+				<div class="form-control-signup">
+					<label for="signup-password" class="form-label">Password</label>
+					<input type="password" class="unisignin" id="signup-password" placeholder="" data-role="none">
+				</div>
+				<div class="form-control-signup">
+					<label for="signup-password" class="form-label">Confirm Password</label>
+					<input type="password" class="unisignin" id="signup-password" placeholder="" data-role="none">
+				</div>
+				<div class="form-control-signup">
+					<a href="#recent-page"><input type="submit" class="unisignin-button" value="Sign Up" data-role="none"></a></div>
+
+				<div class="link-signup"><a href="#signin-page" style="text-decoration: underline;"> I am a member </a>
+					
+				</div>
+			</form>
+	        </div>
+	</div class="flex-stretch"></div>
+		
+		</div>
+	</section>
+
+	
+
 <!--------------- Recent: Map Page --------------------->
 
 	<section data-role="page" id="recent-page">
 		<header data-role="header">
-			<h1>Map / Pin</h1>
-			<ul>
+			<h1>Map</h1>
+				<ul>
+				<div class="back-button" width="50px" height="25px">
 				<li class="flex-none">
-					<a href="#" data-rel="back">Back</a>
-				</li>
+					<a href="#" data-rel="back"></a>
+				</li></div>
 			</ul>
 		</header>
 	    <div data-role="main">
-	    	<img src="img/maps-hero.png" width="100px">
+	    	<img src="img/sf-map.jpg" class="map-img">
+	    	<img src="img/map-icon1.png" class="map-unicon-one">
+	    	<img src="img/map-icon1.png" class="map-unicon-two">
         </div>
+
 
 	    <footer data-role="footer">
 	    	<ul>
-	    		<li><a href="#add-page">Add</a></li>
-	    		<li><a href="#recent-page">Map</a></li>
-	    		<li><a href="#list-page">List</a></li>
-	    		<li><a href="#profile-page">Profile</a></li>
+	    		<li class="flex-child"><a href="#add-page"><img src="img/add-icon.png"></a></li>
+	    		<li class="flex-child"><a href="#recent-page"><img src="img/map-icon-selected.png"></a></li>
+	    		<li class="flex-child"><a href="#list-page"><img src="img/uni-icon.png"></a></li>
+	    		<li class="flex-child"><a href="#profile-page"><img src="img/profile-icon.png"></a></li>
 	    	</ul>
 	    </footer>
 	    
 	</section>
 
 
-<!--------------- Sign Up Page --------------------->
-
-	<section data-role="page" id="signup-page">
-		<div data-role="main">
-			<form id="signin-form" data-ajax="false" class="center-child">
-				<div class="form-control">
-					<label for="signup">Name</label>
-					<input type="name" class="form-input" id="signup-name" placeholder="Your Name" data-role="none">
-				</div>
-				<div class="form-control">
-					<label for="signup-username">Username</label>
-					<input type="text" class="form-input" id="signup-username" placeholder="Type your username" data-role="none">
-				</div>
-				<div class="form-control">
-					<label for="signup-password">Password</label>
-					<input type="password" class="form-input" id="signup-password" placeholder="Type your password" data-role="none">
-				</div>
-				<div class="form-control">
-					<label for="signup-password">Confirm Password</label>
-					<input type="password" class="form-input" id="signup-password" placeholder="Type your password" data-role="none">
-				</div>
-				<div class="form-control">
-					<a href="#recent-page"><input type="submit" class="form-button" value="Sign Up" data-role="none"></a>
-				</div>
-			</form>
-		</div>
-	</section>
-
-	
 
 
 <!--------------- List Page --------------------->
@@ -118,92 +137,30 @@
 			<ul>
 				<div class="back-button" width="50px" height="25px">
 				<li class="flex-none">
-					<a href="#" data-rel="back">Back</a>
+					<a href="#" data-rel="back"><img src="img/back.png" max-width="50px" height="25px"></a>
 				</li></div>
 			</ul>
 		</header>
 	<div data-role="main">
+		<div class="flex-stretch"></div>
 		<ul>
 	<div class="list-row">
 
 	<div class="list-column">
-			<img src="">
+			<div class="list-column-img"><img src="img/unicorn1.jpg"></div>
 			<p>unicorn 1</p>
 		</div>
 
 	<div class="list-column">
-			<img src="">
+			<div class="list-column-img"><img src="img/unicorn2.jpg"></div>
 			<p>unicorn 2</p>
 			</div>
 		</div>
     
     <div class="list-row">
 	<div class="list-column">
-			<img src="">
-			<p>unicorn 4</p>
-			</div>
-
-	<div class="list-column">
-			<img src="">
-			<p>unicorn 5</p>
-			</div>
-		</div>
-
-	    <div class="list-row">
-	<div class="list-column">
-			<img src="">
-			<p>unicorn 4</p>
-			</div>
-
-	<div class="list-column">
-			<img src="">
-			<p>unicorn 5</p>
-			</div>
-
-				<div class="list-column">
-			<img src="">
-			<p>unicorn 5</p>
-			</div>
-		</div>
-
-	    <div class="list-row">
-	<div class="list-column">
-			<img src="">
-			<p>unicorn 4</p>
-			</div>
-
-	<div class="list-column">
-			<img src="">
-			<p>unicorn 5</p>
-			</div>
-
-				<div class="list-column">
-			<img src="">
-			<p>unicorn 5</p>
-			</div>
-		</div>
-
-	    <div class="list-row">
-	<div class="list-column">
-			<img src="">
-			<p>unicorn 4</p>
-			</div>
-
-	<div class="list-column">
-			<img src="">
-			<p>unicorn 5</p>
-			</div>
-		</div>
-
-	    <div class="list-row">
-	<div class="list-column">
-			<img src="">
-			<p>unicorn 4</p>
-			</div>
-
-	<div class="list-column">
-			<img src="">
-			<p>unicorn 5</p>
+			<div class="list-column-img"><img src="img/unicorn3.png"></div>
+			<p>unicorn 3</p>
 			</div>
 
 	
@@ -212,10 +169,10 @@
 
 		<footer data-role="footer" role="contactinfo">
 	    	<ul>
-	    		<li><a href="#add-page">Add</a></li>
-	    		<li><a href="#recent-page">Map</a></li>
-	    		<li><a href="#list-page">List</a></li>
-	    		<li><a href="#profile-page">Profile</a></li>
+	    		<li class="flex-child"><a href="#add-page"><img src="img/add-icon.png"></a></li>
+	    		<li class="flex-child"><a href="#recent-page"><img src="img/map-icon.png"></a></li>
+	    		<li class="flex-child"><a href="#list-page"><img src="img/uni-icon-selected.png"></a></li>
+	    		<li class="flex-child"><a href="#profile-page"><img src="img/profile-icon.png"></a></li>
 	    	</ul>
 	    </footer>
 	</section>
@@ -226,9 +183,10 @@
 		<header data-role="header">
 			<h1>Add a Unicorn</h1>
 			<ul>
+				<div class="back-button" width="50px" height="25px">
 				<li class="flex-none">
-					<a href="#" data-rel="back">Back</a>
-				</li>
+					<a href="#" data-rel="back"><img src="img/back.png" max-width="50px" height="25px"></a>
+				</li></div>
 			</ul>
 		</header>
 		<div data-role="main">
@@ -236,10 +194,10 @@
 		</div>
 		<footer data-role="footer">
 	        <ul>
-	    		<li><a href="#add-page">Add</a></li>
-	    		<li><a href="#recent-page">Map</a></li>
-	    		<li><a href="#list-page">List</a></li>
-	    		<li><a href="#profile-page">Profile</a></li>
+	    		<li class="flex-child"><a href="#add-page"><img src="img/add-icon-selected.png"></a></li>
+	    		<li class="flex-child"><a href="#recent-page"><img src="img/map-icon.png"></a></li>
+	    		<li class="flex-child"><a href="#list-page"><img src="img/uni-icon.png"></a></li>
+	    		<li class="flex-child"><a href="#profile-page"><img src="img/profile-icon.png"></a></li>
 	    	</ul>
 	    </footer>
 	</section>
@@ -251,9 +209,10 @@
 		<header data-role="header">
 			<h1>My Profile</h1>
 			<ul>
+				<div class="back-button" width="50px" height="25px">
 				<li class="flex-none">
-					<a href="#" data-rel="back">Back</a>
-				</li>
+					<a href="#" data-rel="back"><img src="img/back.png" max-width="50px" height="25px"></a>
+				</li></div>
 			</ul>
 		</header>
 		<div data-role="main">
@@ -262,10 +221,10 @@
 		</div>
 		<footer data-role="footer">
 	        <ul>
-	    		<li><a href="#add-page">Add</a></li>
-	    		<li><a href="#recent-page">Map</a></li>
-	    		<li><a href="#list-page">List</a></li>
-	    		<li><a href="#profile-page">Profile</a></li>
+	    		<li class="flex-child"><a href="#add-page"><img src="img/add-icon.png"></a></li>
+	    		<li class="flex-child"><a href="#recent-page"><img src="img/map-icon.png"></a></li>
+	    		<li class="flex-child"><a href="#list-page"><img src="img/uni-icon.png"></a></li>
+	    		<li class="flex-child"><a href="#profile-page"><img src="img/profile-icon-selected.png"></a></li>
 	    	</ul>
 	    </footer>
 	</section>

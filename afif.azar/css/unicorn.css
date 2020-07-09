@@ -162,6 +162,9 @@ a {
 	flex: 1 1 auto;
 	text-align: center;
 }
+[data-role="header"] h1 {
+	color: var(--color-purple-light);
+}
 
 .ui-header .ui-title {
 	position: absolute;
@@ -182,6 +185,13 @@ a {
 	display: block;
 	padding: 0 1em;
 }
+
+/*======================== FOOTER =======================*/
+.flex-child { 
+	flex: 1 1 auto;
+	margin-top: 1em;
+}
+
 
 /*========needs to check=========*/
 
@@ -234,40 +244,24 @@ a {
 }
 
 [data-role="main"] img {
-	width: 100%;
-	height: 100%;
 	margin: 0;
 	background-image: inherit;
 }
 
 .back-button {
-	background-color: var(--color-neutral-light);
+	background-color: var(--color-pink-light);
 	display: flex;
-}
-
-/*=========== Cited: w3schools ===========*/
-.list-row {
-    display: flex; 
-}
-.list-column {
-	flex: 50%;
-	padding: 10px;
-	padding-top: 20px;
-	padding-bottom: 50px;
 
 }
-@media screen and (max-width: 500px) {
-  .column {
-    width: 100%;
-    height: 100%;
-  }
+.back-button-img {
+	width: 25px; 
+	height: 25px; 
 }
-/*========== Cited is over ===============*/
 
 /* ================== FORMS ===============*/
-.form-control {
+.form-control-signin,
+.form-control-signup {
 	margin: 0.5em 0;
-
 }
 
 .form-label {
@@ -279,7 +273,7 @@ a {
 	display: inline-block;
 	width: 100%;
 	border-width: 0;
-	border-bottom: 1px solid var(--color-neutral-medium);
+	border-bottom: 1px solid var(--color-neutral-light);
 	padding: 0.5em 1em;
 	background-color: transparent;
 	outline: 0;
@@ -304,7 +298,8 @@ a {
 	align-items: center;
 }
 .form-button:active {
-    background-color: var(--color-pink-light);
+    background-color: var(--color-blue-medium);
+
 }
 .form-button text{
 	color: #fff;
@@ -344,6 +339,9 @@ input.unisignin-button {
 text.unisignin-button {
     text-align: center;
 }
+::placeholder{
+	color: #fff;
+}
 
 
 /* ================== LOGIN PAGE ===============*/
@@ -364,3 +362,59 @@ text.unisignin-button {
 .link-signup a:hover {
 	color: var(--color-pink-medium);
 }
+
+/*====================== MAP PAGE ================*/
+.map-img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+	height: 100%;
+    z-index: 1;
+}
+.map-unicon-one {
+	position: absolute;
+	top: 300px;
+	left: 70px;
+	z-index: 2;
+}
+.map-unicon-one img,
+.map-unicon-two img {
+	width: 7vmax;
+	height: 7vmax;
+}
+.map-unicon-two {
+	position: absolute;
+	top: 100px;
+	left: 200px;
+	z-index: 3;
+}
+/*======================= LIST PAGE ======================*/
+
+/*=========== Cited: w3schools ===========*/
+.list-row {
+    display: flex; 
+}
+.list-column {
+	flex: 50%;
+	padding: 10px;
+	padding-top: 20px;
+	padding-bottom: 50px;
+}
+.list-column-img {
+	width: 10em;
+	height: 10em;
+}
+.list-column-img img{
+	max-width: 10em;
+	max-height: 10em;
+}
+
+@media screen and (max-width: 500px) {
+  .column {
+    width: 100%;
+    height: 100%;
+  }
+}
+/*========== Cited is over ===============*/
+
