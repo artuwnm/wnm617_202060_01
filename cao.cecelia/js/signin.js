@@ -13,10 +13,14 @@ const checkLoginForm = () => {
 		// not logged in
 		console.log("failure");
 		sessionStorage.removeItem('userId');
+		$( ".failure" ).removeClass( "disapear" );
+
 	}
 
 	checkUserId();
 }
+
+
 
 const checkUserId = () => {
 	let p = ["#signin-page","#signup-page",""];
