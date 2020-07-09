@@ -5,6 +5,9 @@
 	<title>New Project</title>
 
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	
+	<link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+
 
 	<link rel="stylesheet" href="lib/css/jquery.mobile.structure-1.4.5.min.css">
 	<link rel="stylesheet" href="css/app.css">
@@ -76,6 +79,15 @@
 
 
 	<section data-role="page" id="recent-page">
+		<header data-role="header">
+			<h1>Spots on Map</h1>
+			<ul>
+				<li class="flex-stretch"></li>
+				<li class="flex-none">
+					<a href="#" data-activate="#map-add-animal-modal" class="plus">&plus;</a>
+				</li>
+			</ul>
+		</header>
 		<div data-role="main">
 			Map
 		</div>
@@ -87,12 +99,38 @@
 				<li><a href="#profile-page">Profile</a></li>
 			</ul>
 		</footer>
+
+		<div class="modal" id="map-add-animal-modal">
+			<div class="modal-back" data-deactivate="#map-add-animal-modal"></div>
+			<div class="modal-popup">
+				<div class="modal-head">New Dog?!</div>
+				<div class="modal-body">
+					<div class="scrollable">
+						<form data-ajax="false" id="map-add-form" style="padding:1em">
+							<div class="form-control">
+								<label for="map-add-name" class="form-label">Dog Breed</label>
+								<input type="text" class="form-input" id="map-add-name" placeholder="Type Dog Breed" data-role="none">
+							</div>
+							<div class="form-control">
+								<label for="map-add-type" class="form-label">Dog Color</label>
+								<input type="text" class="form-input" id="map-add-type" placeholder="Type Dog Color" data-role="none">
+							</div>
+							<div class="form-control">
+								<label for="map-add-breed" class="form-label">Memo</label>
+								<input type="text" class="form-input" id="map-add-breed" placeholder="Type Memo" data-role="none">
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="modal-foot">Done/Add Button?</div>
+			</div>
+		</div>
 	</section>
 
 
 		<section data-role="page" id="list-page">
 		<header data-role="header">
-			<h1>Animal List</h1>
+			<h1>Dog List</h1>
 			<ul>
 				<li class="flex-stretch"></li>
 				<li class="flex-none">
@@ -197,10 +235,57 @@
 	<!-- profile page -->
 
 	<section data-role="page" id="profile-page">
+		<header data-role="header">
+			<h1>User Profile</h1>
+			<ul>
+				<li class="flex-stretch"></li>
+				<li class="flex-none">
+					<a href="#" data-activate="#profile-edit-modal" class="edit">Edit</a>
+				</li>
+			</ul>
+		</header>
+
 		<div data-role="main">
-			<div class="usercontainer">
+			<div class="usercontainer scrollable">
 				<img src="img/userprofile.png" class="user-img">
-				<p><a href="#" class="js-logout">Logout</a></p>
+					<div class="info-box">
+						<div class="profile-info-box">
+							<label for="profile-name" class="form-label leftalign"></label>
+							<h2>John Doe</h2>
+						</div>
+						<div class="flex-container">
+							<div class="info-inside-box">
+								<div class="info-number">
+									Spots
+									<br>
+									5
+								</div>
+							</div>
+							<div class="info-inside-box">
+								<div class="info-number">
+									Breeds
+									<br>
+									4
+								</div>
+							</div>
+						</div>
+						
+						<div class="profile-info-box2">
+							<label for="profile-text" class="form-label leftalign">Email
+								<div class="rightalign">jdoe12@email.com</div>
+							</label>
+						</div>
+						<div class="profile-info-box2">
+							<label for="profile-text" class="form-label leftalign">Phone Number
+								<div class="rightalign">+1 (123) 456-7890</div>
+							</label>
+						</div>
+						
+						</div>
+							<a href="#" class="js-logout"><input type="submit" class="form-button-out" value="Sign Out" data-role="none"></a>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 		<footer data-role="footer">
@@ -211,7 +296,48 @@
 				<li><a href="#profile-page">Profile</a></li>
 			</ul>
 		</footer>
+
+
+		<div class="modal" id="profile-edit-modal">
+			<div class="modal-back" data-deactivate="#profile-edit-modal"></div>
+			<div class="modal-popup">
+				<div class="modal-head">Edit Your Profile</div>
+				<div class="modal-body">
+					<div class="scrollable">
+						<form data-ajax="false" id="list-add-form" style="padding:1em">
+							<div class="img-control">
+								<label class="imagepicker-profile imagepicker-replace">
+									<input type="file" data-role="none">
+										<div class="profile-pic-edit">
+											<img src="img/userprofile.png" class="img-control">
+										</div>	
+								</label>
+							</div>
+							<div class="form-control">
+								<label class="form-label" for="edit-user-name">Name</label>
+								<input class="form-input" type="text" id="edit-user-name" data-role="none" value="John Doe">
+							</div>
+							<div class="form-control">
+								<label class="form-label" for="edit-user-breed">Email</label>
+								<input class="form-input" type="text" id="edit-user-email" data-role="none" value="jdoe12@email.com">
+							</div>
+							<div class="form-control">
+								<label class="form-label" for="edit-user-breed">Phone Number</label>
+								<input class="form-input" type="text" id="edit-user-email" data-role="none" value="+1 (123) 456-7890">
+							</div>
+							<div class="form-control">
+								<label class="form-label" for="edit-user-breed">Password</label>
+								<input class="form-input" type="password" id="edit-user-password" data-role="none" value="pass">
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="modal-foot"><input class="form-button-submit" type="submit" data-role="none" value="Done" data-deactivate="#profile-edit-modal"></div>
+			</div>
+		</div>
+
 	</section>
+
 
 
 </body>

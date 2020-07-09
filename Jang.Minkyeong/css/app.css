@@ -304,6 +304,93 @@ input{
 	margin-left: 1em;
 }
 
+.edit{
+	margin-right: 1em;
+	font-size: 10pt;
+}
+
+
+
+/* profile */
+
+
+.usercontainer {
+    width: 95%;    
+    height: 95%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fcfcfc;
+    filter: drop-shadow(0 0 0.15rem lightgrey);
+    padding-bottom: 25px;
+}
+
+.profile-name{
+	flex-basis: 100%;
+}
+
+.specs-info {
+    margin: auto;
+    width: 50%;
+    flex: none;
+    flex-wrap: wrap;
+}
+
+.flex-container {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.info-inside-box {
+    margin: auto;
+    width: 50%;
+    flex: none;
+    flex-wrap: wrap;
+}
+
+.info-number{
+	font-weight: bold;
+}
+
+.form-label {
+	margin-top: 1.5em !important;
+	margin-bottom: 1.5em !important;
+	padding: 0.2em 0.5em 0;
+}
+.leftalign{
+	font-weight: bold;
+}
+
+.rightalign{
+	font-weight: normal;
+}
+
+.form-button-out{
+	background: linear-gradient(90deg, #d24205 0%, #f17537 53%, #d6b80a 100%);
+    border: none;
+    margin: 1em;
+    padding: 1em;
+    color: #fcfcfc;
+    border-radius: 30px;
+}
+
+
+.img-control{
+	width: 100px;
+	align-items: center;
+	margin: 0 auto;
+}
+
+.imagepicker-profile input {
+    display: none;
+}
+
+
+.profile-info-box2{
+	margin-top: 2em;
+}
+
 
 /*  MODAL  */
 .plus{
@@ -337,7 +424,7 @@ input{
 
 .modal-popup {
     width: 80%;
-    height: 60%;
+    height: 75%;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -363,4 +450,14 @@ input{
 	padding:1em;
 	position:relative;
 	flex:1 1 auto;
+}
+
+.form-button-submit{
+	color: #f17537;
+    background-color: #fcfcfc;
+    width: 30%;
+    border-width: 0;
+    border-radius: 2em;
+    padding: 1em;
+    margin-top: 0.5em;
 }
