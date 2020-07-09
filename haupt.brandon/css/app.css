@@ -195,7 +195,29 @@ li {
 }
 
 /* -------------------- Sign in ------------------ */
-.signup-box {
+/* #signin-page [data-role="main"] {
+    background: url("/wnm617/haupt.brandon/img/moonlight.jpg");
+    height: 100vh;
+    width: 100vh;
+    object-fit: contain;
+} */
+
+.login-background {
+    position: absolute;
+    height: 100vh;
+    width: 100vh;
+    z-index: -10;
+    object-fit: cover;
+    background: url("/wnm617/haupt.brandon/img/moonlight.jpg");
+}
+
+#signin-page .navMenu {
+    position: relative;
+    z-index: 1;
+    color: white;
+}
+
+.signin-box {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -204,13 +226,13 @@ li {
     height: 359px;
     border-radius: 4px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
-    background-color: #c4c4c4;
+    background-color: #F6F6F6;
 }
 
 .form-control input {
     border: 0;
     background-color: transparent;
-    border-bottom: 1px solid black;
+    border-bottom: 2px solid #00b2ff;
     padding: 1em;
 }
 
@@ -218,15 +240,23 @@ li {
     display: inline-block;
 }
 
-.login-image {
+/* .login-image {
     width: 40vmax;
     height: 100%;
     object-fit: cover;
+} */
+
+.form-button {
+    background-color: #00B2FF;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    width: 8em;
+    height: 3em;
+    margin: 1em auto;
 }
 
-/* Sign Up */
-
-.form-control-sign-up {}
+/* ------------- SIGN UP ------------------ */
 
 .form-control-sign-up input {
     display: inline-block;
@@ -240,14 +270,36 @@ li {
     text-align: left;
 }
 
-.form-control-sign-up-btn input {
-    display: inline-block;
-    width: 200px;
-    background-color: #00b2ff;
-    border-width: 0;
-    padding: 1em 1em;
-    margin: 0.9em;
-    border-radius: 2em;
+.signup-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 21em;
+    height: 30em;
+    border-radius: 4px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+    background-color: rgba(246, 246, 246, .8);
+}
+
+#signup-username,
+#signup-email,
+#signup-password,
+#signup-password-confirm {
+    width: 20em;
+    height: 3em;
+}
+
+.form-control-sign-up-btn {
+    margin: 1em 4em;
+}
+
+.form-control-sign-up-btn a {
+    font-size: 2em;
+    padding: .3em;
+}
+
+.form-control-sign-up-btn .form-button {
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
 }
 
@@ -276,11 +328,23 @@ li {
     color: white;
 }
 
+.resource-example {
+    position: absolute;
+    top: 30%;
+    left: 40%;
+    cursor: pointer;
+}
+
+.resource-example img {
+    height: 3em;
+}
+
 /* ----------------------- Other stuff? --------------------- */
 .navMenu {
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 5em;
 }
 
 .navMenu li {
@@ -324,6 +388,12 @@ li {
 
 .footer {
     height: 50px;
+}
+
+.navMenu-profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .backBtn {
@@ -457,12 +527,9 @@ li {
 }
 
 
-/* List */
+/* ---------------------- LIST ------------------ */
 
 .add-new-resource {
-    position: absolute;
-    top: 15%;
-    right: 10%;
     font-size: 1.5em;
     text-align: center;
     width: 2em;
@@ -476,6 +543,15 @@ li {
     border-radius: 50%;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
 }
+
+.resource-list {
+    margin: 1em;
+}
+
+.resource-list a {
+    padding: .2em;
+}
+
 
 /* Might need */
 .text-center {

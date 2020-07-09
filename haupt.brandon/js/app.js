@@ -3,7 +3,7 @@ $(document).ready(function () {
 
     checkUserId();
 
-    console.log("no")
+    console.log("oh, hi!")
 
     // Event Delegation
     $(document)
@@ -39,7 +39,5 @@ $(document).ready(function () {
         .on("click", "[data-activateone]", function (e) {
             $($(this).data('activateone')).addClass('active').siblings().removeClass("active");
         })
-
-
 
 });

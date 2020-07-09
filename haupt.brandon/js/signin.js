@@ -8,10 +8,10 @@ const checkLoginForm = () => {
         // logged in!
         console.log('Congrats!')
 
-        // Is an array that passes from apge to page whether you 
+        // Is an array that passes from page to page whether you 
         sessionStorage.userId = 3;
 
-        $("signin-form")[0].reset();
+        $("#signin-form")[0].reset();
     } else {
         // Not logs in! :C
         console.log('Didnt work!!')
