@@ -40,10 +40,11 @@ h6 {
 }
 
 a {
-	display:inline-block;
+	display: block;
 	color:inherit;
 	font-weight:bold;
 	text-decoration:none;
+	vertical-align: text-bottom;
 }
 
 
@@ -311,4 +312,74 @@ a {
 	padding:1em;
 	position:relative;
 	flex:1 1 auto;
+}
+
+
+
+
+
+
+/* ICONS */
+[data-role='footer'] a {
+	display:block;
+}
+.footer-icon {
+    line-height: 2rem;
+    font-size: 1.5em;
+}
+.icon {
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    vertical-align: text-bottom;
+    pointer-events:none;
+}
+.footer-label {
+    line-height: 1rem;
+    font-size: 0.7em;
+}
+
+
+
+
+
+
+.map {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	background-image:url(../img/map.png);
+	background-size:cover;
+}
+
+
+
+
+.hero-image {
+    height: 25vh;
+    position: relative;
+    margin-bottom: calc(13vh + 1em);
+    background-color: var(--color-main-medium);
+}
+.hero-image img {
+    width: 30vh;
+    height: 30vh;
+    border-radius: 50%;
+    position: absolute;
+    top: 8vh;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.settings {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.2em;
+    align-items: center;
+    justify-content: center;
 }
