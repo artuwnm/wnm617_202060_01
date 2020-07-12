@@ -248,10 +248,9 @@ a {
 	background-image: inherit;
 }
 
-.back-button {
-	background-color: var(--color-pink-light);
+#back-button {
 	display: flex;
-
+	margin-top: 0.5em;
 }
 .back-button-img {
 	width: 25px; 
@@ -389,32 +388,179 @@ text.unisignin-button {
 	left: 200px;
 	z-index: 3;
 }
-/*======================= LIST PAGE ======================*/
 
-/*=========== Cited: w3schools ===========*/
-.list-row {
-    display: flex; 
-}
-.list-column {
-	flex: 50%;
-	padding: 10px;
-	padding-top: 20px;
-	padding-bottom: 50px;
-}
-.list-column-img {
-	width: 10em;
-	height: 10em;
-}
-.list-column-img img{
-	max-width: 10em;
-	max-height: 10em;
-}
 
-@media screen and (max-width: 500px) {
-  .column {
+
+/*======================== MODAL =========================*/
+/********************* for all ************************/
+.modal {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+	opacity: 0;
+	transition: all 0.3s;
+	pointer-events: none;
+	box-shadow: 0px 4px 4px rgb(0, 0, 0, 0.25);
+}
+.modal.active {
+	opacity: 1;
+	pointer-events: initial;
+}
+.modal-back {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-  }
+    background-color: rgba(0,0,0,0.4);
 }
-/*========== Cited is over ===============*/
+
+.modal-popup {
+    width: 80%;
+    position: absolute;
+    top: 50%;
+    left: 65%;
+    transform: translate(-50%,calc(-50% + 4em));
+    transition: all 0.3s;
+    border-radius: 0.3em;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.modal.active .modal-popup {
+    transform: translate(-50%,-50%);
+}
+.modal-head,
+.modal-foot {
+	background-color: #325C82;;
+	line-height: var(--header-height);
+	color: white;
+    font-weight: bold;
+    font-family: "Ubuntu";
+    text-align: center;
+    width: 60%;
+}
+.modal-body {
+	background-color: #325C82;
+	padding: 1em;
+	position: relative;
+	flex: 1 1 auto;
+	color: white;
+	text-align: center;
+	width: 60%;
+}
+
+
+
+
+/*======================= LIST PAGE ======================*/
+.unicornone,
+.unicorntwo,
+.unicornthree {
+	width: 20vmax;
+	height:20vmax;
+	margin: 1em 1em 0 1em ;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	text-align: center;
+    outline: 0;
+    border-radius: 1em;
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+
+.unicornone {
+	background-image: url(../img/unicorn1.jpg);
+}
+
+.unicorname {
+    text-align: center;
+}
+
+.display-flex {
+	display: flex;
+}
+.flex-justify-center {
+	justify-content: center;
+}
+
+
+/*========================== PROFILE PAGE =======================*/
+.profile-image {
+    height: 20vh;
+    position: relative;
+    margin-bottom: calc(6vh + 1em);
+    background-color: var(--color-main-medium);
+}
+.profile-image img {
+    width: 20vh;
+    height: 20vh;
+    border-radius: 50%;
+    position: absolute;
+    top: 5vh;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.profile-info-text {
+	padding: 0.5em;
+}
+.settings-icon {
+	padding: 2em;
+}
+#logout-button {
+   display: inline-flex;
+   width: 100%;
+   border-width: 0;
+   font: inherit;
+   padding: 1em 1em;
+   border-radius: 0.5em;
+   text-align: center;
+   outline: 0;
+   background-color: var(--color-pink-medium);
+	margin-bottom: 0;
+	margin-top: 0;
+	display: inline;
+}
+#logout-button:active {
+	background-color: var(--color-blue-medium);
+}
+input#logout-button {
+    text-align: center;
+    font-weight: bold;
+    font-family: var(--font-sans-title);
+    color: white;
+}
+.profile-info-text h3 {
+	text-align: center;
+}
+.profile-user-info {
+	margin-left: 1em;
+}
+
+
+/*========================== FOOTER =============================*/
+
+/*ICONS*/
+[data-role='footer'] a {
+	display: block;
+}
+.footer-icon {
+	line-height: 3rem;
+    font-size: 1.5em;
+}
+.icon {
+	width: 1em;
+	height: 1em;
+	display: inline-block;
+	vertical-align: text-bottom;
+	pointer-events: none;
+}
+.footer-lable {
+	line-height: 1rem;
+	font-size: 0.7em;
+}
 

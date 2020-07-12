@@ -102,27 +102,42 @@
 		<header data-role="header">
 			<h1>Map</h1>
 				<ul>
-				<div class="back-button" width="50px" height="25px">
+
+				<div class="display-flex flex-justify-center flexbox" id="back-button" width="25px" height="25px">
 				<li class="flex-none">
-					<a href="#" data-rel="back"></a>
+					<img src="" max-width="50px" height="25px">
 				</li></div>
+
 			</ul>
 		</header>
 	    <div data-role="main">
 	    	<img src="img/sf-map.jpg" class="map-img">
-	    	<img src="img/map-icon1.png" class="map-unicon-one">
-	    	<img src="img/map-icon1.png" class="map-unicon-two">
+	    	<a href="#" data-activate="#map-uni-modal"><img src="img/map-icon1.png" class="map-unicon-one"></a>
+	    	<a href="#" data-activate="#map-uni-modal"><img src="img/map-icon1.png" class="map-unicon-two"></a>
         </div>
 
 
-	    <footer data-role="footer">
-	    	<ul>
-	    		<li class="flex-child"><a href="#add-page"><img src="img/add-icon.png"></a></li>
-	    		<li class="flex-child"><a href="#recent-page"><img src="img/map-icon-selected.png"></a></li>
-	    		<li class="flex-child"><a href="#list-page"><img src="img/uni-icon.png"></a></li>
-	    		<li class="flex-child"><a href="#profile-page"><img src="img/profile-icon.png"></a></li>
-	    	</ul>
-	    </footer>
+    <footer data-role="footer" data-template="#footer-template"></footer>
+
+    <div class="modal" id="map-uni-modal">
+    	<div class="modal-back" data-deactivate="#map-uni-modal">
+    		<div class="modal-popup">
+    		<div class="modal-head">Unicorn</div>
+    		<div class="modal-body">
+		       		<span class="modal-title"><strong>Location:</strong></span>
+		       		<span class="modal-info">123 Street, 94111</span>
+
+		       		<span class="modal-title"><strong>:</strong></span>
+		       		<span class="modal-info">2 locations</span>
+    		</div>
+
+    		<div class="modal-foot">Delete this unicorn</div>
+
+    	</div>	
+    </div>
+</div>
+
+
 	    
 	</section>
 
@@ -135,46 +150,68 @@
 		<header data-role="header">
 			<h1>List / Collection</h1>
 			<ul>
-				<div class="back-button" width="50px" height="25px">
+               
+				<div class="display-flex flex-justify-center flexbox" id="back-button" width="25px" height="25px">
 				<li class="flex-none">
-					<a href="#" data-rel="back"><img src="img/back.png" max-width="50px" height="25px"></a>
+					<a href="#" data-rel="back"><img src="img/icon/back.svg" max-width="50px" height="25px"></a>
 				</li></div>
+		
 			</ul>
 		</header>
 	<div data-role="main">
-		<div class="flex-stretch"></div>
-		<ul>
-	<div class="list-row">
+		<div class="scrollable">
 
-	<div class="list-column">
-			<div class="list-column-img"><img src="img/unicorn1.jpg"></div>
-			<p>unicorn 1</p>
+		<div class="display-flex flex-justify-center flexbox">
+		<a href="#unicorn-page">
+			<div class="unicornone"></div>
+			<div class="unicorname">unicorn</div></a>
+		<a href="#unicorn-page">
+			<div class="unicornone"></div>
+			<div class="unicorname">unicorn</div></a>
 		</div>
 
-	<div class="list-column">
-			<div class="list-column-img"><img src="img/unicorn2.jpg"></div>
-			<p>unicorn 2</p>
-			</div>
+		<div class="display-flex flex-justify-center flexbox">
+		<a href="#unicorn-page">
+			<div class="unicornone"></div>
+			<div class="unicorname">unicorn</div></a>
+		<a href="#unicorn-page">
+			<div class="unicornone"></div>
+			<div class="unicorname">unicorn</div></a>
 		</div>
-    
-    <div class="list-row">
-	<div class="list-column">
-			<div class="list-column-img"><img src="img/unicorn3.png"></div>
-			<p>unicorn 3</p>
-			</div>
 
-	
-		</ul></div>
+		<div class="display-flex flex-justify-center flexbox">
+		<a href="#unicorn-page">
+			<div class="unicornone"></div>
+			<div class="unicorname">unicorn</div></a>
+		<a href="#unicorn-page">
+			<div class="unicornone"></div>
+			<div class="unicorname">unicorn</div></a>
+		</div>
+
+		<div class="display-flex flex-justify-center flexbox">
+		<a href="#unicorn-page">
+			<div class="unicornone"></div>
+			<div class="unicorname">unicorn</div></a>
+		<a href="#unicorn-page">
+			<div class="unicornone"></div>
+			<div class="unicorname">unicorn</div></a>
+		</div>
+
+		<div class="display-flex flex-justify-center flexbox">
+		<a href="#unicorn-page">
+			<div class="unicornone"></div>
+			<div class="unicorname">unicorn</div></a>
+		<a href="#unicorn-page">
+			<div class="unicornone"></div>
+			<div class="unicorname">unicorn</div></a>
+		</div>
+
+
+		</div>
 	</div>
 
-		<footer data-role="footer" role="contactinfo">
-	    	<ul>
-	    		<li class="flex-child"><a href="#add-page"><img src="img/add-icon.png"></a></li>
-	    		<li class="flex-child"><a href="#recent-page"><img src="img/map-icon.png"></a></li>
-	    		<li class="flex-child"><a href="#list-page"><img src="img/uni-icon-selected.png"></a></li>
-	    		<li class="flex-child"><a href="#profile-page"><img src="img/profile-icon.png"></a></li>
-	    	</ul>
-	    </footer>
+    <footer data-role="footer" data-template="#footer-template"></footer>
+
 	</section>
 
 <!--------------- Add Page --------------------->
@@ -183,23 +220,18 @@
 		<header data-role="header">
 			<h1>Add a Unicorn</h1>
 			<ul>
-				<div class="back-button" width="50px" height="25px">
+
+				<div class="display-flex flex-justify-center flexbox" id="back-button" width="25px" height="25px">
 				<li class="flex-none">
-					<a href="#" data-rel="back"><img src="img/back.png" max-width="50px" height="25px"></a>
+					<a href="#" data-rel="back"><img src="img/icon/back.svg" max-width="50px" height="25px"></a>
 				</li></div>
+
 			</ul>
 		</header>
 		<div data-role="main">
 			Add a Unicorn
 		</div>
-		<footer data-role="footer">
-	        <ul>
-	    		<li class="flex-child"><a href="#add-page"><img src="img/add-icon-selected.png"></a></li>
-	    		<li class="flex-child"><a href="#recent-page"><img src="img/map-icon.png"></a></li>
-	    		<li class="flex-child"><a href="#list-page"><img src="img/uni-icon.png"></a></li>
-	    		<li class="flex-child"><a href="#profile-page"><img src="img/profile-icon.png"></a></li>
-	    	</ul>
-	    </footer>
+    <footer data-role="footer" data-template="#footer-template"></footer>
 	</section>
 
 
@@ -209,82 +241,97 @@
 		<header data-role="header">
 			<h1>My Profile</h1>
 			<ul>
-				<div class="back-button" width="50px" height="25px">
+				
+				<div class="display-flex flex-justify-center flexbox" id="back-button" width="25px" height="25px">
 				<li class="flex-none">
-					<a href="#" data-rel="back"><img src="img/back.png" max-width="50px" height="25px"></a>
+					<a href="#" data-rel="back"><img src="img/icon/back.svg" max-width="50px" height="25px"></a>
 				</li></div>
+			
 			</ul>
 		</header>
+
 		<div data-role="main">
-			My Profile
-			<p>
-				<a href="#" class="js-logout"><img src="img/logout.png">Logout</a>
-			</p>
+		<div class="profile-image">
+		       <img src="img/unicorn1.jpg" alt="">
+		    </div>
+
+	<div class="display-flex flex-justify-center" style="padding: 1em">
+		    
+		    	<input type="text" class="js-logout" id="logout-button" placeholder="Sign Out" data-role="none">
+
+		
+	</div>
+
+	<div class="display-flex flex-justify-center" style="padding: 1em">
+
+		  <div class="profile-body">
+
+		    <ul class="plofile-info">
+		        <div class="profile-info-text">
+		       		<h3>Your Name</h3>
+		       	</div>
+
+		       	<div class="profile-info-text">
+		       		<span class="profile-title"><strong>Email:</strong></span>
+		       		<span class="profile-user-info">youremail@email.com</span>
+		       	</div>
+
+		    <div class="profile-info-text">
+		    	<span class="profile-title"><strong>Location:</strong></span>
+		    	<span class="profile-user-info">San Francisco</span>
+		    </div>
+
+            <div class="profile-info-text">
+                <span class="profile-title"><strong>Member from:</strong></span>
+                <span class="profile-user-info">June 2020</span>
+            </div>
+        </ul>
 		</div>
-		<footer data-role="footer">
-	        <ul>
-	    		<li class="flex-child"><a href="#add-page"><img src="img/add-icon.png"></a></li>
-	    		<li class="flex-child"><a href="#recent-page"><img src="img/map-icon.png"></a></li>
-	    		<li class="flex-child"><a href="#list-page"><img src="img/uni-icon.png"></a></li>
-	    		<li class="flex-child"><a href="#profile-page"><img src="img/profile-icon-selected.png"></a></li>
-	    	</ul>
-	    </footer>
+
+	</div>
+
+</div>
+
+    <footer data-role="footer" data-template="#footer-template"></footer>
 	</section>
+
+
+
+	<script type="text/template" id="footer-template">
+		    <ul>
+
+                <li>
+                	<a href="#recent-page">
+                		<div class="footer-icon"><img class="icon" src="img/icon/map.svg"></div>
+                		
+                	</a>
+                </li>
+
+                <li>
+                	<a href="#add-page">
+                		<div class="footer-icon"><img class="icon" src="img/icon/add.svg"></div>
+                		
+                	</a>
+                </li>
+
+                <li>
+                	<a href="#list-page">
+                		<div class="footer-icon"><img class="icon" src="img/icon/list.svg"></div>
+                		
+                	</a>
+                </li>
+
+                <li>
+                	<a href="#profile-page">
+                		<div class="footer-icon"><img class="icon" src="img/icon/profile.svg"/></div>
+                		
+                	</a>
+                </li>
+
+            </ul>
+	</script>
 
 </body>
 </html>
 
-	<!-------------- Page One ---------------//>
 	
-	<section data-role="page" id="page1">
-		<header data-role="header">
-			<h1>Header</h1>
-		</header>
-        <div data-role="main">
-			<h2>This Page</h2>
-
-			<ui>
-				<li><a href="#page2">Page Two</a></li>
-				<li><a href="#page3">Page Three</a></li>
-			</ul>
-		</div>
-		<footer data-role="footer">
-			<h1>Footer</h1>
-		</footer>
-	</section>
-
-	!-------------- Page Two ---------------//>
-
-	<section data-role="page" id="page2">
-		<header data-role="header">
-			<h1>Header</h1>
-		</header>
-        <div data-role="main">
-			<h2>This Page</h2>
-
-			<ui>
-				<li><a href="#page1">Page One</a></li>
-				<li><a href="#page3">Page Three</a></li>
-			</ul>
-		</div>
-		<footer data-role="footer">
-			<h1>Footer</h1>
-		</footer>
-	</section>
-
-	!-------------- Page Three ---------------//>
-
-	<section data-role="page" id="page3">
-		<header data-role="header">
-			<h1>Header</h1>
-			<a href="#" data-rel="back">Back</a>
-		</header>
-        <div data-role="main">
-			<h2>This is also a page</h2>
-
-		</div>
-
-	</section>
-
-</body>
-</html>
