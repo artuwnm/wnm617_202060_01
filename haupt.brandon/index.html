@@ -28,11 +28,11 @@
     <section data-role="page" id="signin-page">
       <div data-role="main">
         <div class="login-background"></div>
-        <ul class="navMenu">
+        <!-- <ul class="navMenu">
           <li><a href="#map-page">Map</a></li>
           <li><a href="#list-page">List</a></li>
           <li><a href="#profile-page">Profile</a></li>
-        </ul>
+        </ul> -->
 
         <div class="signin-box" data-activate="#signin-page .signup-box">
           <form id="signin-form" data-ajax="false" class="center-child">
@@ -126,7 +126,7 @@
             </div>
 
             <div class="form-control-sign-up-btn">
-              <a href="#" class="back-arrow" data-rel="back">&#60;</a>
+              <a href="#" class="back-arrow" data-rel="back">back</a>
               <input
                 type="submit"
                 class="form-button"
@@ -194,83 +194,82 @@
 
       <div class="header">
         <ul>
-          <div class="resource-profile-add">
-            <a href="#resource-add-page">
-              <button>&plus;</button>
-            </a>
-          </div>
 
           <ul class="navMenu">
             <li class="map-image">
-              <a href="#map-page"
-                >
-                <img src="./img/png/treasure-map.png" alt=""
-              />
-            </a>
+              <a href="#map-page"><img src="./img/png/treasure-map.png" alt=""/></a>
   
               <li class="list-image">
                 <a href="#list-page">
-                  <img src="./img/png/bookmarklet_black.png" alt=""
-                />
-              </a>
-            </li>
+                  <img src="./img/png/bookmarklet_black.png" alt=""/>
+                </a>
+              </li>
   
-            <li class="user-profile-image">
-                <a href="#profile-page">
-                  <img src="./img/png/person_black.png" alt=""
-                />
-              </a>
-            </li>
+              <li class="user-profile-image">
+                <a href="#profile-page"><img src="./img/png/person_black.png" alt=""/></a>
+              </li>
   
             </li>
           </ul>
         </ul>
       </div>
 
+      <!-- class="resource-list" vvvvv -->
       <div data-role="main">
-        <ul class="resource-list">
-          <li>
-            <a href="#resource-profile-page">
-              Resource 1
-            </a>
-          </li>
-          <li><a href="#resource-profile-page">Resource 2</a></li>
-          <li><a href="#resource-profile-page">Resource 3</a></li>
-          <li><a href="#resource-profile-page">Resource 4</a></li>
-          <li><a href="#resource-profile-page">Resource 5</a></li>
-          <li><a href="#resource-profile-page">Resource 6</a></li>
-          <li><a href="#resource-profile-page">Resource 7</a></li>
-          <li><a href="#resource-profile-page">Resource 8</a></li>
-          <li><a href="#resource-profile-page">Resource 9</a></li>
-          <li><a href="#resource-profile-page">Resource 10</a></li>
-        </ul>
+        <div class="scrollable">
+          <ul class="container">
+            <li><a href="#resource-profile-page"><img src="./img/png/tree-beehive_white.png" alt="">Beehive</a></li>
+            <li><a href="#resource-profile-page"><img src="./img/png/tree-beehive_white.png" alt="">Beehive</a></li>
+            <li><a href="#resource-profile-page"><img src="./img/png/tree-beehive_white.png" alt="">Beehive</a></li>
+            <li><a href="#resource-profile-page"><img src="./img/png/tree-beehive_white.png" alt="">Beehive</a></li>
+            <li><a href="#resource-profile-page"><img src="./img/png/tree-beehive_white.png" alt="">Beehive</a></li>
+            <li><a href="#resource-profile-page"><img src="./img/png/tree-beehive_white.png" alt="">Beehive</a></li>
+            <li><a href="#resource-profile-page"><img src="./img/png/tree-beehive_white.png" alt="">Beehive</a></li>
+            <li><a href="#resource-profile-page"><img src="./img/png/tree-beehive_white.png" alt="">Beehive</a></li>
+            <li><a href="#resource-profile-page"><img src="./img/png/tree-beehive_white.png" alt="">Beehive</a></li>
+            <li><a href="#resource-profile-page"><img src="./img/png/tree-beehive_white.png" alt="">Beehive</a></li>
+            <li><a href="#resource-profile-page"><img src="./img/png/tree-beehive_white.png" alt="">Beehive</a></li>
+            <li><a href="#resource-profile-page"><img src="./img/png/tree-beehive_white.png" alt="">Beehive</a></li>
+            <li><a href="#resource-profile-page"><img src="./img/png/tree-beehive_white.png" alt="">Beehive</a></li>
+            <li><a href="#resource-profile-page"><img src="./img/png/tree-beehive_white.png" alt="">Beehive</a></li>
+            <li><a href="#resource-profile-page"><img src="./img/png/tree-beehive_white.png" alt="">Beehive</a></li>
+            <li><a href="#resource-profile-page"><img src="./img/png/tree-beehive_white.png" alt="">Beehive</a></li>
+            <li><a href="#resource-profile-page"><img src="./img/png/tree-beehive_white.png" alt="">Beehive</a></li>
+            <li><a href="#resource-profile-page"><img src="./img/png/tree-beehive_white.png" alt="">Beehive</a></li>
+            <li><a href="#resource-profile-page"><img src="./img/png/tree-beehive_white.png" alt="">Beehive</a></li>
+            <li><a href="#resource-profile-page"><img src="./img/png/tree-beehive_white.png" alt="">Beehive</a></li>
+            <li><a href="#resource-profile-page"><img src="./img/png/tree-beehive_white.png" alt="">Beehive</a></li>
+            <li><a href="#resource-profile-page"><img src="./img/png/tree-beehive_white.png" alt="">Beehive</a></li>
+          </ul>
+        </div>
       </div>
 
       <div class="modal" id="list-add-resource-modal">
-        <div
-          class="modal-back"
-          data-deactivate="#list-add-resource-modal"
-        ></div>
+        <div class="modal-back" data-deactivate="#list-add-resource-modal"></div>
+
         <div class="modal-popup">
-          <div class="modal-head">
-            header
-          </div>
+          <div class="modal-head">header</div>
+
           <div class="modal-body">
             <form data-ajax="false" action=""></form>
           </div>
+
           <div class="modal-footer">
             <div class="form-control">
-              <input
-                type="text"
-                class="form-input"
-                id="list-add-name"
-                placeholder="Add resource name"
-                data-role="none"
-              />
+              <input type="text" class="form-input" id="list-add-name" placeholder="Add resource name" data-role="none"/>
             </div>
           </div>
         </div>
       </div>
+
+
+      <div class="list-resource-button">
+        <a href="#resource-add-page">
+          <button>&plus;</button>
+        </a>
+      </div>
+
+
     </section>
 
     <!--------------------- Resource add Page ----------------------->
