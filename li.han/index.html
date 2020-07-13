@@ -1,7 +1,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>New Project</title>
+	<title>PacaPaca</title>
 
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
@@ -15,30 +15,29 @@
 
 	<script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
 </head>
+
+
 <body>
 
-
-
-
-	<section data-role="page" id="signin-page" style="background-color: #8fc31f;">
+	<section data-role="page" id="signin-page">
 
 	 <div data-role="main" class="display-flex flex-column">
 			<div class="flex-stretch"></div>
 			<div class="flex-none" style="text-align:center; ">
-				<img src="img/logo.jpg" alt="" class="login-logo">
+				<img src="img/PacaPaca.svg" alt="" class="login-logo">
 			</div>
 			<div class="flex-none" style="padding:1em">
 				<form id="signin-form" data-ajax="false">
 					<div class="form-control">
-						<label for="signin-username" class="form-label">Username</label>
-						<input type="text" class="hotdog" id="signin-username" placeholder="Type your Username" data-role="none">
+						
+						<input type="text" class="hotdog" id="signin-username" placeholder="Username" data-role="none">
 					</div>
 					<div class="form-control">
-						<label for="signin-password" class="form-label">Password</label>
-						<input type="password" class="hotdog" id="signin-password" placeholder="Type your Password" data-role="none">
+						
+						<input type="password" class="hotdog" id="signin-password" placeholder="Password" data-role="none">
 					</div>
 					<div class="form-control">
-						<input type="submit" class="hotdog-button" value="Sign In" data-role="none">
+				<button type="submit" class="form-button" value="Sign In" data-role="none">Sign In</button>
 					</div>
 					<div class="form-control" style="font-size:0.8em;text-align:center;">
 						Don't have an account? <a href="#signup-page">Sign Up</a>
@@ -89,81 +88,333 @@
 
 
 	<section data-role="page" id="recent-page">
-		<div data-role="main" style="background-image: url('img/map.jpg'); background-size: cover; ">
+		<div data-role="main" >
+			<div class="map">
+				
+				<a href="#animal-profile-page" class="ui-link add">
+						<img  class="pink" src="img/pink.svg" alt="" >
+					</a>
+
+					<a  href="#animal-profile-page" class="ui-link add">
+						<img  class="blue" src="img/blue.svg" alt="" >
+					</a>
+
+			</div>
+		
+
+		</div class="add">
+	
+					<a href="#" data-activate="#list-add-animal-modal" class="ui-link add">
+						<img src="img/plus dark.svg" alt="" style="width: 120%;">
+
+					</a>
+				</div>
 			
+			<div class="modal" id="list-add-animal-modal">
+			<div class="modal-back" data-deactivate="#list-add-animal-modal"></div>
+			<div class="modal-popup">
+				<div class="modal-head" style="text-align: center;">Add</div>
+				<div class="modal-body">
+					<div class="scrollable">
+						<form data-ajax="false" id="list-add-form" style="padding:1em;">
+							<div class="form-control">
+								<label for="list-add-name" class="form-label">Alpaca Name</label>
+								<input type="text" class="form-input" id="list-add-name" placeholder="Type Alpaca Name" data-role="none">
+							</div>
+
+							<div class="form-control">
+								<label for="list-add-breed" class="form-label">Alpaca Breed</label>
+								<input type="text" class="form-input" id="list-add-breed" placeholder="Type Alpaca Breed" data-role="none">
+							</div>
+							<div class="form-control">
+								<label for="list-add-type" class="form-label">Alpaca Location</label>
+								<input type="text" class="form-input" id="list-add-location" placeholder="Type Alpaca Location" data-role="none">
+							</div>	
+
+								<div class="form-control">
+						<input type="button" class="form-button" onclick="alert('Alpaca Added!')" value="Confirm" data-role="none">
+					</div>
+						</form>
+					</div>
+				</div>
+				<div class="modal-foot"></div>
+			</div>
 		</div>
-		<footer data-role="footer">
+		<footer data-role="footer" data-template="#footer-template">
 			<ul>
 				<!-- li*3>a[href=#] -->
 				<li><a href="#recent-page">Home</a></li>
 				<li><a href="#list-page">List</a></li>
-				<li><a href="#profile-page">Setting</a></li>
+				<li><a href="#profile-page">Profile</a></li>
 			</ul>
 		</footer>
 	</section>
 	<section data-role="page" id="list-page">
+		
 		<header data-role="header">
-			<h1>Animal List</h1>
+			<h1>Alpaca List</h1>
 			<ul>
-				<li class="flex-stretch"></li>
 				<li class="flex-none">
-					<a href="#">&plus;</a>
+					<a href="#" data-rel="back" style="color: transparent;"> back </a>
 				</li>
 			</ul>
 		</header>
 		<div data-role="main">
-			<!-- ul>li*10>a[href=#animal-profile-page]>{Animal $} -->
-			<ul>
-				<li><a href="#animal-profile-page">Animal 1</a></li>
-				<li><a href="#animal-profile-page">Animal 2</a></li>
-				<li><a href="#animal-profile-page">Animal 3</a></li>
-				<li><a href="#animal-profile-page">Animal 4</a></li>
-				<li><a href="#animal-profile-page">Animal 5</a></li>
-				<li><a href="#animal-profile-page">Animal 6</a></li>
-				<li><a href="#animal-profile-page">Animal 7</a></li>
-				<li><a href="#animal-profile-page">Animal 8</a></li>
-				<li><a href="#animal-profile-page">Animal 9</a></li>
-				<li><a href="#animal-profile-page">Animal 10</a></li>
-			</ul>
+				<div class="scrollable">
+				<div class="display-flex flex-justify-center flexbox">
+		          <a href="#animal-profile-page">
+		          <div class="productone"></div>
+				  <div class="productname">Alpaca</div>
+		          </a> 
+		          <a href="#animal-profile-page">
+		          	<div class="productone"></div>
+		          	<div class="productname">Alpaca</div>
+		          </a>
+        		</div>
+        		<div class="display-flex flex-justify-center flexbox">
+		          <a href="#animal-profile-page">
+		          <div class="productone"></div>
+				  <div class="productname">Alpaca</div>
+		          </a> 
+		          <a href="#animal-profile-page">
+		          	<div class="productone"></div>
+		          	<div class="productname">Alpaca</div>
+		          </a>
+        		</div>
+        		<div class="display-flex flex-justify-center flexbox">
+		          <a href="#animal-profile-page">
+		          <div class="productone"></div>
+				  <div class="productname">Alpaca</div>
+		          </a> 
+		          <a href="#animal-profile-page">
+		          	<div class="productone"></div>
+		          	<div class="productname">Alpaca</div>
+		          </a>
+        		</div>
+        		<div class="display-flex flex-justify-center flexbox">
+		          <a href="#animal-profile-page">
+		          <div class="productone"></div>
+				  <div class="productname">Alpaca</div>
+		          </a> 
+		          <a href="#animal-profile-page">
+		          	<div class="productone"></div>
+		          	<div class="productname">Alpaca</div>
+		          </a>
+        		</div>
+        		
+        	</div>
 		</div>
-		<footer data-role="footer">
+		<footer data-role="footer" data-template="#footer-template">
 			<ul>
 				<!-- li*3>a[href=#] -->
 				<li><a href="#recent-page">Home</a></li>
 				<li><a href="#list-page">List</a></li>
-				<li><a href="#profile-page">Setting</a></li>
+				<li><a href="#profile-page">Profile</a></li>
 			</ul>
 		</footer>
+
 	</section>
+
+
+
+
+
 	<section data-role="page" id="animal-profile-page">
 		<header data-role="header">
-			<h1>Animal Profile</h1>
+			<h1>Alpaca Profile</h1>
 			<ul>
 				<li class="flex-none">
-					<a href="#" data-rel="back">Back</a>
+					<a href="#" data-rel="back"> < </a>
+				</li>
+				 <li>
+
+			<a class="settings" href="#edit-page">
+				<img src="img/edit.svg" alt="" class="icon" style="margin-top: 0.5em;">
+			</a>
+		</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			
+        <div class="alpaca-profile">
+				<img src="img/alpca1.jpg" alt="">
+			</div>
+			<div class="edit-info">
+			<div class="profile-body">
+				<div>
+					<strong>Name:</strong> <span>Alpaca</span>
+				</div>
+				<br>
+				<div>
+					<strong>Breeds:</strong> <span>Huacaya</span>
+				</div>
+				<br>
+				<div>
+					<strong>Locations:</strong> <span>Central Park, San Jose</span>
+				</div>
+
+            </div>
+
+
+<div class="display-flex flex-justify-center" style="padding:1em">
+				  <div class="form-control">
+						<a href="#" class="js-logout ui-link"><button class="form-button" value="Save" data-role="none">Delete</button></a>
+					</div>
+			</div>	
+			</div>
+		</div>
+		<div>
+			<img class="list-img" src="" style="width: 50%">
+		</div>
+	</section>
+
+
+<section data-role="page" id="edit-page">
+		<header data-role="header">
+			<h1>Edit</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back"> < </a>
 				</li>
 			</ul>
 		</header>
 		<div data-role="main">
-			Cool Animal
-		</div>
-		<div>
-			<img class="list-img" src="img/alpca1.jpg" style="width: 50%">
+
+				<div class="alpaca-profile">
+				<img src="img/alpca1.jpg" alt="">
+			    </div>
+          <div class="edit-info">
+			<div class="form-control">
+						<label for="signup-username" class="form-label">Name</label>
+						<input type="text" class="form-input" id="signup-username" placeholder="Alpaca" data-role="none">
+					</div>
+					<div class="form-control">
+						<label for="signup-password" class="form-label">Breeds</label>
+						<input type="password" class="form-input" id="signup-password" placeholder="Huacaya" data-role="none">
+					</div>
+					<div class="form-control">
+						<label for="signup-password2" class="form-label">Location</label>
+						<input type="password" class="form-input" id="signup-password2" placeholder="Central, San Jose" data-role="none">
+					</div>
+
+
+			<div class="display-flex flex-justify-center" style="padding:1em">
+			
+		    <div class="form-control">
+						<a href="#" class="js-logout ui-link"><button class="form-button" value="Save" data-role="none">Save</button></a>
+			</div>	
+		    </div>
+		  </div>
 		</div>
 	</section>
+
+
 	<section data-role="page" id="profile-page">
 		<div data-role="main">
-			User Profile
+			<div class="hero-image">
+				<img src="img/profile.jpg" alt="">
+			</div>
+			<h2 class="profile-title">Me</h2>
+			<div class="profile-body">
+				<div>
+					<strong>Email:</strong> <span>stumgist@gmail.com</span>
+				</div>
+				<br>
+				<div>
+					<strong>Alpacas:</strong> <span>5</span>
+				</div>
+				<br>
+				<div>
+					<strong>Locations:</strong> <span>25</span>
+				</div>
+			</div>
+
+
+			<div class="display-flex flex-justify-center" style="padding:1em">
+			
+		    <div class="form-control">
+						<a href="#" class="js-logout ui-link"><button class="form-button" value="Logout" data-role="none" style="background-color: grey; font-size:small;">Logout</button></a>
+			</div>	
+		    </div>
+
+			<a class="settings" href="#settings-page">
+				<img src="img/settings.svg" alt="" class="icon">
+			</a>
 		</div>
-		<footer data-role="footer">
+		<footer data-role="footer" data-template="#footer-template">
 			<ul>
 				<!-- li*3>a[href=#] -->
 				<li><a href="#recent-page">Home</a></li>
 				<li><a href="#list-page">List</a></li>
-				<li><a href="#profile-page">Setting</a></li>
+				<li><a href="#profile-page">Profile</a></li>
 			</ul>
 		</footer>
 	</section>
+<section data-role="page" id="settings-page">
+		<header data-role="header">
+			<h1>Settings</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back"> < </a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+
+				<div class="hero-image1">
+				<img src="img/profile.jpg" alt="">
+			    </div>
+          <div class="edit-info">
+			<div class="form-control">
+						<label for="signup-username" class="form-label">Username</label>
+						<input type="text" class="form-input" id="signup-username" placeholder="Me" data-role="none">
+					</div>
+					<div class="form-control">
+						<label for="signup-email" class="form-label">Email</label>
+						<input type="text" class="form-input" id="signup-email" placeholder="stumgist@gmail.com" data-role="none">
+					</div>
+					<div class="form-control">
+						<label for="signup-password" class="form-label">Alpacas</label>
+						<input type="password" class="form-input" id="signup-password" placeholder="5" data-role="none">
+					</div>
+					<div class="form-control">
+						<label for="signup-password2" class="form-label">Location</label>
+						<input type="password" class="form-input" id="signup-password2" placeholder="San Jose" data-role="none">
+					</div>
+
+
+			<div class="display-flex flex-justify-center" style="padding:1em">
+			
+		    <div class="form-control">
+						<a href="#" class="js-logout ui-link"><button class="form-button" value="Save" data-role="none">Save</button></a>
+			</div>	
+		    </div>
+		  </div>
+		</div>
+	</section>
+
+	<script type="text/template" id="footer-template">
+		<ul>
+			<li>
+				<a href="#recent-page">
+					<div class="footer-icon"><img class="icon" src="img/location.svg" alt=""></div>
+					<div class="footer-label">Recent</div>
+				</a>
+			</li>
+			<li>
+				<a href="#list-page">
+					<div class="footer-icon"><img class="icon" src="img/list.svg" alt=""></div>
+					<div class="footer-label">List</div>
+				</a>
+			</li>
+			<li>
+				<a href="#profile-page">
+					<div class="footer-icon"><img class="icon" src="img/user.svg" alt=""></div>
+					<div class="footer-label">Profile</div>
+				</a>
+			</li>
+		</ul>
+	</script>
 
 </body>
 </html>

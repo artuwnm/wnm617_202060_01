@@ -7,7 +7,7 @@
 :root {
 	--color-neutral-light: #eaeeef;
    --color-neutral-medium: #9aa2a4;
-   --color-neutral-dark: #363c3e;
+   --color-neutral-dark: #003f22;
 
 	--color-main-light: #f7f7c8;
 	--color-main-medium:#8fc31f;
@@ -47,8 +47,10 @@ a {
 }
 
 
-
-
+header
+{
+	color: var(--color-main-dark);
+}
 
 
 
@@ -114,7 +116,15 @@ a {
 
 
 
-
+.map{
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/map.jpg);
+    background-size: cover;
+}
 
 
 
@@ -149,7 +159,7 @@ a {
 	position:relative;
 	line-height: var(--header-height);
 	border-width:0;
-	background-color:white;
+	background-color:var(--color-main-medium);
 	box-shadow:0 0 5px rgba(0,0,0,0.2);
 	z-index:2;
 }
@@ -218,7 +228,7 @@ a {
     font: inherit;
     padding: 0.5em 1em;
     border-radius: 0.3em;
-    background-color: var(--color-neutral-light);
+    background-color: var(--color-main-medium);
     text-decoration: none;
     text-align: center;
     cursor: pointer;
@@ -236,7 +246,7 @@ a {
     border-width: 0;
     font: inherit;
     padding: 0.5em 1em;
-    border-radius: 2em;
+    border-radius: 0.5em;
     text-align:left;
     outline:0;
 }
@@ -245,14 +255,16 @@ a {
     text-align: center;
 }
 
-
-
+.js-logout.ui-link{
+	padding-top: 3em;
+}
 
 
 /*  LOGIN PAGE */
 .login-logo {
-	border-radius:50%;
-	max-width:35vmax;
+
+	max-width:30vmax;
+	min-width: 50%;
 }
 
 
@@ -313,4 +325,143 @@ a {
 	padding:1em;
 	position:relative;
 	flex:1 1 auto;
+
+}
+
+
+
+
+
+/* ICONS */
+[data-role='footer'] a {
+	display:block;
+}
+.footer-icon {
+    line-height: 2rem;
+    font-size: 1.5em;
+}
+.icon {
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+
+    vertical-align: text-bottom;
+    pointer-events:none;
+}
+.footer-label {
+    line-height: 1rem;
+    font-size: 0.7em;
+}
+
+.add{
+	background-color: transparent;
+}
+a.ui-link.add{
+	z-index: 1;
+	position: absolute;
+	bottom: 5em;
+	right: 3em;
+	filter: drop-shadow(0 0 0.3rem grey);
+}
+
+
+.map {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	background-image:url(../img/map.jpg);
+	background-size:cover;
+}
+
+
+.product{
+	background: url(../img/alpca1.jpg);
+	background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.productone {
+    width: 7em;
+    height: 7em;
+    border-radius: 0.2em;
+    background-image: url(../img/alpca1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    color: white;
+    text-align: center;
+    margin: 1em 2em 0em 2em;
+}
+
+.alpaca-profile img{
+    width: 20vh;
+    height: 15vh; 
+    border-radius: 10%;
+    position: absolute;
+    top: 8vh;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.productname {
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.hero-image {
+    height: 28vh;
+    position: relative;
+    margin-bottom: calc(13vh + 3em);
+    background-color: var(--color-main-medium);
+}
+
+
+.hero-image img, .hero-image1 img {
+    width: 30vh;
+    height: 30vh; 
+    border-radius: 50%;
+    position: absolute;
+    top: 8vh;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.hero-image1 img{
+	width: 20vh;
+    height: 20vh; 
+}
+
+
+.blue{
+	position: absolute;
+    bottom: 5em;
+    right: 10.5em;
+}
+
+.pink{
+	position: absolute;
+bottom: 18em;
+    right: 2em;
+}
+.settings {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.2em;
+    align-items: center;
+    justify-content: center;
+}
+.profile-title{
+	text-align: center;
+}
+.profile-body{
+padding-left: 25%;
+}
+.edit-info{
+	padding-top: 70%;
 }
