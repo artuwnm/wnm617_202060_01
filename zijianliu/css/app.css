@@ -32,12 +32,13 @@ h4,
 h5,
 h6 {
 	font-family:'Roboto', sans-serif;
+	text-align: center;
 }
 
 a {
 	display:inline-block;
 	color:inherit;
-	font-weight:bold;
+	font-weight:normal;
 	text-decoration:none;
 }
 
@@ -316,4 +317,62 @@ a {
 	padding:1em;
 	position:relative;
 	flex:1 1 auto;
+}
+#list-page [data-role="main"] ul li
+    {list-style-type:none;
+ 	color: black;border:none;
+ 	background-color: #9fd2b4;
+ 	padding:15px;
+ 	margin:15px auto;
+ 	margin-left: 14px;
+ 	color: white;
+ 	text-align: center;
+ 	width: 80%;
+ 	display:inline-block;}
+
+
+}/* ICONS */
+[data-role='footer'] a {
+	display:block;
+}
+.footer-icon {
+    line-height: 2rem;
+    font-size: 1.5em;
+}
+.icon {
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    vertical-align: text-bottom;
+    pointer-events:none;
+}
+.footer-label {
+    line-height: 1rem;
+    font-size: 0.7em;
+}
+.settings {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.2em;
+    align-items: center;
+    justify-content: center;
+}
+.hero-image {
+    height: 45vh;
+    position: relative;
+    margin-bottom: calc(13vh + 1em);
+    background-color: #9FD2B4;
+}
+.hero-image img {
+    width: 30vh;
+    height: 30vh;
+    border-radius: 50%;
+    position: absolute;
+    top: 8vh;
+    left: 50%;
+    transform: translateX(-50%);
 }
