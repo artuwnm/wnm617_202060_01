@@ -14,8 +14,10 @@
 
 	<script src="lib/js/jquery-2.2.4.min.js"></script>
 	<script src="js/signin.js"></script>
+	<script src="js/slideshow.js"></script>
 	<script src="js/app.js"></script>
 	<script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
+	 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 </head>
 <body>
@@ -110,6 +112,7 @@
 
 			</ul>
 		</header>
+
 	    <div data-role="main">
 	    	<img src="img/sf-map.jpg" class="map-img">
 	    	<a href="#" data-activate="#map-uni-modal"><img src="img/map-icon1.png" class="map-unicon-one"></a>
@@ -162,46 +165,48 @@
 		<div class="scrollable">
 
 		<div class="display-flex flex-justify-center flexbox">
-		<a href="#unicorn-page">
+		<a href="#" data-activate="#list-uni-modal">
 			<div class="unicornone"></div>
 			<div class="unicorname">unicorn</div></a>
-		<a href="#unicorn-page">
+
+		<a href="#" data-activate="#list-uni-modal">
 			<div class="unicornone"></div>
 			<div class="unicorname">unicorn</div></a>
 		</div>
 
 		<div class="display-flex flex-justify-center flexbox">
-		<a href="#unicorn-page">
+		<a href="#" data-activate="#add-uni-modal">
 			<div class="unicornone"></div>
 			<div class="unicorname">unicorn</div></a>
-		<a href="#unicorn-page">
+
+		<a href="#" data-activate="#add-uni-modal">
 			<div class="unicornone"></div>
 			<div class="unicorname">unicorn</div></a>
 		</div>
 
 		<div class="display-flex flex-justify-center flexbox">
-		<a href="#unicorn-page">
+		<a href="#" data-activate="#add-uni-modal">
 			<div class="unicornone"></div>
 			<div class="unicorname">unicorn</div></a>
-		<a href="#unicorn-page">
-			<div class="unicornone"></div>
-			<div class="unicorname">unicorn</div></a>
-		</div>
-
-		<div class="display-flex flex-justify-center flexbox">
-		<a href="#unicorn-page">
-			<div class="unicornone"></div>
-			<div class="unicorname">unicorn</div></a>
-		<a href="#unicorn-page">
+		<a href="#">
 			<div class="unicornone"></div>
 			<div class="unicorname">unicorn</div></a>
 		</div>
 
 		<div class="display-flex flex-justify-center flexbox">
-		<a href="#unicorn-page">
+		<a href="#">
 			<div class="unicornone"></div>
 			<div class="unicorname">unicorn</div></a>
-		<a href="#unicorn-page">
+		<a href="#">
+			<div class="unicornone"></div>
+			<div class="unicorname">unicorn</div></a>
+		</div>
+
+		<div class="display-flex flex-justify-center flexbox">
+		<a href="#" data-activate="#list-uni-modal">
+			<div class="unicornone"></div>
+			<div class="unicorname">unicorn</div></a>
+		<a href="#" data-activate="#list-uni-modal">
 			<div class="unicornone"></div>
 			<div class="unicorname">unicorn</div></a>
 		</div>
@@ -212,6 +217,27 @@
 
     <footer data-role="footer" data-template="#footer-template"></footer>
 
+    <div class="modal" id="list-uni-modal">
+    	<div class="modal-back" data-deactivate="#list-uni-modal">
+    		<div class="modal-popup">
+    		<div class="modal-head">The Unicorn</div>
+    		<div class="modal-body">
+		       		<span class="modal-title"><strong>Coding Skill:</strong></span>
+		       		<span class="modal-info">Advanced</span>
+
+		       		<span class="modal-title"><strong>UX Design:</strong></span>
+		       		<span class="modal-info">Advanced</span>
+
+		       		<span class="modal-title"><strong>UI/Visual Design:</strong></span>
+		       		<span class="modal-info">Advanced</span>
+    		</div>
+
+    		<div class="modal-foot">Medium to rare to find</div>
+
+    	</div>	
+    </div>
+</div>
+
 	</section>
 
 <!--------------- Add Page --------------------->
@@ -220,7 +246,7 @@
 		<header data-role="header">
 			<h1>Add a Unicorn</h1>
 			<ul>
-
+        
 				<div class="display-flex flex-justify-center flexbox" id="back-button" width="25px" height="25px">
 				<li class="flex-none">
 					<a href="#" data-rel="back"><img src="img/icon/back.svg" max-width="50px" height="25px"></a>
@@ -228,9 +254,32 @@
 
 			</ul>
 		</header>
-		<div data-role="main">
-			Add a Unicorn
-		</div>
+
+<div data-role="main">
+
+	<div class="display-flex flex-justify-center flexbox">
+		<div class="uni-charc"></div></div>
+
+     <div class="display-flex flex-column">
+		<div class="flex-none" style="padding: 1em">
+			<form id="add-form" data-ajax="false">
+
+			    <div class="form-control-add">
+					<label for="name" class="form-label">Name</label>
+
+					<input type="name" class="uni-add" id="add-name" placeholder="Unicorn Name" data-role="none">
+				</div>
+
+				<div class="form-control-add">
+					<a href="#recent-page"><input type="submit" class="uni-add-button" value="Add" data-role="none"></a>
+				</div>
+			</form>
+		</div> 
+
+
+</div>
+</div>
+
     <footer data-role="footer" data-template="#footer-template"></footer>
 	</section>
 
@@ -252,17 +301,10 @@
 
 		<div data-role="main">
 		<div class="profile-image">
-		       <img src="img/unicorn1.jpg" alt="">
+		       <img src="img/profile-img.png" alt="">
 		    </div>
 
-	<div class="display-flex flex-justify-center" style="padding: 1em">
-		    
-		    	<input type="text" class="js-logout" id="logout-button" placeholder="Sign Out" data-role="none">
-
-		
-	</div>
-
-	<div class="display-flex flex-justify-center" style="padding: 1em">
+    	<div class="display-flex flex-justify-center" style="padding: 1em">
 
 		  <div class="profile-body">
 
@@ -289,6 +331,17 @@
 		</div>
 
 	</div>
+
+    <div class="display-flex flex-justify-center" style="padding: 1em">
+		    	<input type="text" class="settings" id="settings-button" placeholder="Settings" data-role="none">
+		
+	    </div>
+
+		<div class="display-flex flex-justify-center" style="padding: 1em">
+		    
+		    	<input type="text" class="js-logout" id="logout-button" placeholder="Sign Out" data-role="none">
+
+		</div>
 
 </div>
 

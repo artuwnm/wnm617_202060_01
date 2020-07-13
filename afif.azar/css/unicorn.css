@@ -392,7 +392,18 @@ text.unisignin-button {
 
 
 /*======================== MODAL =========================*/
-/********************* for all ************************/
+.modal-popup {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 65%;
+    transform: translate(-50%,calc(-50% + 4em));
+    transition: all 0.3s;
+    border-radius: 0.3em;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
 .modal {
 	position: absolute;
 	top: 0;
@@ -417,19 +428,6 @@ text.unisignin-button {
     height: 100%;
     background-color: rgba(0,0,0,0.4);
 }
-
-.modal-popup {
-    width: 80%;
-    position: absolute;
-    top: 50%;
-    left: 65%;
-    transform: translate(-50%,calc(-50% + 4em));
-    transition: all 0.3s;
-    border-radius: 0.3em;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-}
 .modal.active .modal-popup {
     transform: translate(-50%,-50%);
 }
@@ -452,8 +450,69 @@ text.unisignin-button {
 	text-align: center;
 	width: 60%;
 }
+.modal-body span {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
 
+/*======================= ADD PAGE =======================*/
+.form-control-add {
+	margin: 0.5em 0;
+}
+#add-form {
+	margin-top: 3em;
+}
+.uni-charc {
+	width: 40vmax;
+	height:40vmax;
+	margin: 1em 1em 0 1em ;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	text-align: center;
+    outline: 0;
+    border-radius: 1em;
+    margin-top: 4em;
+    margin-bottom: 1em;
+}
+.uni-charc {
+	background-image: url(../img/unicorn1.jpg);
+}
+.uni-add,
+.uni-add-button {
+   display: inline-flex;
+   width: 100%;
+   background-color: var(--color-neutral-light);
+   border-width: 0;
+   font: inherit;
+   padding: 1em 1em;
+   border-radius: 0.5em;
+   text-align: center;
+   outline: 0;
+}
 
+.uni-add-button {
+	background-color: var(--color-pink-medium);
+	margin-bottom: 1em;
+	margin-top: 1em;
+	text-align: center;
+	display: inline;
+}
+.uni-add-button:active {
+	background-color: var(--color-blue-medium);
+}
+input.uni-add-button {
+    text-align: center;
+    font-weight: bold;
+    font-family: var(--font-sans-title);
+    color: white;
+}
+text.uni-add-button {
+    text-align: center;
+}
+::placeholder{
+	color: #fff;
+}
 
 
 /*======================= LIST PAGE ======================*/
@@ -511,29 +570,35 @@ text.unisignin-button {
 .settings-icon {
 	padding: 2em;
 }
-#logout-button {
+#logout-button,
+#settings-button {
+	background-color: var(--color-pink-medium);
    display: inline-flex;
    width: 100%;
-   border-width: 0;
    font: inherit;
    padding: 1em 1em;
    border-radius: 0.5em;
    text-align: center;
    outline: 0;
-   background-color: var(--color-pink-medium);
 	margin-bottom: 0;
 	margin-top: 0;
 	display: inline;
+	border-width: 0;
 }
-#logout-button:active {
-	background-color: var(--color-blue-medium);
-}
-input#logout-button {
+
+input#logout-button, 
+input#settings-button {
     text-align: center;
     font-weight: bold;
     font-family: var(--font-sans-title);
     color: white;
 }
+
+#settings-button:active,
+#logout-button:active {
+	background-color: var(--color-blue-medium);
+}
+
 .profile-info-text h3 {
 	text-align: center;
 }
