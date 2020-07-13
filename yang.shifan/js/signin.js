@@ -9,6 +9,7 @@ const checkLoginForm = () => {
 		console.log("success");
 		sessionStorage.userId = 3;
 		$("#signin-form")[0].reset();
+		$.mobile.navigate("#map-page")
 	} else {
 		// not logged in
 		console.log("failure");

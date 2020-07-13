@@ -8,6 +8,7 @@
 
 	<link rel="stylesheet" href="lib/css/jquery.mobile.structure-1.4.5.min.css">
 	<link rel="stylesheet" href="css/app.css">
+	<link rel="stylesheet" href="css/gridsystem.css">
 
 	<script src="lib/js/jquery-2.2.4.min.js"></script>
 	<script src="js/signin.js"></script>
@@ -78,71 +79,201 @@
 	</section>
 
 	<section data-role="page" id="map-page">
-		<div data-role="main">
-			Map
+		<div data-role="main" style="background-image: url('img/map1.png'); background-position: center; background-repeat: no-repeat; background-size: cover;">
+			<div class="map-header">
+				<div class="display-flex" style="margin-top: 20px; align-items: center; justify-content: center;">
+					<div class="search-hotdog" style="margin-left: 10px;">
+						<form id="food-search">
+							<input type="search" class="search" placeholder="Search Food">
+						 </form>
+					</div>
+					<div style="margin-left: 20px;">
+						<a href="#" data-activate="#list-add-food-modal" class="ui-add">&plus;</a>
+					</div>
+				</div>
+			</div>
 		</div>
-		<footer data-role="footer">
-			<ul>
-				<!-- li*3>a[href=#] -->
-				<li><a href="#map-page">Map</a></li>
-				<li><a href="#list-page">List</a></li>
-				<li><a href="#profile-page">Profile</a></li>
-			</ul>
-		</footer>
+  </div>
+		<footer data-role="footer" data-template="#footer-template"></footer>
 	</section>
 
 	<section data-role="page" id="list-page">
 		<header data-role="header">
-			<h1>Food List</h1>
+			<h1>Categories</h1>
 			<ul>
 				<li class="flex-stretch"></li>
 				<li class="flex-none">
-					<a href="#" data-activate="#list-add-food-modal">&plus;</a>
+					<a href="#" data-activate="#list-add-food-modal" class="ui-add">&plus;</a>
 				</li>
 			</ul>
 		</header>
 		<div data-role="main">
-			<ul>
-				<li><a href="#food-info-page">pizza</a></li>
-				<li><a href="#food-info-page">cupcake</a></li>
-				<li><a href="#food-info-page">cake roll</a></li>
-				<li><a href="#food-info-page">milktea</a></li>
-				<li><a href="#food-info-page">steak</a></li>
-				<li><a href="#food-info-page">hotpot</a></li>
-				<li><a href="#food-info-page">pasta</a></li>
-				<li><a href="#food-info-page">burger</a></li>
-				<li><a href="#food-info-page">sushi</a></li>
-				<li><a href="#food-info-page">dim sum</a></li>
-			</ul>
+			<div class="grid scrollable">
+				<div class="col-md-4 col-sm-6 col-xs-6">
+					<div class="food-card">
+						<a href="#restaurant-info-page">
+							<img class="food-thumbnail" src="img/food/placeholder.jpg" alt="">
+						</a>
+						<div class="text-center" style="padding: 10px;">
+							Chinese
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6 col-xs-6">
+					<div class="food-card">
+						<a href="#restaurant-info-page">
+							<img class="food-thumbnail" src="img/food/placeholder.jpg" alt="">
+						</a>
+						<div class="text-center" style="padding: 10px;">
+							American
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6 col-xs-6">
+					<div class="food-card">
+						<a href="#restaurant-info-page">
+							<img class="food-thumbnail" src="img/food/placeholder.jpg" alt="">
+						</a>
+						<div class="text-center" style="padding: 10px;">
+							Korean
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6 col-xs-6">
+					<div class="food-card">
+						<a href="#restaurant-info-page">
+							<img class="food-thumbnail" src="img/food/placeholder.jpg" alt="">
+						</a>
+						<div class="text-center" style="padding: 10px;">
+							Dessert
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6 col-xs-6">
+					<div class="food-card">
+						<a href="#restaurant-info-page">
+							<img class="food-thumbnail" src="img/food/placeholder.jpg" alt="">
+						</a>
+						<div class="text-center" style="padding: 10px;">
+							Fast Food
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6 col-xs-6">
+					<div class="food-card">
+						<a href="#restaurant-info-page">
+							<img class="food-thumbnail" src="img/food/placeholder.jpg" alt="">
+						</a>
+						<div class="text-center" style="padding: 10px;">
+							Sushi
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-		<footer data-role="footer">
-			<ul>
-				<!-- li*3>a[href=#] -->
-				<li><a href="#map-page">Map</a></li>
-				<li><a href="#list-page">List</a></li>
-				<li><a href="#profile-page">Profile</a></li>
-			</ul>
-		</footer>
+		<footer data-role="footer" data-template="#footer-template"></footer>
+	</section>
 
-		<div class="modal" id="list-add-food-modal">
-			<div class="modal-back" data-deactivate="#list-add-food-modal"></div>
+	<div class="modal" id="list-add-food-modal">
 			<div class="modal-popup">
-				<div class="modal-head">Header</div>
+				<div class="modal-head display-flex">
+					<div class="flex-none" data-deactivate="#list-add-food-modal">
+						<img src="img/icons/left-arrow.svg" style="width: 20px; margin-left: 10px; margin-top: 15px;">
+					</div>
+					<div class="flex-stretch modal-title">
+						Add Food
+					</div>
+				</div>
 				<div class="modal-body">
 					<div class="scrollable">
 						<form data-ajax="false" id="list-add-form" style="padding:1em">
 							<div class="form-control">
-								<label for="list-add-name" class="form-label">Food Name</label>
-								<input type="text" class="form-input" id="list-add-name" placeholder="Type Animal Name" data-role="none">
+								<label for="list-add-`me" class="form-label">Food Name</label>
+								<input type="text" class="form-input" id="list-add-name" placeholder="" data-role="none">
 							</div>
 							<div class="form-control">
 								<label for="list-add-type" class="form-label">Food Type</label>
-								<input type="text" class="form-input" id="list-add-type" placeholder="Type Animal Type" data-role="none">
+								<input type="text" class="form-input" id="list-add-type" placeholder="" data-role="none">
+							</div>
+							<div class="form-control">
+								<label for="list-add-type" class="form-label">Restaurant</label>
+								<input type="text" class="form-input" id="list-add-type" placeholder="" data-role="none">
+							</div>
+							<div class="form-control">
+								<label for="list-add-type" class="form-label">Location</label>
+								<input type="text" class="form-input" id="list-add-type" placeholder="" data-role="none">
+							</div>
+							<div class="form-control">
+								<label for="list-add-type" class="form-label">Description</label>
+								<input type="text" class="form-input" id="list-add-type" placeholder="" data-role="none">
+							</div>
+							<div class="form-control form-photo">
+								<label for="food-photo" class="photo-upload">
+									<img src="img/icons/photograph.svg">
+								</label>
+								<input type="file" id="food-photo" name="food-photo" accept="image/png, image/jpeg">
 							</div>
 						</form>
 					</div>
 				</div>
-				<div class="modal-foot">Footer</div>
+				<div class="modal-foot text-center">Save</div>
+			</div>
+		</div>
+
+	<section data-role="page" id="restaurant-info-page">
+		<header data-role="header">
+			<h1>Restaurant Info</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">
+						<img src="img/icons/left-arrow.svg" style="width: 20px; margin-left: 10px; margin-top: 15px;">
+					</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<div class="grid scrollable">
+				<div class="col-md-4 col-sm-6 col-xs-6">
+					<div class="food-card">
+						<a href="#food-info-page">
+							<img class="food-thumbnail" src="img/food/placeholder.jpg" alt="">
+						</a>
+						<div class="text-center" style="padding: 10px;">
+							Chili House
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-4 col-sm-6 col-xs-6">
+					<div class="food-card">
+						<a href="#food-info-page">
+							<img class="food-thumbnail" src="img/food/placeholder.jpg" alt="">
+						</a>
+						<div class="text-center" style="padding: 10px;">
+							Old Roof
+						</div>
+					</div>
+				</div>
+				<!-- <div class="col-md-4 col-sm-6 col-xs-6">
+					<div class="food-card">
+						<a href="#food-info-page">
+							<img class="food-thumbnail" src="img/food/placeholder.jpg" alt="">
+						</a>
+						<div class="text-center" style="padding: 10px;">
+							Mr.Szechuan
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6 col-xs-6">
+					<div class="food-card">
+						<a href="#food-info-page">
+							<img class="food-thumbnail" src="img/food/placeholder.jpg" alt="">
+						</a>
+						<div class="text-center" style="padding: 10px;">
+							Koi Palace
+						</div>
+					</div>
+				</div> -->
 			</div>
 		</div>
 	</section>
@@ -152,31 +283,81 @@
 			<h1>Food Info</h1>
 			<ul>
 				<li class="flex-none">
-					<a href="#" data-rel="back">Back</a>
+					<a href="#" data-rel="back">
+						<img src="img/icons/left-arrow.svg" style="width: 20px; margin-left: 10px; margin-top: 15px;">
+					</a>
 				</li>
 			</ul>
 		</header>
 		<div data-role="main">
-			Food
+			<li>Beijing Roast Duck</li>
+			<li>Mapo Tofu</li>
+			<li>Boling Fish</li>
+			<li>Beef</li>
+				<!-- <div class="col-md-4 col-sm-6 col-xs-6">
+					<div class="food-card">
+						<a href="#food-info-page">
+							<img class="food-thumbnail" src="img/food/placeholder.jpg" alt="">
+						</a>
+						<div class="text-center" style="padding: 10px;">
+							Mr.Szechuan
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6 col-xs-6">
+					<div class="food-card">
+						<a href="#food-info-page">
+							<img class="food-thumbnail" src="img/food/placeholder.jpg" alt="">
+						</a>
+						<div class="text-center" style="padding: 10px;">
+							Koi Palace
+						</div>
+					</div>
+				</div> -->
+			</div>
 		</div>
 	</section>
 
 	<section data-role="page" id="profile-page">
 		<div data-role="main">
-			User Profile
-			<p>
-				<a href="#" class="js-logout">Logout</a>
-			</p>
+			<div>
+				<img class="user-profile" src="img/food/placeholder.jpg">
+			</div>
+			<div class="display-flex flex-column flex-justify-center" style="width: 60%; margin-left: auto; margin-right: auto; margin-top: 50px;">
+				<div class="text-center">
+					Sophie Marceau</br><br>
+					San Francisco</br><br>
+					Saved Restaurant     36<br><br>
+					Favourite      9
+				</div>
+				<div class="form-control" style="margin-top: 50px;">
+					<input type="submit" class="hotdog-button js-logout" value="Sign Out" data-role="none">
+				</div>
+			</div>
 		</div>
-		<footer data-role="footer">
-			<ul>
-				<!-- li*3>a[href=#] -->
-				<li><a href="#map-page">Map</a></li>
-				<li><a href="#list-page">List</a></li>
-				<li><a href="#profile-page">Profile</a></li>
-			</ul>
-		</footer>
+		<footer data-role="footer" data-template="#footer-template"></footer>
 	</section>
+
+
+	<script type="text/template" id="footer-template">
+		<ul>
+			<li>
+				<a href="#map-page" data-activate="#nav-map-page" data-deactivate="#nav-list-page #nav-profile-page">
+					<div class="footer-icon" id="nav-map-page"><img class="icon" src="img/icons/map.svg" alt=""></div>
+				</a>
+			</li>
+			<li>
+				<a href="#list-page" data-activate="#nav-list-page" data-deactivate="#nav-map-page #nav-profile-page">
+					<div class="footer-icon" id="nav-list-page"><img class="icon" src="img/icons/list.svg" alt=""></div>
+				</a>
+			</li>
+			<li>
+				<a href="#profile-page" data-activate="#nav-profile-page" data-deactivate="#nav-list-page #nav-map-page">
+					<div class="footer-icon" id="nav-profile-page"><img class="icon" src="img/icons/profile.svg" alt=""></div>
+				</a>
+			</li>
+		</ul>
+	</script>
 
 </body>
 </html>

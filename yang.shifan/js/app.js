@@ -25,7 +25,9 @@ $(()=>{
 		$($(this).data("activate")).addClass("active");
 	})
 	.on("click","[data-deactivate]",function(e){
-		$($(this).data("deactivate")).removeClass("active");
+		$(this).data("deactivate").split(" ").forEach(function(id) {
+			$(id).removeClass("active");
+		});
 	})
 	.on("click","[data-toggle]",function(e){
 		$($(this).data("toggle")).toggleClass("active");
@@ -33,6 +35,10 @@ $(()=>{
 	.on("click","[data-activateone]",function(e){
 		$($(this).data("activateone")).addClass("active")
 			.siblings().removeClass("active");
+	})
+
+	$("[data-template]").each(function(){
+		$(this).html($($(this).data("template")).html());
 	})
 
 });
