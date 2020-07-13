@@ -8,7 +8,7 @@
 
 	<link rel="stylesheet" href="lib/css/jquery.mobile.structure-1.4.5.min.css">
 	<link rel="stylesheet" href="css/app.css">
-
+	<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@700&family=Lato&display=swap" rel="stylesheet">
 	<script src="lib/js/jquery-2.2.4.min.js"></script>
 
 	<script src="js/signin.js"></script>
@@ -17,7 +17,7 @@
 	<script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
 </head>
 <body>
-	
+<!---------- signin page ---------->	
 	<section data-role="page" id="signin-page">
 		<div data-role="main" class="display-flex flex-column">
 			<div class="flex-stretch"></div>
@@ -36,7 +36,7 @@
 					</div>
 					<!--Sign In Button-->
 					<div class="form-control">
-						<input type="submit" class="hotdog-button" value="Sign In" data-role="none">
+						<input type="submit" class="hotdog-button hotdogfont" value="Sign In" data-role="none">
 					</div>
 
 					<div class="form-control" style="font-size:0.8em;text-align:center;">
@@ -46,9 +46,10 @@
 			</div>
 			<div class="flex-stretch"></div>
 		</div>
+
 	</section>
 
-
+<!---------- sign up page ---------->
 	<section data-role="page" id="signup-page">
 		<div data-role="main" class="display-flex flex-column">
 			<div class="flex-stretch"></div>
@@ -83,7 +84,7 @@
 					</div>
 				    <!--Sign Up Button-->
 					<div class="form-control">
-						<input type="submit" class="form-button" value="Sign Up" data-role="none">
+						<input type="submit" class="hotdog-button hotdogfont" value="Sign Up" data-role="none">
 					</div>
 					<div class="form-control" style="font-size:0.8em;text-align:center;">
 						Already have an account? <a href="#signin-page" class="sign_up_in_link">Sign In</a>
@@ -94,116 +95,151 @@
 		</div>
 	</section>
 
-
-
-
-
-
-
-	<section data-role="page" id="recent-page">
+<!---------- map page ---------->
+	<section data-role="page" id="map-page">
+		<header data-role="header">
+			<div class="text-center">
+					<a class="">Map</a>
+					<!--	<a href="#" data-activate="#list-add-animal-modal">&plus;</a> -->
+		</header>
 		<div data-role="main" class="mapeg">
-			<img src="img/map_eg.jpeg" alt="" style="height:100%;">
+			<img src="img/googlemap.jpg" alt="" style="width:100%; height:auto;">
+			<a  href="#item-page"><img src="img/map_point.png" alt="" class="map_point"></a>
+			<a  href="#add-item-page"><img src="img/addicon.png" alt="" class="addicon"></a>
 		</div>
+
 		<footer data-role="footer">
 			<ul>
-				<li><a href="#recent-page">Recent</a></li>
-				<li><a href="#list-page">List</a></li>
-				<li><a href="#profile-page">Profile</a></li>
+				<li class="pageicon"><a href="#map-page"><img src="img/icon1_2.png" alt="" class="icon1"></a></li>
+				<li><a href="#list-page"><img src="img/icon2.png" alt="" class="icon2"></a></li>
+				<li><a href="#profile-page"><img src="img/icon3.png" alt="" class="icon1"></a></li>
 			</ul>
 		</footer>
 	</section>
 
-
-
-
-
+<!---------- list page ---------->
 	<section data-role="page" id="list-page">
 		<header data-role="header">
-			<h1>Wild Edible List</h1>
-			<ul>
-				<li class="flex-stretch"></li>
-				<li class="flex-none">
-					<a href="#" data-activate="#list-add-animal-modal">&plus;</a>
-				</li>
-			</ul>
+			<div class="text-center">
+					<a class="">Wild Edible List</a>
 		</header>
 		<div data-role="main">
 			<div class="scrollable">
 				<ul class="it_category">
+					<li style="background-color:grey">All</li>
 					<li style="background-color:#E79460">Fungus</li>
-					<li style="background-color:#33A6B8">Fruit</li>
+					<li style="background-color:#33A6B8">Berry</li>
 					<li style="background-color:#86C166">Herb</li>
 				</ul>
-				<ul>
+				
 
 				<div class="itemshow">
 					<!--<li><a href="#animal-profile-page">Animal 1</a></li>-->
 					<div class="pic_sec">
-					<img src="img/mushroom.jpg" alt="" class="" style="height:100%;">
+					<img src="img/mushroom.jpg" alt="" class="list_pic" style="height:100%;">
 					</div>
 					<div class="inf_sec">
-						<div class="title_sec" style="background-color:#E79460">
-							<li ><a href="#item-page">White Mushroom</a>
+						<div class="title_sec">
+							<li ><a href="#item-page">White Button Mushroom</a></li>
 						</div>
 						<div class="des_sec">
 							<ul>
+								<li>Today, 01:34 PM</li>
+								<li>Presidio of San Francisco</li>
 								<li>Fungus</li>
-								<li>Can be eaten raw</li>
-								<li>No Poison</li>
 							</ul>
 						</div>
 					</div>
 				</div>
-
 
 				<div class="itemshow">
 					<!--<li><a href="#animal-profile-page">Animal 1</a></li>-->
 					<div class="pic_sec">
-					<img src="img/blueberry.jpg" alt="" class="" style="height:100%;">
+					<img src="img/blueberry.jpg" alt="" class="list_pic" style="height:100%;">
 					</div>
 					<div class="inf_sec">
-						<div class="title_sec" style="background-color:#33A6B8">
-							<li><a href="#item-page">Blueberry</a>
+						<div class="title_sec">
+							<li><a href="#item-page">Huckleberry</a></li>
 						</div>
 						<div class="des_sec">
 							<ul>
-								<li>Fruit</li>
-								<li>Can be eaten raw</li>
-								<li>No Poison</li>
+								<li>Today, 09:11 AM</li>
+								<li>Presidio of San Francisco</li>
+								<li>Berry</li>
 							</ul>
 						</div>
 					</div>
 				</div>
-								<div class="itemshow">
+
+				<div class="itemshow">
 					<!--<li><a href="#animal-profile-page">Animal 1</a></li>-->
 					<div class="pic_sec">
-					<img src="img/Oxalis.jpg" alt="" class="" style="height:100%;">
+						<img src="img/Oxalis.jpg" alt="" class="list_pic" style="height:100%;">
 					</div>
 					<div class="inf_sec">
-						<div class="title_sec" style="background-color:#86C166">
-							<li><a href="#item-page">Oxalis</a>
+						<div class="title_sec">
+							<li><a href="#item-page">Oxalis</a></li>
 						</div>
 						<div class="des_sec">
 							<ul>
+								<li>Yesterday, 11:03 AM</li>
+								<li>Presidio Heights</li>
 								<li>Herb</li>
-								<li>Can be eaten raw</li>
-								<li>No Poison</li>
 							</ul>
 						</div>
 					</div>
 				</div>
-					
-				</ul>
-			</div>
-		</div>
+
+				<div class="itemshow">
+					<div class="pic_sec">
+					<img src="img/s_mushroom.jpg" alt="" class="list_pic" style="height:100%;">
+					</div>
+					<div class="inf_sec">
+						<div class="title_sec">
+							<li ><a href="#item-page">Sulphur Shelf Mushroom</a></li>
+						</div>
+						<div class="des_sec">
+							<ul>
+								<li>Yesterday, 10:15 AM</li>
+								<li>Jordan Park</li>
+								<li>Fungus</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			
+			<div class="itemshow">
+					<!--<li><a href="#animal-profile-page">Animal 1</a></li>-->
+					<div class="pic_sec">
+					<img src="img/cloudberries.jpg" alt="" class="list_pic" style="height:100%;">
+					</div>
+					<div class="inf_sec">
+						<div class="title_sec">
+							<li><a href="#item-page">Cloudberries</a></li>
+						</div>
+						<div class="des_sec">
+							<ul>
+								<li>Yesterday, 09:33 AM</li>
+								<li>Jordan Park</li>
+								<li>Berry</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<a  href="#add-item-page"><img src="img/addicon.png" alt="" class="addicon"></a>
+			</div> <!--scrollable-->
+		</div> <!--main-->
+
 		<footer data-role="footer">
 			<ul>
-				<li><a href="#recent-page">Recent</a></li>
-				<li><a href="#list-page">List</a></li>
-				<li><a href="#profile-page">Profile</a></li>
+				<li><a href="#map-page"><img src="img/icon1.png" alt="" class="icon1"></a></li>
+				<li class="pageicon"><a href="#list-page"><img src="img/icon2_2.png" alt="" class="icon2"></a></li>
+				<li><a href="#profile-page"><img src="img/icon3.png" alt="" class="icon1"></a></li>
 			</ul>
 		</footer>
 
+<!---------- modal page ---------->
 		<div class="modal" id="list-add-animal-modal">
 			<div class="modal-back" data-deactivate="#list-add-animal-modal"></div>
 			<div class="modal-popup">
@@ -237,50 +273,301 @@
 		</div>
 	</section>
 
-
-
-
-
+<!---------- item page ---------->
 	<section data-role="page" id="item-page">
 		<header data-role="header">
 			<h1>Wild Edible Profile</h1>
 			<ul>
 				<li class="flex-none">
-					<a href="#" data-rel="back">Back</a>
+					<a href="#" data-rel="back"><img src="img/backicon.png" alt="" class="backicon"></a>
 				</li>
 			</ul>
 		</header>
-		<div data-role="main">
-			<div class="flex-none" style="text-align:center">
-				<img src="img/blueberry.jpg" alt="" class="item_pic">
+
+<div class="scrollable">
+		<div data-role="main" class="display-flex flex-column">
+			<div class="tenvhspace"></div>		
+			<div class="flex-none text-center">
+				<img src="img/mushroom.jpg" alt="" class="item_pic">
 			</div>
-		</div>
+			<div class="flex-none"></div>
+			<div class="text-center">
+			<a class="user_name">White Button Mushroom</a>
+			
+			<a class="user_info_top_lo">Fungus</a>
+			<div class="twovhspace"></div>
+			<div>
+				<a href="#edit-item-page" class="normalbutton">Edit</a>
+			</div>
+			<div class="twovhspace div_shadow"></div>
+		<!--
+			<div class="twovhspace"></div>	
+			<div class="item_funciton div_shadow">
+				<ul>
+					<li>Description</li>
+					<li>Locaiton</li>
+				</ul>
+			</div>
+		-->
+			</div>
+			<div class="threevhspace"></div>
+			<div class="item_description"style="margin-left:2em;">
+				<a class="item_d_t">How to eat</a>
+				<br>
+				<a class="item_d_a">Fry, Grill, Put in salad</a>
+				<div class="one_fivevhspace"></div>
+				<a class="item_d_t">Can it be eaten raw?</a>
+				<br>
+				<a class="item_d_a">Yes</a>
+				<div class="one_fivevhspace"></div>
+				<a class="item_d_t">Amount</a>
+				<br>
+				<a class="item_d_a">a lots</a>
+				<div class="one_fivevhspace"></div>
+				<a class="item_d_t">Note</a>
+				<p class="item_d_a">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis felis gravida, ultrices ipsum et, faucibus lorem. Nullam id nibh non lorem sollicitudin dapibus. Cras ullamcorper ut odio vel rutrum. Morbi fringilla enim vel justo euismod, et aliquam sapien venenatis. Sed at est nibh. Phasellus consequat ultrices sem, ac aliquam purus hendrerit id. Vivamus ac convallis ligula, eget faucibus enim.</p>
+				<a class="item_d_t">Location:</a>
+			</div>
+			<div class="one_fivevhspace"></div>
+			<img src="img/mushroom_location.png" alt="" class="item_map">
+			</div>
+</div>
+	</section>
+<!---------- edit item page ---------->
+	<section data-role="page" id="edit-item-page">
+		<header data-role="header">
+			<h1>Edit Item</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back"><img src="img/backicon.png" alt="" class="backicon"></a>
+				</li>
+			</ul>
+		</header>
+
+<div class="scrollable">
+		<div data-role="main" class="display-flex flex-column">
+			<div class="tenvhspace"></div>		
+			<div class="flex-none text-center">
+				<img src="img/mushroom.jpg" alt="" class="item_pic">
+			</div>
+			<div class="flex-none"></div>
+			<div class="text-center">
+			<input type="text" class="hotdog_edit user_name" id="hotdog_edit" placeholder="White Button Mushroom" data-role="none" style="margin:0.5em 0;">
+			<br>
+			<input type="text" class="hotdog_edit user_name" id="hotdog_edit" placeholder="Fungus" data-role="none">
+			<div style="margin-top:0.8em;">
+				<a href="#" class="normalbutton">Delete</a>
+			</div>
+			<div class="twovhspace"></div>
+
+			<div class="twovhspace div_shadow"></div>
+			</div>
+			<div class="threevhspace"></div>
+			<div class="item_description"style="margin-left:2em;">
+				<a class="item_d_t">How to eat</a>
+				<br>
+				<input type="text" class="hotdog_edit item_d_a" id="hotdog_edit" placeholder="Fry, Grill, Put in salad" data-role="none">
+				<div class="one_fivevhspace"></div>
+				<a class="item_d_t">Can it be eaten raw?</a>
+				<br>
+				<input type="text" class="hotdog_edit item_d_a" id="hotdog_edit" placeholder="Yes" data-role="none">
+				<div class="one_fivevhspace"></div>
+				<a class="item_d_t">Amount</a>
+				<br>
+				<input type="text" class="hotdog_edit item_d_a" id="hotdog_edit" placeholder="a lots" data-role="none">
+				<div class="one_fivevhspace"></div>
+				<a class="item_d_t">Note</a>
+				<br>
+				<input type="text" class="hotdog_edit item_d_a" id="hotdog_edit" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis felis gravida, ultrices ipsum et, faucibus lorem. Nullam id nibh non lorem sollicitudin dapibus. Cras ullamcorper ut odio vel rutrum. Morbi fringilla enim vel justo euismod, et aliquam sapien venenatis. Sed at est nibh. Phasellus consequat ultrices sem, ac aliquam purus hendrerit id. Vivamus ac convallis ligula, eget faucibus enim." data-role="none">
+				<br>
+				<a class="item_d_t">Location:</a>
+			</div>
+			<div class="one_fivevhspace"></div>
+			<img src="img/mushroom_location.png" alt="" class="item_map">
+			<div class="form-control">
+						<a class="hotdog-button hotdogfont" href="#item-page" style="height:5vh;">Save</a>
+			</div>
+			</div>
+</div>
 	</section>
 
-
-
-
-	<!-- PROFILE PAGE -->
-	<section data-role="page" id="profile-page">
+<!---------- add item page ---------->
+	<section data-role="page" id="add-item-page">
 		<header data-role="header">
-			<h1>Hi, John</h1>
+			<h1>Add a Wild Edible</h1>
 			<ul>
-				<li class="flex-stretch"></li>
 				<li class="flex-none">
-					<a href="#" class="js-logout">Logout</a>
+					<a href="#" data-rel="back"><img src="img/backicon.png" alt="" class="backicon"></a>
 				</li>
 			</ul>
 		</header>
-		<div data-role="main">
+				<div data-role="main">
 
+		<div class="scrollable">
+		<div data-role="main" class="display-flex flex-column">
+			<div class="tenvhspace"></div>		
+			<div class="flex-none text-center">
+				<img src="img/addpicicon.png" alt="" class="item_pic">
+			</div>
+			<div class="flex-none"></div>
+			<div class="text-center">
+			<div class="twovhspace"></div>		
+			<a class="user_info_top_lo">Take a photo</a>
+			<div class="twovhspace div_shadow"></div>
+			</div>
+			<div class="onevhspace"></div>
+
+			<div class="flex-none" style="padding:1em">
+				<form id="signin-form" data-ajax="false">
+					<div class="form-control">
+						<a class="item_d_t_add">Name :</a>
+						<br>
+						<input type="text" class="hotdog_add" id="hotdog_add" placeholder="" data-role="none">
+					</div>
+					<div class="form-control">
+						<a class="item_d_t_add">Category :</a>
+						<br>
+						<input type="text" class="hotdog_add" id="hotdog_add" placeholder="" data-role="none">
+					</div>
+					<div class="form-control">
+						<a class="item_d_t_add">Location :</a>
+						<br>
+						<input type="text" class="hotdog_add" id="hotdog_add" placeholder="" data-role="none">
+					</div>
+					<div class="form-control">
+						<a class="item_d_t_add">How to eat :</a>
+						<br>
+						<input type="text" class="hotdog_add" id="hotdog_add" placeholder="" data-role="none">
+					</div>
+					<div class="form-control">
+						<a class="item_d_t_add">Can it be eaten raw? :</a>
+						<br>
+						<input type="text" class="hotdog_add" id="hotdog_add" placeholder="" data-role="none">
+					</div>
+					<div class="form-control">
+						<a class="item_d_t_add">Amount :</a>
+						<br>
+						<input type="text" class="hotdog_add" id="hotdog_add" placeholder="" data-role="none">
+					</div>
+					<div class="form-control">
+						<a class="item_d_t_add">Note :</a>
+						<br>
+						<input type="text" class="hotdog_add" id="hotdog_add" placeholder="" data-role="none">
+					</div>
+					<div class="fourvhspace"></div>
+					<div class="form-control">
+						<a class="hotdog-button hotdogfont" href="#list-page" style="height:5vh;">Add</a>
+					</div>
+
+				</form>
+			</div>
+			
+</div>
+</div></div>
+	</section>
+<!---------- profile page ---------->
+	<section data-role="page" id="profile-page">
+		<header data-role="header">
+			<div class="text-center">
+					<a class="">My Profile</a>
+		</header>
+		<div data-role="main" class="display-flex flex-column">
+			<div class="fivevhspace"></div>		
+			<div class="flex-none">
+				<img src="img/user.png" alt="" class="user_image">
+			</div>
+			<div class="flex-none">
+				<form id="user_profile" data-ajax="false">
+
+					<div id="profile_top"  style="margin-left:1em; margin-top: 0.5em;">
+						<a class="user_name">Henry</a>
+						<br>
+						<a class="user_info_top_lo">San Francisco</a>
+						<br>
+						<a class="user_info_top">happyhenry@gmail.com</a>
+						<div class="display-flex flex-flex-direction user_info_top">
+							<div><span class="profile_number">5</span> items</div>
+							<div><span class="profile_number" style="margin-left:0.8em">3</span> categories</div>
+						</div>
+						<div class="one_fivevhspace"></div>
+						<div class="display-flex flex-flex-direction user_info_top">
+							<div>
+								<a href="#edit-profile-page" class="normalbutton" style="	margin-right:2em;">Edit</a>
+							</div>
+							<div>
+								<a href="#" class="normalbutton js-logout"  style="	margin-right:2em;">Logout</a>
+							</div>
+						</div>
+					</div>
+					<div class="twovhspace div_shadow"></div>
+					<div id="profile_top"  style="margin-left:1em; margin-top: 1em;">
+						<a class="user_info_top_lo">What's new?</a>
+						<div class="fivevhspace"></div>
+						<div class="display-flex flex-flex-direction">
+							<img src="img/mushroom.jpg" alt="" class="item_pic">
+							<img src="img/blueberry.jpg" alt="" class="item_pic" style="margin-left:1em;">
+						</div>
+					</div>			
+				</form>
+			</div>
+			<div class="flex-stretch"></div>
 		</div>
 		<footer data-role="footer">
 			<ul>
-				<li><a href="#recent-page">Recent</a></li>
-				<li><a href="#list-page">List</a></li>
-				<li><a href="#profile-page">Profile</a></li>
+				<li><a href="#map-page"><img src="img/icon1.png" alt="" class="icon1"></a></li>
+				<li><a href="#list-page"><img src="img/icon2.png" alt="" class="icon2"></a></li>
+				<li class="pageicon"><a href="#profile-page"><img src="img/icon3_2.png" alt="" class="icon1"></a></li>
 			</ul>
 		</footer>
+	</section>
+<!---------- edit profile page ---------->
+	<section data-role="page" id="edit-profile-page">
+		<header data-role="header">
+			<h1>Edit Profile</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back"><img src="img/backicon.png" alt="" class="backicon"></a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main" class="display-flex flex-column">
+			<div class="fivevhspace"></div>		
+			<div class="flex-none">
+				<img src="img/user.png" alt="" class="user_image">
+			</div>
+			<div class="flex-none">
+				<form id="user_profile" data-ajax="false">
+
+					<div id="profile_top"  style="margin-left:1em; margin-top: 0.5em;">
+						<input type="text" class="hotdog_edit user_info_top" id="hotdog_edit" placeholder="Henry" data-role="none">
+						<br>
+						<input type="text" class="hotdog_edit user_info_top" id="hotdog_edit" placeholder="San Francisco" data-role="none">
+						<br>
+						<input type="text" class="hotdog_edit user_info_top" id="hotdog_edit" placeholder="happyhenry@gmail.com" data-role="none">
+						<div class="display-flex flex-flex-direction user_info_top">
+							<div><span class="profile_number">5</span> items</div>
+							<div><span class="profile_number" style="margin-left:0.8em">3</span> categories</div>
+						</div>
+						<div class="one_fivevhspace"></div>
+						<div class="display-flex flex-flex-direction user_info_top">
+						</div>
+					</div>
+					<div class="twovhspace div_shadow"></div>
+					<div id="profile_top"  style="margin-left:1em; margin-top: 1em;">
+						<a class="user_info_top_lo">What's new?</a>
+						<div class="tenvhspace"></div>
+						<div class="display-flex flex-flex-direction">
+							<img src="img/mushroom.jpg" alt="" class="item_pic">
+							<img src="img/blueberry.jpg" alt="" class="item_pic" style="margin-left:2em;">
+						</div>
+					</div>			
+				</form>
+			</div>
+			<div class="form-control">
+						<a class="hotdog-button hotdogfont" href="#profile-page" style="height:5vh;">Save</a>
+			</div>
+		</div>
+
 	</section>
 
 </body>
