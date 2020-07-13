@@ -15,10 +15,9 @@
 	<!-- <link rel="stylesheet" href="public/css/style.css"> -->
 
 	<link rel="stylesheet" href="public/css/system.css">
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8erqiFPDLjaL0jG_EXnAR_Zlf72RDEb8"
-    async defer></script>
-	<!-- <link rel="stylesheet" href="public/css/theme.css"> -->
-	<!-- <link rel="stylesheet" href="public/css/style.css"> -->
+	<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8erqiFPDLjaL0jG_EXnAR_Zlf72RDEb8"
+    async defer></script> -->
+
 </head>
 <body>
 	<!-- <header class="navbar">
@@ -42,28 +41,36 @@
 	<section data-role="page" class="flex-center" id="signin-page">
 		<div data-role="main" class="container">
 			<header>
-				<!-- logo -->
+				<div class="flex-center-column login-info">
+					<div class="login-photo-box flex-center">
+						<img src="public/img/logo.png" alt="">
+					</div>
+				</div>
 			</header>
 			<main class="flex-center">
-				<form class="line-style-form" action="">
-					<div class="">
-					    <label for="username">Username</label>
-					    <input data-role="none" type="text" name="username" id="username" required>
-					</div>
-					<div class="">
-					    <label for="password">Password</label>
-					    <input data-role="none" type="text" name="password" id="password" required>
-					</div>
-					<div data-role="none" class="button-confirm">SIGN IN</div>
 
-					<a href="#signup-page">
+				<form class="line-style-form" action="" id="signin-form">
+					<div class="">
+					    <label for="login-username">Username</label>
+					    <input data-role="none" type="text" name="login-username" id="login-username" required>
+					</div>
+					<div class="">
+					    <label for="login-password">Password</label>
+					    <input data-role="none" type="password" name="login-password" id="login-password" required>
+					</div>
+					<div data-role="none" class="button-confirm" id="signin-btn">SIGN IN</div>
+
+					<!-- <a href="#signup-page">
 						<div data-role="none" class="button-cancel">SIGN UP</div>
-					</a>
+					</a> -->
 					
 				</form>
 			</main>
-			<footer class="flex-center">
+			<!-- <footer class="flex-center">
 				<a href="#map-page">Navigate</a>
+			</footer> -->
+			<footer class="flex-center">
+				<p>Don't have an account?<a href="#signup-page"> Sign up</a></p>
 			</footer>
 			
 		</div>
@@ -95,7 +102,7 @@
 					    <input data-role="none" type="text" name="password" id="password" required>
 					</div>
 
-					<div data-role="none" class="button-confirm">Create Account</button>
+					<div data-role="none" class="button-confirm">Create Account</div>
 				</form>
 			</main>
 			<footer class="flex-center">
@@ -108,10 +115,20 @@
 	<section data-role="page" id="map-page">
 		<header class="map-header">
 			<input type="search" id="site-search" name="search">
-			<div class="button-add" id="add-new-buddy"></div>
+			<div class="button-add" id="add-new-pin"></div>
 		</header>
-		<div data-role="main" class="map" class="main">
-			Map
+		<div data-role="main" class="map">
+			<img src="public/img/map.png" alt="">
+			<div class="pin"></div>
+			<div id="pin-popup" class="flex-center">
+				<div class="butty-photo ">
+					<img src="public/img/icon/icon-map.png" alt="">
+				</div>
+				<div class="buddy-map-intro">
+					<p class="title">location</p>
+					<p>Memory with your<a href=""> Beer buddy</a></p>
+				</div>
+			</div>
 		</div>
 		<nav data-role="nav">
 			<ul class="flex">
@@ -135,6 +152,94 @@
 				</li>
 			</ul>
 		</nav>
+		<div class="popup" id="pin-popup-map">
+			<header class="flex-center-column">
+				<h4>PIN MEMORY ON MAP</h4>
+				<!-- <input type="search" id="site-search" name="search"> -->
+			</header>
+			
+			<div data-role="main" class="map">
+				<img src="public/img/map.png" alt="">
+				<div class="pin flex-center">
+					<img src="public/img/icon/icon-pin.png" alt="">
+				</div>
+				
+			</div>
+
+
+			
+			<footer>
+				<div data-role="none" class="button-confirm" id="pin-confirm-btn">
+					<img src="public/img/icon/icon-pin.png" alt=""><p>CONFIRM LOCATION</p>
+				</div>
+				<div data-role="none" class="button-cancel-hidden" id="pin-cancel-btn">CANCEL</div>
+			</footer>
+
+
+			<div class="popup" id="select-buddy-popup">
+				<ul class="buddy-photo-list">
+					<li class="buddy-photo-item">
+						<!-- <img src="public/img/icon/icon-profile.png" alt=""> -->
+					</li>
+					<li class="buddy-photo-item"></li>
+					<li class="buddy-photo-item"></li>
+					<li class="buddy-photo-item"></li>
+					<li class="buddy-photo-item"></li>
+				</ul>
+				
+			</div>
+		</div>
+		<div class="popup" id="map-popup">
+			<header class="flex-center">
+				<h4>NEW MEMORY</h4>
+			</header>
+			<main class="flex-center">
+				<form class="line-style-form" action="">
+					<div class="flex-center-column memory-info">
+						<div class="memory-photo-box flex-center">
+							<img src="public/img/icon/icon-profile.png" alt="">
+						</div>
+						<p id="select-buddy-btn">Select Buddy</p>
+
+					</div>
+					
+					<div class="">
+					    <label for="alcohol">Alcohol Today</label>
+					    <input data-role="none" type="text" name="alcohol" id="alcohol" required>
+					</div>
+					<div class="">
+					    <label for="bar">Bar Today</label>
+					    <input data-role="none" type="text" name="bar" id="bar" required>
+					</div>
+					<div class="">
+					    <label for="note">Happy note</label>
+					    <input data-role="none" type="text" name="note" id="note" required>
+					</div>
+				
+				</form>
+			</main>
+			<footer>
+				<div data-role="none" class="button-confirm" id="add-memory-btn">ADD</div>
+				<div data-role="none" class="button-cancel-hidden" id="add-pin-cancel">CANCEL</div>
+			</footer>
+
+
+			<div class="popup" id="select-buddy-popup">
+				<ul class="buddy-photo-list">
+					<li class="buddy-photo-item">
+						<!-- <img src="public/img/icon/icon-profile.png" alt=""> -->
+					</li>
+					<li class="buddy-photo-item"></li>
+					<li class="buddy-photo-item"></li>
+					<li class="buddy-photo-item"></li>
+					<li class="buddy-photo-item"></li>
+				</ul>
+				
+			</div>
+		</div>
+
+
+		
 	</section>
 
 
@@ -144,16 +249,62 @@
 			<div class="button-add" id="add-new-buddy"></div>
 		</header>
 		<div data-role="main" class="main">
-			<ul class="buddy-list">
-				<li class="buddy-list-item"></li>
-				<li class="buddy-list-item"></li>
-				<li class="buddy-list-item"></li>
-				<li class="buddy-list-item"></li>
-				<li class="buddy-list-item"></li>
-				<li class="buddy-list-item"></li>
-				<li class="buddy-list-item"></li>
-				<li class="buddy-list-item"></li>
+			<ul class="buddy-photo-list">
+				<li class="buddy-photo-item">
+					<img src="public/img/icon/icon-profile.png" alt="">
+					<div class="buddy-memory">
+						<h3>Beer buddy</h3>
+						<p>5 memories</p>
+					</div>
+				</li>
+				<li class="buddy-photo-item">
+					<img src="public/img/icon/icon-profile.png" alt="">
+					<div class="buddy-memory">
+						<h3>Wine buddy</h3>
+						<p>3 memories</p>
+					</div>
+				</li>
+				<li class="buddy-photo-item">
+					<img src="public/img/icon/icon-profile.png" alt="">
+					<div class="buddy-memory">
+						<h3>Vodka buddy</h3>
+						<p>2 memories</p>
+					</div>
+				</li>
+				<li class="buddy-photo-item">
+					<img src="public/img/icon/icon-profile.png" alt="">
+					<div class="buddy-memory">
+						<h3>Whiskey buddy</h3>
+						<p>1 memories</p>
+					</div>
+				</li>
+				<li class="buddy-photo-item">
+					<img src="public/img/icon/icon-profile.png" alt="">
+					<div class="buddy-memory">
+						<h3>Sparkler buddy</h3>
+						<p>1 memories</p>
+					</div>
+				</li>
 			</ul>
+			<!-- <ul class="buddy-list">
+				<li class="buddy-list-item">
+					<div class="butty-photo">
+						<img src="public/img/icon/icon-map.png" alt="">
+					</div>
+					<div class="">
+						<p>Beer buddy</p>
+						<p>5 memories</p>
+					</div>
+
+				</li>
+				<li class="buddy-list-item"></li>
+				<li class="buddy-list-item"></li>
+				<li class="buddy-list-item"></li>
+				<li class="buddy-list-item"></li>
+				<li class="buddy-list-item"></li>
+				<li class="buddy-list-item"></li>
+				<li class="buddy-list-item"></li>
+			</ul> -->
 		</div>
 		<nav data-role="nav">
 			<ul class="flex">
@@ -177,11 +328,153 @@
 				</li>
 			</ul>
 		</nav>
+		<div class="popup" id="buddy-popup">
+			<header class="flex-center">
+				<h4>Add New Buddy</h4>
+			</header>
+			<main class="flex-center">
+				<form class="line-style-form" action="">
+					<div class="flex-center-column buddy-info">
+						<div class="buddy-photo-box flex-center">
+							<img src="public/img/icon/icon-profile.png" alt="">
+						</div>
+						<p>Add Photo</p>
+
+					</div>
+					<div class="">
+					    <label for="buddy-name">Name</label>
+					    <input data-role="none" type="text" name="buddy-name" id="buddy-name" required>
+					</div>
+					<div class="">
+					    <label for="alcohol">Favorite Alcohol</label>
+					    <input data-role="none" type="text" name="alcohol" id="alcohol" required>
+					</div>
+					<div class="">
+					    <label for="bar">Favorite Bar</label>
+					    <input data-role="none" type="text" name="bar" id="bar" required>
+					</div>
+					
+				</form>
+			</main>
+			<footer>
+				<div data-role="none" class="button-confirm" id="add-buddy-confirm">ADD</div>
+				<div data-role="none" class="button-cancel-hidden" id="add-buddy-cancel">CANCEL</div>
+			</footer>
+			
+		</div>
+
+		<div class="popup" id="buddy-popup-info">
+			<header class="flex-center">
+				<p id="buddy-back-btn">Back</p>
+				<h4>Buddy Name</h4>
+				<img id="buddy-edit-btn" src="public/img/icon/icon-edit.png" alt="">
+			</header>
+			<main class="flex-center">
+				<form class="line-style-form" action="">
+					<div class="flex-center-column buddy-info">
+						<div class="buddy-photo-box flex-center">
+							<img src="public/img/icon/icon-profile.png" alt="">
+						</div>
+						<p>Vodka Buddy</p>
+
+					</div>
+					<div class="">
+					    <label for="buddy-name">Name</label>
+					   	<p class="content">Vodka Buddy</p>
+
+					</div>
+					<div class="">
+					    <label for="alcohol">Favorite Alcohol</label>
+					   <p class="content">Vodka</p>
+					</div>
+					<div class="">
+					    <label for="bar">Favorite Bar</label>
+					    <p class="content">Vodka Bar</p>
+					</div>
+					<div>
+						<p>You have 3 memories with Vodka Buddy</p>
+					</div>
+					
+				</form>
+			</main>
+			<footer>
+				<!-- <div data-role="none" class="button-confirm">ADD</div> -->
+				<!-- <div data-role="none" class="button-cancel-hidden" id="add-buddy-cancel">Delete</div> -->
+			</footer>
+			
+		</div>
+
+
+		<div class="popup" id="buddy-popup-edit">
+			<header class="flex-center">
+				<h4>Buddy Name</h4>
+				<!-- <img src="public/img/icon/icon-edit.png" alt=""> -->
+			</header>
+			<main class="flex-center">
+				<form class="line-style-form" action="">
+					<div class="flex-center-column buddy-info">
+						<div class="buddy-photo-box flex-center">
+							<img src="public/img/icon/icon-profile.png" alt="">
+						</div>
+						<p>Buddy Name</p>
+
+					</div>
+					<div class="">
+					    <label for="buddy-name">Name</label>
+					    <input data-role="none" type="text" name="buddy-name" id="buddy-name" value="Vodka Buddy" required>
+					</div>
+					<div class="">
+					    <label for="alcohol">Favorite Alcohol</label>
+					    <input data-role="none" type="text" name="alcohol" id="alcohol" value="Vodka" required>
+					</div>
+					<div class="">
+					    <label for="bar">Favorite Bar</label>
+					    <input data-role="none" type="text" name="bar" id="bar" value="Vodka Bar" required>
+					</div>
+					
+				</form>
+			</main>
+			<footer>
+				<div data-role="none" class="button-confirm" id="buddy-savechange-btn">Save</div>
+				<div data-role="none" class="button-cancel-hidden" id="buddy-delete-btn">Delete</div>
+			</footer>
+			
+		</div>
 	</section>
 
 	<section data-role="page" id="profile-page">
-		<div data-role="main">
-			User Profile
+		<div data-role="main" class="main">
+			<div class="flex-center-column profile-info">
+				<div class="profile-photo-box flex-center">
+					<img src="public/img/icon/icon-profile.png" alt="">
+				</div>
+				<p>Change Profile Photo</p>
+
+			</div>
+			<ul class="profile-list">
+				<li class="profile-list-item flex-center">
+					<span class="item-label">Username</span>
+					<span class="item-content">PlaceHolder</span>
+				</li>
+				<li class="profile-list-item flex-center">
+					<span class="item-label">Intro</span>
+					<span class="item-content">PlaceHolder</span>
+				</li>
+				<li class="profile-list-item flex-center">
+					<span class="item-label">Preference</span>
+					<span class="item-content">PlaceHolder</span>
+				</li>
+				<li class="profile-list-item flex-center">
+					<span class="item-label">Settings</span>
+					<span class="item-content"></span>
+				</li>
+				<li class="profile-list-item flex-center" id="signout-btn">
+					<a href="#signin-page">
+						<span class="item-label">Sign Out</span>
+					</a>
+					<span class="item-content"></span>
+				</li>
+			</ul>
 		</div>
 		<nav data-role="nav">
 			<ul class="flex">
@@ -206,5 +499,7 @@
 			</ul>
 		</nav>
 	</section>
+	<script src="public/js/app.js"></script>
+	<script src="public/js/function.js"></script>
 </body>
 </html>
