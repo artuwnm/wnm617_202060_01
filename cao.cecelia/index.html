@@ -94,11 +94,12 @@
 
 	<section data-role="page" id="recent-page">
 		<div data-role="main" class="map">
-			<a href="#" data-activate="#list-alcohol-modal"><span class="dot"></span></a>
+			<a href="#" data-activate="#list-alcohol-modal"><img class="record"src="img/drink.svg"></a>
+			<a href="#" data-activate="#list-alcohol-modal"><img class="mockuprecord"src="img/drink.svg"></a>
 		</div>
 		<footer data-role="footer">
 			<ul>
-				<li><a href="#recent-page">Map</a></li>
+				<li class="mapactive"><a href="#recent-page">Map</a></li>
 				<li><a href="#list-page">List</a></li>
 			<li>	<a href="#add-product" class="appbar__bottom" title="add" aria-label="Add">
         <svg fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
@@ -145,14 +146,15 @@
 			</div>
 		</div>
 	</section>
-
+	
+	<!-- Adding Page -->
 	<section data-role="page" id="add-product">
 		
 		<header data-role="header" class="addinfo">
 			<!-- <h1>Animal Profile</h1> -->
 			<ul>
 				<li class="flex-none">
-					<a href="#" data-rel="back"><i class="arrow left"></i></a>
+					<a href="#" data-rel="back"><i class="arrow_black left" style="color:black"></i></a>
 				</li>
 			</ul>
 			
@@ -197,7 +199,7 @@
 	</section>
 
 
-
+	<!-- List Page -->
 	<section data-role="page" id="list-page">
 		<!-- <header data-role="header"> -->
 			<!-- <h1>Animal List</h1>
@@ -289,7 +291,7 @@
 		<footer data-role="footer">
 			<ul>
 				<li><a href="#recent-page">Map</a></li>
-				<li><a href="#list-page">List</a></li>
+				<li class="mapactive"><a href="#list-page">List</a></li>
 				<li> <a href="#add-product" class="appbar__bottom" title="add" aria-label="Add">
         <svg fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
           <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"/>
@@ -302,90 +304,46 @@
 		
 	</section>
 
+	<!-- Love Page -->
+
 	<section data-role="page" id="love-page">
-		<!-- <header data-role="header"> -->
-			<!-- <h1>Animal List</h1>
-			<ul>
-				<li class="flex-stretch"></li>
+		<header data-role="header" role="banner" class="love-pageheader">
+			<h1 class="ui-title" role="heading" aria-level="1">Loved Alcohol</h1>
+			<!-- <ul>
 				<li class="flex-none">
-					<a href="#" data-activate="#list-add-animal-modal">&plus;</a>
+					<a href="#" data-rel="back" class="ui-link">Back</a>
 				</li>
 			</ul> -->
-			
-		<!-- </header> -->
+		</header>
 		<div data-role="main">
 
-			<div class="scrollable">
+			<div class="scrollable favourite-product">
 				<div class="display-flex flex-justify-center flexbox">
 		          <a href="#animal-profile-page">
-		          <div class="productone"></div>
-				  <div class="productname">Mojito</div>
-		          </a> 
-		          <a href="#animal-profile-page">
-		          	<div class="productone"></div>
+		          	<div class="producttwo"></div>
 		          	<div class="productname">Mojito</div>
 		          </a>
         		</div>
         		<div class="display-flex flex-justify-center flexbox">
 		          <a href="#animal-profile-page">
-		          <div class="productone"></div>
-				  <div class="productname">Mojito</div>
-		          </a> 
-		          <a href="#animal-profile-page">
-		          	<div class="productone"></div>
-		          	<div class="productname">Mojito</div>
+		          	<div class="producttwo"></div>
+		          	<div class="productname">Vodka</div>
 		          </a>
         		</div>
         		<div class="display-flex flex-justify-center flexbox">
 		          <a href="#animal-profile-page">
-		          <div class="productone"></div>
-				  <div class="productname">Mojito</div>
-		          </a> 
-		          <a href="#animal-profile-page">
-		          	<div class="productone"></div>
-		          	<div class="productname">Mojito</div>
+		          	<div class="producttwo"></div>
+		          	<div class="productname">Beer</div>
 		          </a>
         		</div>
         		<div class="display-flex flex-justify-center flexbox">
 		          <a href="#animal-profile-page">
-		          <div class="productone"></div>
-				  <div class="productname">Mojito</div>
-		          </a> 
-		          <a href="#animal-profile-page">
-		          	<div class="productone"></div>
-		          	<div class="productname">Mojito</div>
+		          	<div class="producttwo"></div>
+		          	<div class="productname">Tequila</div>
 		          </a>
         		</div>
-        		<div class="display-flex flex-justify-center flexbox">
-		          <a href="#animal-profile-page">
-		          <div class="productone"></div>
-				  <div class="productname">Mojito</div>
-		          </a> 
-		          <a href="#animal-profile-page">
-		          	<div class="productone"></div>
-		          	<div class="productname">Mojito</div>
-		          </a>
-        		</div>
-        		<div class="display-flex flex-justify-center flexbox">
-		          <a href="#animal-profile-page">
-		          <div class="productone"></div>
-				  <div class="productname">Mojito</div>
-		          </a> 
-		          <a href="#animal-profile-page">
-		          	<div class="productone"></div>
-		          	<div class="productname">Mojito</div>
-		          </a>
-        		</div>
-        		<div class="display-flex flex-justify-center flexbox">
-		          <a href="#animal-profile-page">
-		          <div class="productone"></div>
-				  <div class="productname">Mojito</div>
-		          </a> 
-		          <a href="#animal-profile-page">
-		          	<div class="productone"></div>
-		          	<div class="productname">Mojito</div>
-		          </a>
-        		</div>
+			</div>
+			
 			</div>
 		</div>
 		<footer data-role="footer">
@@ -396,7 +354,7 @@
         <svg fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
           <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"/>
         </svg></a></li>
-				<li><a href="#love-page">Love</a></li>
+				<li class="mapactive"><a href="#love-page">Love</a></li>
 				<li><a href="#profile-page">Profile</a></li>
 			</ul>
 		</footer>
@@ -407,15 +365,26 @@
 
 
 	<section data-role="page" id="animal-profile-page">
-		<header data-role="header" class="profileinfo">
+		<!-- <header data-role="header" class="profileinfo"> -->
 			<!-- <h1>Animal Profile</h1> -->
-			<ul>
+			<!-- <ul>
 				<li class="flex-none">
 					<a href="#" data-rel="back"><i class="arrow left"></i></a>
 				</li>
+			
 			</ul>
-		</header>
+			<a class="settings ui-link" href="#settings-page">
+				<img src="img/edit.svg" alt="" class="icon">
+			</a>
+		</header> -->
 		<div data-role="main">
+			<div class="profileinfo">
+				<a href="#" data-rel="back"><i class="arrow_white left"></i></a>
+				<a class="settings ui-link" href="#edit-product">
+				<img src="img/edit.svg" alt="" class="icon">
+			</a>
+			</div>
+
 			<div class="display-flex flex-justify-center" style="padding:1em">
 				
 				<table cellspacing="15" class="confirmationtable" style="margin: 2em auto; ">
@@ -489,7 +458,9 @@
 				   
 				</tbody>
 			</table>
-			
+			<a class="settings ui-link" href="#settings-page">
+				<img src="img/edit.svg" alt="" class="icon">
+			</a>
 			
 			</div>
 			<div class="display-flex flex-justify-center" style="padding:1em">
@@ -507,10 +478,129 @@
         <svg fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
           <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"/>
         </svg></a></li>
-				<li><a href="#list-page">Love</a></li>
-				<li><a href="#profile-page">Profile</a></li>
+				<li><a href="#love-page">Love</a></li>
+				<li class="mapactive"><a href="#profile-page">Profile</a></li>
 			</ul>
 		</footer>
+	</section>
+	
+	<!-- Editing Product Page -->
+	<section data-role="page" id="edit-product">
+		
+		<!-- <header data-role="header" class="addinfo"> -->
+			<!-- <h1>Animal Profile</h1> -->
+			<!-- <ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back"><i class="arrow_black left" style="color:black"></i></a>
+				</li>
+			</ul>
+			
+			<div class="addthumbnail">
+			<h1>+</h1>
+			</div>
+
+		</header> -->
+		<div class="profileinfo">
+				<a href="#" data-rel="back"><i class="arrow_white left"></i></a>
+				<a class="settings ui-link" href="#edit-product">
+				<!-- <img src="img/edit.svg" alt="" class="icon"> -->
+			</a>
+			</div>
+		<div class="display-flex flex-justify-center" style="padding:1em">
+				
+				<table cellspacing="15" class="confirmationtable" style="margin: 2em auto; ">
+				  <!-- <tr>
+				    <th>Firstname</th>
+				    <th>Lastname</th>
+				  </tr> -->
+				  <tbody><tr>
+				    <td style="text-align: right; ">Name</td>
+				    <td></td>
+				    <td style="text-align: left;"><input type="text" class="hotdog" id="alcohol-name" placeholder="Mojito" data-role="none"></td>
+				  </tr>
+				  <tr>
+				    <td style="text-align: right;">Location</td>
+				    <td></td>
+				    <td style="text-align: left;"><input type="text" class="hotdog" id="alcohol-location" placeholder="4th St, San Francisco;16 Market St, San Francisco;129 Fremont st, San Francisco" data-role="none"></td>
+				  </tr>
+				  <tr>
+				    <td style="text-align: right;">Taste</td>
+				    <td></td>
+				    <td style="text-align: left;"><input type="text" class="hotdog" id="alcohol-taste" placeholder="Little Sweet; Sparkling" data-role="none"></td>
+				  </tr>
+				   <tr>
+				    <td style="text-align: right;">Recipe</td>
+				    <td></td>
+				    <td style="text-align: left;"><input type="text" class="hotdog" id="alcohol-recipe" placeholder="" data-role="none"></td>
+				  </tr>
+				   
+				</tbody>
+			</table>
+			
+			
+			</div>
+			<div class="display-flex flex-justify-center" style="padding:1em">
+			<div class="form-control">
+						<button type="submit" class="form-button" value="Sign In" data-role="none">Save</button>
+			</div>	
+		</div>
+			
+	</section>
+
+	<section data-role="page" id="settings-page">
+		
+		<header data-role="header" role="banner" class="love-pageheader">
+			<h1 class="ui-title" role="heading" aria-level="1">Settings</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back"><i class="arrow_black left" style="color:black"></i></a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<div id="photo" style="text-align: center">
+			  <img style="vertical-align:middle" src="img/profilephoto.jpg" class="profile" id="profilephoto">
+			  <span style="vertical-align:middle; margin-left: 1em;"><input type="text" class="editname"id="edit-profilename" placeholder="Alexander Wang" data-role="none"></span>
+			</div>
+			
+			<div class="display-flex flex-justify-center" style="padding:1em">
+				
+				<table cellspacing="15" class="confirmationtable" style="margin: 2em auto; ">
+				  <!-- <tr>
+				    <th>Firstname</th>
+				    <th>Lastname</th>
+				  </tr> -->
+				  <tbody><tr>
+				    <td style="text-align: right; ">Email</td>
+				    <td></td>
+				    <td style="text-align: left;"><input type="text" class="hotdog" id="profile-email" placeholder="info@gmail.com" data-role="none"></td>
+				  </tr>
+				  <tr>
+				    <td style="text-align: right;">Location</td>
+				    <td></td>
+				    <td style="text-align: left;"><input type="text" class="hotdog" id="profile-location" placeholder="San Francisco, CA" data-role="none"></td>
+				  </tr>
+				  <tr>
+				    <td style="text-align: right;">Achivements</td>
+				    <td></td>
+				    <td style="text-align: left;"><input type="text" class="hotdog" id="profile-taste" placeholder="18 Kinds of Liquor" data-role="none"></td>
+				  </tr>
+				   
+				</tbody>
+			</table>
+			
+			
+			</div>
+			<div class="display-flex flex-justify-center" style="padding:1em">
+			<div class="form-control">
+						<a href="#" class="js-logout"><button class="form-button" value="Logout" data-role="none">Save</button></a>
+			</div>	
+		</div>
+			
+		</div>
+		</div>
+		
+			
 	</section>
 
 </body>
