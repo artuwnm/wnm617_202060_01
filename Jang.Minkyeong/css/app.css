@@ -284,7 +284,10 @@ a {
 .user-img{
 	width: 35%;
 }
-
+.dogprofile {
+	align-content: center;
+	margin: 1 0 1 0;
+}
 
 .dog-profile-container{
 	display: block;
@@ -297,11 +300,17 @@ a {
 
 }
 
-.back{
+.backbtn{
+	float: left;
+	margin-left: 1em;
+	margin-right: 1em;
+}
+.editbtn{
+	float: right;
+	margin-right: 1em;
 	margin-left: 1em;
 }
-
-.edit{
+.edit-profile{
 	margin-right: 1em;
 	font-size: 10pt;
 }
@@ -317,8 +326,6 @@ a {
     height: 95%;
     margin: 0 auto;
     padding: 20px;
-    background-color: #fcfcfc;
-    filter: drop-shadow(0 0 0.15rem lightgrey);
     padding-bottom: 25px;
 }
 
@@ -365,12 +372,11 @@ a {
 }
 
 .form-button-out{
-	background: linear-gradient(90deg, #d24205 0%, #f17537 53%, #d6b80a 100%);
     border: none;
     margin: 1em;
     padding: 1em;
-    color: #fcfcfc;
-    border-radius: 30px;
+    color: darksalmon;
+    border-radius: 20px;
 }
 
 
@@ -380,13 +386,15 @@ a {
 	margin: 0 auto;
 }
 
+
+
 .imagepicker-profile input {
     display: none;
 }
 
 
 .profile-info-box2{
-	margin-top: 2em;
+	margin-top: 1em;
 }
 
 
@@ -458,7 +466,10 @@ a {
     border-radius: 2em;
     padding: 1em;
     margin-top: 0.5em;
+    margin-bottom: 0.5em;
 }
+
+
 
 
 .dog-profile-container{
@@ -476,6 +487,19 @@ a {
 	margin-bottom: 3em;
 }
 
+.add-image-box{
+	width: 100%;
+	height: 100%;
+	margin-bottom: 2em;
+	padding: 1em;
+	text-align: center;
+
+}
+
+
+
+
+
 /* list */
 
 input.search {
@@ -483,6 +507,9 @@ input.search {
     width: 100%;
     display: flex;
     margin-bottom: 2em;
+    border-radius: 20px;
+    border-color: #e6e6e6;
+    padding: 0.3em;
 }
 
 
