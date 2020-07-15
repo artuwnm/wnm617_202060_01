@@ -93,7 +93,9 @@
 			</ul>
 		</header>
 		<div data-role="main">
-			<div id="map" style="width:100%;height:100%;"></div>
+			<div id="map" style="width:100%;height:100%;">
+			</div>
+
 		</div>
 		<footer data-role="footer">
 			<ul>
@@ -107,7 +109,7 @@
 		<div class="modal" id="map-add-animal-modal">
 			<div class="modal-back" data-deactivate="#map-add-animal-modal"></div>
 			<div class="modal-popup">
-				<div class="modal-head">New Dog?!</div>
+				<div class="modal-head">New Dog</div>
 				<div class="modal-body">
 					<div class="scrollable">
 						<form data-ajax="false" id="map-add-form" style="padding:1em">
@@ -126,7 +128,7 @@
 						</form>
 					</div>
 				</div>
-				<div class="modal-foot">Done/Add Button?</div>
+				<div class="modal-foot">Add</div>
 			</div>
 		</div>
 	</section>
@@ -144,38 +146,42 @@
 		</header>
 		<div data-role="main">
 			<div class="scrollable">
-				<ul>
-					<li><a href="#animal-profile-page">Mixed</a></li>
-					<li><a href="#animal-profile-page">Labrador Retriever</a></li>
-					<li><a href="#animal-profile-page">Chihuahua</a></li>
-					<li><a href="#animal-profile-page">Golden Retriever</a></li>
-					<li><a href="#animal-profile-page">Poodle</a></li>
-					<li><a href="#animal-profile-page">Siberian Husky</a></li>
-					<li><a href="#animal-profile-page">French Bulldog</a></li>
-					<li><a href="#animal-profile-page">American Pitbull Terrier</a></li>
-					<li><a href="#animal-profile-page">Pomeranian</a></li>
-					<li><a href="#animal-profile-page">French Bulldog</a></li>
-					<li><a href="#animal-profile-page">Border Collie</a></li>
-					<li><a href="#animal-profile-page">German Shepherd</a></li>
-					<li><a href="#animal-profile-page">Pointer</a></li>
-					<li><a href="#animal-profile-page">Welsh Corgi</a></li>
-					<li><a href="#animal-profile-page">Boston Terrier</a></li>
-					<li><a href="#animal-profile-page">Animal 6</a></li>
-					<li><a href="#animal-profile-page">Animal 7</a></li>
-					<li><a href="#animal-profile-page">Animal 8</a></li>
-					<li><a href="#animal-profile-page">Animal 9</a></li>
-					<li><a href="#animal-profile-page">Animal 10</a></li>
-					<li><a href="#animal-profile-page">Animal 1</a></li>
-					<li><a href="#animal-profile-page">Animal 2</a></li>
-					<li><a href="#animal-profile-page">Animal 3</a></li>
-					<li><a href="#animal-profile-page">Animal 4</a></li>
-					<li><a href="#animal-profile-page">Animal 5</a></li>
-					<li><a href="#animal-profile-page">Animal 6</a></li>
-					<li><a href="#animal-profile-page">Animal 7</a></li>
-					<li><a href="#animal-profile-page">Animal 8</a></li>
-					<li><a href="#animal-profile-page">Animal 9</a></li>
-					<li><a href="#animal-profile-page">Animal 10</a></li>
-				</ul>
+				<div class="list-container">
+					<input type="search" class="search" placeholder="Search" data-role="none">
+					<div class="list-box">
+						<a href="#" data-activate="#list-add-animal-modal" class="list-dog-modal">
+							<img class="dogimg" src="img/dog1.jpg" style="width: 130px;margin: 0.5em;">
+						</a>
+					
+						<a href="#" data-activate="#list-add-animal-modal" class="list-dog-modal">
+							<img class="dogimg" src="img/dog2.jpg" style="width: 130px;margin: 0.5em;">
+						</a>
+					</div>
+					<div class="list-box">
+						<a href="#" data-activate="#list-add-animal-modal" class="list-dog-modal">
+							<img class="dogimg" src="img/dog3.png" style="width: 130px; margin: 0.5em;">
+						</a>
+						<a href="#" data-activate="#list-add-animal-modal" class="list-dog-modal">
+							<img class="dogimg" src="img/dog4.jpg" style="width: 130px;margin: 0.5em;">
+						</a>
+					</div>
+					<div class="list-box">
+						<a href="#" data-activate="#list-add-animal-modal" class="list-dog-modal">
+							<img class="dogimg" src="img/dog5.jpg" style="width: 130px; margin: 0.5em;">
+						</a>
+						<a href="#" data-activate="#list-add-animal-modal" class="list-dog-modal">
+							<img class="dogimg" src="img/dog6.jpg" style="width: 130px;margin: 0.5em;">
+						</a>
+					</div>
+					<div class="list-box">
+						<a href="#" data-activate="#list-add-animal-modal" class="list-dog-modal">
+							<img class="dogimg" src="img/dog7.jpg" style="width: 130px; margin: 0.5em;">
+						</a>
+						<a href="#" data-activate="#list-add-animal-modal" class="list-dog-modal">
+							<img class="dogimg" src="img/dog8.jpg" style="width: 130px;margin: 0.5em;">
+						</a>
+					</div>
+				</div>
 			</div>
 		</div>
 		<footer data-role="footer">
@@ -189,7 +195,7 @@
 		<div class="modal" id="list-add-animal-modal">
 			<div class="modal-back" data-deactivate="#list-add-animal-modal"></div>
 			<div class="modal-popup">
-				<div class="modal-head">New Dog?!</div>
+				<div class="modal-head">New Dog</div>
 				<div class="modal-body">
 					<div class="scrollable">
 						<form data-ajax="false" id="list-add-form" style="padding:1em">
@@ -208,7 +214,7 @@
 						</form>
 					</div>
 				</div>
-				<div class="modal-foot">Done/Add Button?</div>
+				<div class="modal-foot">Add</div>
 			</div>
 		</div>
 	</section>
@@ -226,7 +232,7 @@
 		<div data-role="main">
 			<div class="dog-profile-container">
 				<img src="img/paw.png" class="dog-profile-paw">
-				<div>
+				<div class="animal-profile-box">
 					<label for="list-dog-profile" class="dog-profile-label">Dog Breed</label>
 					<label for="list-dog-profile" class="dog-profile-label">Dog Color</label>
 					<label for="list-dog-profile" class="dog-profile-label">Memo</label>

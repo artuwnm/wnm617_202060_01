@@ -262,9 +262,6 @@ a {
 }
 
 
-input{
-	margin-bottom: 0.5em;
-}
 
 .form-button{
 	background: linear-gradient(90deg, #d24205 0%, #f17537 53%, #d6b80a 100%);
@@ -462,3 +459,41 @@ input{
     padding: 1em;
     margin-top: 0.5em;
 }
+
+
+.dog-profile-container{
+	display: block;
+	text-align: center;
+}
+
+.dog-profile-label{
+	display: block;
+	justify-content: center;
+}
+
+.dog-profile-paw{
+	margin-top: 1em;
+	margin-bottom: 3em;
+}
+
+/* list */
+
+input.search {
+    display: inline-block;
+    width: 100%;
+    display: flex;
+    margin-bottom: 2em;
+}
+
+
+.list-container{
+	padding: 1em;
+}
+
+.list-box {
+	display: flex;
+	justify-content: center;
+	margin:1em;
+}
+
+
