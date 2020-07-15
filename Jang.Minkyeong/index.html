@@ -161,15 +161,15 @@
 							<img class="dogimg" src="img/dog1.jpg" style="width: 130px;margin: 0.5em;">
 						</a>
 					
-						<a href="#" data-activate="#animal-profile-page2" class="list-dog-modal">
+						<a href="#animal-profile-page2" data-activate="#animal-profile-page2" class="list-dog-modal">
 							<img class="dogimg" src="img/dog2.jpg" style="width: 130px;margin: 0.5em;">
 						</a>
 					</div>
 					<div class="list-box">
-						<a href="#" data-activate="#animal-profile-page3" class="list-dog-modal">
+						<a href="#animal-profile-page3" data-activate="#animal-profile-page3" class="list-dog-modal">
 							<img class="dogimg" src="img/dog3.png" style="width: 130px; margin: 0.5em;">
 						</a>
-						<a href="#" data-activate="#animal-profile-page4" class="list-dog-modal">
+						<a href="#animal-profile-page4" data-activate="#animal-profile-page4" class="list-dog-modal">
 							<img class="dogimg" src="img/dog4.jpg" style="width: 130px;margin: 0.5em;">
 						</a>
 					</div>
@@ -316,6 +316,256 @@
 		
 	
 	</section>
+
+<!-- animal profile page 2-->
+
+	<section data-role="page" id="animal-profile-page2">
+		<header data-role="header">
+			<div>
+			  <a href="#" data-rel="back" class="backbtn">
+			  	<div class="back"><img src="img/back.png" style="width:20px;margin-top: 1em;">
+			  	</div>
+			  </a>
+			  <a href="#" data-activate="#dog-edit-modal" class="editbtn">
+			  	<div class="edit"><img src="img/edit.png"style="width:15px; margin-top: 1em;">
+			  	</div>
+			  </a>
+			</div>
+			<div style="font-size:1rem; text-align:center;"> Dog Profile </div>
+			
+		</header>
+
+<!-- dog profile detail -->
+
+		<div data-role="main">
+			<div class="dog-profile-container">
+				<img src="img/dog2.jpg" style="width:300px;" class="dog-profile-paw">
+				<div class="animal-profile-box">
+					<label for="list-dog-profile" class="dog-profile-label leftalign">
+						Dog Breed
+						<div class="rightalign"> Border Collie</div>
+					</label>
+					<label for="list-dog-profile" class="dog-profile-label leftalign">
+						Dog Color
+						<div class="rightalign">Black & White</div>
+					</label>
+					<label for="list-dog-profile" class="dog-profile-label leftalign">
+						Memo
+						<div class="rightalign">She is so lovely!</div>
+					</label>
+				</div>
+			</div>
+		</div>
+
+
+
+		<div class="modal" id="dog-edit-modal">
+			<div class="modal-back" data-deactivate="#dog-edit-modal"></div>
+			<div class="modal-popup">
+				<div class="modal-head">Edit Dog Profile</div>
+				<div class="modal-body">
+					<div class="scrollable">
+						<form data-ajax="false" id="list-edit-form" style="padding:1em">
+							<div class="img-control">
+								<label class="imagepicker-profile imagepicker-replace">
+									<input type="file" data-role="none">
+										<div class="profile-pic-edit">
+											<img src="img/userprofile.png" class="img-control">
+										</div>	
+								</label>
+							</div>
+							<div class="form-control">
+								<label class="form-label" for="edit-dog-breed">Dog Breed</label>
+								<input class="form-input" type="text" id="edit-dog-breed" data-role="none" value="American Pitbull">
+							</div>
+							<div class="form-control">
+								<label class="form-label" for="dog-color">Dog Color</label>
+								<input class="form-input" type="text" id="dog-color" data-role="none" value="Brown & White">
+							</div>
+							<div class="form-control">
+								<label class="form-label" for="edit-dog-memo">Memo</label>
+								<input class="form-input" type="text" id="edit-dog-memo" data-role="none" value="He is so friendly!">
+							</div>
+
+						</form>
+					</div>
+				</div>
+				<div class="modal-foot"><input class="form-button-submit" type="submit" data-role="none" value="Done" data-deactivate="#dog-edit-modal">
+				</div>
+		
+			</div>
+		</div>
+		
+	
+	</section>
+
+<!-- animal profile page 3-->
+
+	<section data-role="page" id="animal-profile-page3">
+		<header data-role="header">
+			<div>
+			  <a href="#" data-rel="back" class="backbtn">
+			  	<div class="back"><img src="img/back.png" style="width:20px;margin-top: 1em;">
+			  	</div>
+			  </a>
+			  <a href="#" data-activate="#dog-edit-modal" class="editbtn">
+			  	<div class="edit"><img src="img/edit.png"style="width:15px; margin-top: 1em;">
+			  	</div>
+			  </a>
+			</div>
+			<div style="font-size:1rem; text-align:center;"> Dog Profile </div>
+			
+		</header>
+
+<!-- dog profile detail -->
+
+		<div data-role="main">
+			<div class="dog-profile-container">
+				<img src="img/dog3.png" style="width:300px;" class="dog-profile-paw">
+				<div class="animal-profile-box">
+					<label for="list-dog-profile" class="dog-profile-label leftalign">
+						Dog Breed
+						<div class="rightalign">German Shorthaired Poniter</div>
+					</label>
+					<label for="list-dog-profile" class="dog-profile-label leftalign">
+						Dog Color
+						<div class="rightalign">Black & White Dots</div>
+					</label>
+					<label for="list-dog-profile" class="dog-profile-label leftalign">
+						Memo
+						<div class="rightalign">Energetic!!</div>
+					</label>
+				</div>
+			</div>
+		</div>
+
+
+
+		<div class="modal" id="dog-edit-modal">
+			<div class="modal-back" data-deactivate="#dog-edit-modal"></div>
+			<div class="modal-popup">
+				<div class="modal-head">Edit Dog Profile</div>
+				<div class="modal-body">
+					<div class="scrollable">
+						<form data-ajax="false" id="list-edit-form" style="padding:1em">
+							<div class="img-control">
+								<label class="imagepicker-profile imagepicker-replace">
+									<input type="file" data-role="none">
+										<div class="profile-pic-edit">
+											<img src="img/userprofile.png" class="img-control">
+										</div>	
+								</label>
+							</div>
+							<div class="form-control">
+								<label class="form-label" for="edit-dog-breed">Dog Breed</label>
+								<input class="form-input" type="text" id="edit-dog-breed" data-role="none" value="American Pitbull">
+							</div>
+							<div class="form-control">
+								<label class="form-label" for="dog-color">Dog Color</label>
+								<input class="form-input" type="text" id="dog-color" data-role="none" value="Brown & White">
+							</div>
+							<div class="form-control">
+								<label class="form-label" for="edit-dog-memo">Memo</label>
+								<input class="form-input" type="text" id="edit-dog-memo" data-role="none" value="He is so friendly!">
+							</div>
+
+						</form>
+					</div>
+				</div>
+				<div class="modal-foot"><input class="form-button-submit" type="submit" data-role="none" value="Done" data-deactivate="#dog-edit-modal">
+				</div>
+		
+			</div>
+		</div>
+		
+	
+	</section>
+
+<!-- animal profile page 4-->
+
+	<section data-role="page" id="animal-profile-page4">
+		<header data-role="header">
+			<div>
+			  <a href="#" data-rel="back" class="backbtn">
+			  	<div class="back"><img src="img/back.png" style="width:20px;margin-top: 1em;">
+			  	</div>
+			  </a>
+			  <a href="#" data-activate="#dog-edit-modal" class="editbtn">
+			  	<div class="edit"><img src="img/edit.png"style="width:15px; margin-top: 1em;">
+			  	</div>
+			  </a>
+			</div>
+			<div style="font-size:1rem; text-align:center;"> Dog Profile </div>
+			
+		</header>
+
+<!-- dog profile detail -->
+
+		<div data-role="main">
+			<div class="dog-profile-container">
+				<img src="img/dog4.jpg" style="width:300px;" class="dog-profile-paw">
+				<div class="animal-profile-box">
+					<label for="list-dog-profile" class="dog-profile-label leftalign">
+						Dog Breed
+						<div class="rightalign">Beagle</div>
+					</label>
+					<label for="list-dog-profile" class="dog-profile-label leftalign">
+						Dog Color
+						<div class="rightalign">Brown & black & White </div>
+					</label>
+					<label for="list-dog-profile" class="dog-profile-label leftalign">
+						Memo
+						<div class="rightalign">She loves to play with her ball.</div>
+					</label>
+				</div>
+			</div>
+		</div>
+
+
+
+		<div class="modal" id="dog-edit-modal">
+			<div class="modal-back" data-deactivate="#dog-edit-modal"></div>
+			<div class="modal-popup">
+				<div class="modal-head">Edit Dog Profile</div>
+				<div class="modal-body">
+					<div class="scrollable">
+						<form data-ajax="false" id="list-edit-form" style="padding:1em">
+							<div class="img-control">
+								<label class="imagepicker-profile imagepicker-replace">
+									<input type="file" data-role="none">
+										<div class="profile-pic-edit">
+											<img src="img/userprofile.png" class="img-control">
+										</div>	
+								</label>
+							</div>
+							<div class="form-control">
+								<label class="form-label" for="edit-dog-breed">Dog Breed</label>
+								<input class="form-input" type="text" id="edit-dog-breed" data-role="none" value="American Pitbull">
+							</div>
+							<div class="form-control">
+								<label class="form-label" for="dog-color">Dog Color</label>
+								<input class="form-input" type="text" id="dog-color" data-role="none" value="Brown & White">
+							</div>
+							<div class="form-control">
+								<label class="form-label" for="edit-dog-memo">Memo</label>
+								<input class="form-input" type="text" id="edit-dog-memo" data-role="none" value="He is so friendly!">
+							</div>
+
+						</form>
+					</div>
+				</div>
+				<div class="modal-foot"><input class="form-button-submit" type="submit" data-role="none" value="Done" data-deactivate="#dog-edit-modal">
+				</div>
+		
+			</div>
+		</div>
+		
+	
+	</section>
+
+
+
+
 
 
 	<!-- profile page -->
