@@ -35,18 +35,18 @@
 
 			<form id="signin-form" data-ajax="false">
 				<div class="form-control-signin">
-					<label for="signin-username" class="form-label">Email</label>
-					<input type="text" class="unisignin" id="signin-username" placeholder="Email address" data-role="none">
+					<label for="signin-username" class="form-label" required value="user">Usernamae</label>
+					<input type="text" class="unisignin" id="signin-username" placeholder="" data-role="none">
 				</div>
 
 				<div class="form-control-signin">
-					<label for="signin-password" class="form-label">Password</label>
-					<input type="password" class="unisignin" id="signin-password" placeholder="Password" data-role="none">
+					<label for="signin-password" class="form-label"required value="pass">Password</label>
+					<input type="password" class="unisignin" id="signin-password" placeholder="" data-role="none">
 				</div>
 				<div class="form-control-signin">
 					<input type="submit" class="unisignin-button" value="Sign In" data-role="none"/>
 				
-					<div class="link-signup"> Not a memebr yet? <a href="#signup-page"> Sign Up now </a>
+					<div class="link-signup"> Do not have an account yet? <a href="#signup-page">Sign Up</a>
 				</div>
 				</div>
 			</form>
@@ -109,6 +109,13 @@
 				<li class="flex-none">
 					<img src="" max-width="50px" height="25px">
 				</li></div>
+				<div class="display-flex flex-justify-center flexbox" id="add-button" >
+					<li class="flex-none">
+						<a href="#add-page"><img src="img/icon/add.svg" max-width="50px" height="25px"></a>
+                		</div>
+                		
+                	</a>
+				</div>
 
 			</ul>
 		</header>
@@ -158,6 +165,10 @@
 				<li class="flex-none">
 					<a href="#" data-rel="back"><img src="img/icon/back.svg" max-width="50px" height="25px"></a>
 				</li></div>
+				<div class="display-flex flex-justify-center flexbox" id="add-button" >
+					<li class="flex-none">
+						<a href="#add-page"><img src="img/icon/add.svg" max-width="50px" height="25px"></a>
+                		</div>
 		
 			</ul>
 		</header>
@@ -167,48 +178,40 @@
 		<div class="display-flex flex-justify-center flexbox">
 		<a href="#" data-activate="#list-uni-modal">
 			<div class="unicornone"></div>
-			<div class="unicorname">unicorn</div></a>
+			<div class="unicorname">Junior</div></a>
 
 		<a href="#" data-activate="#list-uni-modal">
-			<div class="unicornone"></div>
-			<div class="unicorname">unicorn</div></a>
+			<div class="unicorntwo"></div>
+			<div class="unicorname">Rainbow</div></a>
 		</div>
 
 		<div class="display-flex flex-justify-center flexbox">
 		<a href="#" data-activate="#add-uni-modal">
-			<div class="unicornone"></div>
-			<div class="unicorname">unicorn</div></a>
+			<div class="unicornthree"></div>
+			<div class="unicorname">Ninja</div></a>
 
 		<a href="#" data-activate="#add-uni-modal">
-			<div class="unicornone"></div>
-			<div class="unicorname">unicorn</div></a>
+			<div class="unicornfour"></div>
+			<div class="unicorname">Nerdy</div></a>
 		</div>
 
 		<div class="display-flex flex-justify-center flexbox">
 		<a href="#" data-activate="#add-uni-modal">
-			<div class="unicornone"></div>
-			<div class="unicorname">unicorn</div></a>
+			<div class="unicornfive"></div>
+			<div class="unicorname">Specialist</div></a>
 		<a href="#">
-			<div class="unicornone"></div>
-			<div class="unicorname">unicorn</div></a>
-		</div>
-
-		<div class="display-flex flex-justify-center flexbox">
-		<a href="#">
-			<div class="unicornone"></div>
-			<div class="unicorname">unicorn</div></a>
-		<a href="#">
-			<div class="unicornone"></div>
-			<div class="unicorname">unicorn</div></a>
+			<div class="unicornsix"></div>
+			<div class="unicorname">Creative</div></a>
 		</div>
 
 		<div class="display-flex flex-justify-center flexbox">
 		<a href="#" data-activate="#list-uni-modal">
 			<div class="unicornone"></div>
-			<div class="unicorname">unicorn</div></a>
+			<div class="unicorname">Junior</div></a>
+
 		<a href="#" data-activate="#list-uni-modal">
-			<div class="unicornone"></div>
-			<div class="unicorname">unicorn</div></a>
+			<div class="unicorntwo"></div>
+			<div class="unicorname">Rainbow</div></a>
 		</div>
 
 
@@ -251,6 +254,7 @@
 				<li class="flex-none">
 					<a href="#" data-rel="back"><img src="img/icon/back.svg" max-width="50px" height="25px"></a>
 				</li></div>
+
 
 			</ul>
 		</header>
@@ -360,12 +364,7 @@
                 	</a>
                 </li>
 
-                <li>
-                	<a href="#add-page">
-                		<div class="footer-icon"><img class="icon" src="img/icon/add.svg"></div>
-                		
-                	</a>
-                </li>
+               
 
                 <li>
                 	<a href="#list-page">

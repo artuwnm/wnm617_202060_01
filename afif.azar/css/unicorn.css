@@ -518,7 +518,10 @@ text.uni-add-button {
 /*======================= LIST PAGE ======================*/
 .unicornone,
 .unicorntwo,
-.unicornthree {
+.unicornthree,
+.unicornfour,
+.unicornfive,
+.unicornsix {
 	width: 20vmax;
 	height:20vmax;
 	margin: 1em 1em 0 1em ;
@@ -533,7 +536,22 @@ text.uni-add-button {
 }
 
 .unicornone {
-	background-image: url(../img/unicorn1.jpg);
+	background-image: url(../img/unicorn-jr.png);
+}
+.unicorntwo {
+	background-image: url(../img/unicorn-rainbow.png);
+}
+.unicornthree {
+	background-image: url(../img/unicorn-ninja.png);
+}
+.unicornfour {
+	background-image: url(../img/unicorn-nerdy.png);
+}
+.unicornfive {
+	background-image: url(../img/unicorn-spec.png);
+}
+.unicornsix {
+	background-image: url(../img/unicorn-creative.png);
 }
 
 .unicorname {
