@@ -31,6 +31,8 @@ body {
   margin: 0;
   font-size: 100%;
   font-family: (--font-sans);
+  height: 100%;
+  width: 100%;
 }
 
 h1,
@@ -102,90 +104,6 @@ li {
   align-items: center;
 }
 
-/* 
-
-/Puts the signin in the middle of the page 
-.center-child {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-[data-role="header"] ul,
-[data-role="footer"] ul {
-    display: flex;
-    position: relative;
-    list-style-type: none;
-}
-
-[data-role="footer"] li {
-    flex: 1 1 auto;
-    text-align: center;
-}
-
-
-.ui-mobile .ui-page-active {
-    display: flex;
-    flex-direction: column;
-
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
-[data-role="main"] {
-    flex: 1 1 100%;
-    overflow: hidden;
-    position: relative;
-    background-color: white;
-    z-index: 1;
-}
-
-[data-role="header"],
-[data-role="footer"] {
-    flex: none;
-    overflow: hidden;
-    position: relative;
-    line-height: var(--header-height);
-    border-width: 0;
-    background-color: white;
-    box-shadow: 0 0 5px rgba(0, 0, 0, .2);
-    z-index: 2;
-}
-
-.ui-header .ui-title {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    padding: 0;
-    margin: 0;
-}
-
-[data-role="header"] a {
-    display: block;
-    padding: 0 1em;
-}
-
-.user-profile {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.user-profile img {
-    background-color: green;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    object-fit: cover;
-} */
 
 .center-child {
   position: absolute;
@@ -207,7 +125,7 @@ li {
   top: 0;
   left: 0;
   height: 100vh;
-  width: 100vh;
+  width: 100vw;
   z-index: -10;
   object-fit: cover;
   background-image: url("/wnm617/haupt.brandon/img/moonlight.jpg");
@@ -225,8 +143,8 @@ li {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 20em;
-  height: 25em;
+  width: 85%;
+  height: 50%;
   border-radius: 4px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
   background-color: #f6f6f6;
@@ -278,8 +196,8 @@ li {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 21em;
-  height: 30em;
+  width: 80%;
+  height: 55%;
   border-radius: 4px;
   background-color: #ffffff;
   text-align: center;
@@ -289,13 +207,17 @@ li {
 #signup-email,
 #signup-password,
 #signup-password-confirm {
-  width: 20em;
-  height: 3em;
+  width: 80%;
+  height: 100%;
+  padding: 3%;
   margin: 1em;
 }
 
-/* .form-control-sign-up-btn {
-} */
+#signup-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
 
 .form-control-sign-up-btn a {
   display: flex;
@@ -312,7 +234,8 @@ li {
 
 .mapimage {
   object-fit: cover;
-  height: 100%;
+  height: calc(100vh - 100px);
+  width: 100vw;
 }
 
 .resource-profile-add {
@@ -321,9 +244,9 @@ li {
   right: 10%;
 }
 
-.map-image img,
-.list-image img,
-.user-profile-image img {
+.map-icon img,
+.list-icon img,
+.user-profile-icon img {
   width: 2em;
   height: 2em;
 }
@@ -331,16 +254,22 @@ li {
 .resource-profile-add {
   display: flex;
   position: absolute;
-  bottom: 0;
-}
+  bottom: 3%;
+  justify-content: center;
 
-.resource-profile-add button {
   background-color: #00b2ff;
   border-radius: 50%;
   border: none;
-  width: 2.5em !important;
-  height: 2.5em;
+  width: 3.5em;
+  height: 3.5em;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.resource-profile-add button {
+  margin: 0;
+  padding: .4em;
+  border: none;
+  background-color: transparent;
   font-size: 2em;
   color: white;
 }
@@ -373,13 +302,14 @@ li {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  padding: 2%;
+  background-color: #2c2c2c;
 }
 
 .user-profile img {
   background-color: grey;
-  width: 200px;
-  height: 200px;
+  width: 40%;
+  height: 40%;
   border-radius: 50%;
   object-fit: cover;
 }
@@ -393,7 +323,7 @@ li {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -403,27 +333,36 @@ li {
   min-height: calc(100vh - 50px);
 }
 
-.footer {
-  height: 50px;
-}
-
-.navMenu-profile {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
 .js-logout {
-  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  right: 0;
   margin: 2em 2em;
+  width: 30%;
+  height: 5%;
+  color: rgb(167, 166, 166);
 }
 
 .user-profile-back-button {
-  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
   margin: 2em 2em;
+  background-color: #00b2ff;
+  width: 30%;
+  height: 5%;
+  border-radius: .5em;
+  color: white;
 }
 
 /* -------------------- Resource Profile Page ---------------- */
+
 #resource-profile-container {
   display: flex;
   flex-direction: column;
@@ -432,11 +371,18 @@ li {
   width: 100%;
   height: 100vh;
   margin: 0 auto;
+  background-color: #2c2c2c;
+}
+
+.resource-profile-content {
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+  padding-top: 20%;
 }
 
 .resource-profile-content p {
   margin: 0 auto;
-  width: 80%;
   padding: 2em;
   background-color: #cdcdcd;
   border-radius: 4px;
@@ -446,13 +392,19 @@ li {
 
 .resource-profile-header {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
   width: 100vw;
+  background-color: white;
+  height: 20%;
 }
 
 .resource-profile-header img {
-  width: 30%;
+  width: 20%;
 }
 
 .resource-profile-header h1 {
@@ -471,13 +423,47 @@ li {
 }
 
 #resource-profile-description {
-  height: 300px !important;
+  height: 30% !important;
+}
+
+#resource-profile-save-button {
+  position: absolute;
+  bottom: 5%;
+  right: 10%;
+  width: 30%;
+  height: 5%;
+  background-color: #00b2f0;
+  border-radius: 5px;
+  border: none;
+  color: white;
+}
+
+#resource-resource-page-back-button {
+  position: absolute;
+  bottom: 5%;
+  left: 10%;
+  width: 30%;
+  height: 5%;
+  background-color: #00b2f0;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: none;
 }
 
 /* -------------------- Resource Add Page ---------------- */
 
+#resource-add-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 #resource-add-page {
-  background-color: #444;
+  background-color: #2c2c2c;
+  width: 100%;
+  height: 100vh;
 }
 
 .resource-add-content {
@@ -504,11 +490,12 @@ li {
 }
 
 .add-picture {
-  position: absolute;
-  top: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  position: fixed;
   right: 20%;
-
-  font-size: 40px;
   font-weight: bolder;
   background-color: #00b2ff;
   border-radius: 50%;
@@ -530,13 +517,15 @@ li {
 
 #resource-add-description {
   border-radius: 4px;
-  height: 80% !important;
 }
 
 #resource-add-save-btn {
+  position: absolute;
+  bottom: 0;
+  right: 3%;
   border: none;
   background-color: #00b2ff;
-  width: 7em;
+  width: 45%;
   border-radius: 4px;
   float: right;
   color: white;
@@ -544,9 +533,12 @@ li {
 }
 
 #resource-add-page-back-button {
+  position: absolute;
+  bottom: 0;
+  left: 3%;
   border: none;
   background-color: #00b2ff;
-  width: 7em;
+  width: 45%;
   border-radius: 4px;
   float: left;
   color: white;
@@ -626,12 +618,15 @@ vvvvvvvvvvvvvvvvvvvvvvvv
   line-height: 2.5em;
   font-size: 1.2em;
 }
+
 /* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
 #list-page .container img {
   display: flex;
   margin: 0 auto;
-  width: 70%;
-  height: 100%;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 #list-page .container a {

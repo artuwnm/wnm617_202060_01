@@ -10,17 +10,16 @@
     {
         id: '{{index(1)}}',
         user_id: '{{integer(1,10)}}',
-
         name: '{{company()}}',
 
-        type: '{{random("metal","tree","cat")}}',
-        breed: function (tags) {
+        type: '{{random("metal","tree","food")}}',
+        resources: function (tags) {
             var breeds = {
-                metal: ["iron", "gold", "zink"],
-                tree: ["wheeping_willow", "maple", "birch"],
-                cat: ["Tuxedo", "Shorthair", "Calico"]
+                metal: ["Iron", "Gold", "Silver", "Copper", "Platinum", "Nickle", "Cobalt"],
+                tree: ["Weeping Willow", "Maple", "Birch", "Elm", "Cypress", "Oak"],
+                food: ["Elder Berry", "Dandelion", "Wild Onion", "Corn", "Wheat"]
             };
-            var chosen_type = breeds[this.type];
+            var chosen_type = resources[this.type];
             var chosen_index = tags.integer(0, chosen_type.length - 1);
             return chosen_type[chosen_index];
         },
@@ -49,7 +48,7 @@
             return this.username + '@gmail.com';
         },
         password: 'md5(\'pass\')',
-        date_create: '{{date(new Date(1000, 0, 1), new Date(), "YYY-MM-dd hh:mm:ss")}}',
+        date_create: '{{date(new Date(2014, 0, 1), new Date(), "YYYY-MM-dd hh:mm:ss")}}',
         img: function (tags) {
             return 'https://via.placeholder.com/400/' +
                 tags.integer(700, 999) + '/fff/?text=' + this.username;
@@ -71,7 +70,7 @@
 
         description: '{{lorem(3, "sentences")}}',
 
-        date_create: '{{date(new Date(1000, 0, 1), new Date(), "MM-dd-YYYY hh:mm:ss")}}',
+        date_create: '{{date(new Date(2014, 0, 1), new Date(), "YYYY-MM-dd hh:mm:ss")}}',
 
         photo: 'https://via.placeholder.com/400/',
         icon: 'https://via.placeholder.com/100/88/fff/?text=ICON'

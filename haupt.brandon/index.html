@@ -1,385 +1,300 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0 user-scalable=no, maximum-scale=1.0, minimum-scale=1.0"
-    />
 
-    <link rel="stylesheet" href="./css/app.css" />
-    <link
-      rel="stylesheet"
-      href="./lib/css/jquery.mobile.structure-1.4.5.min.css"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0 user-scalable=no, maximum-scale=1.0, minimum-scale=1.0" />
 
-    <script src="./lib/js/jquery-2.2.4.min.js"></script>
+  <link rel="stylesheet" href="./css/app.css" />
+  <link rel="stylesheet" href="./lib/css/jquery.mobile.structure-1.4.5.min.css" />
 
-    <script src="./js/signin.js"></script>
-    <script src="./js/app.js"></script>
+  <script src="./lib/js/jquery-2.2.4.min.js"></script>
 
-    <script src="./lib/js/jquery.mobile-1.4.5.min.js"></script>
+  <script src="./js/signin.js"></script>
+  <script src="./js/app.js"></script>
 
-    <title>ResourceApp</title>
-  </head>
+  <script src="./lib/js/jquery.mobile-1.4.5.min.js"></script>
 
-  <body>
-    <!-------------------- Sign In Page ------------------->
-    <section data-role="page" id="signin-page">
-      <div data-role="main">
-        <div class="login-background"></div>
-        <!-- <ul class="navMenu">
+  <title>ResourceApp</title>
+</head>
+
+<body>
+  <!-------------------- Sign In Page ------------------->
+  <section data-role="page" id="signin-page">
+    <div data-role="main">
+      <div class="login-background"></div>
+      <!-- <ul class="navMenu">
           <li><a href="#map-page">Map</a></li>
           <li><a href="#list-page">List</a></li>
           <li><a href="#profile-page">Profile</a></li>
         </ul> -->
 
-        <div class="signin-box" data-activate="#signin-page .signup-box">
-          <form id="signin-form" data-ajax="false" class="center-child">
-            <div class="form-control">
-              <!-- <label for="signin-username" class="form-label">Username</label> -->
-              <input
-                type="text"
-                class="form-input"
-                id="signin-username"
-                placeholder="Type your username"
-                data-role="none"
-              />
-            </div>
+      <div class="signin-box" data-activate="#signin-page .signup-box">
+        <form id="signin-form" data-ajax="false" class="center-child">
+          <div class="form-control">
+            <!-- <label for="signin-username" class="form-label">Username</label> -->
+            <input type="text" class="form-input" id="signin-username" placeholder="Type your username"
+              data-role="none" />
+          </div>
 
-            <div class="form-control">
-              <!-- <label for="signin-password" class="form-label">Password</label> -->
-              <input
-                type="password"
-                class="form-input"
-                id="signin-password"
-                placeholder="Type your password"
-                data-role="none"
-              />
-            </div>
+          <div class="form-control">
+            <!-- <label for="signin-password" class="form-label">Password</label> -->
+            <input type="password" class="form-input" id="signin-password" placeholder="Type your password"
+              data-role="none" />
+          </div>
 
-            <div class="form-control-sign-in">
-              <input
-                type="submit"
-                class="form-button"
-                value="Sign In"
-                data-role="none"
-              />
-            </div>
-            <a href="#signup-page">Signup</a>
-            <div class="forgot-password">
-              <a href="">Forgot password?</a>
-            </div>
-          </form>
-        </div>
+          <div class="form-control-sign-in">
+            <input type="submit" class="form-button" value="Sign In" data-role="none" />
+          </div>
+          <a href="#signup-page">Signup</a>
+          <div class="forgot-password">
+            <a href="">Forgot password?</a>
+          </div>
+        </form>
       </div>
-    </section>
-    <!--------------------- Sign Up Page ------------------>
-    <section data-role="page" id="signup-page">
-      <div data-role="main">
-        <div class="login-background">
-          <!-- <img src="./img/moonlight.jpg" alt="" /> -->
-        </div>
-        <div class="signup-box">
-          <form data-ajax="false" id="signup-form" class="center-child">
-            <div class="form-control-sign-up">
-              <!-- <label for="signup-username" class="form-label">Username</label> -->
-              <input
-                type="text"
-                class="form-input"
-                id="signup-username"
-                placeholder="Type your username"
-                data-role="none"
-              />
-            </div>
+    </div>
+  </section>
+  <!--------------------- Sign Up Page ------------------>
+  <section data-role="page" id="signup-page">
+    <div data-role="main">
+      <div class="login-background">
+        <!-- <img src="./img/moonlight.jpg" alt="" /> -->
+      </div>
+      <div class="signup-box">
+        <form data-ajax="false" id="signup-form" class="center-child">
+          <div class="form-control-sign-up">
+            <!-- <label for="signup-username" class="form-label">Username</label> -->
+            <input type="text" class="form-input" id="signup-username" placeholder="Type your username"
+              data-role="none" />
+          </div>
 
-            <div class="form-control-sign-up">
-              <!-- <label for="signup-username" class="form-label">Email</label> -->
-              <input
-                type="text"
-                class="form-input"
-                id="signup-email"
-                placeholder="Type your email"
-                data-role="none"
-              />
-            </div>
+          <div class="form-control-sign-up">
+            <!-- <label for="signup-username" class="form-label">Email</label> -->
+            <input type="text" class="form-input" id="signup-email" placeholder="Type your email" data-role="none" />
+          </div>
 
-            <div class="form-control-sign-up">
-              <!-- <label for="signup-password" class="form-label">Password</label> -->
-              <input
-                type="password"
-                class="form-input"
-                id="signup-password"
-                placeholder="Type your password"
-                data-role="none"
-              />
-              <!-- <label for="signup-password" class="form-label"
+          <div class="form-control-sign-up">
+            <!-- <label for="signup-password" class="form-label">Password</label> -->
+            <input type="password" class="form-input" id="signup-password" placeholder="Type your password"
+              data-role="none" />
+            <!-- <label for="signup-password" class="form-label"
                 >Confirm password</label
               > -->
-              <input
-                type="password"
-                class="form-input"
-                id="signup-password-confirm"
-                placeholder="Confirm your password"
-                data-role="none"
-              />
-            </div>
-
-            <div class="form-control-sign-up-btn">
-              <a href="#" class="back-arrow" data-rel="back">back</a>
-              <input
-                type="submit"
-                class="form-button"
-                value="Sign Up"
-                data-role="none"
-              />
-            </div>
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <!---------------------------- Map Page ------------------------->
-    <section data-role="page" id="map-page">
-      <div data-role="main">
-        <ul class="navMenu">
-          <li class="map-image">
-            <a href="#map-page"
-              >
-              <img src="./img/png/treasure-map.png" alt=""
-            />
-          </a>
-
-            <li class="list-image">
-              <a href="#list-page">
-                <img src="./img/png/bookmarklet_black.png" alt=""
-              />
-            </a>
-          </li>
-
-          <li class="user-profile-image">
-              <a href="#profile-page">
-                <img src="./img/png/person_black.png" alt=""
-              />
-            </a>
-          </li>
-
-          </li>
-        </ul>
-
-        <div class="resource-example">
-          <a href="#resource-profile-page">
-            <img src="./img/png/tree-beehive_black.png" alt="" />
-          </a>
-        </div>
-
-        <img
-          class="mapimage"
-          src="./img/googlemaps.JPG"
-          alt="a placeholder for google maps"
-        />
-
-        <div class="resource-profile-add">
-          <a href="#resource-add-page">
-            <button>&plus;</button>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-------------------------- List Page --------------------------->
-    <section data-role="page" id="list-page">
-      <!-- <header data-role="header">
-    </header> -->
-
-      <div class="header">
-        <ul>
-
-          <ul class="navMenu">
-            <li class="map-image">
-              <a href="#map-page"><img src="./img/png/treasure-map.png" alt=""/></a>
-  
-              <li class="list-image">
-                <a href="#list-page">
-                  <img src="./img/png/bookmarklet_black.png" alt=""/>
-                </a>
-              </li>
-  
-              <li class="user-profile-image">
-                <a href="#profile-page"><img src="./img/png/person_black.png" alt=""/></a>
-              </li>
-  
-            </li>
-          </ul>
-        </ul>
-      </div>
-
-      <!-- class="resource-list" vvvvv -->
-      <div data-role="main">
-        <div class="scrollable">
-          <ul class="container">
-            <li><a href="#resource-profile-page"><img src="./img/png/tree-beehive_white.png" alt="">Beehive</a></li>
-            <li><a href="#resource-profile-page"><img src="./img/png/tree-beehive_white.png" alt="">Beehive</a></li>
-            <li><a href="#resource-profile-page"><img src="./img/png/tree-beehive_white.png" alt="">Beehive</a></li>
-            <li><a href="#resource-profile-page"><img src="./img/png/tree-beehive_white.png" alt="">Beehive</a></li>
-            <li><a href="#resource-profile-page"><img src="./img/png/tree-beehive_white.png" alt="">Beehive</a></li>
-            <li><a href="#resource-profile-page"><img src="./img/png/tree-beehive_white.png" alt="">Beehive</a></li>
-            <li><a href="#resource-profile-page"><img src="./img/png/tree-beehive_white.png" alt="">Beehive</a></li>
-            <li><a href="#resource-profile-page"><img src="./img/png/tree-beehive_white.png" alt="">Beehive</a></li>
-            <li><a href="#resource-profile-page"><img src="./img/png/tree-beehive_white.png" alt="">Beehive</a></li>
-            <li><a href="#resource-profile-page"><img src="./img/png/tree-beehive_white.png" alt="">Beehive</a></li>
-            <li><a href="#resource-profile-page"><img src="./img/png/tree-beehive_white.png" alt="">Beehive</a></li>
-            <li><a href="#resource-profile-page"><img src="./img/png/tree-beehive_white.png" alt="">Beehive</a></li>
-            <li><a href="#resource-profile-page"><img src="./img/png/tree-beehive_white.png" alt="">Beehive</a></li>
-            <li><a href="#resource-profile-page"><img src="./img/png/tree-beehive_white.png" alt="">Beehive</a></li>
-            <li><a href="#resource-profile-page"><img src="./img/png/tree-beehive_white.png" alt="">Beehive</a></li>
-            <li><a href="#resource-profile-page"><img src="./img/png/tree-beehive_white.png" alt="">Beehive</a></li>
-            <li><a href="#resource-profile-page"><img src="./img/png/tree-beehive_white.png" alt="">Beehive</a></li>
-            <li><a href="#resource-profile-page"><img src="./img/png/tree-beehive_white.png" alt="">Beehive</a></li>
-            <li><a href="#resource-profile-page"><img src="./img/png/tree-beehive_white.png" alt="">Beehive</a></li>
-            <li><a href="#resource-profile-page"><img src="./img/png/tree-beehive_white.png" alt="">Beehive</a></li>
-            <li><a href="#resource-profile-page"><img src="./img/png/tree-beehive_white.png" alt="">Beehive</a></li>
-            <li><a href="#resource-profile-page"><img src="./img/png/tree-beehive_white.png" alt="">Beehive</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="modal" id="list-add-resource-modal">
-        <div class="modal-back" data-deactivate="#list-add-resource-modal"></div>
-
-        <div class="modal-popup">
-          <div class="modal-head">header</div>
-
-          <div class="modal-body">
-            <form data-ajax="false" action=""></form>
+            <input type="password" class="form-input" id="signup-password-confirm" placeholder="Confirm your password"
+              data-role="none" />
           </div>
 
-          <div class="modal-footer">
-            <div class="form-control">
-              <input type="text" class="form-input" id="list-add-name" placeholder="Add resource name" data-role="none"/>
-            </div>
+          <div class="form-control-sign-up-btn">
+            <a href="#" class="back-arrow" data-rel="back">back</a>
+            <input type="submit" class="form-button" value="Sign Up" data-role="none" />
           </div>
-        </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!---------------------------- Map Page ------------------------->
+  <section data-role="page" id="map-page">
+    <div data-role="main">
+      <ul class="navMenu">
+        <li class="map-icon">
+          <a href="#map-page">
+            <img src="./img/png/treasure-map.png" alt="" />
+          </a>
+
+        <li class="list-icon">
+          <a href="#list-page">
+            <img src="./img/png/bookmarklet_black.png" alt="" />
+          </a>
+        </li>
+
+        <li class="user-profile-icon">
+          <a href="#profile-page">
+            <img src="./img/png/person_black.png" alt="" />
+          </a>
+        </li>
+
+        </li>
+      </ul>
+
+      <div class="resource-example">
+        <a href="#resource-profile-page">
+          <img src="./img/png/tree-beehive_black.png" alt="" />
+        </a>
       </div>
 
+      <img class="mapimage" src="./img/googlemaps.JPG" alt="a placeholder for google maps" />
 
-      <div class="list-resource-button">
+      <div class="resource-profile-add">
         <a href="#resource-add-page">
           <button>&plus;</button>
         </a>
       </div>
+    </div>
+  </section>
 
+  <!-------------------------- List Page --------------------------->
+  <section data-role="page" id="list-page">
+    <!-- <header data-role="header">
+    </header> -->
 
-    </section>
+    <div class="header">
+      <ul>
 
-    <!--------------------- Resource add Page ----------------------->
-    <section data-role="page" id="resource-add-page">
-      <div id="resource-add-container">
-        <div class="resource-add-content">
-          <div data-role="main">
-            <div class="resource-add-img">
-              <img
-                src="./img/png/tree-beehive_black.png"
-                alt="A Picture of a beehive"
-              />
-              <div class="add-picture">
-                <p>&plus;</p>
-              </div>
-            </div>
-            <textarea
-              name="resource-add-name"
-              id="resource-add-name"
-              placeholder="Resource Name"
-              cols="1"
-              rows="1"
-            ></textarea>
-            <textarea
-              name="resource-add-description"
-              id="resource-add-description"
-              placeholder="Description"
-              cols="20"
-              rows="20"
-            ></textarea>
-            <button id="resource-add-save-btn">Save</button>
-            <button id="resource-add-page-back-button">
-              <a href="#" class="resource-add-page-back-link" data-rel="back"
-                >Back</a
-              >
-            </button>
+        <ul class="navMenu">
+          <li class="map-icon">
+            <a href="#map-page"><img src="./img/png/treasure-map.png" alt="" /></a>
+
+          <li class="list-icon">
+            <a href="#list-page">
+              <img src="./img/png/bookmarklet_black.png" alt="" />
+            </a>
+          </li>
+
+          <li class="user-profile-icon">
+            <a href="#profile-page"><img src="./img/png/person_black.png" alt="" /></a>
+          </li>
+
+          </li>
+        </ul>
+      </ul>
+    </div>
+
+    <!-- class="resource-list" vvvvv -->
+    <div data-role="main">
+      <div class="scrollable">
+        <ul class="container">
+          <li><a href="#resource-profile-page"><img src="./img/resources-img/beehive.jpg" alt="">Beehive</a></li>
+          <li><a href="#resource-profile-page"><img src="./img//resources-img/oak-tree.jpg" alt="">Oak Tree</a></li>
+          <li><a href="#resource-profile-page"><img src="./img/resources-img/corn.jpg" alt="">Corn</a></li>
+          <li><a href="#resource-profile-page"><img src="./img/resources-img/iron-ore.jpg" alt="">Iron Ore</a></li>
+          <li><a href="#resource-profile-page"><img src="./img/resources-img/dandelion.jpg" alt="">Dandelion</a></li>
+          <li><a href="#resource-profile-page"><img src="./img/resources-img/maple-tree.jpg" alt="">Maple Tree</a></li>
+          <li><a href="#resource-profile-page"><img src="./img/resources-img/wild-onion.jpg" alt="">Wild Onion</a></li>
+          <li><a href="#resource-profile-page"><img src="./img/resources-img/weeping-willow.jpg" alt="">Weeping
+              Willow</a></li>
+          <li><a href="#resource-profile-page"><img src="./img/resources-img/wheat.jpg" alt="">Wheat</a></li>
+          <li><a href="#resource-profile-page"><img src="./img/resources-img/corn.jpg" alt="">Corn</a></li>
+          <li><a href="#resource-profile-page"><img src="./img/resources-img/iron-ore.jpg" alt="">Iron Ore</a></li>
+          <li><a href="#resource-profile-page"><img src="./img/resources-img/dandelion.jpg" alt="">Dandelion</a></li>
+          <li><a href="#resource-profile-page"><img src="./img/resources-img/maple-tree.jpg" alt="">Maple Tree</a></li>
+          <li><a href="#resource-profile-page"><img src="./img/resources-img/wild-onion.jpg" alt="">Wild Onion</a></li>
+          <li><a href="#resource-profile-page"><img src="./img/resources-img/weeping-willow.jpg" alt="">Weeping
+              Willow</a></li>
+          <li><a href="#resource-profile-page"><img src="./img/resources-img/wheat.jpg" alt="">Wheat</a></li>
+          <li><a href="#resource-profile-page"><img src="./img/resources-img/corn.jpg" alt="">Corn</a></li>
+          <li><a href="#resource-profile-page"><img src="./img/resources-img/iron-ore.jpg" alt="">Iron Ore</a></li>
+          <li><a href="#resource-profile-page"><img src="./img/resources-img/dandelion.jpg" alt="">Dandelion</a></li>
+          <li><a href="#resource-profile-page"><img src="./img/resources-img/weeping-willow.jpg" alt="">Weeping
+              Willow</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="modal" id="list-add-resource-modal">
+      <div class="modal-back" data-deactivate="#list-add-resource-modal"></div>
+
+      <div class="modal-popup">
+        <div class="modal-head">header</div>
+
+        <div class="modal-body">
+          <form data-ajax="false" action=""></form>
+        </div>
+
+        <div class="modal-footer">
+          <div class="form-control">
+            <input type="text" class="form-input" id="list-add-name" placeholder="Add resource name" data-role="none" />
           </div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!------------------- Resource Profile Page --------------------->
-    <section data-role="page" id="resource-profile-page">
-      <div id="resource-profile-container">
+
+    <div class="list-resource-button">
+      <a href="#resource-add-page">
+        <button>&plus;</button>
+      </a>
+    </div>
+
+
+  </section>
+
+  <!--------------------- Resource add Page ----------------------->
+  <section data-role="page" id="resource-add-page">
+    <div id="resource-add-container">
+      <div class="resource-add-content">
         <div data-role="main">
-          <div class="resource-profile-header">
-            <img
-              src="./img/png/tree-beehive_black.png"
-              alt="A Picture of a beehive"
-            />
-            <h1>Bee Hive</h1>
-          </div>
-          <div class="resource-profile-content">
-            <p>
-              A beehive is an enclosed, man-made structure in which some honey
-              bee species of the subgenus apis live and raise their young. The
-              bees use the cells to store food &#40;honey and pollen&#41; and to
-              house the brood &#40;egg, larvae, pupae&#41;. Can be used to
-              gather honey. lots of ouch if prevoked.
-            </p>
-            <textarea
-              name="resource-profile-name"
-              id="resource-profile-name"
-              placeholder="Last Seen"
-              cols="1"
-              rows="1"
-            ></textarea>
-            <textarea
-              name="resource-profile-description"
-              id="resource-profile-description"
-              placeholder="Add other notes here"
-              cols="20"
-              rows="20"
-            ></textarea>
-          </div>
-        </div>
-        <li>
-          <a href="#" class="user-profile-back-button" data-rel="back">
-            Back
-          </a>
-        </li>
-      </div>
-    </section>
-
-    <!------------------------- User Profile Page ------------------------>
-    <section data-role="page" id="profile-page">
-      <div id="profile-page-container">
-        <div class="profile-page-content">
-          <div data-role="main">
-            <div class="user-profile">
-              <img src="./img/Eijirou_Kirishima.png" alt="" />
+          <div class="resource-add-img">
+            <img src="./img/png/tree-beehive_black.png" alt="A Picture of a beehive" />
+            <div class="add-picture">
+              <p>&plus;</p>
             </div>
-
-            <textarea
-              name="user-profile-notes"
-              id="user-profile-notes"
-              placeholder="Notes"
-              cols="30"
-              rows="20"
-            ></textarea>
-
-            <li><a href="#signin-page" class="js-logout">Log Out</a></li>
-            <li>
-              <a href="#" class="user-profile-back-button" data-rel="back"
-                >Back</a
-              >
-            </li>
           </div>
+
+          <textarea name="resource-add-name" id="resource-add-name" placeholder="Resource Name" cols="1"
+            rows="1"></textarea>
+
+          <textarea name="resource-add-description" id="resource-add-description" placeholder="Description" cols="20"
+            rows="20"></textarea>
+
+          <button id="resource-add-save-btn">Save</button>
+
+          <button id="resource-add-page-back-button">
+            <a href="#" class="resource-add-page-back-link" data-rel="back">Back</a>
+          </button>
         </div>
       </div>
-    </section>
-  </body>
+    </div>
+  </section>
+
+  <!------------------- Resource Profile Page --------------------->
+  <section data-role="page" id="resource-profile-page">
+    <div id="resource-profile-container">
+      <div data-role="main">
+        <div class="resource-profile-header">
+          <img src="./img/png/tree-beehive_black.png" alt="A Picture of a beehive" />
+          <h1>Bee Hive</h1>
+        </div>
+
+        <div class="resource-profile-content">
+          <textarea name="resource-profile-name" id="resource-profile-name" placeholder="Last Seen" cols="15"
+            rows="15"></textarea>
+
+          <textarea name="resource-profile-description" id="resource-profile-description" placeholder="Description"
+            cols="15" rows="15"></textarea>
+        </div>
+      </div>
+
+      <button id="resource-resource-page-back-button">
+        <a href="#" class="resource-profile-page-back" data-rel="back">Back</a>
+      </button>
+
+      <button id="resource-profile-save-button">Save</button>
+    </div>
+  </section>
+
+  <!------------------------- User Profile Page ------------------------>
+  <section data-role="page" id="profile-page">
+    <div id="profile-page-container">
+      <div class="profile-page-content">
+        <div data-role="main">
+          <div class="user-profile">
+            <img src="./img/Eijirou_Kirishima.png" alt="" />
+          </div>
+
+          <div class="main-info">
+
+          </div>
+
+          <li><a href="#signin-page" class="js-logout">Log Out</a></li>
+          <li>
+            <a href="#" class="user-profile-back-button" data-rel="back">Back</a>
+          </li>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+
 </html>
