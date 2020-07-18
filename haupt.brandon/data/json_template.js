@@ -14,7 +14,7 @@
 
         type: '{{random("metal","tree","food")}}',
         resources: function (tags) {
-            var breeds = {
+            var resources = {
                 metal: ["Iron", "Gold", "Silver", "Copper", "Platinum", "Nickle", "Cobalt"],
                 tree: ["Weeping Willow", "Maple", "Birch", "Elm", "Cypress", "Oak"],
                 food: ["Elder Berry", "Dandelion", "Wild Onion", "Corn", "Wheat"]
@@ -26,7 +26,7 @@
 
         description: '{{lorem(3, "sentences")}}',
 
-        date_create: '{{date(new Date(1000, 0, 1), new Date(), "YYY-MM-dd hh:mm:ss")}}',
+        date_create: '{{date(new Date(1000, 0, 1), new Date(), "YYYY-MM-dd hh:mm:ss")}}',
         img: function (tags) {
             return 'https://via.placeholder.com/400/' +
                 tags.integer(700, 999) + '/fff/?text=' + this.name;
