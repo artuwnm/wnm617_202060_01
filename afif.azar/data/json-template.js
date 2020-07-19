@@ -20,35 +20,36 @@ json-template.js
         tags.integer(700,999)+'/fff/?text='+this.username;
     }
   }
+]
 
-/* Animal Template */[
-  '{{repeat(50)}}' ,
+
+/* Animal Template */
+[
+  '{{repeat(50)}}',
   {
     id: '{{index(1)}}',
     user_id: '{{integer(1,10)}}',
     
     name: '{{company()}}',
     
-    type: '{{random("cat", "dog")}}',
+    type: '{{random("unicorn")}}',
     breed: function(tags) {
       var breeds = {
-       cat: ["cool", "angry"],
-       dog: ["doo", "relax"]
+        unicorn:["junior","ninja","creative","special","nerdy"]
       };
       var chosen_type = breeds[this.type];
-      var chosen_index = tags.iteger(0,chosen_type.length-1);
+      var chosen_index = tags.integer(0,chosen_type.length-1);
       return chosen_type[chosen_index];
     },
     
     description: '{{lorem(3, "sentences")}}',
     
-    date_create: '{{date(new Date(2020, 0, 1), new Date(), "YYYY-MM-     dd hh:mm:ss")}}',
+    date_create: '{{date(new Date(2020, 0, 1), new Date(), "YYYY-MM-dd hh:mm:ss")}}',
     img: function(tags) {
       return 'https://via.placeholder.com/400/'+
         tags.integer(700,999)+'/fff/?text='+this.name;
     }
   }
- 
 ]
 
 /* Location Template */
@@ -66,7 +67,7 @@ json-template.js
     date_create: '{{date(new Date(2020, 0, 1), new Date(), "YYYY-MM-     dd hh:mm:ss")}}',
     
     photo: 'https://via.placeholder.com/400/',
-    icon: 'https://via.placeholder.com/100/888/fff/?text=ICON'
+    icon: 'https://via.placeholder.com/100/888/fff/?text=ICON',
   }
  
 ]
