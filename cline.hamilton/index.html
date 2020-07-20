@@ -12,6 +12,9 @@
 	<script src="lib/js/jquery-2.2.4.min.js"></script>
 
 	<script src="js/signin.js"></script>
+	<script src="js/functions.js"></script>
+	<script src="js/pages.js"></script>
+	<script src="js/parts.js"></script>
 	<script src="js/app.js"></script>
 
 	<script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
@@ -109,58 +112,7 @@
 		</header>
 		<div data-role="main">
 			<div class="scrollable">
-				<ul>
-					<li><a href="#animal-profile-page">Animal 1</a></li>
-					<li><a href="#animal-profile-page">Animal 2</a></li>
-					<li><a href="#animal-profile-page">Animal 3</a></li>
-					<li><a href="#animal-profile-page">Animal 4</a></li>
-					<li><a href="#animal-profile-page">Animal 5</a></li>
-					<li><a href="#animal-profile-page">Animal 6</a></li>
-					<li><a href="#animal-profile-page">Animal 7</a></li>
-					<li><a href="#animal-profile-page">Animal 8</a></li>
-					<li><a href="#animal-profile-page">Animal 9</a></li>
-					<li><a href="#animal-profile-page">Animal 10</a></li>
-					<li><a href="#animal-profile-page">Animal 1</a></li>
-					<li><a href="#animal-profile-page">Animal 2</a></li>
-					<li><a href="#animal-profile-page">Animal 3</a></li>
-					<li><a href="#animal-profile-page">Animal 4</a></li>
-					<li><a href="#animal-profile-page">Animal 5</a></li>
-					<li><a href="#animal-profile-page">Animal 6</a></li>
-					<li><a href="#animal-profile-page">Animal 7</a></li>
-					<li><a href="#animal-profile-page">Animal 8</a></li>
-					<li><a href="#animal-profile-page">Animal 9</a></li>
-					<li><a href="#animal-profile-page">Animal 10</a></li>
-					<li><a href="#animal-profile-page">Animal 1</a></li>
-					<li><a href="#animal-profile-page">Animal 2</a></li>
-					<li><a href="#animal-profile-page">Animal 3</a></li>
-					<li><a href="#animal-profile-page">Animal 4</a></li>
-					<li><a href="#animal-profile-page">Animal 5</a></li>
-					<li><a href="#animal-profile-page">Animal 6</a></li>
-					<li><a href="#animal-profile-page">Animal 7</a></li>
-					<li><a href="#animal-profile-page">Animal 8</a></li>
-					<li><a href="#animal-profile-page">Animal 9</a></li>
-					<li><a href="#animal-profile-page">Animal 10</a></li>
-					<li><a href="#animal-profile-page">Animal 1</a></li>
-					<li><a href="#animal-profile-page">Animal 2</a></li>
-					<li><a href="#animal-profile-page">Animal 3</a></li>
-					<li><a href="#animal-profile-page">Animal 4</a></li>
-					<li><a href="#animal-profile-page">Animal 5</a></li>
-					<li><a href="#animal-profile-page">Animal 6</a></li>
-					<li><a href="#animal-profile-page">Animal 7</a></li>
-					<li><a href="#animal-profile-page">Animal 8</a></li>
-					<li><a href="#animal-profile-page">Animal 9</a></li>
-					<li><a href="#animal-profile-page">Animal 10</a></li>
-					<li><a href="#animal-profile-page">Animal 1</a></li>
-					<li><a href="#animal-profile-page">Animal 2</a></li>
-					<li><a href="#animal-profile-page">Animal 3</a></li>
-					<li><a href="#animal-profile-page">Animal 4</a></li>
-					<li><a href="#animal-profile-page">Animal 5</a></li>
-					<li><a href="#animal-profile-page">Animal 6</a></li>
-					<li><a href="#animal-profile-page">Animal 7</a></li>
-					<li><a href="#animal-profile-page">Animal 8</a></li>
-					<li><a href="#animal-profile-page">Animal 9</a></li>
-					<li><a href="#animal-profile-page">Animal 10</a></li>
-				</ul>
+				<div class="animallist"></div>
 			</div>
 		</div>
 		<footer data-role="footer" data-template="#footer-template"></footer>
@@ -206,7 +158,11 @@
 			</ul>
 		</header>
 		<div data-role="main">
-			Cool Animal
+			<div class="profile">
+				<div class="profile-head"></div>
+				<div class="profile-body"></div>
+
+			</div>
 		</div>
 	</section>
 
@@ -216,20 +172,7 @@
 	<!-- PROFILE PAGE -->
 	<section data-role="page" id="profile-page">
 		<div data-role="main">
-			<div class="hero-image">
-				<img src="https://hdraws.com/images/businesscard.png" alt="">
-			</div>
-			<h2 class="profile-title">Hamilton</h2>
-			<div class="profile-body">
-				<div>
-					<strong>Email:</strong> <span>hamdiggy@gmail.com</span>
-				</div>
-				<div>
-					<strong>Animals:</strong> <span>5</span>
-				</div>
-				<div>
-					<strong>Locations:</strong> <span>25</span>
-				</div>
+			<div class="profile">
 			</div>
 
 			<a class="settings" href="#settings-page">
