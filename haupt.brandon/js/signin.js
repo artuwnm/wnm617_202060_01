@@ -1,20 +1,26 @@
-const checkLoginForm = () => {
+const checkSigninForm = async () => {
     let user = $("#signin-username").val();
     let pass = $("#signin-password").val();
 
     console.log(user, pass);
 
-    if (user === 'user' && pass === 'pass') {
+    let found_user = await query({
+        type: 'check_signin',
+        params: [user, pass]
+    })
+
+
+    if (found_user.result.length > 0) {
         // logged in!
         console.log('Congrats!')
 
         // Is an array that passes from page to page whether you 
-        sessionStorage.userId = 3;
+        sessionStorage.userId = found_user.result[o].id;
 
         $("#signin-form")[0].reset();
     } else {
         // Not logs in! :C
-        console.log('Didnt work!!')
+        console.log('Didnt work!')
 
         sessionStorage.removeItem('userId');
     }

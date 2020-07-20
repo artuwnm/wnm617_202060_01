@@ -725,3 +725,13 @@ vvvvvvvvvvvvvvvvvvvvvvvv
   position: relative;
   flex: 1 1 auto;
 }
+
+
+
+
+.list-image {
+  vertical-align: text-bottom;
+  width: 4em;
+  height: 4em;
+  object-fit: cover;
+}

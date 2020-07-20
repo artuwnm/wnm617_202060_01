@@ -8,22 +8,47 @@ $(document).ready(function () {
     // Event Delegation
     $(document)
 
-        // Form Submissions
+        // ROUTING
+        .on("pagecontainerbeforeshow", function (e, ui) {
+            switch (ui.toPage[0].id) {
+                case "recent-page":
+                    console.log("Recent");
+                    break;
+                case "list-page":
+                    ListPage();
+                    break;
+                case "resource-profile-page":
+                    ResourceProfilePage();
+                    break;
+                case "profile-page":
+                    ProfilePage();
+                    break;
+            }
+        })
+
+        // FORM SUBMISSIONS
         .on("submit", "#signin-form", function (e) {
             e.preventDefault();
-            checkLoginForm();
+            checkSigninForm();
             console.log("honk")
         })
 
 
 
-        // Clicks
+        // CLICKS
         .on("click", ".js-logout", function (e) {
             sessionStorage.removeItem('userId');
             checkUserId();
         })
 
-        // Activate Tools
+        .on("click", ".resource-jump", function (e) {
+            if (!$(this).data("id")) throw ("No data ID on Element");
+
+            sessionStorage.resourceId = $(this).data("id");
+            $.mobile.navigate("#resource-profile-page");
+        })
+
+        // ACTIVE TOOLS
         .on("click", "[data-activate]", function (e) {
             $($(this).data('activate')).addClass('active');
         })

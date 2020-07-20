@@ -12,12 +12,29 @@
   <script src="./lib/js/jquery-2.2.4.min.js"></script>
 
   <script src="./js/signin.js"></script>
+  <script src="./js/pages.js"></script>
+  <!-- Needs to come before parts in order for it to work -->
+  <script src="./js/functions.js"></script>
+  <script src="./js/parts.js"></script>
+
+
+
   <script src="./js/app.js"></script>
 
   <script src="./lib/js/jquery.mobile-1.4.5.min.js"></script>
 
   <title>ResourceApp</title>
 </head>
+
+<!-- Pages
+signin-page
+signup-page
+map-page
+list-page
+resource-profile-page
+resource-add-page
+profile-page
+-->
 
 <body>
   <!-------------------- Sign In Page ------------------->
@@ -165,7 +182,10 @@
     <div data-role="main">
       <div class="scrollable">
         <ul class="container">
-          <li><a href="#resource-profile-page"><img src="./img/resources-img/beehive.jpg" alt="">Beehive</a></li>
+          <div class="resourcelist"></div>
+
+
+          <!-- <li><a href="#resource-profile-page"><img src="./img/resources-img/beehive.jpg" alt="">Beehive</a></li>
           <li><a href="#resource-profile-page"><img src="./img//resources-img/oak-tree.jpg" alt="">Oak Tree</a></li>
           <li><a href="#resource-profile-page"><img src="./img/resources-img/corn.jpg" alt="">Corn</a></li>
           <li><a href="#resource-profile-page"><img src="./img/resources-img/iron-ore.jpg" alt="">Iron Ore</a></li>
@@ -187,7 +207,7 @@
           <li><a href="#resource-profile-page"><img src="./img/resources-img/iron-ore.jpg" alt="">Iron Ore</a></li>
           <li><a href="#resource-profile-page"><img src="./img/resources-img/dandelion.jpg" alt="">Dandelion</a></li>
           <li><a href="#resource-profile-page"><img src="./img/resources-img/weeping-willow.jpg" alt="">Weeping
-              Willow</a></li>
+              Willow</a></li> -->
         </ul>
       </div>
     </div>
