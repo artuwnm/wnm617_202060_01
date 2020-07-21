@@ -6,10 +6,24 @@ $(()=>{
 	$(document)
 
 
+	// ROUTING
+	.on( "pagecontainerbeforeshow", function( e, ui ) {
+		switch(ui.toPage[0].id) {
+			case "recent-page": RecentPage(); break;
+			case "list-page": ListPage(); break;
+			case "profile-page": ProfilePage(); break;
+			case "alcohol-profile-page": AlcoholProfilePage(); break;
+		}
+	})
+
+
+
+
+
 	// FORM SUBMISSIONS
 	.on("submit","#signin-form",function(e){
 		e.preventDefault();
-		checkLoginForm();
+		checkSigninForm();
 	})
 
 
@@ -20,6 +34,14 @@ $(()=>{
 		sessionStorage.removeItem('userId');
 		checkUserId();
 	})
+	.on("click",".alcohol-jump",function(e){
+		if(!$(this).data("id")) throw("No data ID on Element");
+
+		sessionStorage.animalId = $(this).data("id");
+		$.mobile.navigate("#alcohol-profile-page")
+	})
+
+
 
 
 	// ACTIVATE TOOLS
@@ -37,11 +59,12 @@ $(()=>{
 			.siblings().removeClass("active");
 	})
 
-});
+	;
 
-var selector = '.nav li';
 
-$(selector).on('click', function(){
-    $(selector).removeClass('active');
-    $(this).addClass('active');
+
+	$("[data-template]").each(function(){
+		$(this).html($($(this).data("template")).html());
+	})
+
 });
