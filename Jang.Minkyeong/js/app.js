@@ -7,10 +7,31 @@ $(()=>{
 	$(document)
 
 
+
+	// routing
+
+	.on( "pagecontainerbeforeshow", function(e,ui) {
+		switch(ui.toPage[0].id){
+			case "recent-page" :
+				console.log("Recent");
+				break;
+			case "list-page" : ListPage(); break;
+			case "profile-page" : ProfilePage(); break;
+			case "animal-profile-page" : AnimalProfilePage(); break;
+			
+		}
+	} );
+
+
+
+
+
+
+
 	// FORM SUBMISSIONS
 	.on("submit","#signin-form",function(e){
 		e.preventDefault();
-		checkLoginForm();
+		checkSigninForm();
 	})
 
 
@@ -20,6 +41,12 @@ $(()=>{
 	.on("click",".js-logout",function(e){
 		sessionStorage.removeItem('userId');
 		checkUserId();
+	})
+	.on("click",".animal-jump",function(e){
+		if(!$(this).data("id")) throw("No data ID on Element");
+
+		sessionStorage.animalId = $(this).data("id");
+		$.mobile.navigate("#animal-profile-page")
 	})
 
 
