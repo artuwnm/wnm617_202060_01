@@ -341,8 +341,7 @@ a {
 	display:block;
 }
 .footer-icon {
-    font-size: 1.5em;
-    padding: 10px;
+    font-size: 1.25em;
 }
 .icon {
     width: 1.5em;
@@ -354,6 +353,11 @@ a {
 .footer-label {
     line-height: 1rem;
     font-size: 0.7em;
+}
+.footer-icon.active {
+	border-top-width: 3px;
+	border-top-style: solid;
+	border-top-color: var(--color-main-light);
 }
 
 /* Food list */

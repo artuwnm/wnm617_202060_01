@@ -93,8 +93,25 @@
 				</div>
 			</div>
 		</div>
-  </div>
-		<footer data-role="footer" data-template="#footer-template"></footer>
+		<footer data-role="footer">
+			<ul>
+				<li>
+					<a href="#map-page">
+						<div class="footer-icon active"><img class="icon" src="img/icons/map.svg" alt=""></div>
+					</a>
+				</li>
+				<li>
+					<a href="#list-page">
+						<div class="footer-icon"><img class="icon" src="img/icons/list.svg" alt=""></div>
+					</a>
+				</li>
+				<li>
+					<a href="#profile-page">
+						<div class="footer-icon"><img class="icon" src="img/icons/profile.svg" alt=""></div>
+					</a>
+				</li>
+			</ul>
+		</footer>
 	</section>
 
 	<section data-role="page" id="list-page">
@@ -171,7 +188,25 @@
 				</div>
 			</div>
 		</div>
-		<footer data-role="footer" data-template="#footer-template"></footer>
+		<footer data-role="footer">
+			<ul>
+				<li>
+					<a href="#map-page">
+						<div class="footer-icon"><img class="icon" src="img/icons/map.svg" alt=""></div>
+					</a>
+				</li>
+				<li>
+					<a href="#list-page">
+						<div class="footer-icon active"><img class="icon" src="img/icons/list.svg" alt=""></div>
+					</a>
+				</li>
+				<li>
+					<a href="#profile-page">
+						<div class="footer-icon"><img class="icon" src="img/icons/profile.svg" alt=""></div>
+					</a>
+				</li>
+			</ul>
+		</footer>
 	</section>
 
 	<div class="modal" id="list-add-food-modal">
@@ -218,7 +253,7 @@
 				</div>
 				<div class="modal-foot text-center">Save</div>
 			</div>
-		</div>
+	</div>
 
 	<section data-role="page" id="restaurant-info-page">
 		<header data-role="header">
@@ -335,29 +370,26 @@
 				</div>
 			</div>
 		</div>
-		<footer data-role="footer" data-template="#footer-template"></footer>
+		<footer data-role="footer">
+			<ul>
+				<li>
+					<a href="#map-page">
+						<div class="footer-icon"><img class="icon" src="img/icons/map.svg" alt=""></div>
+					</a>
+				</li>
+				<li>
+					<a href="#list-page">
+						<div class="footer-icon"><img class="icon" src="img/icons/list.svg" alt=""></div>
+					</a>
+				</li>
+				<li>
+					<a href="#profile-page">
+						<div class="footer-icon active"><img class="icon" src="img/icons/profile.svg" alt=""></div>
+					</a>
+				</li>
+			</ul>
+		</footer>
 	</section>
-
-
-	<script type="text/template" id="footer-template">
-		<ul>
-			<li>
-				<a href="#map-page" data-activate="#nav-map-page" data-deactivate="#nav-list-page #nav-profile-page">
-					<div class="footer-icon" id="nav-map-page"><img class="icon" src="img/icons/map.svg" alt=""></div>
-				</a>
-			</li>
-			<li>
-				<a href="#list-page" data-activate="#nav-list-page" data-deactivate="#nav-map-page #nav-profile-page">
-					<div class="footer-icon" id="nav-list-page"><img class="icon" src="img/icons/list.svg" alt=""></div>
-				</a>
-			</li>
-			<li>
-				<a href="#profile-page" data-activate="#nav-profile-page" data-deactivate="#nav-list-page #nav-map-page">
-					<div class="footer-icon" id="nav-profile-page"><img class="icon" src="img/icons/profile.svg" alt=""></div>
-				</a>
-			</li>
-		</ul>
-	</script>
 
 </body>
 </html>
