@@ -13,8 +13,8 @@ json-template.js
     email: function() {
        return this.username+'@gmail.com';
     },
-    password: 'md5(\'pass\')',
-    date_create: '{{date(new Date(2020, 0, 1), new Date(), "YYYY-MM-     dd hh:mm:ss")}}',
+    pssword: 'md5(\'pass\')',
+    date_create: '{{date(new Date(2020, 0, 1), new Date(), "YYY-MM-dd")}}',
     img: function(tags) {
       return 'https://via.placeholder.com/400/'+
         tags.integer(700,999)+'/fff/?text='+this.username;
@@ -23,7 +23,8 @@ json-template.js
 ]
 
 
-/* Animal Template */
+
+/* Animal/Unicorn Template */
 [
   '{{repeat(50)}}',
   {
@@ -32,19 +33,19 @@ json-template.js
     
     name: '{{company()}}',
     
-    type: '{{random("unicorn")}}',
-    breed: function(tags) {
-      var breeds = {
-        unicorn:["junior","ninja","creative","special","nerdy"]
+    type: '{{("unicorn")}}',
+    trait: function(tags) {
+      var traits = {
+        unicorn:["junior","creative","special","gitcorn","ninja"]
       };
-      var chosen_type = breeds[this.type];
-      var chosen_index = tags.integer(0,chosen_type.length-1);
+      var chosen_type = traits[this.type];
+      var chosen_index = tags.integer(0, chosen_type.length-1);
       return chosen_type[chosen_index];
     },
     
     description: '{{lorem(3, "sentences")}}',
     
-    date_create: '{{date(new Date(2020, 0, 1), new Date(), "YYYY-MM-dd hh:mm:ss")}}',
+    date_create: '{{date(new Date(2020, 0, 1), new Date(), "YYYY-MM-dd")}}',
     img: function(tags) {
       return 'https://via.placeholder.com/400/'+
         tags.integer(700,999)+'/fff/?text='+this.name;
@@ -52,28 +53,31 @@ json-template.js
   }
 ]
 
+
+
 /* Location Template */
 [
   '{{repeat(150)}}' ,
   {
     id: '{{index(1)}}',
     animal_id: '{{integer(1,50)}}',
+    animal_name: '{{company()}}',
     
     lat: '{{floating(37.801030, 37.698676)}}',
     lng: '{{floating(-122.502619, -122.389420)}}',
     
-    description: '{{lorem(3, "sentences")}}',
+    description: '{{lorem(2, "sentences")}}',
     
-    date_create: '{{date(new Date(2020, 0, 1), new Date(), "YYYY-MM-     dd hh:mm:ss")}}',
+    date_create: '{{date(new Date(2020, 0, 1), new Date(), "YYYY-MM-dd")}}',
     
     photo: 'https://via.placeholder.com/400/',
-    icon: 'https://via.placeholder.com/100/888/fff/?text=ICON',
+    icon: 'https://via.placeholder.com/100/888/fff/?text=ICON'
   }
  
 ]
 
 
-/* Original Template */
+/* Original Template *** json-generator.com */
 
 [
   '{{repeat(5, 7)}}',

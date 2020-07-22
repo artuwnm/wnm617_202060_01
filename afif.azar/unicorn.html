@@ -13,9 +13,14 @@
 	<link rel="stylesheet" href="css/unicorn.css">
 
 	<script src="lib/js/jquery-2.2.4.min.js"></script>
+
 	<script src="js/signin.js"></script>
+	<script src="js/functions.js"></script>
+	<script src="js/pages.js"></script>
+	<script src="js/parts.js"></script>
 	<script src="js/slideshow.js"></script>
 	<script src="js/app.js"></script>
+
 	<script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
 	 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
@@ -81,7 +86,7 @@
 				</div>
 				<div class="form-control-signup">
 					<label for="signup-password" class="form-label">Confirm Password</label>
-					<input type="password" class="unisignin" id="signup-password" placeholder="" data-role="none">
+					<input type="password" class="unisignin" id="signup-confirm-password" placeholder="" data-role="none">
 				</div>
 				<div class="form-control-signup">
 					<a href="#recent-page"><input type="submit" class="unisignin-button" value="Sign Up" data-role="none"></a></div>
@@ -103,20 +108,13 @@
 	<section data-role="page" id="recent-page">
 		<header data-role="header">
 			<h1>Map</h1>
-				<ul>
-
-				<div class="display-flex flex-justify-center flexbox" id="back-button" width="25px" height="25px">
+			<ul>
+				
+			    <li class="flex-stretch"></li>
 				<li class="flex-none">
-					<img src="" max-width="50px" height="25px">
-				</li></div>
-				<div class="display-flex flex-justify-center flexbox" id="add-button" >
-					<li class="flex-none">
-						<a href="#add-page"><img src="img/icon/add.svg" max-width="50px" height="25px"></a>
-                		</div>
-                		
-                	</a>
-				</div>
-
+						<a href="#add-page"><img src="img/icon/add.svg" max-width="20px" height="20px" class="add-icon"></a>
+				</li>
+		
 			</ul>
 		</header>
 
@@ -134,14 +132,16 @@
     		<div class="modal-popup">
     		<div class="modal-head">Unicorn</div>
     		<div class="modal-body">
+    			<div>
 		       		<span class="modal-title"><strong>Location:</strong></span>
 		       		<span class="modal-info">123 Street, 94111</span>
-
+		       	</div>
+                <div>
 		       		<span class="modal-title"><strong>Added:</strong></span>
 		       		<span class="modal-info">2 locations</span>
     		</div>
 
-    		<div class="modal-foot">Delete this unicorn</div>
+    		<div class="modal-foot">Delete</div>
 
     	</div>	
     </div>
@@ -159,44 +159,46 @@
 	<section data-role="page" id="list-page">
 		<header data-role="header">
 			<h1>List / Collection</h1>
+
 			<ul>
-               
-				<div class="display-flex flex-justify-center flexbox" id="back-button" width="25px" height="25px">
+			
+				
 				<li class="flex-none">
-					<a href="#" data-rel="back"><img src="img/icon/back.svg" max-width="50px" height="25px"></a>
-				</li></div>
-				<div class="display-flex flex-justify-center flexbox" id="add-button" >
-					<li class="flex-none">
-						<a href="#add-page"><img src="img/icon/add.svg" max-width="50px" height="25px"></a>
-                		</div>
+					<a href="#" data-rel="back"><img src="img/icon/back.svg" max-width="20px" height="20px" class="back-icon"></a>
+				</li>
+			    <li class="flex-stretch"></li>
+				<li class="flex-none">
+						<a href="#add-page"><img src="img/icon/add.svg" max-width="20px" height="20px" class="add-icon"></a>
+				</li>
 		
 			</ul>
 		</header>
+
 	<div data-role="main">
 		<div class="scrollable">
 
 		<div class="display-flex flex-justify-center flexbox">
-		<a href="#" data-activate="#list-uni-modal">
+		<a href="#list-uni-jr" data-activate="#">
 			<div class="unicornone"></div>
 			<div class="unicorname">Junior</div></a>
 
-		<a href="#" data-activate="#list-uni-modal">
+		<a href="#list-uni-rainb" data-activate="#">
 			<div class="unicorntwo"></div>
 			<div class="unicorname">Rainbow</div></a>
 		</div>
 
 		<div class="display-flex flex-justify-center flexbox">
-		<a href="#" data-activate="#add-uni-modal">
+		<a href="#list-uni-ninja" data-activate="#">
 			<div class="unicornthree"></div>
 			<div class="unicorname">Ninja</div></a>
 
-		<a href="#" data-activate="#add-uni-modal">
+		<a href="#list-uni-nerdy" data-activate="#">
 			<div class="unicornfour"></div>
 			<div class="unicorname">Nerdy</div></a>
 		</div>
 
 		<div class="display-flex flex-justify-center flexbox">
-		<a href="#" data-activate="#add-uni-modal">
+		<a href="#list-uni-special" data-activate="#">
 			<div class="unicornfive"></div>
 			<div class="unicorname">Specialist</div></a>
 		<a href="#">
@@ -205,11 +207,11 @@
 		</div>
 
 		<div class="display-flex flex-justify-center flexbox">
-		<a href="#" data-activate="#list-uni-modal">
+		<a href="#list-uni-jr" data-activate="#">
 			<div class="unicornone"></div>
 			<div class="unicorname">Junior</div></a>
 
-		<a href="#" data-activate="#list-uni-modal">
+		<a href="#list-uni-rainb" data-activate="#">
 			<div class="unicorntwo"></div>
 			<div class="unicorname">Rainbow</div></a>
 		</div>
@@ -220,7 +222,9 @@
 
     <footer data-role="footer" data-template="#footer-template"></footer>
 
-    <div class="modal" id="list-uni-modal">
+	</section>
+<!--------------- Modal ----------------/>
+<div class="modal" id="list-uni-modal">
     	<div class="modal-back" data-deactivate="#list-uni-modal">
     		<div class="modal-popup">
     		<div class="modal-head">The Unicorn</div>
@@ -241,25 +245,26 @@
     </div>
 </div>
 
-	</section>
-
-<!--------------- Add Page --------------------->
+<--------------- Add Page --------------------->
 
 	<section data-role="page" id="add-page">
 		<header data-role="header">
 			<h1>Add a Unicorn</h1>
 			<ul>
-        
-				<div class="display-flex flex-justify-center flexbox" id="back-button" width="25px" height="25px">
+			
+				
 				<li class="flex-none">
-					<a href="#" data-rel="back"><img src="img/icon/back.svg" max-width="50px" height="25px"></a>
-				</li></div>
+					<a href="#" data-rel="back"><img src="img/icon/back.svg" max-width="20px" height="20px" class="back-icon"></a>
+				</li>
+			    <li class="flex-stretch"></li>
 
-
+				</li>
+		
 			</ul>
 		</header>
 
 <div data-role="main">
+	<div class="scrollable">
 
 	<div class="display-flex flex-justify-center flexbox">
 		<div class="uni-charc"></div></div>
@@ -274,6 +279,18 @@
 					<input type="name" class="uni-add" id="add-name" placeholder="Unicorn Name" data-role="none">
 				</div>
 
+					<div class="form-control-add">
+					<label for="type" class="form-label">Type</label>
+
+					<input type="type" class="uni-add" id="add-name" placeholder="Unicorn Type" data-role="none">
+				</div>
+
+				<div class="form-control-add">
+					<label for="resources" class="form-label">Traits</label>
+
+					<input type="resources" class="uni-add" id="add-name" placeholder="Unicorn Traits" data-role="none">
+				</div>
+
 				<div class="form-control-add">
 					<a href="#recent-page"><input type="submit" class="uni-add-button" value="Add" data-role="none"></a>
 				</div>
@@ -281,6 +298,7 @@
 		</div> 
 
 
+</div>
 </div>
 </div>
 
@@ -294,18 +312,20 @@
 		<header data-role="header">
 			<h1>My Profile</h1>
 			<ul>
-				
-				<div class="display-flex flex-justify-center flexbox" id="back-button" width="25px" height="25px">
+
 				<li class="flex-none">
-					<a href="#" data-rel="back"><img src="img/icon/back.svg" max-width="50px" height="25px"></a>
-				</li></div>
+					<a href="#" data-rel="back"><img src="img/icon/back.svg" max-width="20px" height="20px" class="back-icon"></a>
+				</li>
+			    <li class="flex-stretch"></li>
+
+				</li>
 			
 			</ul>
 		</header>
 
 		<div data-role="main">
 		<div class="profile-image">
-		       <img src="img/profile-img.png" alt="">
+		       <img src="img/profile-img.jpeg" alt="">
 		    </div>
 
     	<div class="display-flex flex-justify-center" style="padding: 1em">
