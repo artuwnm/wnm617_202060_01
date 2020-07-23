@@ -30,7 +30,7 @@ $(document).ready(function () {
         .on("submit", "#signin-form", function (e) {
             e.preventDefault();
             checkSigninForm();
-            console.log("honk")
+            console.log("oh, hi!")
         })
 
 

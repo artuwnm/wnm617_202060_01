@@ -16,12 +16,15 @@
   <!-- Needs to come before parts in order for it to work -->
   <script src="./js/functions.js"></script>
   <script src="./js/parts.js"></script>
-
+  <script src="./js/maps.js"></script>
 
 
   <script src="./js/app.js"></script>
 
   <script src="./lib/js/jquery.mobile-1.4.5.min.js"></script>
+
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHwzlIQIre2VVKrH_tuTJNDD2hRl-4lRo">
+  </script>
 
   <title>ResourceApp</title>
 </head>
@@ -34,6 +37,8 @@ list-page
 resource-profile-page
 resource-add-page
 profile-page
+
+
 -->
 
 <body>
@@ -141,7 +146,8 @@ profile-page
         </a>
       </div>
 
-      <img class="mapimage" src="./img/googlemaps.JPG" alt="a placeholder for google maps" />
+      <div class="map"></div>
+      <!-- <img class="mapimage" src="./img/googlemaps.JPG" alt="a placeholder for google maps" /> -->
 
       <div class="resource-profile-add">
         <a href="#resource-add-page">
@@ -284,6 +290,8 @@ profile-page
           <textarea name="resource-profile-description" id="resource-profile-description" placeholder="Description"
             cols="15" rows="15"></textarea>
         </div>
+
+        <div class="map"></div>
       </div>
 
       <button id="resource-resource-page-back-button">

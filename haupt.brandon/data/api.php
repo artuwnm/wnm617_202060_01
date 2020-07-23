@@ -1,11 +1,13 @@
 <?php 
 
-include "auth.php"
+include "auth.php";
+
 function makeConn(){
     try{
         return new PDO(...PDOauth());
     } catch (PDOException $e){
-        die('{"error":"'.$e.getMessage().'")');
+       //die('{"error":"'.$e.getMessage().'")');
+       die('{"error":"MYSQL ERROR"}');
     }
 }
 
@@ -57,20 +59,31 @@ function makeStatement($data) {
 
     switch($t){
         case "users_all" : return makeQuery($c,"SELECT * FROM `users`",[]);
-        case "resource_all" : return makeQuery($c,"SELECT * FROM `users`",[]);
-        case "lcations_all" : return makeQuery($c,"SELECT * FROM `users`",[]);
+        case "resource_all" : return makeQuery($c,"SELECT * FROM `track_resources`",[]);
+        case "lcations_all" : return makeQuery($c,"SELECT * FROM `track_locations`",[]);
 
-        case "resource_by_id" : return makeQuery($c,"SELECT * FROM `users`",[]);
-        case "location_by_id" : return makeQuery($c,"SELECT * FROM `users`",[]);
-
-        case "users_by_id" : return makeQuery($c,"SELECT * FROM `users` WHERE `id`=?",$p);
+        case "resource_by_id" : return makeQuery($c,"SELECT * FROM `track_users`",[]);
+        case "location_by_id" : return makeQuery($c,"SELECT * FROM `track_resources`",[]);
+        case "location_by_id" : return makeQuery($c,"SELECT * FROM `track_locations` WHERE `id`=?",$p);
 
         case "resource_by_id" : return makeQuery($c,"SELECT * FROM `track_resources` WHERE `id`=?",$p);
-
-        case "resources_by_user_id" : return makeQuery($c,"SELECT * FROM `track_resources` WHERE `user_id`=?",$p);
+        case "locations_by_user_id" : return makeQuery($c,"SELECT * FROM `track_locations` WHERE `user_id`=?",$p);
 
         case "check_signin":
             return makeQuery($c,"SELECT `id` FROM `track_users` WHERE `id`=?  AND `password`=md5(?)",$p);
+
+        case "recent_locations":
+            return makeQuery($c,"SELECT 
+            r.*, l.* 
+            FROM `track_resources` r 
+            LEFT JOIN (
+                SELECT * `track_locations`
+                ORDER BY `date_create` DESC
+                ) l
+            ON r.id = l.resource.id
+            WHERE `r.user_id`=?
+            GROUP BY l.resource_id
+            ",$p);
 
         default: return["error"=>"No matched type"];
     }

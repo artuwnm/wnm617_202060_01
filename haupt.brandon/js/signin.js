@@ -9,19 +9,14 @@ const checkSigninForm = async () => {
         params: [user, pass]
     })
 
-
     if (found_user.result.length > 0) {
-        // logged in!
-        console.log('Congrats!')
-
-        // Is an array that passes from page to page whether you 
-        sessionStorage.userId = found_user.result[o].id;
-
+        // logged in
+        console.log("success");
+        sessionStorage.userId = found_user.result[0].id;
         $("#signin-form")[0].reset();
     } else {
-        // Not logs in! :C
-        console.log('Didnt work!')
-
+        // not logged in
+        console.log("failure");
         sessionStorage.removeItem('userId');
     }
 
@@ -29,18 +24,15 @@ const checkSigninForm = async () => {
 }
 
 const checkUserId = () => {
-
     let p = ["#signin-page", "#signup-page", ""];
 
     if (sessionStorage.userId === undefined) {
-        // Not logged in
+        // not logged in
         if (!p.some(o => window.location.hash === o))
-            // if we need to navigate vv that code is how you navigate
             $.mobile.navigate("#signin-page");
-        // if we need to navigate ^^ that code is how you navigate
     } else {
-        // Logged in
+        // logged in
         if (p.some(o => window.location.hash === o))
-            $.mobile.navigate("#map-page");
+            $.mobile.navigate("#recent-page");
     }
 }

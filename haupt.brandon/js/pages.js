@@ -21,15 +21,34 @@ const ProfilePage = async () => {
         .html(makeUserProfile(d.result))
 }
 
+//recent page is map page
+const RecentPage = async () => {
+    let d = await query({
+        type: "recent_locations",
+        params: [sessionStorage.userId]
+    });
 
+    let map_el = await makeMap("#map-page .map");
+
+    let valid_resources = d.result.reduce((r, o) => {
+        o.icon = o.img;
+        if (o.lat && o.lng) r.push(o);
+        return r;
+    }, []);
+
+    makeMarkers(map_el, valid_resources);
+}
 
 const ResourceProfilePage = async () => {
     if (sessionStorage.resourceId === undefined) throw ("No resource ID in Storage");
-    let d = await query({
-        type: "resources_by_user_id",
+    query({
+        type: "locations_by_resource_id",
         params: [sessionStorage.resourceId]
-    })
+    }).then(async (d) => {
+        let map_el = await makeMap("#resource-profile-page .map");
 
-    $("resource-profile-page .profile-body")
-        .html(makeResourceProfile(d.result))
+        makeMarkers(map_el, d.result)
+    });
+
+
 }

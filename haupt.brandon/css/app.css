@@ -727,11 +727,32 @@ vvvvvvvvvvvvvvvvvvvvvvvv
 }
 
 
-
-
 .list-image {
   vertical-align: text-bottom;
   width: 4em;
   height: 4em;
   object-fit: cover;
 }
+
+.wrongLoginInfo {
+  background-color: rgb(250, 19, 19);
+  transition: all .3s;
+}
+
+/* .active-profile-head {
+  height: 70vh;
+} */
+
+
+/* #resource-profile-page {
+  display: flex;
+  flex-direction: column;
+
+} */
+
+/* .profile-head img {
+  width: 6em;
+  height: 8em;
+  object-fit: cover;
+  vertical-align: text-bottom;
+} */
