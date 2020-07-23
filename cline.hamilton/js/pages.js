@@ -9,7 +9,11 @@ const ListPage = async() => {
 		.html(makeAnimalList(d.result))
 }
 
-const RecentPage = async() => {}
+const RecentPage = async() => {
+	let d = await query({type:"recent_locations",params:[sessionStorage.userId]});
+
+	makeMap("#recent-page .map");
+}
 
 const ProfilePage = async() => {
 	let d = await query({type:"user_by_id",params:[sessionStorage.userId]});
