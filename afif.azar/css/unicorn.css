@@ -305,8 +305,11 @@ a {
 }
 
 
-
-.unisignin,
+.uni-user-signup,
+.uni-pass-signup,
+.uni-conf-signup,
+.uni-user-signin,
+.uni-pass-signin,
 .unisignin-button {
    display: inline-flex;
    width: 100%;
@@ -364,6 +367,18 @@ text.unisignin-button {
 }
 
 /*====================== MAP PAGE ================*/
+
+
+.map {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	background-image:url(../img/map.png);
+	background-size:cover;
+}
+
 .map-img{
     position: absolute;
     top: 0;
@@ -461,16 +476,17 @@ img.add-icon {
     padding-bottom: 1em;
 }
 
-/*======================= ADD PAGE =======================*/
-.form-control-add {
-	margin: 0.5em 0;
-}
-#add-form {
-	margin-top: 3em;
-}
-.uni-charc {
-	width: 40vmax;
-	height:40vmax;
+
+
+/*================ Unicorn Profile Page ==================*/
+.uni-charc-one,
+.uni-charc-two,
+.uni-charc-three,
+.uni-charc-four,
+.uni-charc-five,
+.uni-charc-six {
+	width: 100vmax;
+	height: auto;
 	margin: 1em 1em 0 1em ;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -481,10 +497,115 @@ img.add-icon {
     margin-top: 4em;
     margin-bottom: 1em;
 }
-.uni-charc {
-	background-image: url(../img/unicorn1.jpg);
+.uni-charc-one {
+	background-image: url(../img/unicorn-jr.png);
+}
+.uni-charc-two {
+	background-image: url(../img/unicorn-rainbow.png);
+}
+.uni-charc-three {
+	background-image: url(../img/unicorn-ninja.png);
+}
+.uni-charc-four {
+	background-image: url(../img/unicorn-nerdy.png);
+}
+.uni-charc-five {
+	background-image: url(../img/unicorn-spec.png);
+}
+.uni-charc-six {
+	background-image: url(../img/unicorn-creative.png);
+}
+
+.unicorn-one,
+.unicorn-two,
+.unicorn-three,
+.unicorn-four,
+.unicorn-five,
+.unicorn-six {
+	width: 100%;
+	height: auto;
+	margin: 1em 1em 0 1em ;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	text-align: center;
+    outline: 0;
+    border-radius: 1em;
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+
+.unicorn-one {
+	background-image: url(../img/unicorn-jr.png);
+}
+.unicorn-two {
+	background-image: url(../img/unicorn-rainbow.png);
+}
+.unicorn-three {
+	background-image: url(../img/unicorn-ninja.png);
+}
+.unicorn-four {
+	background-image: url(../img/unicorn-nerdy.png);
+}
+.unicorn-five {
+	background-image: url(../img/unicorn-spec.png);
+}
+.unicorn-six {
+	background-image: url(../img/unicorn-creative.png);
+}
+
+.uni-name-profile
+
+#animal-profile-page .profile {
+	display:flex;
+	flex-direction:column;
+	height:100%;
+}
+.profile-head {
+	flex:none;
+	height:8em;
+	position:relative;
+}
+.profile-body {
+	flex:1 1 100%;
+	position:relative;
+}
+.profile-head img {
+	width:6em;
+	height:8em;
+	object-fit:cover;
+	vertical-align:text-bottom;
+}
+
+
+
+/*======================= ADD PAGE =======================*/
+.form-control-add {
+	margin: 0.5em 0;
+}
+#add-form {
+	margin-top: 3em;
+}
+.uni-charc-add {
+	width: 40vmax;
+	height:40vmax;
+	margin: 1em 1em 0 1em ;
+	background-size: auto;
+	background-repeat: no-repeat;
+	background-position: center center;
+	text-align: center;
+    outline: 0;
+    border-radius: 1em;
+    margin-top: 4em;
+    margin-bottom: 4em;
+}
+.uni-charc-add {
+	background-image: url(../img/icon/add.svg);
 }
 .uni-add,
+.uni-add-name,
+.uni-add-type,
+.uni-add-trait,
 .uni-add-button {
    display: inline-flex;
    width: 100%;

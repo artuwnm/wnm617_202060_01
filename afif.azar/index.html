@@ -1,79 +1,439 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<meta charset="UTF-8">
-	<title>New Project</title>
+	<meta charset="utf-8">
+	<title>Unicorn Tracker App</title>
 
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
-	<link rel="stylesheet" href="css/style.css">
+<!------ lib before css/jq mobile after app------>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="lib/css/jquery.mobile.structure-1.4.5.min.css">
+	<link rel="stylesheet" href="css/unicorn.css">
+
+	<script src="lib/js/jquery-2.2.4.min.js"></script>
+
+	<script src="js/signin.js"></script>
+	<script src="js/functions.js"></script>
+	<script src="js/pages.js"></script>
+	<script src="js/parts.js"></script>
+	<script src="js/maps.js"></script>
+
+	<script src="js/app.js"></script>
+
+	<script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+	 	<script async defer
+	  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9iWWkbYMnZAj-pP9vhADe-WGoJo_wTeY">
+	</script>
+
 </head>
 <body>
-	<input type="checkbox" id="menu" class="hidden">
-	<header class="navbar">
-		<div class= "container display-flex">
-			<div class="flex-none">
-		<h1>Cool Website</h1>
-	</div>
 
-	<div class="flex-stretch"></div>
+<!--------------- Sign In Page --------------------->
 
-	<label class="flex-none menu-button" for="menu">&equiv;</label>
-
-	<!-- nav.nav>ul>li*4>a[href=#article$]>{Article $} -->
-	<nav class="nav flex-none">
-		<ul class="display-flex">
-			<li><a href="#article1">Article 1</a></li>
-			<li><a href="#article2">Article 2</a></li>
-			<li><a href="#article3">Article 3</a></li>
-			<li><a href="#article4">Article 4</a></li>
-		</ul>
-	</nav>
-</div>
-</header>
-
-	<!-- container>article.article#article$*4>h2{Article $}+div.article-body>p*4>lorem10 -->
-	<div class="container">
-		<article class="article" id="article1">
-			<div class="display-flex flex-align-center">
-				<div class="flex-none">
-			<h2>Article 1</h2>
+	<section data-role="page" id="signin-page">
+		<div data-role="main" class="display-flex flex-column">
+		<div class="flex-stretch" style="margin-top: 0"></div>
+		<div class="flex-none" style="text-align: center">
+			<img src="img/logo.png" alt="" class="login-logo">
 		</div>
-		<div class="flex-stretch"></div>
-		<div class="flex-none">2020-06-26</div>
 	</div>
-			<div class="article-body">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, nostrum!</p>
-				<p>Suscipit, assumenda, iure! Minus quidem voluptas, nostrum, quam ex maxime.</p>
-				<p>Placeat iste non distinctio voluptas suscipit, libero illum numquam reiciendis.</p>
-				<p>Corporis, ipsam aliquid neque, sequi id sit. Dicta, illo, eligendi!</p>
-			</div>
-		</article>
-		<article class="article" id="article2">
-			<h2>Article 2</h2>
-			<div class="article-body">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, iusto.</p>
-				<p>Iste facere error aliquam inventore, enim, laboriosam hic! In, voluptatem.</p>
-				<p>Tempore ex voluptate impedit inventore ad numquam assumenda ducimus dolorem.</p>
-				<p>Ut placeat in doloremque quas labore dicta ducimus reprehenderit sapiente?</p>
-			</div>
-		</article>
-		<article class="article" id="article3">
-			<h2>Article 3</h2>
-			<div class="article-body">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, vitae!Ea omnis eaque odio iusto inventore, quos architecto porro enim! Sapiente architecto iure quidem sit quibusdam, sed. Aliquam, ab, suscipit. Ea omnis eaque odio iusto inventore, quos architecto porro enim!</p>
-				<p>Numquam ratione quod est maxime, sed at voluptatem, tempore nam. Ea omnis eaque odio iusto inventore, quos architecto porro enim!</p>
+		<div class="flex-none" style="padding: 1em">
+
+			<form id="signin-form" data-ajax="false">
+				<div class="form-control-signin">
+					<label for="signin-username" class="form-label" required value="user">Usernamae</label>
+					<input type="text" class="uni-user-signin" id="signin-username" placeholder="" data-role="none">
+				</div>
+
+				<div class="form-control-signin">
+					<label for="signin-password" class="form-label"required value="pass">Password</label>
+					<input type="password" class="uni-pass-signin" id="signin-password" placeholder="" data-role="none">
+				</div>
+				<div class="form-control-signin">
+					<input type="submit" class="unisignin-button" value="Sign In" data-role="none"/>
 				
-			</div>
-		</article>
-		<article class="article" id="article4">
-			<h2>Article 4</h2>
-			<div class="article-body">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, sunt.Ea omnis eaque odio iusto inventore, quos architecto porro enim! Debitis explicabo expedita sequi est, molestiae ut ex doloremque amet?Ea omnis eaque odio iusto inventore, quos architecto porro enim!</p>
-				<p>Obcaecati sint ipsum, eos earum doloribus dolor similique, consequatur? Cum!Ea omnis eaque odio iusto inventore, quos architecto porro enim!</p>
-			</div>
-		</article>
+					<div class="link-signup"> Do not have an account yet? <a href="#signup-page">Sign Up</a>
+				</div>
+				</div>
+			</form>
+		</div>
+	</div class="flex-stretch"></div>
+</div>
+	</section>
+
+
+
+
+<!--------------- Sign Up Page --------------------->
+
+	<section data-role="page" id="signup-page">
+		<div data-role="main" class="display-flex flex-column">
+			<div class="flex-stretch"></div>
+
+			<div class="flex-none" style="padding: 1em">
+
+			<form id="signup-form" data-ajax="false">
+				<div class="form-control-signup">
+					<label for="signup" class="form-label">Name</label>
+					<input type="name" class="unisignin" id="signup-name" placeholder="" data-role="none">
+				</div>
+				<div class="form-control-signup">
+					<label for="signup-username" class="form-label">Email (Username)</label>
+					<input type="text" class="uni-user-signup" id="signup-username" placeholder=""data-role="none">
+				</div>
+				<div class="form-control-signup">
+					<label for="signup-password" class="form-label">Password</label>
+					<input type="password" class="uni-pass-signup" id="signup-password" placeholder="" data-role="none">
+				</div>
+				<div class="form-control-signup">
+					<label for="signup-password" class="form-label">Confirm Password</label>
+					<input type="password" class="uni-conf-signup" id="signup-confirm-password" placeholder="" data-role="none">
+				</div>
+				<div class="form-control-signup">
+					<a href="#recent-page"><input type="submit" class="unisignin-button" value="Sign Up" data-role="none"></a></div>
+
+				<div class="link-signup"><a href="#signin-page" style="text-decoration: underline;"> I am a member </a>
+					
+				</div>
+			</form>
+	        </div>
+	</div class="flex-stretch"></div>
+		
+		</div>
+	</section>
+
+	
+
+<!--------------- Recent: Map Page --------------------->
+
+	<section data-role="page" id="recent-page">
+		<header data-role="header">
+			<h1>Map</h1>
+			<ul>
+				
+			    <li class="flex-stretch"></li>
+				<li class="flex-none">
+						<a href="#add-page"><img src="img/icon/add.svg" max-width="20px" height="20px" class="add-icon"></a>
+				</li>
+		
+			</ul>
+		</header>
+
+	    <div data-role="main">
+	    	<div class="map"></div>
+        </div>
+
+
+    <footer data-role="footer" data-template="#footer-template"></footer>
+
+    <div class="modal" id="map-uni-modal">
+    	<div class="modal-back" data-deactivate="#map-uni-modal">
+    		<div class="modal-popup">
+    		<div class="modal-head">Unicorn</div>
+    		<div class="modal-body">
+    			<div>
+		       		<span class="modal-title"><strong>Location:</strong></span>
+		       		<span class="modal-info">123 Street, 94111</span>
+		       	</div>
+                <div>
+		       		<span class="modal-title"><strong>Added:</strong></span>
+		       		<span class="modal-info">2 locations</span>
+    		</div>
+
+    		<div class="modal-foot">Delete</div>
+
+    	</div>	
+    </div>
+</div>
+
+
+	    
+	</section>
+
+
+
+
+<!--------------- List Page --------------------->
+
+	<section data-role="page" id="list-page">
+		<header data-role="header">
+			<h1>List / Collection</h1>
+
+			<ul>
+			
+				
+				<li class="flex-none">
+					<a href="#" data-rel="back"><img src="img/icon/back.svg" max-width="20px" height="20px" class="back-icon"></a>
+				</li>
+			    <li class="flex-stretch"></li>
+				<li class="flex-none">
+						<a href="#add-page"><img src="img/icon/add.svg" max-width="20px" height="20px" class="add-icon"></a>
+				</li>
+		
+			</ul>
+		</header>
+
+	<div data-role="main">
+		<div class="scrollable">
+
+		<div class="display-flex flex-justify-center flexbox">
+		<a href="#animal-profile-page" data-activate="#">
+			<div class="unicornone"></div>
+			<div class="unicorname">Junior</div></a>
+
+		<a href="#list-uni-rainb" data-activate="#">
+			<div class="unicorntwo"></div>
+			<div class="unicorname">Rainbow</div></a>
+		</div>
+
+		<div class="display-flex flex-justify-center flexbox">
+		<a href="#list-uni-ninja" data-activate="#">
+			<div class="unicornthree"></div>
+			<div class="unicorname">Ninja</div></a>
+
+		<a href="#list-uni-nerdy" data-activate="#">
+			<div class="unicornfour"></div>
+			<div class="unicorname">Nerdy</div></a>
+		</div>
+
+		<div class="display-flex flex-justify-center flexbox">
+		<a href="#list-uni-special" data-activate="#">
+			<div class="unicornfive"></div>
+			<div class="unicorname">Specialist</div></a>
+		<a href="#">
+			<div class="unicornsix"></div>
+			<div class="unicorname">Creative</div></a>
+		</div>
+
+		<div class="display-flex flex-justify-center flexbox">
+		<a href="#list-uni-jr" data-activate="#">
+			<div class="unicornone"></div>
+			<div class="unicorname">Junior</div></a>
+
+		<a href="#list-uni-rainb" data-activate="#">
+			<div class="unicorntwo"></div>
+			<div class="unicorname">Rainbow</div></a>
+		</div>
+
+
+		</div>
 	</div>
+
+    <footer data-role="footer" data-template="#footer-template"></footer>
+
+	</section>
+<!--------------- Modal ----------------/>
+<div class="modal" id="list-uni-modal">
+    	<div class="modal-back" data-deactivate="#list-uni-modal">
+    		<div class="modal-popup">
+    		<div class="modal-head">The Unicorn</div>
+    		<div class="modal-body">
+		       		<span class="modal-title"><strong>Coding Skill:</strong></span>
+		       		<span class="modal-info">Advanced</span>
+
+		       		<span class="modal-title"><strong>UX Design:</strong></span>
+		       		<span class="modal-info">Advanced</span>
+
+		       		<span class="modal-title"><strong>UI/Visual Design:</strong></span>
+		       		<span class="modal-info">Advanced</span>
+    		</div>
+
+    		<div class="modal-foot">Medium to rare to find</div>
+
+    	</div>	
+    </div>
+</div>
+
+
+
+<---------------- Unicorn Profile Page ------------->
+
+<section data-role="page" id="animal-profile-page">
+		<header data-role="header">
+			<h1>Unicorn Profile</h1>
+			<ul>
+		
+				<li class="flex-none">
+					<a href="#" data-rel="back"><img src="img/icon/back.svg" max-width="20px" height="20px" class="back-icon"></a>
+				</li>
+			    <li class="flex-stretch"></li>
+		
+			</ul>
+		</header>
+
+<div data-role="main">
+			<div class="profile">
+				<div class="profile-head"></div>
+				<div class="profile-body">
+					<div class="map"></div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+<!--------------- Add Page --------------------->
+
+	<section data-role="page" id="add-page">
+		<header data-role="header">
+			<h1>Add a Unicorn</h1>
+			<ul>
+			
+				
+				<li class="flex-none">
+					<a href="#" data-rel="back"><img src="img/icon/back.svg" max-width="20px" height="20px" class="back-icon"></a>
+				</li>
+			    <li class="flex-stretch"></li>
+
+				</li>
+		
+			</ul>
+		</header>
+
+<div data-role="main">
+	<div class="scrollable">
+
+	<div class="display-flex flex-justify-center flexbox">
+		<div class="uni-charc-add"></div></div>
+
+     <div class="display-flex flex-column">
+		<div class="flex-none" style="padding: 1em">
+			<form id="add-form" data-ajax="false">
+
+			    <div class="form-control-add">
+					<label for="name" class="form-label">Name</label>
+
+					<input type="name" class="uni-add-name" id="add-name" placeholder="Unicorn Name" data-role="none">
+				</div>
+
+					<div class="form-control-add">
+					<label for="type" class="form-label">Type</label>
+
+					<input type="type" class="uni-add-type" id="add-type" placeholder="Unicorn Type" data-role="none">
+				</div>
+
+				<div class="form-control-add">
+					<label for="traits" class="form-label">Traits</label>
+
+					<input type="traits" class="uni-add-trait" id="add-trait" placeholder="Unicorn Traits" data-role="none">
+				</div>
+
+				<div class="form-control-add">
+					<a href="#recent-page"><input type="submit" class="uni-add-button" value="Add" data-role="none"></a>
+				</div>
+			</form>
+		</div> 
+
+
+</div>
+</div>
+</div>
+
+    <footer data-role="footer" data-template="#footer-template"></footer>
+	</section>
+
+
+<!--------------- Profile Page --------------------->
+
+	<section data-role="page" id="profile-page">
+		<header data-role="header">
+			<h1>My Profile</h1>
+			<ul>
+
+				<li class="flex-none">
+					<a href="#" data-rel="back"><img src="img/icon/back.svg" max-width="20px" height="20px" class="back-icon"></a>
+				</li>
+			    <li class="flex-stretch"></li>
+
+				</li>
+			
+			</ul>
+		</header>
+
+		<div data-role="main">
+		<div class="profile-image">
+		       <img src="img/profile-img.jpeg" alt="">
+		    </div>
+
+    	<div class="display-flex flex-justify-center" style="padding: 1em">
+
+		  <div class="profile-body">
+
+		    <ul class="plofile-info">
+		        <div class="profile-info-text">
+		       		<h3>Your Name</h3>
+		       	</div>
+
+		       	<div class="profile-info-text">
+		       		<span class="profile-title"><strong>Email:</strong></span>
+		       		<span class="profile-user-info">youremail@email.com</span>
+		       	</div>
+
+		    <div class="profile-info-text">
+		    	<span class="profile-title"><strong>Location:</strong></span>
+		    	<span class="profile-user-info">San Francisco</span>
+		    </div>
+
+            <div class="profile-info-text">
+                <span class="profile-title"><strong>Member from:</strong></span>
+                <span class="profile-user-info">June 2020</span>
+            </div>
+        </ul>
+		</div>
+
+	</div>
+
+    <div class="display-flex flex-justify-center" style="padding: 1em">
+		    	<input type="text" class="settings" id="settings-button" placeholder="Settings" data-role="none">
+		
+	    </div>
+
+		<div class="display-flex flex-justify-center" style="padding: 1em">
+		    
+		    	<input type="text" class="js-logout" id="logout-button" placeholder="Sign Out" data-role="none">
+
+		</div>
+
+</div>
+
+    <footer data-role="footer" data-template="#footer-template"></footer>
+	</section>
+
+
+
+	<script type="text/template" id="footer-template">
+		    <ul>
+
+                <li>
+                	<a href="#recent-page" data-activateone="footer li:nth-child(1)">
+                		<div class="footer-icon"><img class="icon" src="img/icon/map.svg"></div>
+                		
+                	</a>
+                </li>
+
+               
+
+                <li>
+                	<a href="#list-page" data-activateone="footer li:nth-child(1)">
+                		<div class="footer-icon"><img class="icon" src="img/icon/list.svg"></div>
+                		
+                	</a>
+                </li>
+
+                <li>
+                	<a href="#profile-page" data-activateone="footer li:nth-child(1)">
+                		<div class="footer-icon"><img class="icon" src="img/icon/profile.svg"/></div>
+                		
+                	</a>
+                </li>
+
+            </ul>
+	</script>
 
 </body>
 </html>
+
+	
