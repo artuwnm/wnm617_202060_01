@@ -35,3 +35,4 @@ const makeAlcoholProfile = templater(o=>`
 		<div>${o.breed}</div>
 	</div>
 </div>
+`);

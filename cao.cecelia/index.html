@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,11 +15,16 @@
 	<script src="lib/js/jquery-2.2.4.min.js"></script>
 
 	<script src="js/signin.js"></script>
+	<script src="js/functions.js"></script>
 	<script src="js/pages.js"></script>
 	<script src="js/parts.js"></script>
+	<script src="js/maps.js"></script>
 	<script src="js/app.js"></script>
 
 	<script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
+	<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYoby9FZsFOpo5RW4hPM7tLPF4Notalp4">
+</script>
 </head>
 <body>
 	
@@ -218,66 +224,7 @@
 		<div data-role="main">
 
 			<div class="scrollable">
-				<div class="display-flex flex-justify-center flexbox">
-		          <a href="#alcohol-profile-page">
-		          <div class="productone"></div>
-				  <div class="productname">Mojito</div>
-		          </a> 
-		          <a href="#alcohol-profile-page">
-		          	<div class="productone"></div>
-		          	<div class="productname">Mojito</div>
-		          </a>
-        		</div>
-        		<div class="display-flex flex-justify-center flexbox">
-		          <a href="#alcohol-profile-page">
-		          <div class="productone"></div>
-				  <div class="productname">Mojito</div>
-		          </a> 
-		          <a href="#alcohol-profile-page">
-		          	<div class="productone"></div>
-		          	<div class="productname">Mojito</div>
-		          </a>
-        		</div>
-        		<div class="display-flex flex-justify-center flexbox">
-		          <a href="#alcohol-profile-page">
-		          <div class="productone"></div>
-				  <div class="productname">Mojito</div>
-		          </a> 
-		          <a href="#alcohol-profile-page">
-		          	<div class="productone"></div>
-		          	<div class="productname">Mojito</div>
-		          </a>
-        		</div>
-        		<div class="display-flex flex-justify-center flexbox">
-		          <a href="#alcohol-profile-page">
-		          <div class="productone"></div>
-				  <div class="productname">Mojito</div>
-		          </a> 
-		          <a href="#alcohol-profile-page">
-		          	<div class="productone"></div>
-		          	<div class="productname">Mojito</div>
-		          </a>
-        		</div>
-        		<div class="display-flex flex-justify-center flexbox">
-		          <a href="#alcohol-profile-page">
-		          <div class="productone"></div>
-				  <div class="productname">Mojito</div>
-		          </a> 
-		          <a href="#alcohol-profile-page">
-		          	<div class="productone"></div>
-		          	<div class="productname">Mojito</div>
-		          </a>
-        		</div>
-        		<div class="display-flex flex-justify-center flexbox">
-		          <a href="#alcohol-profile-page">
-		          <div class="productone"></div>
-				  <div class="productname">Mojito</div>
-		          </a> 
-		          <a href="#alcohol-profile-page">
-		          	<div class="productone"></div>
-		          	<div class="productname">Mojito</div>
-		          </a>
-        		</div>
+				<div class="alcohollist"></div>
         		<div class="display-flex flex-justify-center flexbox">
 		          <a href="#alcohol-profile-page">
 		          <div class="productone"></div>
@@ -429,6 +376,8 @@
 	<!-- PROFILE PAGE -->
 	<section data-role="page" id="profile-page">
 		<div data-role="main">
+						<div class="profile">
+						</div>
 			<div class="backgroundcolor-profile">
 				<div class="flex-none" style="text-align:center">
 					<img src="img/profilephoto.jpg" class="profile" id="profilephoto">

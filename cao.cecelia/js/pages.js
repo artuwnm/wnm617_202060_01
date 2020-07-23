@@ -5,10 +5,17 @@ const ListPage = async() => {
 	console.log(d)
 
 	$("#list-page .alcohollist")
-		.html(makeAnimalList(d.result))
+		.html(makeAlcoholList(d.result))
 }
 
-const RecentPage = async() => {}
+const RecentPage = async() => {
+
+	new google.maps.Map(document.getElementById("map") as HTMLElement, {
+    center: { lat: -34.397, lng: 150.644 },
+    zoom: 8
+  });
+
+}
 
 const ProfilePage = async() => {
 	let d = await query({type:"user_by_id",params:[sessionStorage.userId]});
@@ -27,5 +34,5 @@ const AnimalProfilePage = async() => {
 	console.log(d)
 
 	$("#alcohol-profile-page .profile-body")
-		.html(makeAnimalProfile(d.result))
+		.html(makeAlcoholProfile(d.result))
 }
