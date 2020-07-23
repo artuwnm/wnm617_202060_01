@@ -8,28 +8,24 @@ $(()=>{
 
 
 
+
 	// routing
 
 	.on( "pagecontainerbeforeshow", function(e,ui) {
 		switch(ui.toPage[0].id){
-			case "recent-page" :
-				console.log("Recent");
-				break;
+			case "recent-page" : RecentPage(); break;
 			case "list-page" : ListPage(); break;
 			case "profile-page" : ProfilePage(); break;
 			case "animal-profile-page" : AnimalProfilePage(); break;
 			
 		}
-	} );
-
-
-
+	} )
 
 
 
 
 	// FORM SUBMISSIONS
-	.on("submit","#signin-form",function(e){
+	.on( "submit","#signin-form", function(e){
 		e.preventDefault();
 		checkSigninForm();
 	})
@@ -64,6 +60,12 @@ $(()=>{
 	.on("click","[data-activateone]",function(e){
 		$($(this).data("activateone")).addClass("active")
 			.siblings().removeClass("active");
+	});
+
+
+
+	$("[data-template]").each(function(){
+		$(this).html($($(this).data("template")).html());
 	})
 
 });
