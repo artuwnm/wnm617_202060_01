@@ -33,6 +33,6 @@ const checkUserId = () => {
     } else {
         // logged in
         if (p.some(o => window.location.hash === o))
-            $.mobile.navigate("#recent-page");
+            $.mobile.navigate("#map-page");
     }
 }

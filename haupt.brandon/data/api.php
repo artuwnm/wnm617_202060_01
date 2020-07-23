@@ -70,7 +70,7 @@ function makeStatement($data) {
         case "locations_by_user_id" : return makeQuery($c,"SELECT * FROM `track_locations` WHERE `user_id`=?",$p);
 
         case "check_signin":
-            return makeQuery($c,"SELECT `id` FROM `track_users` WHERE `id`=?  AND `password`=md5(?)",$p);
+            return makeQuery($c,"SELECT `id` FROM `track_users` WHERE `username`=?  AND `password`=md5(?)",$p);
 
         case "recent_locations":
             return makeQuery($c,"SELECT 

@@ -11,8 +11,8 @@ $(document).ready(function () {
         // ROUTING
         .on("pagecontainerbeforeshow", function (e, ui) {
             switch (ui.toPage[0].id) {
-                case "recent-page":
-                    console.log("Recent");
+                case "map-page":
+                    console.log("maps!");
                     break;
                 case "list-page":
                     ListPage();
