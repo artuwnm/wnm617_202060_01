@@ -12,6 +12,9 @@
 
 	<script src="lib/js/jquery-2.2.4.min.js"></script>
 	<script src="js/signin.js"></script>
+	<script src="js/functions.js"></script>
+	<script src="js/pages.js"></script>
+	<script src="js/parts.js"></script>
 	<script src="js/app.js"></script>
 
 	<script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
@@ -116,7 +119,7 @@
 
 	<section data-role="page" id="list-page">
 		<header data-role="header">
-			<h1>Categories</h1>
+			<h1>Food List</h1>
 			<ul>
 				<li class="flex-stretch"></li>
 				<li class="flex-none">
@@ -125,66 +128,8 @@
 			</ul>
 		</header>
 		<div data-role="main">
-			<div class="grid scrollable">
-				<div class="col-md-4 col-sm-6 col-xs-6">
-					<div class="food-card">
-						<a href="#restaurant-info-page">
-							<img class="food-thumbnail" src="img/food/placeholder.jpg" alt="">
-						</a>
-						<div class="text-center" style="padding: 10px;">
-							Chinese
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-6 col-xs-6">
-					<div class="food-card">
-						<a href="#restaurant-info-page">
-							<img class="food-thumbnail" src="img/food/placeholder.jpg" alt="">
-						</a>
-						<div class="text-center" style="padding: 10px;">
-							American
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-6 col-xs-6">
-					<div class="food-card">
-						<a href="#restaurant-info-page">
-							<img class="food-thumbnail" src="img/food/placeholder.jpg" alt="">
-						</a>
-						<div class="text-center" style="padding: 10px;">
-							Korean
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-6 col-xs-6">
-					<div class="food-card">
-						<a href="#restaurant-info-page">
-							<img class="food-thumbnail" src="img/food/placeholder.jpg" alt="">
-						</a>
-						<div class="text-center" style="padding: 10px;">
-							Dessert
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-6 col-xs-6">
-					<div class="food-card">
-						<a href="#restaurant-info-page">
-							<img class="food-thumbnail" src="img/food/placeholder.jpg" alt="">
-						</a>
-						<div class="text-center" style="padding: 10px;">
-							Fast Food
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-6 col-xs-6">
-					<div class="food-card">
-						<a href="#restaurant-info-page">
-							<img class="food-thumbnail" src="img/food/placeholder.jpg" alt="">
-						</a>
-						<div class="text-center" style="padding: 10px;">
-							Sushi
-						</div>
-					</div>
+			<div class="scrollable">
+				<div class="food-list grid">
 				</div>
 			</div>
 		</div>
@@ -325,30 +270,7 @@
 			</ul>
 		</header>
 		<div data-role="main">
-			<li>Beijing Roast Duck</li>
-			<li>Mapo Tofu</li>
-			<li>Boling Fish</li>
-			<li>Beef</li>
-				<!-- <div class="col-md-4 col-sm-6 col-xs-6">
-					<div class="food-card">
-						<a href="#food-info-page">
-							<img class="food-thumbnail" src="img/food/placeholder.jpg" alt="">
-						</a>
-						<div class="text-center" style="padding: 10px;">
-							Mr.Szechuan
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-6 col-xs-6">
-					<div class="food-card">
-						<a href="#food-info-page">
-							<img class="food-thumbnail" src="img/food/placeholder.jpg" alt="">
-						</a>
-						<div class="text-center" style="padding: 10px;">
-							Koi Palace
-						</div>
-					</div>
-				</div> -->
+			<div class="food-info">
 			</div>
 		</div>
 	</section>

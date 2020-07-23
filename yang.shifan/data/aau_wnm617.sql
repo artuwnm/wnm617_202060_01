@@ -103,7 +103,7 @@ INSERT INTO `track_food` (`id`, `user_id`, `name`, `cuisine`, `restaurant`, `des
 
 CREATE TABLE `track_locations` (
   `id` int(11) NOT NULL,
-  `animal_id` int(11) NOT NULL,
+  `food_id` int(11) NOT NULL,
   `lat` double NOT NULL,
   `lng` double NOT NULL,
   `description` text NOT NULL,
@@ -116,7 +116,7 @@ CREATE TABLE `track_locations` (
 -- Dumping data for table `track_locations`
 --
 
-INSERT INTO `track_locations` (`id`, `animal_id`, `lat`, `lng`, `description`, `date_create`, `photo`, `icon`) VALUES
+INSERT INTO `track_locations` (`id`, `food_id`, `lat`, `lng`, `description`, `date_create`, `photo`, `icon`) VALUES
 (1, 16, 37.74558, -122.403952, 'Culpa ea laboris ad dolor. Laborum aliquip excepteur ullamco nostrud mollit non quis elit non ut cupidatat ad dolor ad. Amet ad est et Lorem.', '2020-07-15 02:11:02', 'https://via.placeholder.com/400/', 'https://via.placeholder.com/100/888/fff/?text=ICON'),
 (2, 11, 37.79061, -122.40848, 'Reprehenderit sunt eiusmod officia do ut magna pariatur Lorem. Adipisicing ad duis sit ut anim. Eiusmod pariatur id non nostrud deserunt eu in laboris.', '2020-06-28 04:23:52', 'https://via.placeholder.com/400/', 'https://via.placeholder.com/100/888/fff/?text=ICON'),
 (3, 18, 37.70573, -122.396901, 'Reprehenderit ea laborum do tempor occaecat velit consectetur laboris fugiat sit dolor consectetur nulla. Labore nulla amet esse do velit voluptate deserunt pariatur elit reprehenderit. Magna cupidatat commodo fugiat consectetur.', '2020-07-02 02:46:27', 'https://via.placeholder.com/400/', 'https://via.placeholder.com/100/888/fff/?text=ICON'),
@@ -261,7 +261,7 @@ INSERT INTO `track_locations` (`id`, `animal_id`, `lat`, `lng`, `description`, `
 (142, 21, 37.79013, -122.497983, 'Cillum cillum Lorem eiusmod in velit ut et. In irure eiusmod officia ex enim. Ex id incididunt officia commodo aliquip Lorem pariatur adipisicing.', '2020-02-06 04:35:06', 'https://via.placeholder.com/400/', 'https://via.placeholder.com/100/888/fff/?text=ICON'),
 (143, 15, 37.76932, -122.432332, 'Dolor cupidatat ut officia non non nostrud ullamco Lorem non labore magna est fugiat enim. Laboris officia irure proident sunt mollit. Do duis occaecat velit aliquip nostrud eu irure.', '2020-03-28 05:44:28', 'https://via.placeholder.com/400/', 'https://via.placeholder.com/100/888/fff/?text=ICON'),
 (144, 44, 37.74664, -122.45127, 'Qui ad ipsum incididunt et consectetur officia in. Eu irure laboris dolor ex consequat ex culpa. Adipisicing adipisicing non veniam qui in incididunt veniam sunt ipsum anim enim consectetur.', '2020-06-22 12:13:17', 'https://via.placeholder.com/400/', 'https://via.placeholder.com/100/888/fff/?text=ICON');
-INSERT INTO `track_locations` (`id`, `animal_id`, `lat`, `lng`, `description`, `date_create`, `photo`, `icon`) VALUES
+INSERT INTO `track_locations` (`id`, `food_id`, `lat`, `lng`, `description`, `date_create`, `photo`, `icon`) VALUES
 (145, 3, 37.75834, -122.43997, 'Enim magna dolor elit ipsum. Non duis tempor ipsum enim labore sit aliqua adipisicing cillum non incididunt do. Laboris magna aliqua velit officia enim velit eu proident dolor.', '2020-01-11 08:56:39', 'https://via.placeholder.com/400/', 'https://via.placeholder.com/100/888/fff/?text=ICON'),
 (146, 26, 37.73829, -122.495976, 'Magna amet ullamco occaecat sint nostrud dolor in consequat id. Exercitation enim officia veniam elit adipisicing anim mollit fugiat. Incididunt dolore consectetur sunt cupidatat est pariatur eiusmod nostrud culpa deserunt excepteur.', '2020-01-14 01:04:27', 'https://via.placeholder.com/400/', 'https://via.placeholder.com/100/888/fff/?text=ICON'),
 (147, 3, 37.73814, -122.419518, 'Sit enim laborum adipisicing consectetur officia minim laborum laborum minim. Laboris eiusmod voluptate exercitation dolor eiusmod minim dolor. Reprehenderit cupidatat sit nostrud fugiat quis labore eiusmod quis velit ipsum cillum dolor laboris.', '2020-02-09 01:30:48', 'https://via.placeholder.com/400/', 'https://via.placeholder.com/100/888/fff/?text=ICON'),

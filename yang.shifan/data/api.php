@@ -1,6 +1,5 @@
 <?php
 
-
 include "auth.php";
 function makeConn() {
 	try {
@@ -49,13 +48,23 @@ function makeStatement($data) {
 	$p = $data->params;
 
 	switch($t) {
-		case "users_all" : return makeQuery($c,"SELECT * FROM `users`",[]);
-		case "user_by_id" : return makeQuery($c,"SELECT * FROM `users` WHERE `id`=?",$p);
+		case "users_all" : return makeQuery($c,"SELECT * FROM `track_users`",[]);
+		case "food_all" : return makeQuery($c,"SELECT * FROM `track_food`",[]);
+		case "locations_all" : return makeQuery($c,"SELECT * FROM `track_locations`",[]);
+
+		case "user_by_id" : return makeQuery($c,"SELECT * FROM `track_users` WHERE `id`=?",$p);
+		case "food_by_id" : return makeQuery($c,"SELECT * FROM `track_food` WHERE `id`=?",$p);
+		case "location_by_id" : return makeQuery($c,"SELECT * FROM `track_locations` WHERE `id`=?",$p);
+
+		case "food_by_user_id" : return makeQuery($c,"SELECT * FROM `track_food` WHERE `user_id`=?",$p);
+		case "locations_by_food_id" : return makeQuery($c,"SELECT * FROM `track_locations` WHERE `food_id`=?",$p);
+
+		case "check_signin":
+			return makeQuery($c,"SELECT `id` FROM `track_users` WHERE `username`=? AND `password`=md5(?)",$p);
 
 		default: return ["error"=>"No matched type"];
 	}
 }
-
 
 $data = json_decode(file_get_contents("php://input"));
 
@@ -63,6 +72,3 @@ echo json_encode(
 	makeStatement($data),
 	JSON_NUMERIC_CHECK
 );
-
-?>
-

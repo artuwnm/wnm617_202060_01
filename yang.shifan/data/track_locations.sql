@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS `track_locations` (
 `id` INT NULL,
-`animal_id` INT NULL,
+`food_id` INT NULL,
 `lat` FLOAT NULL,
 `lng` FLOAT NULL,
 `description` VARCHAR(MAX) NULL,

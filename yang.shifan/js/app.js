@@ -5,6 +5,16 @@ $(()=>{
 	// EVENT DELEGATION
 	$(document)
 
+	// ROUTING
+	.on( "pagecontainerbeforeshow", function( e, ui ) {
+		switch(ui.toPage[0].id) {
+			case "map-page": MapPage(); break;
+			case "list-page": ListPage(); break;
+			case "profile-page": ProfilePage(); break;
+			case "food-info-page": FoodInfoPage(); break;
+		}
+	})
+
 
 	// FORM SUBMISSIONS
 	.on("submit","#signin-form",function(e){
@@ -17,6 +27,13 @@ $(()=>{
 	.on("click",".js-logout",function(e){
 		sessionStorage.removeItem('userId');
 		checkUserId();
+	})
+
+	.on("click",".food-jump",function(e){
+		if(!$(this).data("id")) throw("No data ID on Element");
+
+		sessionStorage.foodId = $(this).data("id");
+		$.mobile.navigate("#food-info-page")
 	})
 
 
