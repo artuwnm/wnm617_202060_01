@@ -6,8 +6,8 @@ function makeConn(){
     try{
         return new PDO(...PDOauth());
     } catch (PDOException $e){
-       //die('{"error":"'.$e.getMessage().'")');
-       die('{"error":"MYSQL ERROR"}');
+       die('{"error":"'.$e.getMessage().'")');
+       //die('{"error":"MYSQL ERROR"}');
     }
 }
 

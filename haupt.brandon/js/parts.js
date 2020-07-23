@@ -1,10 +1,12 @@
 const makeResourceList = templater(o => `
-    <div class="resourcelist-item resource-jump" data-id="${o.id}">
-    <img src="${o.img}" alt="" class="list-image"/>
-        <div>${o.name}</div>
-        <div>${o.type}</div>
-       <div>${o.resource}</div>
-    </div>
+<div class="animallist-item display-flex animal-jump" data-id="${o.id}">
+	<div class="flex-none"><img src="${o.img}" alt="" class="list-image" /></div>
+	<div class="flex-stretch animallist-body">
+		<div>${o.name}</div>
+		<div>${o.type}</div>
+		<div>${o.breed}</div>
+	</div>
+</div>
 `);
 // javascript backtick string ^^^^
 
@@ -20,7 +22,7 @@ const makeResourceProfile = templater(o => `
     </div>
 `);
 
-const makeuserProfile = templater(o => `
+const makeUserProfile = templater(o => `
     <div>
         <img src="${o.img}">
     </div>
