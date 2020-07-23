@@ -556,15 +556,20 @@ img.add-icon {
 
 .uni-name-profile
 
+/*=====New=====*/
 #animal-profile-page .profile {
 	display:flex;
 	flex-direction:column;
 	height:100%;
 }
 .profile-head {
-	flex:none;
-	height:8em;
-	position:relative;
+    flex: none;
+    height: 8em;
+    position: relative;
+    transition: all 0.3s;
+}
+.profile-head.active {
+    height: 70vh;
 }
 .profile-body {
 	flex:1 1 100%;
@@ -576,7 +581,6 @@ img.add-icon {
 	object-fit:cover;
 	vertical-align:text-bottom;
 }
-
 
 
 /*======================= ADD PAGE =======================*/

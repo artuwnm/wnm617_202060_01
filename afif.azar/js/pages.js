@@ -47,7 +47,4 @@ const AnimalProfilePage = async() => {
 
 		makeMarkers(map_el,d.result)
 	});
-
-
-	
 }
