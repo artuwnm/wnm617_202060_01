@@ -405,3 +405,33 @@ a {
 	height:4.5em;
 	object-fit:cover;
 }
+
+
+
+
+
+
+#animal-profile-page .profile {
+	display:flex;
+	flex-direction:column;
+	height:100%;
+}
+.profile-head {
+    flex: none;
+    height: 8em;
+    position: relative;
+    transition: all 0.3s;
+}
+.profile-head.active {
+    height: 70vh;
+}
+.profile-body {
+	flex:1 1 100%;
+	position:relative;
+}
+.profile-head img {
+	width:6em;
+	height:8em;
+	object-fit:cover;
+	vertical-align:text-bottom;
+}

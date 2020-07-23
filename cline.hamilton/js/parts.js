@@ -26,14 +26,15 @@ const makeUserProfile = templater(o=>`
 
 
 const makeAnimalProfile = templater(o=>`
-<div>
-	<div>
+<div class="display-flex">
+	<div class="flex-none">
 		<img src="${o.img}" alt="" />
 	</div>
 	<div>
 		<div><strong>${o.name}</strong></div>
 		<div>${o.type}</div>
 		<div>${o.breed}</div>
+		<div><button data-toggle=".profile-head" class="form-button">More</button></div>
 	</div>
 </div>
 `);
