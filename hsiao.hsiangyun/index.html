@@ -11,6 +11,9 @@
 	<script src="lib/js/jquery-2.2.4.min.js"></script>
 
 	<script src="js/signin.js"></script>
+	<script src="js/functions.js"></script>
+	<script src="js/pages.js"></script>
+	<script src="js/parts.js"></script>
 	<script src="js/app.js"></script>
 
 	<script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
@@ -122,6 +125,7 @@
 			<div class="text-center">
 					<a class="">Wild Edible List</a>
 		</header>
+
 		<div data-role="main">
 			<div class="scrollable">
 				<ul class="it_category">
@@ -130,10 +134,13 @@
 					<li style="background-color:#33A6B8">Berry</li>
 					<li style="background-color:#86C166">Herb</li>
 				</ul>
+								<div class="animallist"></div>
+
 				
 
 				<div class="itemshow">
 					<!--<li><a href="#animal-profile-page">Animal 1</a></li>-->
+
 					<div class="pic_sec">
 					<img src="img/mushroom.jpg" alt="" class="list_pic" style="height:100%;">
 					</div>
@@ -230,6 +237,7 @@
 			</div> <!--scrollable-->
 		</div> <!--main-->
 
+
 		<footer data-role="footer">
 			<ul>
 				<li><a href="#map-page"><img src="img/icon1.png" alt="" class="icon1"></a></li>
@@ -282,7 +290,14 @@
 				</li>
 			</ul>
 		</header>
+		<div data-role="main">
+			<div class="profile">
+				<div class="profile-head"></div>
+				<div class="profile-body"></div>
 
+			</div>
+		</div>
+<!--
 <div class="scrollable">
 		<div data-role="main" class="display-flex flex-column">
 			<div class="tenvhspace"></div>		
@@ -299,15 +314,6 @@
 				<a href="#edit-item-page" class="normalbutton">Edit</a>
 			</div>
 			<div class="twovhspace div_shadow"></div>
-		<!--
-			<div class="twovhspace"></div>	
-			<div class="item_funciton div_shadow">
-				<ul>
-					<li>Description</li>
-					<li>Locaiton</li>
-				</ul>
-			</div>
-		-->
 			</div>
 			<div class="threevhspace"></div>
 			<div class="item_description"style="margin-left:2em;">
@@ -331,6 +337,7 @@
 			<img src="img/mushroom_location.png" alt="" class="item_map">
 			</div>
 </div>
+-->
 	</section>
 <!---------- edit item page ---------->
 	<section data-role="page" id="edit-item-page">
@@ -417,7 +424,7 @@
 			<div class="onevhspace"></div>
 
 			<div class="flex-none" style="padding:1em">
-				<form id="signin-form" data-ajax="false">
+				<form id="signin-form_two" data-ajax="false">
 					<div class="form-control">
 						<a class="item_d_t_add">Name :</a>
 						<br>
@@ -535,7 +542,7 @@
 				<img src="img/user.png" alt="" class="user_image">
 			</div>
 			<div class="flex-none">
-				<form id="user_profile" data-ajax="false">
+				<form id="user_edit_profile" data-ajax="false">
 
 					<div id="profile_top"  style="margin-left:1em; margin-top: 0.5em;">
 						<input type="text" class="hotdog_edit user_info_top" id="hotdog_edit" placeholder="Henry" data-role="none">
