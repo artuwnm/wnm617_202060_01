@@ -25,14 +25,14 @@ const makeUserProfile = templater(o=>`
 
 
 const makeAlcoholProfile = templater(o=>`
-<div>
-	<div>
+<div class="display-flex">
+	<div class="flex-none">
 		<img src="${o.img}" alt="" />
 	</div>
 	<div>
 		<div><strong>${o.name}</strong></div>
 		<div>${o.type}</div>
-		<div>${o.breed}</div>
+		<div>${o.alcoholpercent}</div>
+		<div><button data-toggle=".profile-head" class="form-button">More</button></div>
 	</div>
 </div>
-`);

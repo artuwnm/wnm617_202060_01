@@ -9,12 +9,17 @@ const ListPage = async() => {
 }
 
 const RecentPage = async() => {
+	let d = await query({type:"recent_locations",params:[sessionStorage.userId]});
 
-	new google.maps.Map(document.getElementById("map") as HTMLElement, {
-    center: { lat: -34.397, lng: 150.644 },
-    zoom: 8
-  });
+	let map_el = await makeMap("#recent-page .map");
 
+	let valid_alcohols = d.result.reduce((r,o)=>{
+		o.icon = o.img;
+		if(o.lat && o.lng) r.push(o);
+		return r;
+	},[]);
+
+	makeMarkers(map_el,valid_alcohols);
 }
 
 const ProfilePage = async() => {
@@ -29,10 +34,16 @@ const ProfilePage = async() => {
 const AnimalProfilePage = async() => {
 	if(sessionStorage.animalId===undefined) throw("No animal ID in Storage");
 
-	let d = await query({type:"alcohol_by_id",params:[sessionStorage.animalId]});
+	query({type:"alcohol_by_id",params:[sessionStorage.animalId]})
+	.then(d=>{
+		$("#alcohol-profile-page .profile-head")
+			.html(makeAlcoholProfile(d.result));
+	});
 
-	console.log(d)
+	query({type:"locations_by_alcohol_id",params:[sessionStorage.animalId]})
+	.then(async (d)=>{
+		let map_el = await makeMap("#alcohol-profile-page .map");
 
-	$("#alcohol-profile-page .profile-body")
-		.html(makeAlcoholProfile(d.result))
+		makeMarkers(map_el,d.result)
+	});
 }
