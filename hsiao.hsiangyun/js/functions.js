@@ -13,3 +13,13 @@ const query = (options) => {
 const templater = f => a => 
 	(Array.isArray(a)?a:[a])
 	.reduce((r,o,i,a)=>r+f(o,i,a),"");
+
+// Map
+const checkData = (check_fn) => new Promise((resolve,reject)=>{
+	let timeout = 0;
+	const interior_check = () => {
+		timeout++; if(timeout>10) return reject();
+		return check_fn() ? resolve() : setTimeout(interior_check,10);
+	}
+	interior_check();
+});

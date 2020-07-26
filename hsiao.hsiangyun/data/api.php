@@ -64,11 +64,24 @@ function makeStatement($data) {
 		case "location_by_id" : return makeQuery($c,"SELECT * FROM `track_locations` WHERE `id`=?",$p);
 
 		case "animals_by_user_id" : return makeQuery($c,"SELECT * FROM `track_wild_ingredients` WHERE `user_id`=?",$p);
-		case "locations_by_animal_id" : return makeQuery($c,"SELECT * FROM `track_locations` WHERE `track_wild_id`=?",$p);
+		case "locations_by_animal_id" : return makeQuery($c,"SELECT * FROM `track_locations` WHERE `wild_ingredient_id`=?",$p);
 
 
 		case "check_signin":
 			return makeQuery($c,"SELECT `id` FROM `track_users` WHERE `username`=? AND `password`=md5(?)",$p);
+
+		case "recent_locations":
+			return makeQuery($c,"SELECT
+				a.*, l.*
+				FROM `track_wild_ingredients` a
+				LEFT JOIN (
+					SELECT * FROM `track_locations`
+					ORDER BY `date_create` DESC
+				) l
+				ON a.id = l.wild_ingredient_id
+				WHERE a.user_id = ?
+				GROUP BY l.wild_ingredient_id
+				",$p);
 
 		default: return ["error"=>"No matched type"];
 	}
