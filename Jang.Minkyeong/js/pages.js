@@ -33,6 +33,8 @@ const ProfilePage = async() => {
 		.html(makeUserProfile(d.result))
 }
 
+
+
 const AnimalProfilePage = async() => {
 	if(sessionStorage.animalId===undefined) throw("No animal ID in Storage");
 
