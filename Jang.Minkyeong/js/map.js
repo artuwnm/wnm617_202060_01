@@ -33,13 +33,8 @@ const makeMarkers = (map_el,map_locs) => {
 		let m = new google.maps.Marker({
 			position:o,
 			map: map_el.data("map")
-			icon:{
-				url: o.img, 
-				scaledSize: {
-					width:40,
-					height:40
-				}
-			}
+			
+			
 		});	
 		markers.push(m);
 	});	

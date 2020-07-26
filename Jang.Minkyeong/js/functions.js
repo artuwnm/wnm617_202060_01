@@ -1,3 +1,4 @@
+
 const query = (options) => {
 	// Fetch is a Promise
 	return fetch('data/api.php',{
@@ -14,16 +15,11 @@ const templater = f => a =>
 	.reduce((r,o,i,a)=>r+f(o,i,a),"");
 
 
-
-//
-
-const checkData = (check_fn) => new Promise((resolve, reject)={
+const checkData = (check_fn) => new Promise((resolve,reject)=>{
 	let timeout = 0;
-	const interior_check = ( ) => {
+	const interior_check = () => {
 		timeout++; if(timeout>10) return reject();
-		return check_fn() ? resolve() : setTimeout(interior_check, 10);
+		return check_fn() ? resolve() : setTimeout(interior_check,10);
 	}
 	interior_check();
-
-
-}); 
+});
