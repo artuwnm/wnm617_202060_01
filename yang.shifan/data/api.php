@@ -62,6 +62,19 @@ function makeStatement($data) {
 		case "check_signin":
 			return makeQuery($c,"SELECT `id` FROM `track_users` WHERE `username`=? AND `password`=md5(?)",$p);
 
+		case "recent_locations":
+			return makeQuery($c,"SELECT
+				f.*, l.*
+				FROM `track_food` f
+				LEFT JOIN (
+					SELECT * FROM `track_locations`
+					ORDER BY `date_create` DESC
+				) l
+				ON f.id = l.food_id
+				WHERE f.user_id = ?
+				GROUP BY l.food_id
+				",$p);
+
 		default: return ["error"=>"No matched type"];
 	}
 }
