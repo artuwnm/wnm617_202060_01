@@ -95,12 +95,149 @@
 
 
 
+
+
+
+
+
 	<section data-role="page" id="recent-page">
 		<div data-role="main">
 			<div class="map"></div>
+
+			<div class="recent-search"></div>
+
+			<div class="anchor bottom right">
+				<a href="#recent-add-choose-animal-page" class="circle">+</a>
+			</div>
+
+			<div class="modal" id="recent-profile-drawer">
+				<div class="modal-back transparent" data-deactivate="#recent-profile-drawer"></div>
+				<div class="modal-drawer bottom">
+					<div class="modal-body soft"></div>
+				</div>
+			</div>
 		</div>
 		<footer data-role="footer" data-template="#footer-template"></footer>
 	</section>
+
+
+	<section data-role="page" id="recent-add-choose-animal-page">
+		<header data-role="header">
+			<h1>Choose Animal</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">Back</a>
+				</li>
+				<li class="flex-stretch"></li>
+				<li class="flex-none">
+					<a href="#add-location-page">Next</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<div class="scrollable">
+				<form id="recent-add-choose-animal-form" data-ajax="false" class="form" style="padding:1em">
+					<a href="#add-animal-page">Add New Animal</a>
+					<div>Or</div>
+					<div class="form-control">
+						<label for="add-location-animal-id" class="form-label">Select Animal</label>
+						<select id="add-location-animal-id" class="form-input" data-role="none">
+							<option value="1">Cat 1</option>
+							<option value="22">Dog 1</option>
+							<option value="13">Cat 2</option>
+						</select>
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+
+
+	<section data-role="page" id="add-animal-page">
+		<header data-role="header">
+			<h1>New Animal</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">Back</a>
+				</li>
+				<li class="flex-stretch"></li>
+				<li class="flex-none">
+					<a href="#add-location-page">Next</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<div class="scrollable">
+				<form id="add-animal-form" data-ajax="false" class="form" style="padding:1em">
+						<div class="form-control">
+							<label for="add-animal-name" class="form-label">Animal Name</label>
+							<input type="text" class="form-input" id="add-animal-name" placeholder="Type Animal Name" data-role="none">
+						</div>
+						<div class="form-control">
+							<label for="add-animal-type" class="form-label">Animal Type</label>
+							<input type="text" class="form-input" id="add-animal-type" placeholder="Type Animal Type" data-role="none">
+						</div>
+						<div class="form-control">
+							<label for="add-animal-breed" class="form-label">Animal Breed</label>
+							<input type="text" class="form-input" id="add-animal-breed" placeholder="Type Animal Breed" data-role="none">
+						</div>
+				</form>
+			</div>
+		</div>
+	</section>
+
+
+	<section data-role="page" id="add-location-page">
+		<header data-role="header">
+			<h1>Choose Location</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">Back</a>
+				</li>
+				<li class="flex-stretch"></li>
+				<li class="flex-none">
+					<a href="#add-location-info-page">Next</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<div class="map"></div>
+		</div>
+	</section>
+
+
+	<section data-role="page" id="add-location-info-page">
+		<header data-role="header">
+			<h1>Location Info</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">Back</a>
+				</li>
+				<li class="flex-stretch"></li>
+				<li class="flex-none">
+					<a href="#recent-page">Save</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<div class="scrollable">
+				<form id="add-location-info-form" data-ajax="false" class="form" style="padding:1em">
+						<div class="form-control">
+							<label for="add-location-description" class="form-label">Description</label>
+							<textarea type="text" class="form-input" id="add-location-description" placeholder="Type Description" data-role="none"></textarea>
+						</div>
+				</form>
+			</div>
+		</div>
+	</section>
+
+
+
+
+
+
+
+
 
 
 
@@ -154,6 +291,13 @@
 
 
 
+
+
+
+
+
+
+
 	<section data-role="page" id="animal-profile-page">
 		<header data-role="header">
 			<h1>Animal Profile</h1>
@@ -188,6 +332,8 @@
 		</div>
 		<footer data-role="footer" data-template="#footer-template"></footer>
 	</section>
+
+
 	<section data-role="page" id="settings-page">
 		<header data-role="header">
 			<h1>Settings</h1>
@@ -198,20 +344,93 @@
 			</ul>
 		</header>
 		<div data-role="main">
-			<ul>
+			<ul class="settings-list">
 				<li>
 					<a href="#" class="js-logout">Logout</a>
 				</li>
 				<li>
-					<a href="#">Change Password</a>
+					<a href="#settings-password-page">Change Password</a>
 				</li>
 				<li>
-					<a href="#">Change Email</a>
-				</li>
-				<li>
-					<a href="#">Change Profile Info</a>
+					<a href="#settings-profile-page">Change Profile Info</a>
 				</li>
 			</ul>
+		</div>
+	</section>
+
+
+	<section data-role="page" id="settings-password-page">
+		<header data-role="header">
+			<h1>Change Password</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">Cancel</a>
+				</li>
+				<li class="flex-stretch"></li>
+				<li class="flex-none">
+					<a href="#" data-rel="back">Commit</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<div class="scrollable">
+				<form id="settings-password-form" data-ajax="false" class="form" style="padding:1em">
+					<div class="form-control">
+						<label for="settings-change-password-1" class="form-label">Old Password</label>
+						<input id="settings-change-password-1" type="password" class="form-input" data-role="none">
+					</div>
+					<div class="form-control">
+						<label for="settings-change-password-2" class="form-label">New Password</label>
+						<input id="settings-change-password-2" type="password" class="form-input" data-role="none">
+					</div>
+					<div class="form-control">
+						<label for="settings-change-password-3" class="form-label">Confirm New Password</label>
+						<input id="settings-change-password-3" type="password" class="form-input" data-role="none">
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+
+
+	<section data-role="page" id="settings-profile-page">
+		<header data-role="header">
+			<h1>Profile Info</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">Cancel</a>
+				</li>
+				<li class="flex-stretch"></li>
+				<li class="flex-none">
+					<a href="#" data-rel="back">Commit</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<div class="scrollable">
+				<form id="settings-profile-form" data-ajax="false" class="form" style="padding:1em"></form>
+			</div>
+		</div>
+	</section>
+
+
+	<section data-role="page" id="settings-animal-profile-page">
+		<header data-role="header">
+			<h1>Animal Info</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">Cancel</a>
+				</li>
+				<li class="flex-stretch"></li>
+				<li class="flex-none">
+					<a href="#" data-rel="back">Commit</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<div class="scrollable">
+				<form id="settings-animal-profile-form" data-ajax="false" class="form" style="padding:1em"></form>
+			</div>
 		</div>
 	</section>
 
