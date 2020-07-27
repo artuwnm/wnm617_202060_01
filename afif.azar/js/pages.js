@@ -5,6 +5,8 @@ const ListPage = async() => {
 
 	console.log(d)
 
+
+
 	$("#list-page .animallist")
 		.html(makeAnimalList(d.result))
 }
@@ -21,6 +23,18 @@ const RecentPage = async() => {
 	},[]);
 
 	makeMarkers(map_el,valid_animals);
+
+	map_el.data("markers").forEach((o,i)=>{
+		o.addListener("click",function(){
+			// INFOWINDOW EXAMPLE
+			map_el.data("infoWindow").open(map_el.data("map"),o);
+			map_el.data("infoWindow").setContent(valid_animals[i].name)
+
+			// SIMPLE NAVIGATION
+			// sessionStorage.animalId = valid_animals[i].animal_id;
+			// $.mobile.navigate("#animal-profile-page");
+		})
+	});
 }
 
 const ProfilePage = async() => {

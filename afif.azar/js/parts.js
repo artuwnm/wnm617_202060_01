@@ -26,7 +26,7 @@ const makeUserProfile = templater(o=>`
 
 
 const makeAnimalProfile = templater(o=>`
-<div>
+<div class="flex">
 	<div>
 		<img src="${o.img}" alt="" />
 	</div>
@@ -37,3 +37,18 @@ const makeAnimalProfile = templater(o=>`
 	</div>
 </div>
 `);
+
+
+
+const makeRecentProfile = o=>`
+<div class="display-flex animal-jump" data-id="${o.animal_id}">
+	<div class="flex-none">
+		<img src="${o.img}" class="list-image" alt="" />
+	</div>
+	<div style="padding:0.5em">
+		<div><strong>${o.name}</strong></div>
+		<div>${o.type}</div>
+		<div>${o.breed}</div>
+	</div>
+</div>
+`;

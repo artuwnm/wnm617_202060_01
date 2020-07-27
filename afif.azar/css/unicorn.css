@@ -477,6 +477,52 @@ img.add-icon {
 }
 
 
+.modal-drawer {
+	position:absolute;
+	transition:all 0.3s;
+	box-shadow: 0 0 10px rgba(0,0,0,0.15);
+}
+.modal-drawer .modal-body {
+	height:100%;
+	width:100%;
+}
+.modal-drawer.top,
+.modal-drawer.bottom { left:0; height:30%; width:100%; }
+.modal-drawer.top { top:0; transform:translateY(-100%); }
+.modal-drawer.bottom { bottom:0; transform:translateY(100%); }
+
+.modal-drawer.right,
+.modal-drawer.left { top:0; width:80%; height:100%;}
+.modal-drawer.right { right:0; transform:translateX(100%); }
+.modal-drawer.left { left:0; transform:translateX(-100%); }
+
+.modal.active .modal-drawer {
+	transform:translate(0,0);
+}
+
+
+.anchor {
+	position: absolute;
+}
+.anchor.top { top: 1em; }
+.anchor.botton { top: 1em; }
+.anchor.right { top: 1em; }
+.anchor.left { top: 1em; }
+
+.circle {
+	width: 3em;
+	height: 3em;
+	background-color: white;
+	color: black;
+	text-align: center;
+	line-height: 3em;
+	display: block;
+	border-radius: 50%;
+	box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+	font-size: 1.5em;
+
+}
+
 
 /*================ Unicorn Profile Page ==================*/
 .uni-charc-one,
