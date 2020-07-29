@@ -665,6 +665,33 @@ img.back-icon {
 
 /*========================== PROFILE PAGE =======================*/
 
+.profile-image {
+    height: 25vh;
+    position: relative;
+    margin-bottom: calc(13vh + 1em);
+    background-color: var(--color-main-medium);
+}
+.profile-image img {
+    width: 30vh;
+    height: 30vh;
+    border-radius: 50%;
+    position: absolute;
+    top: 8vh;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.settings {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.2em;
+    align-items: center;
+    justify-content: center;
+}
+
 
 .settings-list {
     list-style-type: none;

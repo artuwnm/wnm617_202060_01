@@ -3,8 +3,6 @@ const ListPage = async() => {
 
 	let d = await query({type:"animals_by_user_id",params:[sessionStorage.userId]})
 
-	console.log(d)
-
 
 
 	$("#list-page .animallist")
@@ -33,6 +31,11 @@ const RecentPage = async() => {
 			// SIMPLE NAVIGATION
 			// sessionStorage.animalId = valid_animals[i].animal_id;
 			// $.mobile.navigate("#animal-profile-page");
+
+			//DRAWER EXAMPLE
+			//$("#recent-profile-drawer")
+			//.toggle
+			//.find(".modal-body").html(makeRecentProfile(valid_animals[i]))
 		})
 	});
 }
@@ -40,7 +43,6 @@ const RecentPage = async() => {
 const ProfilePage = async() => {
 	let d = await query({type:"user_by_id",params:[sessionStorage.userId]});
 
-	console.log(d)
 
 	$("#profile-page .profile")
 		.html(makeUserProfile(d.result))
@@ -61,4 +63,19 @@ const AnimalProfilePage = async() => {
 
 		makeMarkers(map_el,d.result)
 	});
+}
+
+
+
+const SettingsProfilePage = async() => {
+	let d = await query({type:"user_by_id",params:[sessionStorage.userId]});
+
+	$("#settings-profile-page .form")
+		.html(makeSettingsProfileInputs(d.result[0]));
+}
+const SettingsAnimalProfilePage = async() => {
+	let d = await query({type:"animal_by_id",params:[sessionStorage.animalId]});
+
+	$("#settings-animal-profile-page .form")
+		.html(makeSettingsAnimalProfileInputs(d.result[0]));
 }

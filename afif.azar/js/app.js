@@ -15,6 +15,9 @@ $(()=>{
 			case "list-page": ListPage(); break;
 			case "profile-page": ProfilePage(); break;
 			case "animal-profile-page": AnimalProfilePage(); break;
+
+			case "settings-profile-page": SettingsProfilePage(); break;
+			case "settings-animal-profile-page": SettingsAnimalProfilePage(); break;
 		}
 	})
 
