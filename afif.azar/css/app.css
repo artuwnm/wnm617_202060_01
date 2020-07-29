@@ -171,3 +171,169 @@ li {
 }
 
 
+/*==========================UNICORN APP CSS=======================*/
+/*========needs to check=========*/
+
+.ui-title {
+	margin: 0 0%;
+}
+
+[data-role="header"] ul,
+[data-role="footer"] ul {
+	display:flex;
+	position:relative;
+}
+
+[data-role="footer"] li {
+	flex:1 1 auto;
+	text-align:center;
+}
+[data-role="header"] h1 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	padding: 0;
+	margin: 0;
+}
+
+/*================ Unicorn Profile Page ==================*/
+.uni-charc-one,
+.uni-charc-two,
+.uni-charc-three,
+.uni-charc-four,
+.uni-charc-five,
+.uni-charc-six {
+	width: 100vmax;
+	height: auto;
+	margin: 1em 1em 0 1em ;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	text-align: center;
+    outline: 0;
+    border-radius: 1em;
+    margin-top: 4em;
+    margin-bottom: 1em;
+}
+.uni-charc-one {
+	background-image: url(../img/unicorn-jr.png);
+}
+.uni-charc-two {
+	background-image: url(../img/unicorn-rainbow.png);
+}
+.uni-charc-three {
+	background-image: url(../img/unicorn-ninja.png);
+}
+.uni-charc-four {
+	background-image: url(../img/unicorn-nerdy.png);
+}
+.uni-charc-five {
+	background-image: url(../img/unicorn-spec.png);
+}
+.uni-charc-six {
+	background-image: url(../img/unicorn-creative.png);
+}
+
+.unicorn-one,
+.unicorn-two,
+.unicorn-three,
+.unicorn-four,
+.unicorn-five,
+.unicorn-six {
+	width: 100%;
+	height: auto;
+	margin: 1em 1em 0 1em ;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	text-align: center;
+    outline: 0;
+    border-radius: 1em;
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+
+.unicorn-one {
+	background-image: url(../img/unicorn-jr.png);
+}
+.unicorn-two {
+	background-image: url(../img/unicorn-rainbow.png);
+}
+.unicorn-three {
+	background-image: url(../img/unicorn-ninja.png);
+}
+.unicorn-four {
+	background-image: url(../img/unicorn-nerdy.png);
+}
+.unicorn-five {
+	background-image: url(../img/unicorn-spec.png);
+}
+.unicorn-six {
+	background-image: url(../img/unicorn-creative.png);
+}
+
+.uni-name-profile
+
+/*========================== PROFILE PAGE =======================*/
+.profile-image {
+    height: 20vh;
+    position: relative;
+    margin-bottom: calc(6vh + 1em);
+    background-color: var(--color-main-medium);
+}
+.profile-image img {
+    width: 20vh;
+    height: 20vh;
+    border-radius: 50%;
+    position: absolute;
+    top: 5vh;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.profile-info-text {
+	padding: 0.5em;
+}
+.settings-icon {
+	padding: 2em;
+}
+
+
+.profile-info-text h3 {
+	text-align: center;
+}
+.profile-user-info {
+	margin-left: 1em;
+}
+
+#logout-button,
+#settings-button {
+	background-color: var(--color-pink-medium);
+   display: inline-flex;
+   width: 50%;
+   font: inherit;
+   padding: 1em 1em;
+   border-radius: 0.5em;
+   text-align: center;
+   outline: 0;
+	margin-bottom: 0;
+	margin-top: 0;
+	display: inline;
+	border-width: 0;
+}
+
+input#logout-button, 
+input#settings-button {
+    text-align: center;
+    font-weight: bold;
+    font-family: var(--font-sans-title);
+    color: white;
+}
+
+#settings-button:active,
+#logout-button:active {
+	background-color: var(--color-blue-medium);
+}
+
