@@ -89,3 +89,43 @@ const FormControl = ({namespace,label,name,value,type="text"}) => `
 	<label for="${namespace}-${name}" class="form-label">${label}</label>
 	<input id="${namespace}-${name}" value="${value}" type="${type}" class="form-input" data-role="none">
 </div>`;
+
+
+
+const makeSelectOptions = (options,selected) => {
+	return templater(o=>`
+		<option value='${o[0]}' ${o[0]==selected?'selected':''}>${o[1]}</option>
+	`)(options);
+}
+
+
+const makeAnimalProfileInputs = (o,namespace="list-add") => {
+let types = [
+	['dog','Dog'],
+	['cat','Cat'],
+	['horse','Horse'],
+	['turtle','Turtle'],
+	['rabbit','Rabbit']
+];
+return `
+<div class="form-control">
+	<label for="${namespace}-name" class="form-label">Name</label>
+	<input type="text" class="form-input" id="${namespace}-name" placeholder="Type Animal Name" data-role="none" value="${o.name}">
+</div>
+<div class="form-control">
+	<label for="${namespace}-type" class="form-label">Type</label>
+	<div class="form-select">
+		<select id="${namespace}-type" data-role="none">
+			${makeSelectOptions(types,o.type)}
+		</select>
+	</div>
+</div>
+<div class="form-control">
+	<label for="${namespace}-breed" class="form-label">Breed</label>
+	<input type="text" class="form-input" id="${namespace}-breed" placeholder="Type Animal Breed" data-role="none" value="${o.breed}">
+</div>
+<div class="form-control">
+	<label for="${namespace}-description" class="form-label">Description</label>
+	<textarea class="form-input" id="${namespace}-description" placeholder="Type Animal Description" data-role="none">${o.description}</textarea>
+</div>`;
+}

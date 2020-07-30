@@ -101,6 +101,14 @@ function makeStatement($data) {
 				",$p);
 			return ["result"=>$c->lastInsertId()];
 
+		case "insert_animal":
+			$r = makeQuery($c,"INSERT INTO
+				`track_animals`
+				(`user_id`,`name`, `type`, `breed`, `description`, `img`, `date_create`)
+				VALUES
+				(?, ?, ?, ?, ?, 'https://via.placeholder.com/400/?text=ANIMAL', NOW())
+				",$p);
+			return ["result"=>$c->lastInsertId()];
 
 
 

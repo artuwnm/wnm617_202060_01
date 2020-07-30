@@ -8,6 +8,13 @@ const ListPage = async() => {
 				makeAnimalList(d.result) :
 				"You need to add some animals, jack."
 		);
+
+	$("#list-add-form .scrollable").html(makeAnimalProfileInputs({
+		name:'',
+		type:'',
+		breed:'',
+		description:''
+	}))
 }
 
 
@@ -88,7 +95,7 @@ const SettingsAnimalProfilePage = async() => {
 	let d = await query({type:"animal_by_id",params:[sessionStorage.animalId]});
 
 	$("#settings-animal-profile-page .form")
-		.html(makeSettingsAnimalProfileInputs(d.result[0]));
+		.html(makeAnimalProfileInputs(d.result[0],'settings-animal-profile'));
 }
 
 
