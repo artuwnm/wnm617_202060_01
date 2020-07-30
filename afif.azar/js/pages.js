@@ -26,7 +26,7 @@ const RecentPage = async() => {
 		o.addListener("click",function(){
 			// INFOWINDOW EXAMPLE
 			map_el.data("infoWindow").open(map_el.data("map"),o);
-			map_el.data("infoWindow").setContent(valid_animals[i].name)
+			map_el.data("infoWindow").setContent(makeRecentProfile(valid_animals[i]))
 
 			// SIMPLE NAVIGATION
 			// sessionStorage.animalId = valid_animals[i].animal_id;
