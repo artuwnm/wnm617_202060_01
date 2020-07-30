@@ -35,8 +35,15 @@ const makeAnimalProfile = o=>`
 		<div>${o.type}</div>
 		<div>${o.breed}</div>
 		<div class="display-flex">
-			<div class="flex-none"><button data-toggle=".profile-head" class="form-button">More</button></div>
-			<div class="flex-none"><a href="#settings-animal-profile-page" class="form-button">Edit</a></div>
+			<div class="flex-none">
+				<button data-toggle=".profile-head" class="form-button">More</button>
+			</div>
+			<div class="flex-none">
+				<a href="#settings-animal-profile-page" class="form-button">Edit</a>
+			</div>
+			<div class="flex-none">
+				<a href="#" class="form-button js-delete-animal" data-id="${o.id}">Delete</a>
+			</div>
 		</div>
 	</div>
 </div>

@@ -204,6 +204,8 @@
 			</ul>
 		</header>
 		<div data-role="main">
+			<input type="hidden" id="add-location-lat">
+			<input type="hidden" id="add-location-lng">
 			<div class="map"></div>
 		</div>
 	</section>
@@ -218,7 +220,7 @@
 				</li>
 				<li class="flex-stretch"></li>
 				<li class="flex-none">
-					<a href="#recent-page">Save</a>
+					<a href="#" class="js-submit-add-location">Save</a>
 				</li>
 			</ul>
 		</header>
@@ -275,7 +277,7 @@
 					</div>
 				</div>
 				<div class="modal-body">
-					<div class="scrollable" style="padding:1em"></div>
+					<div class="scrollable" style="padding:1em"><div class="inputs"></div></div>
 				</div>
 				<div class="modal-foot display-flex">
 					<div class="flex-stretch"></div>
@@ -312,6 +314,9 @@
 				<div class="profile-head"></div>
 				<div class="profile-body">
 					<div class="map"></div>
+					<div class="anchor bottom right">
+						<a href="#add-location-page" class="circle">+</a>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -402,13 +407,16 @@
 				</li>
 				<li class="flex-stretch"></li>
 				<li class="flex-none">
-					<a href="#" data-rel="back">Commit</a>
+					<a href="#" class="js-submit-settings-profile">Save</a>
 				</li>
 			</ul>
 		</header>
 		<div data-role="main">
 			<div class="scrollable">
-				<form id="settings-profile-form" data-ajax="false" class="form" style="padding:1em"></form>
+				<form id="settings-profile-form" data-ajax="false" class="form" style="padding:1em">
+					<input type="hidden" id="settings-profile-id">
+					<div class="inputs"></div>
+				</form>
 			</div>
 		</div>
 	</section>
@@ -423,13 +431,16 @@
 				</li>
 				<li class="flex-stretch"></li>
 				<li class="flex-none">
-					<a href="#" data-rel="back">Commit</a>
+					<a href="#" class="js-submit-settings-animal-profile">Save</a>
 				</li>
 			</ul>
 		</header>
 		<div data-role="main">
 			<div class="scrollable">
-				<form id="settings-animal-profile-form" data-ajax="false" class="form" style="padding:1em"></form>
+				<form id="settings-animal-profile-form" data-ajax="false" class="form" style="padding:1em">
+					<input type="hidden" id="settings-animal-profile-id">
+					<div class="inputs"></div>
+				</form>
 			</div>
 		</div>
 	</section>

@@ -56,6 +56,22 @@ $(()=>{
 		sessionStorage.animalId = $(this).data("id");
 		$.mobile.navigate("#animal-profile-page")
 	})
+	.on("click",".js-submit-settings-animal-profile",function(e){
+		e.preventDefault();
+		checkSettingsAnimalProfileForm();
+	})
+	.on("click",".js-submit-settings-profile",function(e){
+		e.preventDefault();
+		checkSettingsProfileForm();
+	})
+	.on("click",".js-submit-add-location",function(e){
+		e.preventDefault();
+		checkAddLocationForm();
+	})
+	.on("click",".js-delete-animal",function(e){
+		e.preventDefault();
+		checkAnimalDelete($(this).data("id"));
+	})
 
 
 

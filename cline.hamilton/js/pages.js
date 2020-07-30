@@ -9,7 +9,7 @@ const ListPage = async() => {
 				"You need to add some animals, jack."
 		);
 
-	$("#list-add-form .scrollable").html(makeAnimalProfileInputs({
+	$("#list-add-form .inputs").html(makeAnimalProfileInputs({
 		name:'',
 		type:'',
 		breed:'',
@@ -88,18 +88,26 @@ const AnimalProfilePage = async() => {
 const SettingsProfilePage = async() => {
 	let d = await query({type:"user_by_id",params:[sessionStorage.userId]});
 
-	$("#settings-profile-page .form")
+	$("#settings-profile-id").val(sessionStorage.userId);
+	$("#settings-profile-page .inputs")
 		.html(makeSettingsProfileInputs(d.result[0]));
 }
 const SettingsAnimalProfilePage = async() => {
 	let d = await query({type:"animal_by_id",params:[sessionStorage.animalId]});
 
-	$("#settings-animal-profile-page .form")
+	$("#settings-animal-profile-id").val(sessionStorage.animalId);
+	$("#settings-animal-profile-page .inputs")
 		.html(makeAnimalProfileInputs(d.result[0],'settings-animal-profile'));
 }
 
 
 
 const AddLocationPage = async() => {
-	makeMap("#add-location-page .map")
+	let map_el = await makeMap("#add-location-page .map");
+
+	map_el.data("map").addListener("click",function(e) {
+		$("#add-location-lat").val(e.latLng.lat())
+		$("#add-location-lng").val(e.latLng.lng())
+		makeMarkers(map_el,[{lat:e.latLng.lat(),lng:e.latLng.lng(),icon:'https://via.placeholder.com/40?text=PIN'}])
+	})
 }
