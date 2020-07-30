@@ -19,6 +19,23 @@ const MapPage = async() => {
 		return r;
 	},[]);
 	makeMarkers(map_el,valid_food);
+
+	map_el.data("markers").forEach((o,i)=>{
+		o.addListener("click",function(){
+			// INFOWINDOW EXAMPLE
+			map_el.data("infoWindow").open(map_el.data("map"),o);
+			map_el.data("infoWindow").setContent(makeMapProfile(valid_food[i]))
+
+			// SIMPLE NAVIGATION
+			// sessionStorage.animalId = valid_animals[i].animal_id;
+			// $.mobile.navigate("#animal-profile-page");
+
+			// DRAWER EXAMPLE
+			// $("#map-profile-drawer")
+			// 	.toggleClass("active")
+			// 	.find(".modal-body").html(makeMapProfile(valid_food[i]))
+		})
+	});
 }
 
 const ProfilePage = async() => {
@@ -27,21 +44,20 @@ const ProfilePage = async() => {
 	console.log(d)
 
 	$("#profile-page .profile")
-		.html(makeUserProfile(d.result))
+		.html(makeUserProfile(d.result[0]));
 }
 
 const FoodInfoPage = async() => {
 	if(sessionStorage.foodId===undefined) throw("No food ID in Storage");
 
-	let d = await query({type:"food_by_id",params:[sessionStorage.foodId]});
-	query({type:"food_by_id",params:[sessionStorage.animalId]})
+	query({type:"food_by_id",params:[sessionStorage.foodId]})
 	.then(d=>{
-		$("#food-info-page .profile-head").html(makeFoodInfo(d.result));
+		$("#food-info-page .food-info").html(makeFoodInfo(d.result[0]));
 	});
 
-	query({type:"locations_by_food_id",params:[sessionStorage.animalId]})
-	.then(async (d)=>{
-		let map_el = await makeMap("#food-info-page .map");
-		makeMarkers(map_el,d.result)
-	});
+	// query({type:"locations_by_food_id",params:[sessionStorage.foodId]})
+	// .then(async (d)=>{
+	// 	let map_el = await makeMap("#food-info-page .map");
+	// 	makeMarkers(map_el,d.result);
+	// });
 }

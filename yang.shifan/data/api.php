@@ -52,7 +52,7 @@ function makeStatement($data) {
 		case "food_all" : return makeQuery($c,"SELECT * FROM `track_food`",[]);
 		case "locations_all" : return makeQuery($c,"SELECT * FROM `track_locations`",[]);
 
-		case "user_by_id" : return makeQuery($c,"SELECT * FROM `track_users` WHERE `id`=?",$p);
+		case "user_by_id" : return makeQuery($c,"SELECT id,name,username,email,date_create,img FROM `track_users` WHERE `id`=?",$p);
 		case "food_by_id" : return makeQuery($c,"SELECT * FROM `track_food` WHERE `id`=?",$p);
 		case "location_by_id" : return makeQuery($c,"SELECT * FROM `track_locations` WHERE `id`=?",$p);
 

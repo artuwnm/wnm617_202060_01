@@ -9,7 +9,7 @@ const makeFoodList = templater(o=>`
 </div>
 `);
 
-const makeUserProfile = templater(o=>`
+const makeUserProfile = o=>`
 <div>
 	<div class="hero-image">
 		<img src="${o.img}" alt="">
@@ -20,10 +20,10 @@ const makeUserProfile = templater(o=>`
 		<div>${o.email}</div>
 	</div>
 </div>
-`);
+`;
 
 
-const makeFoodInfo = templater(o=>`
+const makeFoodInfo = o=>`
 <div class="display-flex">
 	<div class="flex-none">
 		<img src="${o.img}" alt="" />
@@ -35,4 +35,17 @@ const makeFoodInfo = templater(o=>`
 		<div><button data-toggle=".profile-head" class="form-button">More</button></div>
 	</div>
 </div>
-`);
+`;
+
+const makeMapProfile = o=>`
+<div class="display-flex food-jump" data-id="${o.food_id}">
+	<div class="flex-none">
+		<img src="${o.img}" class="list-image" alt="" />
+	</div>
+	<div style="padding:0.5em">
+		<div><strong>${o.name}</strong></div>
+		<div>${o.cuisine}</div>
+		<div>${o.restaurant}</div>
+	</div>
+</div>
+`;
