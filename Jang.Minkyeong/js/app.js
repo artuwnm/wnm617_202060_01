@@ -8,19 +8,21 @@ $(()=>{
 
 
 
+// ROUTING
+	.on( "pagecontainerbeforeshow", function( e, ui ) {
+		switch(ui.toPage[0].id) {
+			case "recent-page": RecentPage(); break;
+			case "list-page": ListPage(); break;
+			case "profile-page": ProfilePage(); break;
+			case "animal-profile-page": AnimalProfilePage(); break;
 
-	// routing
+			case "add-location-page": AddLocationPage(); break;
 
-	.on( "pagecontainerbeforeshow", function(e,ui) {
-		switch(ui.toPage[0].id){
-			case "recent-page" : RecentPage(); break;
-			case "list-page" : ListPage(); break;
-			case "profile-page" : ProfilePage(); break;
-			case "animal-profile-page" : AnimalProfilePage(); break;
-			
+			case "settings-profile-page": SettingsProfilePage(); break;
+			case "settings-animal-profile-page": SettingsAnimalProfilePage(); break;
+
 		}
-	} )
-
+	})
 
 
 

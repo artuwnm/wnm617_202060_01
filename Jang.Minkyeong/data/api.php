@@ -1,28 +1,26 @@
-<? php
+<?php
 
-include"auth.php";
 
+include "auth.php";
 function makeConn() {
-	try{
+	try {
 		return new PDO(...PDOauth());
-	} catch(PDOException $e) {
-		die('{"error":"'.$e.getMessage().'"}');
+	} catch (PDOException $e) {
+		die('{"error":"' . $e.getMessage() . '"}');
 	}
 }
 
 function print_p($d) {
-	echo "<pre>",print_r($d),"</pre>"
-	;
+	echo "<pre>",print_r($d),"</pre>";
 }
 
-/*$r = PDO result*/
-
-function fetchAll($r){
-	$a =[];
-	while($row = $r->fetch(PDO:;FETCH_OBJ))
-		$a[] = $row;
-		return $a;
+/* $r = PDO result */
+function fetchAll($r) {
+	$a = [];
+	while($row = $r->fetch(PDO::FETCH_OBJ)) $a[] = $row;
+	return $a;
 }
+
 
 
 /*
@@ -30,34 +28,23 @@ $c = connection
 $ps = prepared statement
 $p = parameters
 */
-
 function makeQuery($c,$ps,$p) {
 	try{
-		if (count($p)) {
+		if(count($p)) {
 			$stmt = $c->prepare($ps);
 			$stmt->execute($p);
 		} else {
 			$stmt = $c->query($ps);
-		} 
-
-		$r = fetchAll($stmt);
-
-		return["result"=>$r];
-	} catch(PDOException $e) {
-			return ["error"=> "Query Failed: ".$e.getMessage()];
 		}
-		
-		/*
 		$r = fetchAll($stmt);
-		print_p([4stmt,$r]);
-		die;
 
 		return [
-			"statement"=>$ps,
-			"params"->$
-		]
-		*/
-
+			// "statement"=>$ps,
+			// "params"=>$p,
+			"result"=>$r
+		];
+	} catch (PDOException $e) {
+		return ["error"=>"Query Failed: ".$e.getMessage()];
 	}
 }
 
@@ -83,27 +70,22 @@ function makeStatement($data) {
 		case "check_signin":
 			return makeQuery($c,"SELECT `id` FROM `track_users` WHERE `username`=? AND `password`=md5(?)",$p);
 
+
 		case "recent_locations":
-		return makeQuery ($c, "SELECT
-			a.*,l.&
-			FROM `track_animals` a
-			LEFT JOIN (
-				SELECT * FROM `track_locations`
-				ORDER BY `date_create` DESC) 1
-			ON a.id = l.animal_id
-			WHERE a.user_id = ?
-			GROUP
-			/* 여기 더 적어야함... 해밀턴 넘 빨라 휴 */
-	
-			")
-
-
-
-
+			return makeQuery($c,"SELECT
+				a.*, l.*
+				FROM `track_animals` a
+				LEFT JOIN (
+					SELECT * FROM `track_locations`
+					ORDER BY `date_create` DESC
+				) l
+				ON a.id = l.animal_id
+				WHERE a.user_id = ?
+				GROUP BY l.animal_id
+				",$p);
 
 		default: return ["error"=>"No matched type"];
 	}
-}
 }
 
 
@@ -112,9 +94,4 @@ $data = json_decode(file_get_contents("php://input"));
 echo json_encode(
 	makeStatement($data),
 	JSON_NUMERIC_CHECK
-)
-
-
-
-
-?>
+);
