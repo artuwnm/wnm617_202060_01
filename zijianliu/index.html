@@ -1,8 +1,9 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>New Project</title>
+	<title>found & seek</title>
 
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
@@ -12,11 +13,17 @@
 	<script src="lib/js/jquery-2.2.4.min.js"></script>
 
 	<script src="js/signin.js"></script>
+	<script src="js/functions.js"></script>
 	<script src="js/pages.js"></script>
 	<script src="js/parts.js"></script>
 	<script src="js/app.js"></script>
+	<script src="js/map.js"></script>
+
 
 	<script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
+	<script async defer
+	  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKK7Vj5eSfwOEIstsKH95CTtNHSwSpukk">
+	</script>
 </head>
 <body>
 	
@@ -55,7 +62,7 @@
 			<div class="flex-none" style="padding:1em">
 				<form id="signup-form" data-ajax="false">
 					<div class="form-control">
-						<label for="signup-username" class="form-label">User ID</label>
+						<label for="signup-username" class="form-label">Username</label>
 						<input type="text" class="form-input" id="signup-username" placeholder="Type your User ID" data-role="none">
 					</div>
 					<div class="form-control">
@@ -90,7 +97,7 @@
 
 	<section data-role="page" id="recent-page">
 		<div data-role="main">
-			<img src="http://zijianliu.com/aau/wnm617/zijianliu/img/map.png" alt="" class="map">
+			<div class="map"></div>
 		</div>
 		<footer data-role="footer" data-template="#footer-template"></footer>
 	</section>
@@ -141,15 +148,15 @@
 							</div>
 							<div class="form-control">
 								<label for="list-add-type" class="form-label">Breed</label>
-								<input type="text" class="form-input" id="list-add-type" placeholder="Breed" data-role="none">
+								<input type="text" class="form-input" id="list-add-breed" placeholder="Breed" data-role="none">
 							</div>
 							<div class="form-control">
 								<label for="list-add-breed" class="form-label">Species</label>
-								<input type="text" class="form-input" id="list-add-breed" placeholder="Species" data-role="none">
+								<input type="text" class="form-input" id="list-add-species" placeholder="Species" data-role="none">
 							</div>
 							<div class="form-control">
 								<label for="list-add-breed" class="form-label">State</label>
-								<input type="text" class="form-input" id="list-add-breed" placeholder="State" data-role="none">
+								<input type="text" class="form-input" id="list-add-state" placeholder="State" data-role="none">
 							</div>
 						</form>
 					</div>

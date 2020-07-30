@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS `data` (
+CREATE TABLE IF NOT EXISTS `track_users` (
 `id` INT NULL,
 `name` VARCHAR(MAX) NULL,
 `username` VARCHAR(MAX) NULL,

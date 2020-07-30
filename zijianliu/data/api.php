@@ -6,7 +6,7 @@ function makeConn() {
 	try {
 		return new PDO(...PDOauth());
 	} catch (PDOException $e) {
-		die('{"error":"' . $e.getMessage() . '"}');
+		die('{"error":"' . $e->getMessage() . '"}');
 	}
 }
 
@@ -44,7 +44,7 @@ function makeQuery($c,$ps,$p) {
 			"result"=>$r
 		];
 	} catch (PDOException $e) {
-		return ["error"=>"Query Failed: ".$e.getMessage()];
+		return ["error"=>"Query Failed: ".$e->getMessage()];
 	}
 }
 
@@ -70,7 +70,23 @@ function makeStatement($data) {
 		case "check_signin":
 			return makeQuery($c,"SELECT `id` FROM `track_users` WHERE `username`=? AND `password`=md5(?)",$p);
 
+
+		case "check_signin":
+		return makeQuery($c,"SELECT
+			a.*, l.*
+			FROM `track_animals` a
+			LEFT JOIN (
+		        SELECT * FROM `track_locations`
+		        ORDER BY `date_create()` )l
+			ON a.id = l.animal_id
+			WHERE a.user_id = ?
+			",$p);
+
 		default: return ["error"=>"No matched type"];
+
+
+
+
 	}
 }
 

@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS `` (
+CREATE TABLE IF NOT EXISTS `track_animals` (
 `id` INT NULL,
 `User_id` INT NULL,
 `name` VARCHAR(MAX) NULL,

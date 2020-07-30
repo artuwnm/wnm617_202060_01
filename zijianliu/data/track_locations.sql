@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS `data` (
+CREATE TABLE IF NOT EXISTS `track_locations` (
 `id` INT NULL,
 `animal_id` INT NULL,
 `lat` FLOAT NULL,
