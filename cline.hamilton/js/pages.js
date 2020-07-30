@@ -3,7 +3,11 @@ const ListPage = async() => {
 	let d = await query({type:"animals_by_user_id",params:[sessionStorage.userId]})
 
 	$("#list-page .animallist")
-		.html(makeAnimalList(d.result));
+		.html(
+			d.result.length ?
+				makeAnimalList(d.result) :
+				"You need to add some animals, jack."
+		);
 }
 
 
