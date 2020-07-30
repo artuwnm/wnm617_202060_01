@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS `users` (
+CREATE TABLE IF NOT EXISTS `track_users` (
 `id` INT NULL,
 `name` VARCHAR(MAX) NULL,
 `username` VARCHAR(MAX) NULL,
@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 `img` VARCHAR(MAX) NULL
 );
 
-INSERT INTO users VALUES
+INSERT INTO track_users VALUES
 (1,'Hollie Savage','user1','user1@gmail.com','+1 (890) 527-3522',md5('pass'),'2020-02-25 09:07:02','https://via.placeholder.com/400/990/fff/?text=user1'),
 (2,'Gregory Young','user2','user2@gmail.com','+1 (890) 525-3028',md5('pass'),'2020-05-25 01:44:54','https://via.placeholder.com/400/960/fff/?text=user2'),
 (3,'Ethel Holman','user3','user3@gmail.com','+1 (931) 481-2968',md5('pass'),'2020-07-03 07:40:13','https://via.placeholder.com/400/763/fff/?text=user3'),

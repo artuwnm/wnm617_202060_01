@@ -1,3 +1,4 @@
+
 const checkSigninForm = async() => {
 	let user = $("#signin-username").val();
 	let pass = $("#signin-password").val();
@@ -8,7 +9,7 @@ const checkSigninForm = async() => {
 		type:'check_signin',
 		params:[user,pass]
 	})
-s
+
 	if(found_user.result.length > 0) {
 		// logged in
 		console.log("success");
@@ -24,11 +25,11 @@ s
 }
 
 const checkUserId = () => {
-	let p = ["#signin-page","#signup-page","#recent-page"];
+	let p = ["#signin-page","#signup-page",""];
 
 	if(sessionStorage.userId===undefined) {
 		// not logged in
-		if (!p.some(o=>window.location.hash===o))
+		if(!p.some(o=>window.location.hash===o))
 			$.mobile.navigate("#signin-page");
 	} else {
 		// logged in

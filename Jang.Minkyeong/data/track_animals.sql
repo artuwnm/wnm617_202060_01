@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS `animal` (
+CREATE TABLE IF NOT EXISTS `track_animals` (
 `id` INT NULL,
 `user_id` INT NULL,
 `name` VARCHAR(MAX) NULL,
@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS `animal` (
 `img` VARCHAR(MAX) NULL
 );
 
-INSERT INTO animal VALUES
+INSERT INTO track_animals VALUES
 (1,2,'Teraprene','labrador','white','Adipisicing consequat labore labore ut labore do. Lorem eu amet nisi sunt non in exercitation enim tempor aliqua elit sunt et exercitation. Occaecat exercitation aute ex qui.','2020-06-03 01:24:34','https://via.placeholder.com/400/746/fff/?text=Teraprene'),
 (2,6,'Gleamink','mixed','black & white','Dolore anim incididunt magna Lorem anim eiusmod velit consectetur aliqua nostrud voluptate adipisicing. Laboris magna nulla ut commodo voluptate. Est sit sit sunt nisi magna do velit amet labore in amet qui esse id.','2020-07-06 01:12:15','https://via.placeholder.com/400/866/fff/?text=Gleamink'),
 (3,4,'Quantalia','pitbull','grey','Excepteur voluptate commodo est excepteur pariatur fugiat sit ipsum. Ea laboris consequat eu duis et exercitation culpa veniam nulla aute ullamco eiusmod velit excepteur. Ex esse eu aute Lorem mollit ea duis ad.','2020-01-31 05:21:19','https://via.placeholder.com/400/743/fff/?text=Quantalia'),
