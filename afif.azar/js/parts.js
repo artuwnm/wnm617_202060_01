@@ -5,13 +5,13 @@ const makeAnimalList = templater(o=>`
 	<div class="flex-stretch">
 		<div>${o.name}</div>
 		<div>${o.type}</div>
-		<div>${o.breed}</div>
+		<div>${o.trait}</div>
 	</div>
 </div>
 `);
 
 
-const makeUserProfile = templater(o=>`
+const makeUserProfile = o =>`
 <div>
 	<div class="hero-image">
 		<img src="${o.img}" alt="">
@@ -22,21 +22,32 @@ const makeUserProfile = templater(o=>`
 		<div>${o.email}</div>
 	</div>
 </div>
-`);
+`;
 
 
-const makeAnimalProfile = templater(o=>`
-<div class="flex">
-	<div>
+const makeAnimalProfile = o =>`
+<div class="display-flex">
+  <div class="flex-none">
 		<img src="${o.img}" alt="" />
 	</div>
 	<div>
 		<div><strong>${o.name}</strong></div>
 		<div>${o.type}</div>
-		<div>${o.breed}</div>
+		<div>${o.trait}</div>
+	<div class="display-flex">
+			<div class="flex-none">
+				<button data-toggle=".profile-head" class="form-button">More</button>
+			</div>
+			<div class="flex-none">
+				<a href="#settings-animal-profile-page" class="form-button">Edit</a>
+			</div>
+			<div class="flex-none">
+				<a href="#" class="form-button js-delete-animal" data-id="${o.id}">Delete</a>
+			</div>
+		</div>
 	</div>
 </div>
-`);
+`;
 
 
 
@@ -48,7 +59,7 @@ const makeRecentProfile = o=>`
 	<div style="padding:0.5em">
 		<div><strong>${o.name}</strong></div>
 		<div>${o.type}</div>
-		<div>${o.breed}</div>
+		<div>${o.trait}</div>
 	</div>
 </div>
 `;
@@ -75,7 +86,7 @@ const makeSettingsProfileInputs = (o,namespace="settings-profile") => `
 const makeSettingsAnimalProfileInputs = (o,namespace="settings-animal-profile") => `
 ${FormControl({namespace:namespace,label:"Name",name:"name",value:o.name})}
 ${FormControl({namespace:namespace,label:"Type",name:"type",value:o.type})}
-${FormControl({namespace:namespace,label:"Breed",name:"breed",value:o.breed})}`;
+${FormControl({namespace:namespace,label:"Trait",name:"trait",value:o.trait})}`;
 
 
 const FormControl = ({namespace,label,name,value,type="text"}) => `
@@ -83,3 +94,43 @@ const FormControl = ({namespace,label,name,value,type="text"}) => `
 	<label for="${namespace}-${name}" class="form-label">${label}</label>
 	<input id="${namespace}-${name}" value="${value}" type="${type}" class="form-input" data-role="none">
 </div>`;
+
+
+const makeSelectOptions = (options,selected) => {
+	return templater(o=>`
+		<option value='${o[0]}' ${o[0]==selected?'selected':''}>${o[1]}</option>
+	`)(options);
+}
+
+
+
+const makeAnimalProfileInputs = (o,namespace="list-add") => {
+let traits = [
+	['junior','Junior'],
+	['creative','Creative'],
+	['ninja','Ninja'],
+	['special','Special'],
+	['gitcorn','Gitcorn']
+];
+return `
+<div class="form-control">
+	<label for="${namespace}-name" class="form-label">Name</label>
+	<input type="text" class="form-input" id="${namespace}-name" placeholder="Type Animal Name" data-role="none" value="${o.name}">
+</div>
+<div class="form-control">
+	<label for="${namespace}-type" class="form-label">Type</label>
+	<div class="form-select">
+		<select id="${namespace}-type" data-role="none">
+			${makeSelectOptions(types,o.type)}
+		</select>
+	</div>
+</div>
+<div class="form-control">
+	<label for="${namespace}-trait" class="form-label">trait</label>
+	<input type="text" class="form-input" id="${namespace}-trait" placeholder="Type Animal trait" data-role="none" value="${o.trait}">
+</div>
+<div class="form-control">
+	<label for="${namespace}-description" class="form-label">Description</label>
+	<textarea class="form-input" id="${namespace}-description" placeholder="Type Animal Description" data-role="none">${o.description}</textarea>
+</div>`;
+}

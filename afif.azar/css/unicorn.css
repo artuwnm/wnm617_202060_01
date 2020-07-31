@@ -319,6 +319,21 @@ text.unisignin-button {
 }
 
 
+.chromless {
+	border-width: 0;
+	display: inline-block;
+	width: 100%;
+	font: inherit;
+	padding: 0.5em 1em;
+	border-radius: 0.3em;
+	background-color: var(--color-pink-medium);
+	text-decoration: none;
+	text-align: center;
+	cursor: pointer;
+	outline: 0;
+	align-items: center;
+}
+
 /* ================== LOGIN PAGE ===============*/
 
 .login-logo {
@@ -507,7 +522,10 @@ img.add-icon {
 	flex:1 1 auto;
 }
 
-
+.modal-foot input {
+	font-weight:bold;
+	padding:0 1em;
+}
 
 .modal-drawer {
 	position:absolute;
@@ -620,7 +638,8 @@ img.add-icon {
 .uni-add-name,
 .uni-add-type,
 .uni-add-trait,
-.uni-add-button {
+.uni-add-button
+.add-button {
    display: inline-flex;
    width: 100%;
    background-color: var(--color-neutral-light);
@@ -632,23 +651,30 @@ img.add-icon {
    outline: 0;
 }
 
-.uni-add-button {
+.uni-add-button,
+.add-button {
 	background-color: var(--color-pink-medium);
 	margin-bottom: 1em;
 	margin-top: 1em;
 	text-align: center;
 	display: inline;
 }
-.uni-add-button:active {
+.uni-add-button:active,
+.add-button:active {
 	background-color: var(--color-blue-medium);
 }
-input.uni-add-button {
+input.uni-add-button,
+input.add-button {
     text-align: center;
     font-weight: bold;
     font-family: var(--font-sans-title);
     color: white;
+    border: 0;
+    padding: 1em;
+    border-radius: 15px;
 }
-text.uni-add-button {
+text.uni-add-button,
+input.add-button {
     text-align: center;
 }
 ::placeholder{
@@ -659,19 +685,23 @@ img.back-icon {
 }
 
 
+
+
+
+
 /*======================= LIST PAGE ======================*/
 
 
 
 /*========================== PROFILE PAGE =======================*/
 
-.profile-image {
+.hero-image {
     height: 25vh;
     position: relative;
     margin-bottom: calc(13vh + 1em);
     background-color: var(--color-main-medium);
 }
-.profile-image img {
+.hero-image img {
     width: 30vh;
     height: 30vh;
     border-radius: 50%;

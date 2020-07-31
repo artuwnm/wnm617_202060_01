@@ -1,11 +1,11 @@
 
+
 const query = (options) => {
-	//Fetch = Promise
-	//starts and imm code running after it
-	return fetch('data/api.php' ,{
-		method: 'POST',
+	// Fetch is a Promise
+	return fetch('data/api.php',{
+		method:'POST',
 		body:JSON.stringify(options),
-		header:{'Content-Type':'application/json'}
+		headers:{'Content-Type':'application/json'}
 	}).then(d=>d.json());
 }
 
@@ -20,7 +20,7 @@ const templater = f => a =>
 const checkData = (check_fn) => new Promise((resolve,reject)=>{
 	let timeout = 0;
 	const interior_check = () => {
-		timeout++; if(timeout>10) return rehject();
+		timeout++; if(timeout>10) return reject();
 		return check_fn() ? resolve() : setTimeout(interior_check,10);
 	}
 	interior_check();
