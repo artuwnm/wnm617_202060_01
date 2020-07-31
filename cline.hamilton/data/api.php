@@ -143,7 +143,7 @@ function makeStatement($data) {
 			$r = makeQuery($c,"UPDATE
 				`track_animals`
 				SET
-					`name`=?,
+				hcline	`name`=?,
 					`type`=?,
 					`breed`=?,
 					`description`=?
