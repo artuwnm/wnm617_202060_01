@@ -8,7 +8,7 @@ const ListPage = async() => {
 				"You need to add some animals, jack."
 		);
 
-	$("#list-add-form .inputs").html(makeAlcoholProfileInputs({
+	$("#list-add-form .inputs").html(makeAlcoholProfile({
 		name:'',
 		type:'',
 		breed:'',
@@ -60,6 +60,8 @@ const ProfilePage = async() => {
 
 	$("#user-profile-modal .profile")
 				.html(makeUserProfile(d.result[0]));
+
+	
 }
 
 // const ProfilePage = async() => {
