@@ -14,16 +14,16 @@ const makeAlcoholList = templater(o=>`
 
 
 const makeUserProfile = o =>`
-<div>
-	<div class="profile">
-		<img src="${o.img}" alt="">
-	</div>
-	<h2 class="profile-title">${o.name}</h2>
-	<div class="profile-body">
-		<div>${o.username}</div>
-		<div>${o.email}</div>
-	</div>
+<div class="backgroundcolor-profile">
+				<div class="flex-none" style="text-align:center">
+					<img src="${o.img}" alt="" class="userimage" id="profilephoto">
+					<h2 style="color: white;">${o.name}</h2>
+					<div style="color: white;">${o.username}</div>
+					<div style="color: white;">${o.email}</div>
+				</div>
+
 </div>
+
 `;
 
 const makeAlcoholProfile = o=>`

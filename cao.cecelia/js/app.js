@@ -60,8 +60,8 @@ $(()=>{
 
 	// ACTIVATE TOOLS
 	.on("click","[data-activate]",function(e){
-		$($(this).data("activate")).addClass("active");
-	})
+		$($(this).data("activate")).addClass("active").trigger("classChange");
+    })
 	.on("click","[data-deactivate]",function(e){
 		$($(this).data("deactivate")).removeClass("active");
 	})
@@ -80,5 +80,11 @@ $(()=>{
 	$("[data-template]").each(function(){
 		$(this).html($($(this).data("template")).html());
 	})
+
+	$("#user-profile-modal").on("classChange", function (e) {
+    if ($(this).hasClass("active")) {
+      ProfilePage();
+    }
+  });
 
 });

@@ -1,7 +1,5 @@
 <?php
 
-header('Access-Control-Allow-Origin: *');
-
 include "auth.php";
 function makeConn() {
 	try {
