@@ -21,4 +21,4 @@ const checkData = (check_fn) => new Promise((resolve,reject)=>{
 		return check_fn() ? resolve() : setTimeout(interior_check,10);
 	}
 	interior_check();
-}); 
+});

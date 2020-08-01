@@ -1,12 +1,26 @@
 const ListPage = async() => {
-
 	let d = await query({type:"alcohols_by_user_id",params:[sessionStorage.userId]})
 
-	console.log(d)
-
 	$("#list-page .alcohollist")
-		.html(makeAlcoholList(d.result))
+		.html(
+			d.result.length ?
+				makeAlcoholList(d.result) :
+				"You need to add some animals, jack."
+		);
+
+	$("#list-add-form .inputs").html(makeAlcoholProfileInputs({
+		name:'',
+		type:'',
+		breed:'',
+		description:''
+	}))
 }
+
+
+
+
+
+
 
 const RecentPage = async() => {
 	let d = await query({type:"recent_locations",params:[sessionStorage.userId]});
@@ -19,31 +33,86 @@ const RecentPage = async() => {
 		return r;
 	},[]);
 
+	console.log(d.result,valid_alcohols)
+
 	makeMarkers(map_el,valid_alcohols);
+
+	map_el.data("markers").forEach((o,i)=>{
+		o.addListener("click",function(){
+			// INFOWINDOW EXAMPLE
+			// map_el.data("infoWindow").open(map_el.data("map"),o);
+			// map_el.data("infoWindow").setContent(makeRecentProfile(valid_alcohols[i]))
+
+			// SIMPLE NAVIGATION
+			// sessionStorage.animalId = valid_animals[i].animal_id;
+			// $.mobile.navigate("#animal-profile-page");
+
+			// DRAWER EXAMPLE
+			$("#recent-profile-drawer")
+				.toggleClass("active")
+				.find(".modal-body").html(makeRecentProfile(valid_alcohols[i]))
+		})
+	});
 }
 
 const ProfilePage = async() => {
 	let d = await query({type:"user_by_id",params:[sessionStorage.userId]});
 
-	console.log(d)
-
-	$("#profile-page .profile")
-		.html(makeUserProfile(d.result))
+	$("#user-profile-modal .profile")
+				.html(makeUserProfile(d.result[0]));
 }
 
-const AnimalProfilePage = async() => {
-	if(sessionStorage.animalId===undefined) throw("No animal ID in Storage");
+// const ProfilePage = async() => {
+// 	let d = await query({type:"user_by_id",params:[sessionStorage.userId]});
 
-	query({type:"alcohol_by_id",params:[sessionStorage.animalId]})
+// 	$("#profile-page .profile")
+// 		.html(makeUserProfile(d.result[0]));
+// }
+
+const AlcoholProfilePage = async() => {
+	if(sessionStorage.alcoholId===undefined) throw("No alcohol ID in Storage");
+
+	query({type:"alcohol_by_id",params:[sessionStorage.alcoholId]})
 	.then(d=>{
 		$("#alcohol-profile-page .profile-head")
-			.html(makeAlcoholProfile(d.result));
+			.html(makeAlcoholProfile(d.result[0]));
 	});
 
-	query({type:"locations_by_alcohol_id",params:[sessionStorage.animalId]})
+	query({type:"locations_by_alcohol_id",params:[sessionStorage.alcoholId]})
 	.then(async (d)=>{
 		let map_el = await makeMap("#alcohol-profile-page .map");
 
-		makeMarkers(map_el,d.result)
+		makeMarkers(map_el,d.result);
 	});
+}
+
+
+
+
+const SettingsProfilePage = async() => {
+	let d = await query({type:"user_by_id",params:[sessionStorage.userId]});
+
+	$("#settings-profile-id").val(sessionStorage.userId);
+	$("#settings-profile-page .inputs")
+		.html(makeSettingsProfileInputs(d.result[0]));
+}
+const SettingsAlcoholProfilePage = async() => {
+	let d = await query({type:"alcohol_by_id",params:[sessionStorage.alcoholId]});
+
+	$("#settings-animal-profile-id").val(sessionStorage.animalId);
+	$("#settings-animal-profile-page .inputs")
+		.html(makeAlcoholProfileInputs(d.result[0],'settings-alcohol-profile'));
+}
+
+
+
+
+const AddLocationPage = async() => {
+	let map_el = await makeMap("#add-location-page .map");
+
+	map_el.data("map").addListener("click",function(e) {
+		$("#add-location-lat").val(e.latLng.lat())
+		$("#add-location-lng").val(e.latLng.lng())
+		makeMarkers(map_el,[{lat:e.latLng.lat(),lng:e.latLng.lng(),icon:'https://via.placeholder.com/40?text=PIN'}])
+	})
 }

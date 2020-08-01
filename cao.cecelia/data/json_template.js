@@ -4,11 +4,11 @@
   '{{repeat(150)}}',
   {
     id: '{{index(1)}}',
-    alcohol_id:'{{integer(1,10)}}',
-    latitude: '{{floating(37.814963, 37.527896)}}',
-    longitude: '{{floating(-122.531993, -122.165377)}}',
+    alcohol_id:'{{integer(1,50)}}',
+    lat: '{{floating(37.814963, 37.527896)}}',
+    lng: '{{floating(-122.531993, -122.165377)}}',
     description:'{{lorem(3,"sentences")}}',
-    data_create:'{{date(new Date(2018, 0, 1), new Date(), "YYYY-MM-dd hh:mm:ss")}}',
+    date_create:'{{date(new Date(2018, 0, 1), new Date(), "YYYY-MM-dd hh:mm:ss")}}',
     photo: 'https://via.placeholder.com/400/',
     icon:'https://via.placeholder.com/100/888/fff/?text=ICON'
     
@@ -26,13 +26,11 @@
     user_id:'{{integer(1,10)}}',
     name: '{{company()}}',
     type:'{{random("Beer","Wine","Sake","Gin","Brandy","Taquila","Vodka")}}',
-    alcoholpercent: function (tags) {
-    return tags.integer(3,50) + '%';
-  },
+    alcoholpercent: '{{integer(3,50)}}%',
     description:'{{lorem(3,"sentences")}}',
-    data_create:'{{date(new Date(2018, 0, 1), new Date(), "YYYY-MM-dd hh:mm:ss")}}',
+    date_create:'{{date(new Date(2018, 0, 1), new Date(), "YYYY-MM-dd hh:mm:ss")}}',
     img: function (tags) {
-      return 'https://via.placeholder.com/400/' + tags.integer(700, 999) + '/fff/?text='+this.username;
+      return 'https://via.placeholder.com/400/' + tags.integer(700, 999) + '/fff/?text='+this.name;
     }
   }
 ]
@@ -52,7 +50,7 @@
     },
     phone: '+1 {{phone()}}',
     password:'md5(\'pass\')',
-    data_create:'{{date(new Date(2018, 0, 1), new Date(), "YYYY-MM-dd hh:mm:ss")}}',
+    date_create:'{{date(new Date(2018, 0, 1), new Date(), "YYYY-MM-dd hh:mm:ss")}}',
     img: function (tags) {
       return 'https://via.placeholder.com/400/' + tags.integer(700, 999) + '/fff/?text='+this.username;      
     },

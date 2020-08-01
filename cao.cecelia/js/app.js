@@ -13,6 +13,12 @@ $(()=>{
 			case "list-page": ListPage(); break;
 			case "profile-page": ProfilePage(); break;
 			case "alcohol-profile-page": AlcoholProfilePage(); break;
+
+			case "add-location-page": AddLocationPage(); break;
+
+			case "settings-profile-page": SettingsProfilePage(); break;
+			case "settings-alcohol-profile-page": SettingsAlcoholProfilePage(); break;
+
 		}
 	})
 
@@ -34,13 +40,21 @@ $(()=>{
 		sessionStorage.removeItem('userId');
 		checkUserId();
 	})
+
 	.on("click",".alcohol-jump",function(e){
 		if(!$(this).data("id")) throw("No data ID on Element");
 
-		sessionStorage.animalId = $(this).data("id");
+		sessionStorage.alcoholId = $(this).data("id");
 		$.mobile.navigate("#alcohol-profile-page")
 	})
 
+	
+	.on("click",".profile",function(e){
+		if(!$(this).data("id")) throw("No data ID on Element");
+
+		sessionStorage.userId = $(this).data("id");
+		$.mobile.navigate("#user-profile")
+	})
 
 
 
@@ -58,7 +72,7 @@ $(()=>{
 		$($(this).data("activateone")).addClass("active")
 			.siblings().removeClass("active");
 	})
-
+	
 	;
 
 

@@ -36,3 +36,26 @@ const checkUserId = () => {
 			$.mobile.navigate("#recent-page");
 	}
 }
+
+const checkSignupForm = () => {
+	let username = $("#signup-username").val();
+	let name = $("#signup-name").val();
+	let email = $("#signup-email").val();
+	let phone = $("#signup-phonenumber").val();
+	let password = $("#signup-password").val();
+	let password2 = $("#signup-password2").val();
+
+	if(password!=password2) {
+		throw "Passwords don't match";
+		return;
+	} else {
+		query({
+			type:'insert_user',
+			params:[username,name,email,phone,password]
+		}).then(d=>{
+			if(d.error) throw d.error;
+			// d.result == new user id
+			$.mobile.navigate("#signin-page");
+		});
+	}
+}
