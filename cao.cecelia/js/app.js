@@ -26,14 +26,20 @@ $(()=>{
 
 
 
+	
 	// FORM SUBMISSIONS
 	.on("submit","#signin-form",function(e){
 		e.preventDefault();
 		checkSigninForm();
 	})
-
-
-
+	.on("submit","#signup-form",function(e){
+		e.preventDefault();
+		checkSignupForm();
+	})
+	.on("submit","#list-add-form",function(e){
+		e.preventDefault();
+		checkListAddForm();
+	})
 
 	// CLICKS
 	.on("click",".js-logout",function(e){
@@ -48,6 +54,23 @@ $(()=>{
 		$.mobile.navigate("#alcohol-profile-page")
 	})
 
+	.on("click",".js-submit-settings-alcohol-profile",function(e){
+		e.preventDefault();
+		checkSettingsAlcoholProfileForm();
+	})
+
+	.on("click",".js-submit-settings-profile",function(e){
+		e.preventDefault();
+		checkSettingsProfileForm();
+	})
+	.on("click",".js-submit-add-location",function(e){
+		e.preventDefault();
+		checkAddLocationForm();
+	})
+	.on("click",".js-delete-alcohol",function(e){
+		e.preventDefault();
+		checkAlcohollDelete($(this).data("id"));
+	})
 	
 	.on("click",".profile",function(e){
 		if(!$(this).data("id")) throw("No data ID on Element");

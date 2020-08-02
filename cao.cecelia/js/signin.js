@@ -39,9 +39,7 @@ const checkUserId = () => {
 
 const checkSignupForm = () => {
 	let username = $("#signup-username").val();
-	let name = $("#signup-name").val();
 	let email = $("#signup-email").val();
-	let phone = $("#signup-phonenumber").val();
 	let password = $("#signup-password").val();
 	let password2 = $("#signup-password2").val();
 
@@ -51,7 +49,7 @@ const checkSignupForm = () => {
 	} else {
 		query({
 			type:'insert_user',
-			params:[username,name,email,phone,password]
+			params:[username,email,password]
 		}).then(d=>{
 			if(d.error) throw d.error;
 			// d.result == new user id

@@ -57,7 +57,7 @@ const makeAlcoholProfile = o=>`
 				   <tr>
 				    <td style="text-align: right;">Description</td>
 				    <td></td>
-				    <td style="text-align: left;"><strong>${o.description}</strong></td>
+				    <td style="text-align: left; font-size:14px;">${o.description}</td>
 				  </tr>
 				   
 				</tbody>
@@ -107,7 +107,7 @@ const makeSettingsProfileInputs = (o,namespace="settings-profile") => `
 const makeSettingsAlcoholProfileInputs = (o,namespace="settings-alcohol-profile") => `
 ${FormControl({namespace:namespace,label:"Name",name:"name",value:o.name})}
 ${FormControl({namespace:namespace,label:"Type",name:"type",value:o.type})}
-${FormControl({namespace:namespace,label:"Breed",name:"breed",value:o.breed})}`;
+${FormControl({namespace:namespace,label:"Alcohol Percent",name:"alcoholpercent",value:o.alcoholpercent})}`;
 
 
 const FormControl = ({namespace,label,name,value,type="text"}) => `
@@ -115,3 +115,43 @@ const FormControl = ({namespace,label,name,value,type="text"}) => `
 	<label for="${namespace}-${name}" class="form-label">${label}</label>
 	<input id="${namespace}-${name}" value="${value}" type="${type}" class="form-input" data-role="none">
 </div>`;
+
+
+
+const makeSelectOptions = (options,selected) => {
+	return templater(o=>`
+		<option value='${o[0]}' ${o[0]==selected?'selected':''}>${o[1]}</option>
+	`)(options);
+}
+
+
+const makeAlcoholProfileInputs = (o,namespace="list-add") => {
+let types = [
+	['dog','Dog'],
+	['cat','Cat'],
+	['horse','Horse'],
+	['turtle','Turtle'],
+	['rabbit','Rabbit']
+];
+return `
+<div class="form-control">
+	<label for="${namespace}-name" class="form-label">Name</label>
+	<input type="text" class="form-input" id="${namespace}-name" placeholder="Type Alcohol Name" data-role="none" value="${o.name}">
+</div>
+<div class="form-control">
+	<label for="${namespace}-type" class="form-label">Type</label>
+	<div class="form-select">
+		<select id="${namespace}-type" data-role="none">
+			${makeSelectOptions(types,o.type)}
+		</select>
+	</div>
+</div>
+<div class="form-control">
+	<label for="${namespace}-alcoholpercent" class="form-label">alcoholpercent</label>
+	<input type="text" class="form-input" id="${namespace}-alcoholpercent" placeholder="Type Alcohol Percent" data-role="none" value="${o.alcoholpercent}">
+</div>
+<div class="form-control">
+	<label for="${namespace}-description" class="form-label">Description</label>
+	<textarea class="form-input" id="${namespace}-description" placeholder="Type Alcohol Description" data-role="none">${o.description}</textarea>
+</div>`;
+}

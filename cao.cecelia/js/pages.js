@@ -11,7 +11,7 @@ const ListPage = async() => {
 	$("#list-add-form .inputs").html(makeAlcoholProfile({
 		name:'',
 		type:'',
-		breed:'',
+		alcoholpercent:'',
 		description:''
 	}))
 }
@@ -33,7 +33,7 @@ const RecentPage = async() => {
 		return r;
 	},[]);
 
-	console.log(d.result,valid_alcohols)
+	// console.log(d.result,valid_alcohols)
 
 	makeMarkers(map_el,valid_alcohols);
 
