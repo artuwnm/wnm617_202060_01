@@ -126,7 +126,7 @@
 							<ul class="profile-settings">
 								<li><a href="#settings-profile-page">Profile</a></li>
 								<li><a href="#settings-password-page">Privacy</a></li>
-								<li><a href="#">Settings</a></li>
+								<li><a href="#" class="js-logout">Settings</a></li>
 								<li><a href="#">Help</a></li>
 								<li><a href="#">Refer</a></li>
 							</ul>
@@ -150,14 +150,13 @@
 		<footer data-role="footer" data-template="#footer-template"></footer>	
 
 	</section>
-
 	
 
 
 	<!-- Adding Page -->
-	<section data-role="page" id="recent-add-choose-animal-page">
+	<section data-role="page" id="recent-add-choose-alcohol-page">
 		<header data-role="header">
-			<h1>Choose Animal</h1>
+			<h1>Choose Alcohol</h1>
 			<ul>
 				<li class="flex-none">
 					<a href="#" data-rel="back">Back</a>
@@ -170,12 +169,12 @@
 		</header>
 		<div data-role="main">
 			<div class="scrollable">
-				<form id="recent-add-choose-animal-form" data-ajax="false" class="form" style="padding:1em">
-					<a href="#add-animal-page">Add New Animal</a>
+				<form id="recent-add-choose-alcohol-form" data-ajax="false" class="form" style="padding:1em">
+					<a href="#add-alcohol-page">Add New Alcohol</a>
 					<div>Or</div>
 					<div class="form-control">
-						<label for="add-location-animal-id" class="form-label">Select Animal</label>
-						<select id="add-location-animal-id" class="form-input" data-role="none">
+						<label for="add-location-alcohol-id" class="form-label">Select Alcohol</label>
+						<select id="add-location-alcohol-id" class="form-input" data-role="none">
 							<option value="1">Cat 1</option>
 							<option value="22">Dog 1</option>
 							<option value="13">Cat 2</option>
@@ -186,9 +185,9 @@
 		</div>
 	</section>
 
-	<section data-role="page" id="add-animal-page">
+	<section data-role="page" id="add-alcohol-page">
 		<header data-role="header">
-			<h1>New Animal</h1>
+			<h1>New Alcohol</h1>
 			<ul>
 				<li class="flex-none">
 					<a href="#" data-rel="back">Back</a>
@@ -201,18 +200,18 @@
 		</header>
 		<div data-role="main">
 			<div class="scrollable">
-				<form id="add-animal-form" data-ajax="false" class="form" style="padding:1em">
+				<form id="add-alcohol-form" data-ajax="false" class="form" style="padding:1em">
 						<div class="form-control">
-							<label for="add-animal-name" class="form-label">Animal Name</label>
-							<input type="text" class="form-input" id="add-animal-name" placeholder="Type Animal Name" data-role="none">
+							<label for="add-alcohol-name" class="form-label">alcohol Name</label>
+							<input type="text" class="form-input" id="add-alcohol-name" placeholder="Type Alcohol Name" data-role="none">
 						</div>
 						<div class="form-control">
-							<label for="add-animal-type" class="form-label">Animal Type</label>
-							<input type="text" class="form-input" id="add-animal-type" placeholder="Type Animal Type" data-role="none">
+							<label for="add-alcohol-type" class="form-label">alcohol Type</label>
+							<input type="text" class="form-input" id="add-alcohol-type" placeholder="Type Alcohol Type" data-role="none">
 						</div>
 						<div class="form-control">
-							<label for="add-animal-breed" class="form-label">Animal Breed</label>
-							<input type="text" class="form-input" id="add-animal-breed" placeholder="Type Animal Breed" data-role="none">
+							<label for="add-alcohol-breed" class="form-label">alcohol Breed</label>
+							<input type="text" class="form-input" id="add-alcohol-breed" placeholder="Type Alcohol Breed" data-role="none">
 						</div>
 				</form>
 			</div>
@@ -289,15 +288,15 @@
 		</div>
 		<footer data-role="footer" data-template="#footer-template"></footer>
 		
-		<div class="modal" id="list-add-animal-modal">
-			<div class="modal-back" data-deactivate="#list-add-animal-modal"></div>
+		<div class="modal" id="list-add-alcohol-modal">
+			<div class="modal-back" data-deactivate="#list-add-alcohol-modal"></div>
 			<form data-ajax="false" id="list-add-form" class="modal-popup">
 				<div class="modal-head display-flex">
 					<div class="flex-none">
-						<a href="#" data-deactivate="#list-add-animal-modal">Cancel</a>
+						<a href="#" data-deactivate="#list-add-alcohol-modal">Cancel</a>
 					</div>
 					<div class="flex-stretch">
-						<h1>Add Animal</h1>
+						<h1>Add Alcohol</h1>
 					</div>
 				</div>
 				<div class="modal-body">
@@ -306,7 +305,7 @@
 				<div class="modal-foot display-flex">
 					<div class="flex-stretch"></div>
 					<div class="flex-none">
-						<input type="submit" value="Save" class="chromeless" data-role="none" data-deactivate="#list-add-animal-modal">
+						<input type="submit" value="Save" class="chromeless" data-role="none" data-deactivate="#list-add-alcohol-modal">
 					</div>
 				</div>
 			</form>
@@ -317,24 +316,21 @@
 
 
 	<section data-role="page" id="alcohol-profile-page">
-		<header data-role="header">
-			<h1>Animal Profile</h1>
-			<ul>
-				<li class="flex-none">
-					<a href="#" data-rel="back">Back</a>
-				</li>
-			</ul>
-		</header>
 		<div data-role="main">
-			<div class="profile display-flex flex-justify-center">
-				<div class="profile-head"></div>
-				<div class="profile-body">
+			
+			<div class="profile display-flex">
+				<div class="profile-head">
+					
+				
+				</div>
+				<div class="profile-map">
 					<div class="map"></div>
-					<!-- <div class="anchor bottom right">
+					<div class="anchor bottom right">
 						<a href="#add-location-page" class="circle">+</a>
-					</div> -->
+					</div>
 				</div>
 			</div>
+			
 		</div>
 	</section>
 
@@ -375,7 +371,7 @@
 
 		</header> -->
 		<div class="profileinfo">
-				<a href="#" data-rel="back"><i class="arrow_white left"></i></a>
+				<a href="#" data-rel="back" class="ui-link"><i class="arrow_white left"></i></a>
 				<a class="settings ui-link" href="#edit-product">
 				<!-- <img src="img/edit.svg" alt="" class="icon"> -->
 			</a>
@@ -536,23 +532,23 @@
 		</div>
 	</section>
 
-	<section data-role="page" id="settings-animal-profile-page">
+	<section data-role="page" id="settings-alcohol-profile-page">
 		<header data-role="header">
-			<h1>Animal Info</h1>
+			<h1>Alcohol Info</h1>
 			<ul>
 				<li class="flex-none">
 					<a href="#" data-rel="back">Cancel</a>
 				</li>
 				<li class="flex-stretch"></li>
 				<li class="flex-none">
-					<a href="#" class="js-submit-settings-animal-profile">Save</a>
+					<a href="#" class="js-submit-settings-alcohol-profile">Save</a>
 				</li>
 			</ul>
 		</header>
 		<div data-role="main">
 			<div class="scrollable">
-				<form id="settings-animal-profile-form" data-ajax="false" class="form" style="padding:1em">
-					<input type="hidden" id="settings-animal-profile-id">
+				<form id="settings-alcohol-profile-form" data-ajax="false" class="form" style="padding:1em">
+					<input type="hidden" id="settings-alcohol-profile-id">
 					<div class="inputs"></div>
 				</form>
 			</div>
@@ -566,14 +562,14 @@
 				</li>
 				
 			<li>	
-					<a href="#add-product" class="appbar__bottom" title="add" aria-label="Add" data-activateone="footer li:nth-child(3)">
+					<a href="#recent-add-choose-alcohol-page" class="appbar__bottom" title="add" aria-label="Add" data-activateone="footer li:nth-child(3)">
 			        <svg fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
 			          <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"/>
 			        </svg></a> 
     		</li>
 
-    			<li>
-					<a href="#list-page" data-activateone="footer li:nth-child(2)">List</a>
+    			<li class="mapactive"  data-activateone="footer li:nth-child(2)">
+					<a href="#list-page">List</a>
 				</li>
 				
 			</ul>

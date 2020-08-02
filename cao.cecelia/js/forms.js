@@ -18,7 +18,7 @@ const checkSettingsAlcoholProfileForm = () => {
 	let type = $("#settings-alcohol-profile-type").val();
 	let breed = $("#settings-alcohol-profile-alcoholpercent").val();
 	let description = $("#settings-alcohol-profile-description").val();
-	let animalId = $("#settings-alcohol-profile-id").val();
+	let alcoholId = $("#settings-alcohol-profile-id").val();
 
 	query({
 		type:'update_alcohol',
@@ -48,7 +48,7 @@ const checkAddLocationForm = () => {
 	let lat = +$("#add-location-lat").val();
 	let lng = +$("#add-location-lng").val();
 	let description = $("#add-location-description").val();
-	let animalId = sessionStorage.animalId;
+	let alcoholId = sessionStorage.alcoholId;
 
 	query({
 		type:'insert_location',

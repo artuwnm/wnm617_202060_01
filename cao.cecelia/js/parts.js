@@ -21,38 +21,63 @@ const makeUserProfile = o =>`
 					<div style="color: white;">${o.username}</div>
 					<div style="color: white;">${o.email}</div>
 				</div>
-
 </div>
-
 `;
 
 const makeAlcoholProfile = o=>`
 <div class="display-flex">
-	<div class="flex-none">
-		<img src="${o.img}" alt="" />
+	<div class="alcohol-profile-image">
+		<img src="${o.img}" alt=""/>
 	</div>
-	<div>
-		<div><strong>${o.name}</strong></div>
-		<div>${o.type}</div>
-		<div>${o.breed}</div>
-		<div class="display-flex">
-			<div class="flex-none"><button data-toggle=".profile-head" class="form-button">More</button></div>
-			<div class="flex-none"><a href="#settings-alcohol-profile-page" class="form-button">Edit</a></div>
-		</div>
-	</div>
+
+	<a href="#list-page"><i class="arrow_white arrowleft"></i></a>
+				<a class="settings ui-link" href="#settings-alcohol-profile-page">
+				<img src="img/edit.svg" alt="" class="icon">
+			</a>
 </div>
+
+<div class="display-flex flex-justify-center" style="padding:1em">
+				
+				<table cellspacing="15" class="confirmationtable" style="margin: 1em auto; ">
+				  <tbody><tr>
+				    <td style="text-align: right; ">Name</td>
+				    <td></td>
+				    <td style="text-align: left;"><strong>${o.name}</strong></td>
+				  </tr>
+				  <tr>
+				    <td style="text-align: right;">Type</td>
+				    <td></td>
+				    <td style="text-align: left;"><strong>${o.type}</strong></td>
+				  </tr>
+				  <tr>
+				    <td style="text-align: right;">Alcohol Percent</td>
+				    <td></td>
+				    <td style="text-align: left;"><strong>${o.alcoholpercent}</strong></td>
+				  </tr>
+				   <tr>
+				    <td style="text-align: right;">Description</td>
+				    <td></td>
+				    <td style="text-align: left;"><strong>${o.description}</strong></td>
+				  </tr>
+				   
+				</tbody>
+			</table>
+			
+			
+			</div>
+
 `;
 
 
 const makeRecentProfile = o=>`
 <div class="display-flex alcohol-jump" data-id="${o.alcohol_id}">
 	<div class="flex-none">
-		<img src="${o.img}" class="list-image" alt="" />
+		<img src="${o.img}" class="recent-image" alt="" />
 	</div>
 	<div style="padding:0.5em">
 		<div><strong>${o.name}</strong></div>
 		<div>${o.type}</div>
-		<div>${o.breed}</div>
+		<div>${o.alcoholpercent}</div>
 	</div>
 </div>
 `;

@@ -5,7 +5,7 @@ const ListPage = async() => {
 		.html(
 			d.result.length ?
 				makeAlcoholList(d.result) :
-				"You need to add some animals, jack."
+				"You need to add some alcohols, jack."
 		);
 
 	$("#list-add-form .inputs").html(makeAlcoholProfile({
@@ -40,17 +40,17 @@ const RecentPage = async() => {
 	map_el.data("markers").forEach((o,i)=>{
 		o.addListener("click",function(){
 			// INFOWINDOW EXAMPLE
-			// map_el.data("infoWindow").open(map_el.data("map"),o);
-			// map_el.data("infoWindow").setContent(makeRecentProfile(valid_alcohols[i]))
+			map_el.data("infoWindow").open(map_el.data("map"),o);
+			map_el.data("infoWindow").setContent(makeRecentProfile(valid_alcohols[i]))
 
 			// SIMPLE NAVIGATION
-			// sessionStorage.animalId = valid_animals[i].animal_id;
-			// $.mobile.navigate("#animal-profile-page");
+			// sessionStorage.alcoholId = valid_alcohols[i].alcohol_id;
+			// $.mobile.navigate("#alcohol-profile-page");
 
 			// DRAWER EXAMPLE
-			$("#recent-profile-drawer")
-				.toggleClass("active")
-				.find(".modal-body").html(makeRecentProfile(valid_alcohols[i]))
+			// $("#recent-profile-drawer")
+			// 	.toggleClass("active")
+			// 	.find(".modal-body").html(makeRecentProfile(valid_alcohols[i]))
 		})
 	});
 }
@@ -101,8 +101,8 @@ const SettingsProfilePage = async() => {
 const SettingsAlcoholProfilePage = async() => {
 	let d = await query({type:"alcohol_by_id",params:[sessionStorage.alcoholId]});
 
-	$("#settings-animal-profile-id").val(sessionStorage.animalId);
-	$("#settings-animal-profile-page .inputs")
+	$("#settings-alcohol-profile-id").val(sessionStorage.alcoholId);
+	$("#settings-alcohol-profile-page .inputs")
 		.html(makeAlcoholProfileInputs(d.result[0],'settings-alcohol-profile'));
 }
 

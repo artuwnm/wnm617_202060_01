@@ -105,7 +105,7 @@ function makeStatement($data) {
 				`track_alcohols`
 				(`user_id`,`name`, `type`, `breed`, `description`, `img`, `date_create`)
 				VALUES
-				(?, ?, ?, ?, ?, 'https://via.placeholder.com/400/?text=ANIMAL', NOW())
+				(?, ?, ?, ?, ?, 'https://via.placeholder.com/400/?text=ALCOHOL', NOW())
 				",$p);
 			if(isset($r['error'])) return $r;
 			return ["result"=>$c->lastInsertId()];
