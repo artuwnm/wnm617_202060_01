@@ -6,7 +6,7 @@ function makeConn() {
 	try {
 		return new PDO(...PDOauth());
 	} catch (PDOException $e) {
-		die('{"error":"' . $e.getMessage() . '"}');
+		die('{"error":"' . $e->getMessage() . '"}');
 	}
 }
 
@@ -17,11 +17,9 @@ function print_p($d) {
 /* $r = PDO result */
 function fetchAll($r) {
 	$a = [];
-	while($row = $r->fetch(PDO:FETCH_OBJ)) $a[] = $row;
+	while($row = $r->fetch(PDO::FETCH_OBJ)) $a[] = $row;
 	return $a;
 }
-
-
 
 /*
 $c = connection
@@ -44,7 +42,7 @@ function makeQuery($c,$ps,$p) {
 			"result"=>$r
 		];
 	} catch (PDOException $e) {
-		return ["error"=>"Query Failed: ".$e.getMessage()];
+		return ["error"=>"Query Failed: ".$e->getMessage()];
 	}
 }
 
@@ -83,6 +81,85 @@ function makeStatement($data) {
 				WHERE a.user_id = ?
 				GROUP BY l.animal_id
 				",$p);
+
+
+
+
+		// CRUD
+
+
+		// INSERT STATEMENTS
+		case "insert_user":
+			$r = makeQuery($c,"SELECT `id` FROM `track_users` WHERE `username`=? OR `email`=?",[$p[0],$p[1]]);
+			if(count($r['result'])) return ["error"=>"Username or Email already exists"];
+
+			$r = makeQuery($c,"INSERT INTO
+				`track_users`
+				(`username`, `email`, `password`, `img`, `date_create`)
+				VALUES
+				(?, ?, md5(?), 'https://via.placeholder.com/400/?text=USER', NOW())
+				",$p);
+			if(isset($r['error'])) return $r;
+			return ["result"=>$c->lastInsertId()];
+
+		case "insert_animal":
+			$r = makeQuery($c,"INSERT INTO
+				`track_animals`
+				(`user_id`,`name`, `type`, `breed`, `description`, `img`, `date_create`)
+				VALUES
+				(?, ?, ?, ?, ?, 'https://via.placeholder.com/400/?text=ANIMAL', NOW())
+				",$p);
+			if(isset($r['error'])) return $r;
+			return ["result"=>$c->lastInsertId()];
+
+		case "insert_location":
+			$r = makeQuery($c,"INSERT INTO
+				`track_locations`
+				(`animal_id`,`lat`, `lng`, `description`, `photo`, `icon`, `date_create`)
+				VALUES
+				(?, ?, ?, ?, 'https://via.placeholder.com/400/?text=LOCATION', 'https://via.placeholder.com/40/?text=ICON', NOW())
+				",$p);
+			if(isset($r['error'])) return $r;
+			return ["result"=>$c->lastInsertId()];
+
+
+
+
+		// UPDATE STATEMENTS
+		case "update_user":
+			$r = makeQuery($c,"UPDATE
+				`track_users`
+				SET
+					`name`=?,
+					`username`=?,
+					`email`=?
+				WHERE `id`=?
+				",$p);
+			return ["result"=>"success"];
+
+		case "update_animal":
+			$r = makeQuery($c,"UPDATE
+				`track_animals`
+				SET
+				hcline	`name`=?,
+					`type`=?,
+					`breed`=?,
+					`description`=?
+				WHERE `id`=?
+				",$p);
+			return ["result"=>"success"];
+
+
+
+
+		// DELETE STATEMENTS
+		case "delete_animal":
+			return makeQuery($c,"DELETE FROM `track_animals` WHERE `id`=?",$p);
+		case "delete_location":
+			return makeQuery($c,"DELETE FROM `track_locations` WHERE `id`=?",$p);
+
+
+
 
 		default: return ["error"=>"No matched type"];
 	}
