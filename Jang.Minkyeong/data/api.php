@@ -17,7 +17,7 @@ function print_p($d) {
 /* $r = PDO result */
 function fetchAll($r) {
 	$a = [];
-	while($row = $r->fetch(PDO::FETCH_OBJ)) $a[] = $row;
+	while($row = $r->fetch(PDO:FETCH_OBJ)) $a[] = $row;
 	return $a;
 }
 
