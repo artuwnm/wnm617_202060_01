@@ -22,6 +22,11 @@ $(()=>{
 		checkLoginForm();
 	})
 
+	.on("submit","#signup-form",function(e){
+		e.preventDefault();
+		checkSignupForm();
+	})
+
 
 	// CLICKS
 	.on("click",".js-logout",function(e){

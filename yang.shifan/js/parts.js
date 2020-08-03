@@ -9,6 +9,12 @@ const makeFoodList = templater(o=>`
 </div>
 `);
 
+const emptyFoodListMessage = o=>`
+<div class="col-md-12 col-sm-12 col-xs-12">
+	<p>Food list is empty. Try add some food!</p>
+</div>
+`
+
 const makeUserProfile = o=>`
 <div>
 	<div class="hero-image">

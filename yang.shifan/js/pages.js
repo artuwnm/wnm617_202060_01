@@ -5,7 +5,11 @@ const ListPage = async() => {
 	console.log(d)
 
 	$("#list-page .food-list")
-		.html(makeFoodList(d.result))
+		.html(
+			d.result.length ?
+				makeAnimalList(d.result) :
+				emptyFoodListMessage()
+		);
 }
 
 const MapPage = async() => {

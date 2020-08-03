@@ -48,7 +48,7 @@
 
 /* Small Size */
 @media (min-width: 320px) {
-	.col-sm-1 { grid-column: span 1; }
+	.col-sm-2 {grid-column: span 1;}
 	.col-sm-2 { grid-column: span 2; }
 	.col-sm-3 { grid-column: span 3; }
 	.col-sm-4 { grid-column: span 4; }
