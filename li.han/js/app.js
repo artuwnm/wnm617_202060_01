@@ -6,10 +6,34 @@ $(()=>{
 	// EVENT DELEGATION
 	$(document)
 
+
+	// ROUTING
+	.on( "pagecontainerbeforeshow", function( e, ui ) {
+		switch(ui.toPage[0].id) {
+			case "recent-page": RecentPage(); break;
+			case "list-page": ListPage(); break;
+			case "profile-page": ProfilePage(); break;
+			case "animal-profile-page": AnimalProfilePage(); break;
+
+			case "add-location-page": AddLocationPage(); break;
+
+			case "settings-profile-page": SettingsProfilePage(); break;
+			case "settings-animal-profile-page": SettingsAnimalProfilePage(); break;
+
+		}
+	})
+
+
+
+
+
+	// FORM SUBMISSIONS
 	.on("submit","#signin-form",function(e){
 		e.preventDefault();
-		checkLoginForm();
+		checkSigninForm();
 	})
+
+
 
 
 	// CLICKS
@@ -17,6 +41,15 @@ $(()=>{
 		sessionStorage.removeItem('userId');
 		checkUserId();
 	})
+	.on("click",".animal-jump",function(e){
+		if(!$(this).data("id")) throw("No data ID on Element");
+
+		sessionStorage.animalId = $(this).data("id");
+		$.mobile.navigate("#animal-profile-page")
+	})
+
+
+
 
 	// ACTIVATE TOOLS
 	.on("click","[data-activate]",function(e){
@@ -40,6 +73,5 @@ $(()=>{
 	$("[data-template]").each(function(){
 		$(this).html($($(this).data("template")).html());
 	})
-
 
 });

@@ -464,3 +464,56 @@ padding-left: 25%;
 .edit-info{
 	padding-top: 70%;
 }
+
+
+
+
+
+
+.animallist-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.7em;
+    margin: 1em;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+.animallist-body {
+   font-size:0.8em;
+   padding:0.5em 1em;
+}
+.list-image {
+    vertical-align: text-bottom;
+    width:8em;
+    height:4.5em;
+    object-fit:cover;
+}
+
+
+
+
+
+
+#animal-profile-page .profile {
+    display:flex;
+    flex-direction:column;
+    height:100%;
+}
+.profile-head {
+    flex: none;
+    height: 8em;
+    position: relative;
+    transition: all 0.3s;
+}
+.profile-head.active {
+    height: 70vh;
+}
+.profile-body {
+    flex:1 1 100%;
+    position:relative;
+}
+.profile-head img {
+    width:6em;
+    height:8em;
+    object-fit:cover;
+    vertical-align:text-bottom;
+}
