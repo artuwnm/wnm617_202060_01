@@ -87,6 +87,15 @@ function makeStatement($data) {
 				",$p);
 			return ["result"=>$c->lastInsertId()];
 
+		case "insert_food":
+			$r = makeQuery($c,"INSERT INTO
+				`track_food`
+				(`user_id`,`name`, `cuisine`, `restaurant`, `description`, `img`, `date_create`)
+				VALUES
+				(?, ?, ?, ?, ?, 'https://via.placeholder.com/400/?text=FOOD', NOW())
+				",$p);
+			return ["result"=>$c->lastInsertId()];
+
 		default: return ["error"=>"No matched type"];
 	}
 }

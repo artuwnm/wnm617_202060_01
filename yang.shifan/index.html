@@ -16,6 +16,7 @@
 	<script src="js/pages.js"></script>
 	<script src="js/parts.js"></script>
 	<script src="js/maps.js"></script>
+	<script src="js/forms.js"></script>
 	<script src="js/app.js"></script>
 
 	<script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
@@ -168,6 +169,7 @@
 	</section>
 
 	<div class="modal" id="list-add-food-modal">
+			<form data-ajax="false" id="list-add-form">
 			<div class="modal-popup">
 				<div class="modal-head display-flex">
 					<div class="flex-none" data-deactivate="#list-add-food-modal">
@@ -178,39 +180,15 @@
 					</div>
 				</div>
 				<div class="modal-body">
-					<div class="scrollable">
-						<form data-ajax="false" id="list-add-form" style="padding:1em">
-							<div class="form-control">
-								<label for="list-add-`me" class="form-label">Food Name</label>
-								<input type="text" class="form-input" id="list-add-name" placeholder="" data-role="none">
-							</div>
-							<div class="form-control">
-								<label for="list-add-type" class="form-label">Food Type</label>
-								<input type="text" class="form-input" id="list-add-type" placeholder="" data-role="none">
-							</div>
-							<div class="form-control">
-								<label for="list-add-type" class="form-label">Restaurant</label>
-								<input type="text" class="form-input" id="list-add-type" placeholder="" data-role="none">
-							</div>
-							<div class="form-control">
-								<label for="list-add-type" class="form-label">Location</label>
-								<input type="text" class="form-input" id="list-add-type" placeholder="" data-role="none">
-							</div>
-							<div class="form-control">
-								<label for="list-add-type" class="form-label">Description</label>
-								<input type="text" class="form-input" id="list-add-type" placeholder="" data-role="none">
-							</div>
-							<div class="form-control form-photo">
-								<label for="food-photo" class="photo-upload">
-									<img src="img/icons/photograph.svg">
-								</label>
-								<input type="file" id="food-photo" name="food-photo" accept="image/png, image/jpeg">
-							</div>
-						</form>
-					</div>
+						<div class="scrollable" style="padding: 1em;">
+							
+						</div>
 				</div>
-				<div class="modal-foot text-center">Save</div>
+				<div class="modal-foot text-center">
+					<input type="submit" value="Save" class="save-button" data-role="none" data-deactivate="#list-add-food-modal">
+				</div>
 			</div>
+			</form>
 	</div>
 
 	<section data-role="page" id="restaurant-info-page">

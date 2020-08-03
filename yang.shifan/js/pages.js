@@ -7,9 +7,16 @@ const ListPage = async() => {
 	$("#list-page .food-list")
 		.html(
 			d.result.length ?
-				makeAnimalList(d.result) :
+				makeFoodList(d.result) :
 				emptyFoodListMessage()
-		);
+	);
+
+	$("#list-add-form .scrollable").html(makeFoodInfoInputs({
+		name:'',
+		cuisine:'',
+		restaurant:'',
+		description:''
+	}))
 }
 
 const MapPage = async() => {

@@ -27,6 +27,10 @@ $(()=>{
 		checkSignupForm();
 	})
 
+	.on("submit","#list-add-form",function(e){
+		e.preventDefault();
+		checkListAddForm();
+	})
 
 	// CLICKS
 	.on("click",".js-logout",function(e){

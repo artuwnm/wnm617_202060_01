@@ -30,7 +30,7 @@ const makeUserProfile = o=>`
 
 
 const makeFoodInfo = o=>`
-<div class="display-flex">
+<div class="display-flex flex-column">
 	<div class="flex-none">
 		<img src="${o.img}" alt="" />
 	</div>
@@ -55,3 +55,48 @@ const makeMapProfile = o=>`
 	</div>
 </div>
 `;
+
+const makeSelectOptions = (options,selected) => {
+	return templater(o=>`
+		<option value='${o[0]}' ${o[0]==selected?'selected':''}>${o[1]}</option>
+	`)(options);
+}
+
+const makeFoodInfoInputs = (o,namespace="list-add") => {
+let cuisines = [
+	['American','American'],
+	['Chinese','Chinese'],
+	['Korean','Korean'],
+	['Other','Other']
+];
+return `
+<div class="form-control">
+	<label for="${namespace}-name" class="form-label">Food Name</label>
+	<input type="text" class="form-input" id="${namespace}-name" placeholder="" data-role="none" value="${o.name}"/>
+</div>
+<div class="form-control">
+	<label for="${namespace}-cuisine" class="form-label">Food Type</label>
+	<div class="form-select">
+		<select id="${namespace}-cuisine" data-role="none">
+			${makeSelectOptions(cuisines,o.cuisine)}
+		</select>
+	</div>
+</div>
+
+<div class="form-control">
+	<label for="${namespace}-restaurant" class="form-label">Restaurant</label>
+	<input type="text" class="form-input" id="${namespace}-restaurant" placeholder="" data-role="none" value="${o.restaurant}"/>
+</div>
+
+<div class="form-control">
+	<label for="${namespace}-description" class="form-label">Description</label>
+	<textarea class="form-input" id="${namespace}-description" placeholder="" data-role="none">${o.description}</textarea>
+</div>
+<div class="form-control form-photo">
+	<label for="food-photo" class="photo-upload">
+		<img src="img/icons/photograph.svg">
+	</label>
+	<input type="file" id="food-photo" name="food-photo" accept="image/png, image/jpeg"/>
+</div>
+`;
+}
