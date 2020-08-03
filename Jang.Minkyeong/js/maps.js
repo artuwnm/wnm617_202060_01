@@ -1,26 +1,23 @@
 
-const makeMap = async (
-    target, 
-    center = { lat: 37.786229, lng: -122.399287 }
-) => {
-	await checkData(()=>window.google);
+ 
+ const makeMap = async(target, center={ lat: 37.786229, lng: -122.399287 }) => {
+    await checkData(()=>window.google);
 
-	let map_el = $(target);
+    let map_el = $(target);
 
-	if(!map_el.data("map")) 
-        map_el.data({
-			map: new google.maps.Map(map_el[0], {
-				center: center,
-				zoom: 11.5,
-				styles: mapStyles,
-				disableDefaultUI: true,
-			}),
-			infoWindow: new google.maps.InfoWindow({content:""}),
-	});
+    if(!map_el.data("map")) map_el.data({
+            "map": new google.maps.Map(map_el[0], {
+                center: center,
+                zoom: 12,
+                styles: mapStyles,
+                disableDefaultUI: true
+            }),
+            "infoWindow": new google.maps.InfoWindow({content:""})
+    });
 
-	// map_el.data("map") is the same as the map variable in demos
+    // map_el.data("map") is the same as the map variable in demos
 
-	return map_el;
+    return map_el;
 }
 
 
