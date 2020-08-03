@@ -1,19 +1,21 @@
 
-
-
-const makeMap = async(target, center={ lat: 37.786229, lng: -122.399287 }) => {
+const makeMap = async (
+    target, 
+    center = { lat: 37.786229, lng: -122.399287 }
+) => {
 	await checkData(()=>window.google);
 
 	let map_el = $(target);
 
-	if(!map_el.data("map")) map_el.data({
-			"map": new google.maps.Map(map_el[0], {
+	if(!map_el.data("map")) 
+        map_el.data({
+			map: new google.maps.Map(map_el[0], {
 				center: center,
-				zoom: 12,
+				zoom: 11.5,
 				styles: mapStyles,
-				disableDefaultUI: true
+				disableDefaultUI: true,
 			}),
-			"infoWindow": new google.maps.InfoWindow({content:""})
+			infoWindow: new google.maps.InfoWindow({content:""}),
 	});
 
 	// map_el.data("map") is the same as the map variable in demos
@@ -41,7 +43,7 @@ const makeMarkers = (map_el,map_locs) => {
 				url: o.icon,
 				scaledSize: {
 					width:40,
-					height:40
+					height:40,
 				}
 			}
 		});
@@ -61,29 +63,33 @@ const setMapBounds = (map,map_locs) => {
 	} else if(map_locs.length==0) {
 		if(window.location.protocol!=="https:") return;
 		else {
-			navigator.geolocation.getCurrentPosition(p=>{
+			navigator.geolocation.getCurrentPosition(
+                (p)=>{
 				let pos = {
 					lat:p.coords.latitude,
-					lng:p.coords.longitude
-				}
+					lng:p.coords.longitude,
+				};
 				map.setCenter(pos);
 				map.setZoom(15);
-			},(...args)=>{
+			},
+            (...args)=>{
 				console.log("Error?",args);
-			},{
+			},
+            {
 				enableHighAccuracy:false,
 				timeout:5000,
 				maximumAge:0
-			});
-		}
-	} else {
-		let bounds = new google.maps.LatLngBounds(null);
-		map_locs.forEach(o=>{
-			bounds.extend(o)
+			}
+        );
+	}
+} else {
+	let bounds = new google.maps.LatLngBounds(null);
+		map_locs.forEach((o)=>{
+			bounds.extend(o);
 		});
 		map.fitBounds(bounds);
 	}
-}
+};
 
 
 

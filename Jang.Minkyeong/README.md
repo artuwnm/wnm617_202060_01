@@ -2,5 +2,5 @@
 
 ## Links
 - http://gominkyeong.com/portfolio/about.html
-- http://gominkyeong.com/aau/wnm617/Jang.Minkyeong
-- http://gominkyeong.com/aau/wnm617/Jang.Minkyeong/zengarden
+- http://minkyeong.art/wnm617/Jang.Minkyeong/
+- http://minkyeong.art/wnm617/Jang.Minkyeong/zengarden/

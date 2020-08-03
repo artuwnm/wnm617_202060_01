@@ -6,8 +6,8 @@ const checkSigninForm = async() => {
 	console.log(user,pass);
 
 	let found_user = await query({
-		type:'check_signin',
-		params:[user,pass]
+		type:"check_signin",
+		params:[user,pass],
 	})
 
 	if(found_user.result.length > 0) {
@@ -22,7 +22,7 @@ const checkSigninForm = async() => {
 	}
 
 	checkUserId();
-}
+};
 
 const checkUserId = () => {
 	let p = ["#signin-page","#signup-page",""];
@@ -36,4 +36,4 @@ const checkUserId = () => {
 		if(p.some(o=>window.location.hash===o))
 			$.mobile.navigate("#recent-page");
 	}
-}
+};
