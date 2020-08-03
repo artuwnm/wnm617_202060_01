@@ -85,7 +85,27 @@ function makeStatement($data) {
 				",$p);
 
 
+			case "animal_search" : return makeQuery($c,"SELECT * 
+				FROM `track_resource` 
+				WHERE (
+				`name` LIKE ? OR 
+				`type` LIKE ? OR
+				`breed` LIKE ? 
+				) AND user_id=?", $p);
 
+			case "animal_recent_search" : return makeQuery($c,"SELECT * 
+				FROM `track_resource` a
+				WHERE (
+				`name` LIKE ? OR 
+				`type` LIKE ? OR
+				`breed` LIKE ? 
+				) AND user_id=?", $p);
+
+			case "animal_recent_search" : return makeQuery($c,"SELECT * 
+				FROM `track_resources` 
+				WHERE (
+				`$p[0]` LIKE ?
+				) AND user_id=?", [$p[1], $p[2]]);
 
 		// CRUD
 
@@ -143,7 +163,7 @@ function makeStatement($data) {
 			$r = makeQuery($c,"UPDATE
 				`track_resources`
 				SET
-				hcline	`name`=?,
+					`name`=?,
 					`type`=?,
 					`breed`=?,
 					`description`=?
@@ -175,3 +195,24 @@ echo json_encode(
 	JSON_NUMERIC_CHECK
 );
 
+
+function makeUpload($file, $folder) {
+	$filename = microtime(true) . "_" . 
+		$_FILES[$file]['name'];
+
+		if(@move_uploaded_file(
+			$_FILES[$file]['tmp_name'],
+			$folder.$filename
+		)) return ["result"=>$filename];
+		else return [
+			"error"=>"File Upload Failed",
+			"_FILES"=>$_FILES,
+			"filename"=>$filename
+		];
+}
+
+
+if(!empty($_FILES)) {
+	$r = makeUpload("image","../uploads/");
+	die(json_encode($r));
+}

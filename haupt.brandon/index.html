@@ -35,7 +35,7 @@
     <div data-role="main" class="display-flex flex-column">
       <div class="flex-stretch"></div>
       <div class="flex-none" style="text-align:center">
-        <!-- <img src="https://via.placeholder.com/400x400/?text=Tracker" alt="" class="login-logo"> -->
+        <img src="./img/png/tree-beehive_black.png" alt="" class="login-logo">
       </div>
       <div class="flex-none" style="padding:1em">
         <form id="signin-form" data-ajax="false">
@@ -118,6 +118,12 @@
 
       <div class="anchor bottom right">
         <a href="#recent-add-choose-animal-page" class="circle">+</a>
+      </div>
+
+      <div class="anchor top left" style="width:calc(100% - 2em)">
+        <form id="recent-search" class="hotdog" data-ajax="false">
+          <input type="search" data-role="none" class="search" placeholder="Search Resource">
+        </form>
       </div>
 
       <div class="modal" id="recent-profile-drawer">
@@ -261,7 +267,11 @@
     <header data-role="header">
       <h1>Resource List</h1>
       <ul>
-        <li class="flex-stretch"></li>
+        <li class="flex-stretch">
+            <form id="list-search" class="hotdog" data-ajax="false">
+              <input type="search" data-role="none" class="search" placeholder="Search For Resource">
+            </form>
+        </li>
         <li class="flex-none">
           <a href="#" data-activate="#list-add-animal-modal">&plus;</a>
         </li>
@@ -454,6 +464,33 @@
           <div class="inputs"></div>
         </form>
       </div>
+    </div>
+  </section>
+
+  
+  <section data-role="page" id="settings-profile-upload-page">
+    <header data-role="header">
+      <h1>Animal Info</h1>
+      <ul>
+        <li class="flex-none">
+          <a href="#" data-rel="back">Cancel</a>
+        </li>
+        <li class="flex-stretch"></li>
+        <li class="flex-none">
+          <a href="#" class="js-submit-settings-profile-upload">Save</a>
+        </li>
+      </ul>
+    </header>
+
+    <div data-role="main">
+        <form id="settings-profile-upload-form" data-ajax="false" class="form" style="padding:1em">
+          <input type="hidden" id="settings-animal-profile-id">
+          <label class="image-uploader">
+            <input type="file" data-role="none">
+          </label>
+          <div class="inputs"></div>
+        </form>
+      
     </div>
   </section>
 

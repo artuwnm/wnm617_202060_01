@@ -1,5 +1,5 @@
-const ListPage = async () => {
-    let d = await query({
+const ListPage = async (d = 0) => {
+    if (!d) d = await query({
         type: "resources_by_user_id",
         params: [sessionStorage.userId]
     })

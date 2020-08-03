@@ -143,6 +143,11 @@ a {
   height: 100%;
 }
 
+.scrollable-x {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
 
 
 
@@ -313,6 +318,28 @@ a {
 }
 
 
+.hotdog input {
+  border-width: 0;
+  display: block;
+  width: 100%;
+  font: inherit;
+  padding: 0;
+  border-radius: 0;
+  text-align: left;
+  background-color: transparent;
+  text-align: left;
+  outline: 0;
+  margin: 0;
+}
+
+
+.hotdog.light {
+  background-color: white;
+}
+
+.hotdog.soft {
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
 
 .chromeless {
   border-width: 0;
@@ -335,6 +362,7 @@ a {
 .login-logo {
   border-radius: 50%;
   max-width: 35vmax;
+  background-color: grey;
 }
 
 
@@ -578,6 +606,7 @@ a {
   height: 30vh;
   border-radius: 50%;
   position: absolute;
+  object-fit: cover;
   top: 8vh;
   left: 50%;
   transform: translateX(-50%);
@@ -672,4 +701,32 @@ a {
   height: 8em;
   object-fit: cover;
   vertical-align: text-bottom;
+}
+
+
+
+
+
+
+/* FILE UPLOADER */
+
+.image-uploader.full {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.image-uploader.full::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: .6;
+  content: 'Click to Upload';
+  z-index: -1;
 }

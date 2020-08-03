@@ -53,7 +53,28 @@ $(() => {
             e.preventDefault();
             checkListAddForm();
         })
+        .on("submit", "#list-search", function (e) {
+            e.preventDefault();
+            checkListSearch($(this).find(".search").val());
+        })
+        .on("submit", "#recent-search", function (e) {
+            e.preventDefault();
+            checkRecentSearch($(this).find(".search").val());
+        })
 
+
+        // Change
+        .on("change", "#settings-profile-upload-form input", function (e) {
+            console.log(e)
+            checkUpload(this.files[0])
+                .then(d => {
+                    console.log(d)
+                    $("settings-profile-src").val('uploads/${d.result}' + $d.result);
+                    $(".image-uploader").css({
+                        'background-image': `url('uploads/${d.result}')`
+                    })
+                })
+        })
 
 
 
@@ -77,6 +98,10 @@ $(() => {
             e.preventDefault();
             checkSettingsProfileForm();
         })
+        .on("click", ".js-submit-settings-u", function (e) {
+            e.preventDefault();
+            checkSettingsProfileForm();
+        })
         .on("click", ".js-submit-add-location", function (e) {
             e.preventDefault();
             checkAddLocationForm();
@@ -85,6 +110,11 @@ $(() => {
             e.preventDefault();
             checkAnimalDelete($(this).data("id"));
         })
+        .on("click", "[data-filter]", function (e) {
+            e.preventDefault();
+            checkListFilter(...$(this).data())
+        })
+
 
 
 

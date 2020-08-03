@@ -72,6 +72,67 @@ const checkAnimalDelete = id => {
 }
 
 
+const checkListSearch = (s) => {
+    query({
+        type: 'animal_search',
+        params: [`%${s}%`, `%${s}%`, `%${s}%`, sessionStorage.userId]
+    }).then(d => {
+        console.log(d)
+        ListPage(d)
+    })
+}
+
+const checkRecentSearch = (s) => {
+    query({
+        type: 'animal_recent_search',
+        params: [`%${s}%`, `%${s}%`, `%${s}%`, sessionStorage.userId]
+    }).then(d => {
+        console.log(d)
+        ListPage(d)
+    })
+}
+
+const checkListFilter = ({
+    filter,
+    value
+}) => {
+    (
+        value == "" ?
+        query({
+            type: 'animal_by_user_id',
+            params: [sessionStorage.userId]
+        }) :
+        query({
+            type: 'animal_filter',
+            params: [filter, value, sessionStorage.userId]
+        })
+    ).then(d => {
+        console.log(d)
+        ListPage(d)
+    })
+}
+
+const checkUpload = (file) => {
+    let fd = new FormData();
+    fd.append("image", file);
+
+    return fetch('data/api.php', {
+        method: 'POST',
+        body: fd
+    }).then(d => d.json())
+}
+
+const checkSettingsProfileUpload = (file) => {
+    let fd = new FormData();
+    fd.append("image", file);
+
+    return fetch('data/api.php', {
+        method: 'POST',
+        body: fd
+    }).then(d => d.json())
+}
+
+
 
 // const checkListAddForm = () => {
 //     let name = $("#list-add-name").val()

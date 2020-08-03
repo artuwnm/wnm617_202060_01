@@ -13,7 +13,7 @@ const makeAnimalList = templater(o => `
 const makeUserProfile = o => `
 <div>
 	<div class="hero-image">
-		<img src="${o.img}" alt="">
+		<a href="#settings-profile-upload-page"><img src="${o.img}" alt=""></a>
 	</div>
 	<h2 class="profile-title">${o.name}</h2>
 	<div class="profile-body">
@@ -141,6 +141,24 @@ const makeAnimalProfileInputs = (o, namespace = "list-add") => {
 	<textarea class="form-input" id="${namespace}-description" placeholder="Type Animal Description" data-role="none">${o.description}</textarea>
 </div>`;
 }
+
+
+const filterList = (animals, type) => {
+	let a = [...templater(new Set(animals.map(o => o[type])))];
+	return templater(o => `<li><a href="#" data-filter="${type}" data-value="${type}">${o.type[0].toUpperCase()+o.type.substr(1)}</a></li>`)(a)
+}
+
+const listFilter = (animals) => {
+	return `
+	<li><a href="#" data-filter="filter" data-value="">All</a>
+	${filterList(animasl, 'type')}
+	${filterList(animas,'breed')}
+	`;
+}
+
+
+
+
 
 // const makeResourceList = templater(o => `
 // <div class="resourcelist-item resource-jump" data-id="${o.id}">
