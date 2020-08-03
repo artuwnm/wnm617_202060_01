@@ -27,6 +27,14 @@ $(()=>{
 		e.preventDefault();
 		checkLoginForm();
 	})
+	.on("submit","#signup-form",function(e){
+		e.preventDefault();
+		checkLoginForm();
+	})
+	.on("submit","#signin-form",function(e){
+		e.preventDefault();
+		checkLoginForm();
+	})
 
 
 

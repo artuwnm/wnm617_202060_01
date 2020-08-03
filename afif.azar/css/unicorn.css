@@ -277,6 +277,29 @@ a {
 	color: #fff;
 }
 
+.form-select select {
+	display: inline-block;
+	border-width: 0;
+	width: 100%;
+	background-color: var(--color-neutral-light);
+	padding: 0.5em 1em;
+	border-radius: 0.3em
+	-webkit-appearance: none;
+    outline:0;
+}
+.form-select {
+    position: relative;
+}
+.form-select::after {
+	content:'▼';
+	position:absolute;
+	top:50%;
+	right:0.4rem;
+	font-size:0.6em;
+	transform:translateY(-50%);
+	color:var(--color-neutral-medium);
+}
+
 
 .uni-user-signup,
 .uni-pass-signup,
@@ -512,7 +535,7 @@ img.add-icon {
 }
 .modal-head,
 .modal-foot {
-	background-color:var(--color-neutral-light);
+	background-color:var(--color-blue-light);
 	line-height:var(--header-height);
 }
 .modal-body {

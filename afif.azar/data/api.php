@@ -88,7 +88,9 @@ function makeStatement($data) {
 
 
 
-			//  CRUD
+		//  CRUD
+		// Statement
+
         case "insert_user":
         $r = makeQuery($c,"SELECT `id` FROM `track_users` WHERE `username`=? OR `email`=?",[$p[0],$p[1]]);
         if(count($r['result'])) return ["error"=>"username or Email already exists"];
@@ -100,6 +102,65 @@ function makeStatement($data) {
         	(?, ?, md5(?), 'https//via.placeholder.com/400/?text=USER', NOW())
         	",$p);
         return ["result"=>$c->lastInsretId()];
+
+
+
+        case "insert_animal":
+			$r = makeQuery($c,"INSERT INTO
+				`track_animals`
+				(`user_id`,`name`, `type`, `breed`, `description`, `img`, `date_create`)
+				VALUES
+				(?, ?, ?, ?, ?, 'https://via.placeholder.com/400/?text=ANIMAL', NOW())
+				",$p);
+			if(isset($r['error'])) return $r;
+			return ["result"=>$c->lastInsertId()];
+
+
+
+		case "insert_location":
+			$r = makeQuery($c,"INSERT INTO
+				`track_locations`
+				(`animal_id`,`lat`, `lng`, `description`, `photo`, `icon`, `date_create`)
+				VALUES
+				(?, ?, ?, ?, 'https://via.placeholder.com/400/?text=LOCATION', 'https://via.placeholder.com/40/?text=ICON', NOW())
+				",$p);
+			if(isset($r['error'])) return $r;
+			return ["result"=>$c->lastInsertId()];
+
+
+
+		// UPDATE STATEMENTS
+		case "update_user":
+			$r = makeQuery($c,"UPDATE
+				`track_users`
+				SET
+					`name`=?,
+					`username`=?,
+					`email`=?
+				WHERE `id`=?
+				",$p);
+			return ["result"=>"success"];
+
+		case "update_animal":
+			$r = makeQuery($c,"UPDATE
+				`track_animals`
+				SET
+				hcline	`name`=?,
+					`type`=?,
+					`breed`=?,
+					`description`=?
+				WHERE `id`=?
+				",$p);
+			return ["result"=>"success"];
+
+
+
+
+		// DELETE STATEMENTS
+		case "delete_animal":
+			return makeQuery($c,"DELETE FROM `track_animals` WHERE `id`=?",$p);
+		case "delete_location":
+			return makeQuery($c,"DELETE FROM `track_locations` WHERE `id`=?",$p);
 
 
 
