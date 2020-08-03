@@ -14,7 +14,7 @@ const makeAnimalList = templater(o=>`
 const makeUserProfile = o =>`
 <div>
 	<div class="hero-image">
-		<img src="${o.img}" alt="">
+		<a href="#settings-profile-upload-page"><img src="${o.img}" alt=""></a>
 	</div>
 	<h2 class="profile-title">${o.name}</h2>
 	<div class="profile-body">
@@ -135,4 +135,21 @@ return `
 	<label for="${namespace}-description" class="form-label">Description</label>
 	<textarea class="form-input" id="${namespace}-description" placeholder="Type Animal Description" data-role="none">${o.description}</textarea>
 </div>`;
+}
+
+
+
+
+
+const filterList = (animals,type) => {
+	let a = [...(new Set(animals.map(o=>o[type])))];
+	return templater(o=>`<li><a href="#" data-filter="${type}" data-value="${o}">${o[0].toUpperCase()+o.substr(1)}</a></li>`)(a)
+}
+
+const listFilters = (animals) => {
+	return `
+	<li><a href="#" data-filter="type" data-value="">All</a></li>
+	${filterList(animals,'type')}
+	${filterList(animals,'breed')}
+	`;
 }

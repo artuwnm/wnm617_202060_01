@@ -72,3 +72,73 @@ const checkAnimalDelete = id => {
 		window.history.back();
 	})
 }
+
+
+
+
+
+
+
+const checkListSearch = (s) => {
+	query({
+		type:'animal_search',
+		params:[`%${s}%`,`%${s}%`,`%${s}%`,sessionStorage.userId]
+	}).then(d=>{
+		console.log(d)
+		ListPage(d)
+	})
+}
+const checkRecentSearch = (s) => {
+	query({
+		type:'animal_search_recent',
+		params:[`%${s}%`,`%${s}%`,`%${s}%`,sessionStorage.userId]
+	}).then(d=>{
+		console.log(d)
+		RecentPage(d)
+	})
+}
+
+
+
+const checkListFilter = ({filter,value}) => {
+	(
+		value=="" ?
+		query({
+			type:'animals_by_user_id',
+			params:[sessionStorage.userId]
+		}) :
+		query({
+			type:'animal_filter',
+			params:[filter,value,sessionStorage.userId]
+		})
+	).then(d=>{
+		console.log(d)
+		ListPage(d)
+	})
+}
+
+
+
+
+
+const checkUpload = async (file) => {
+	let fd = new FormData();
+	fd.append("image",file);
+
+	return fetch('data/api.php',{
+		method:'POST',
+		body:fd
+	}).then(d=>d.json())
+}
+
+const checkSettingsProfileUpload = async (file) => {
+	let upload = $("#settings-profile-src").val();
+	if(upload=="") return;
+	query({
+		type:'update_profile_image',
+		params:[upload,sessionStorage.userId]
+	}).then(d=>{
+		if(d.error) throw d.error;
+		window.history.back();
+	})
+}

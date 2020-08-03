@@ -1,13 +1,14 @@
 
-const ListPage = async() => {
-	let d = await query({type:"animals_by_user_id",params:[sessionStorage.userId]})
+const ListPage = async(d=0) => {
+	if(!d) d = await query({type:"animals_by_user_id",params:[sessionStorage.userId]})
 
-	$("#list-page .animallist")
-		.html(
-			d.result.length ?
-				makeAnimalList(d.result) :
-				"You need to add some animals, jack."
-		);
+	$("#list-page .animallist").html(
+		d.result.length ?
+			makeAnimalList(d.result) :
+			"You need to add some animals, jack."
+	);
+
+	$("#list-page .list-filters").html(listFilters(d.result));
 
 	$("#list-add-form .inputs").html(makeAnimalProfileInputs({
 		name:'',
@@ -22,8 +23,8 @@ const ListPage = async() => {
 
 
 
-const RecentPage = async() => {
-	let d = await query({type:"recent_locations",params:[sessionStorage.userId]});
+const RecentPage = async(d=0) => {
+	if(!d) d = await query({type:"recent_locations",params:[sessionStorage.userId]});
 
 	let map_el = await makeMap("#recent-page .map");
 
@@ -110,4 +111,11 @@ const AddLocationPage = async() => {
 		$("#add-location-lng").val(e.latLng.lng())
 		makeMarkers(map_el,[{lat:e.latLng.lat(),lng:e.latLng.lng(),icon:'https://via.placeholder.com/40?text=PIN'}])
 	})
+}
+
+const SettingsProfileUploadPage = async() => {
+	let d = await query({type:"user_by_id",params:[sessionStorage.userId]});
+
+	$("#settings-profile-upload-form .image-uploader")
+		.css('background-image',`url('${d.result[0].img}')`);
 }
