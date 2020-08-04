@@ -21,6 +21,8 @@ $(()=>{
 
 
 			case "settings-profile-upload-page": SettingsProfileUploadPage(); break;
+			
+			case "settings-alcohol-upload-page": SettingsAlcoholUploadPage(); break;
 		}
 	})
 
@@ -67,6 +69,16 @@ $(()=>{
 		})
 	})
 
+	.on("change","#settings-alcohol-upload-form input",function(e){
+		console.log(e)
+		checkUpload(this.files[0])
+		.then(d=>{
+			console.log(d)
+			$("#settings-alcohol-src").val('uploads/'+d.result);
+			$(".image-uploader").css({'background-image':`url('uploads/${d.result}')`})
+		})
+	})
+
 
 	// CLICKS
 	.on("click",".js-logout",function(e){
@@ -99,6 +111,11 @@ $(()=>{
 	.on("click",".js-submit-settings-profile-upload",function(e){
 		e.preventDefault();
 		checkSettingsProfileUpload();
+	})
+
+	.on("click",".js-submit-settings-alcohol-upload",function(e){
+		e.preventDefault();
+		checkSettingsAlcoholUpload();
 	})
 
 	.on("click",".js-submit-add-location",function(e){

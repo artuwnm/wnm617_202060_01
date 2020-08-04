@@ -140,3 +140,18 @@ const checkSettingsProfileUpload = async (file) => {
 		window.history.back();
 	})
 }
+
+
+const checkSettingsAlcoholUpload = async (file) => {
+	let upload = $("#settings-alcohol-src").val();
+	if(upload=="") return;
+	query({
+		type:'update_alcohol_image',
+		params:[upload,sessionStorage.userId]
+	}).then(d=>{
+		if(d.error) throw d.error;
+		window.history.back();
+	})
+
+
+}

@@ -66,6 +66,9 @@ const makeAlcoholProfile = o=>`
 			
 			</div>
 <a href="#" class="form-button js-delete-alcohol" data-id="${o.id}">Delete</a>
+
+<a href="#settings-alcohol-upload-page" class="form-button" >Upload</a>
+
 `;
 
 

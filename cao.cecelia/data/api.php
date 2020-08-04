@@ -200,6 +200,13 @@ function makeStatement($data) {
 				",$p);
 			return ["result"=>"success"];
 
+		case "update_alcohol_image":
+			$r = makeQuery($c,"UPDATE
+				`track_alcohols`
+				SET `img`=?
+				WHERE `id`=?
+				",$p);
+			return ["result"=>"success"];
 
 		// DELETE STATEMENTS
 		case "delete_alcohol":

@@ -197,7 +197,7 @@
 			</li>
 			<li class="add-new-location-choice">
 				<div class="centered">Add New Location</div>
-				<a href="">
+				<a href="#add-location-list-page">
 					<img src="img/location_bg.jpg">
 				</a>
 			</li>
@@ -211,8 +211,15 @@
 	
 
 
+
+	
+
+
+
+
+
 	<!-- Adding Page -->
-	<section data-role="page" id="recent-add-cancel-choose-alcohol-page">
+	<section data-role="page" id="recent-add-choose-alcohol-page">
 		<header data-role="header">
 			<h1>Choose Alcohol</h1>
 			<ul>
@@ -629,6 +636,35 @@
 		<div data-role="main">
 			<form id="settings-profile-upload-form" data-ajax="false" class="form">
 				<input type="hidden" id="settings-profile-src">
+				<label class="image-uploader full">
+					<input type="file" data-role="none" class="hidden">
+				</label>
+			</form>
+		</div>
+	</section>
+
+
+
+
+
+	
+
+	<section data-role="page" id="settings-alcohol-upload-page">
+		<header data-role="header">
+			<h1>Animal Info</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">Cancel</a>
+				</li>
+				<li class="flex-stretch"></li>
+				<li class="flex-none">
+					<a href="#" class="js-submit-settings-alcohol-upload">Save</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<form id="settings-alcohol-upload-form" data-ajax="false" class="form">
+				<input type="hidden" id="settings-alcohol-src">
 				<label class="image-uploader full">
 					<input type="file" data-role="none" class="hidden">
 				</label>

@@ -18,8 +18,15 @@ const ListPage = async(d=0) => {
 }
 
 
+// const AddLocationSettingPage = async() => {
 
+// 	let d = await query({type:"alcohols_by_user_id",params:[sessionStorage.userId]})
 
+// 	console.log(d)
+
+// 	$("#add-location-list-page .alcohollist")
+// 		.html(makeAnimalList(d.result))
+// }
 
 
 
@@ -124,5 +131,12 @@ const SettingsProfileUploadPage = async() => {
 	let d = await query({type:"user_by_id",params:[sessionStorage.userId]});
 
 	$("#settings-profile-upload-form .image-uploader")
+		.css('background-image',`url('${d.result[0].img}')`);
+}
+
+const SettingsAlcoholUploadPage = async() => {
+	let d = await query({type:"alcohol_by_id",params:[sessionStorage.userId]});
+
+	$("#settings-alcohol-upload-form .image-uploader")
 		.css('background-image',`url('${d.result[0].img}')`);
 }
