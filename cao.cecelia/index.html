@@ -127,7 +127,7 @@
 								<li><a href="#settings-profile-page">Profile</a></li>
 								<li><a href="#settings-password-page">Privacy</a></li>
 								<li><a href="#" class="js-logout">Settings</a></li>
-								<li><a href="#">Help</a></li>
+								<li><a href="#settings-profile-upload-page">Help</a></li>
 								<li><a href="#">Refer</a></li>
 							</ul>
 						</div>
@@ -139,6 +139,16 @@
 		</div>
 
 			<div class="recent-search"></div>
+			<div class="searchstyle" style="width:calc(100% - 2em)">
+				<form id="recent-search" class="hotdog light soft" data-ajax="false">
+					<input type="search" data-role="none" class="search" placeholder="Search For Alcohol">
+				</form>
+			</div>
+			<!-- <div class="anchor top left" style="width:calc(100% - 2em)">
+				<form id="recent-search" class="hotdog light soft" data-ajax="false">
+					<input type="search" data-role="none" class="search" placeholder="Search For Alcohol">
+				</form>
+			</div> -->
 
 			<div class="modal" id="recent-profile-drawer">
 				<div class="modal-back transparent" data-deactivate="#recent-profile-drawer"></div>
@@ -153,8 +163,56 @@
 	
 
 
-	<!-- Adding Page -->
+
+
+
+
+
+
+
 	<section data-role="page" id="recent-add-choose-alcohol-page">
+		<header data-role="header">
+			<h1>Choose Alcohol</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back"><i class="arrow_black arrowleft"></i></a>
+				</li>
+				<li class="flex-stretch"></li>
+				<li class="flex-none">
+					<a href="#add-location-page"><i class="arrow_black arrowright"></i></a>
+				</li>
+			</ul>
+		</header>
+
+		<div data-role="main">
+			
+		<ul class="scrollable choices-image">
+			<li class="add-new-alcohol-choice">
+				<div class="centered">Add New Alcohol</div>
+				<a href="">
+
+					<img src="img/product.jpg" >
+
+				</a>
+			</li>
+			<li class="add-new-location-choice">
+				<div class="centered">Add New Location</div>
+				<a href="">
+					<img src="img/location_bg.jpg">
+				</a>
+			</li>
+			
+		</ul>
+		
+		</div>
+		
+	</section>
+
+	
+
+
+	<!-- Adding Page -->
+	<section data-role="page" id="recent-add-cancel-choose-alcohol-page">
 		<header data-role="header">
 			<h1>Choose Alcohol</h1>
 			<ul>
@@ -175,9 +233,9 @@
 					<div class="form-control">
 						<label for="add-location-alcohol-id" class="form-label">Select Alcohol</label>
 						<select id="add-location-alcohol-id" class="form-input" data-role="none">
-							<option value="1">Cat 1</option>
-							<option value="22">Dog 1</option>
-							<option value="13">Cat 2</option>
+							<option value="1">Wine</option>
+							<option value="22">Beer</option>
+							<option value="13">Gin</option>
 						</select>
 					</div>
 				</form>
@@ -275,9 +333,25 @@
 					<a href="#" data-activate="#list-add-animal-modal">&plus;</a>
 				</li>
 			</ul> -->
-			<div class="searchstyle">
+			<!-- <div class="searchstyle">
 				<input type="search" class="searchbar" placeholder="Search" data-role="none">
-			</div>
+			</div> -->
+		<header data-role="header">
+			<ul>
+				<li class="flex-stretch">
+					<form id="list-search" class="hotdog light" data-ajax="false">
+						<input type="search" data-role="none" class="search" placeholder="Search For Alcohol">
+					</form>
+				</li>
+				<li class="flex-none">
+					<a href="#" data-activate="#list-add-alcohol-modal">&plus;</a>
+				</li>
+			</ul>
+		</header>
+		<header data-role="header">
+			<ul class="scrollable-x list-filters"></ul>
+		</header>
+			
 		<!-- </header> -->
 		<div data-role="main">
 
@@ -296,21 +370,21 @@
 						<a href="#" data-deactivate="#list-add-alcohol-modal">Cancel</a>
 					</div>
 					<div class="flex-stretch">
-						<h1>Add Alcohol</h1>
+						<h1>Add Animal</h1>
 					</div>
 				</div>
 				<div class="modal-body">
-					<div class="scrollable" style="padding:1em"></div>
+					<div class="scrollable" style="padding:1em"><div class="inputs"></div></div>
 				</div>
 				<div class="modal-foot display-flex">
 					<div class="flex-stretch"></div>
 					<div class="flex-none">
-						<input type="submit" value="Save" class="chromeless" data-role="none" data-deactivate="#list-add-animal-modal">
+						<input type="submit" value="Save" class="chromeless" data-role="none" data-deactivate="#list-add-alcohol-modal">
 					</div>
 				</div>
 			</form>
 		</div>
-
+	
 	</section>
 	
 
@@ -531,6 +605,47 @@
 			</div>
 		</div>
 	</section>
+
+
+
+
+
+
+
+
+	<section data-role="page" id="settings-profile-upload-page">
+		<header data-role="header">
+			<h1>Alcohol Info</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">Cancel</a>
+				</li>
+				<li class="flex-stretch"></li>
+				<li class="flex-none">
+					<a href="#" class="js-submit-settings-profile-upload">Save</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<form id="settings-profile-upload-form" data-ajax="false" class="form">
+				<input type="hidden" id="settings-profile-src">
+				<label class="image-uploader full">
+					<input type="file" data-role="none" class="hidden">
+				</label>
+			</form>
+		</div>
+	</section>
+
+
+
+
+
+
+
+
+
+
+
 
 	<section data-role="page" id="settings-alcohol-profile-page">
 		<header data-role="header">

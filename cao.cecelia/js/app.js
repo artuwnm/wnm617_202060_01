@@ -19,6 +19,8 @@ $(()=>{
 			case "settings-profile-page": SettingsProfilePage(); break;
 			case "settings-alcohol-profile-page": SettingsAlcoholProfilePage(); break;
 
+
+			case "settings-profile-upload-page": SettingsProfileUploadPage(); break;
 		}
 	})
 
@@ -40,6 +42,31 @@ $(()=>{
 		e.preventDefault();
 		checkListAddForm();
 	})
+	.on("submit","#list-search",function(e){
+		e.preventDefault();
+		checkListSearch($(this).find(".search").val());
+	})
+	.on("submit","#recent-search",function(e){
+		e.preventDefault();
+		checkRecentSearch($(this).find(".search").val());
+	})
+
+
+
+
+
+
+	/* CHANGE */
+	.on("change","#settings-profile-upload-form input",function(e){
+		console.log(e)
+		checkUpload(this.files[0])
+		.then(d=>{
+			console.log(d)
+			$("#settings-profile-src").val('uploads/'+d.result);
+			$(".image-uploader").css({'background-image':`url('uploads/${d.result}')`})
+		})
+	})
+
 
 	// CLICKS
 	.on("click",".js-logout",function(e){
@@ -63,21 +90,38 @@ $(()=>{
 		e.preventDefault();
 		checkSettingsProfileForm();
 	})
+
+	.on("click",".js-submit-settings-profile",function(e){
+		e.preventDefault();
+		checkSettingsProfileForm();
+	})
+
+	.on("click",".js-submit-settings-profile-upload",function(e){
+		e.preventDefault();
+		checkSettingsProfileUpload();
+	})
+
 	.on("click",".js-submit-add-location",function(e){
 		e.preventDefault();
 		checkAddLocationForm();
 	})
 	.on("click",".js-delete-alcohol",function(e){
 		e.preventDefault();
-		checkAlcohollDelete($(this).data("id"));
+		checkAlcoholDelete($(this).data("id"));
+	})
+
+
+	.on("click","[data-filter]",function(e){
+		e.preventDefault();
+		checkListFilter($(this).data())
 	})
 	
-	.on("click",".profile",function(e){
-		if(!$(this).data("id")) throw("No data ID on Element");
+	// .on("click",".profile",function(e){
+	// 	if(!$(this).data("id")) throw("No data ID on Element");
 
-		sessionStorage.userId = $(this).data("id");
-		$.mobile.navigate("#user-profile")
-	})
+	// 	sessionStorage.userId = $(this).data("id");
+	// 	$.mobile.navigate("#user-profile")
+	// })
 
 
 

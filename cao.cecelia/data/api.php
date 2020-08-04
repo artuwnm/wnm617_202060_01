@@ -47,6 +47,20 @@ function makeQuery($c,$ps,$p) {
 	}
 }
 
+function makeUpload($file,$folder) {
+	$filename = microtime(true) . "_" .
+		$_FILES[$file]['name'];
+
+	if(@move_uploaded_file(
+		$_FILES[$file]['tmp_name'],
+		$folder.$filename
+	)) return ["result"=>$filename];
+	else return [
+		"error"=>"File Upload Failed",
+		"_FILES"=>$_FILES,
+		"filename"=>$filename
+	];
+}
 
 function makeStatement($data) {
 	$c = makeConn();
@@ -83,6 +97,37 @@ function makeStatement($data) {
 				GROUP BY l.alcohol_id
 				",$p);
 
+
+			case "alcohol_search" : return makeQuery($c,"SELECT *
+			FROM `track_alcohols`
+			WHERE (
+				`name` LIKE ? OR
+				`type` LIKE ? OR
+				`alcoholpercent` LIKE ?
+			) AND user_id=?",$p);
+
+		case "alcohol_search_recent" : return makeQuery($c,"SELECT
+			a.*, l.*
+			FROM `track_alcohols` a
+			LEFT JOIN (
+				SELECT * FROM `track_locations`
+				ORDER BY `date_create` DESC
+			) l
+			ON a.id = l.alcohol_id
+			WHERE (
+				a.name LIKE ? OR
+				a.type LIKE ? OR
+				a.alcoholpercent LIKE ?
+			) AND a.user_id=?
+			GROUP BY l.alcohol_id",$p);
+
+
+		case "alcohol_filter" : return makeQuery($c,"SELECT *
+			FROM `track_alcohols`
+			WHERE (
+				`$p[0]` LIKE ?
+			) AND user_id=?",[$p[1],$p[2]]);
+
 		// CRUD
 
 
@@ -103,7 +148,7 @@ function makeStatement($data) {
 		case "insert_alcohol":
 			$r = makeQuery($c,"INSERT INTO
 				`track_alcohols`
-				(`user_id`,`name`, `type`, `breed`, `description`, `img`, `date_create`)
+				(`user_id`,`name`, `type`, `alcoholpercent`, `description`, `img`, `date_create`)
 				VALUES
 				(?, ?, ?, ?, ?, 'https://via.placeholder.com/400/?text=ALCOHOL', NOW())
 				",$p);
@@ -139,15 +184,21 @@ function makeStatement($data) {
 			$r = makeQuery($c,"UPDATE
 				`track_alcohols`
 				SET
-				hcline	`name`=?,
+					`name`=?,
 					`type`=?,
-					`breed`=?,
+					`alcoholpercent`=?,
 					`description`=?
 				WHERE `id`=?
 				",$p);
 			return ["result"=>"success"];
 
-
+		case "update_profile_image":
+			$r = makeQuery($c,"UPDATE
+				`track_users`
+				SET `img`=?
+				WHERE `id`=?
+				",$p);
+			return ["result"=>"success"];
 
 
 		// DELETE STATEMENTS
@@ -163,6 +214,10 @@ function makeStatement($data) {
 	}
 }
 
+if(!empty($_FILES)) {
+	$r = makeUpload("image","../uploads/");
+	die(json_encode($r));
+}
 
 $data = json_decode(file_get_contents("php://input"));
 

@@ -1,12 +1,12 @@
 const checkListAddForm = () => {
 	let name = $("#list-add-name").val();
 	let type = $("#list-add-type").val();
-	let breed = $("#list-add-breed").val();
+	let alcoholpercent = $("#list-add-alcoholpercent").val();
 	let description = $("#list-add-description").val();
 
 	query({
 		type:'insert_alcohol',
-		params:[sessionStorage.userId,name,type,breed,description]
+		params:[sessionStorage.userId,name,type,alcoholpercent,description]
 	}).then(d=>{
 		if(d.error) throw d.error;
 		ListPage();
@@ -16,13 +16,13 @@ const checkListAddForm = () => {
 const checkSettingsAlcoholProfileForm = () => {
 	let name = $("#settings-alcohol-profile-name").val();
 	let type = $("#settings-alcohol-profile-type").val();
-	let breed = $("#settings-alcohol-profile-alcoholpercent").val();
+	let alcoholpercent = $("#settings-alcohol-profile-alcoholpercent").val();
 	let description = $("#settings-alcohol-profile-description").val();
 	let alcoholId = $("#settings-alcohol-profile-id").val();
 
 	query({
 		type:'update_alcohol',
-		params:[name,type,alcoholpercent,description,alcohollId]
+		params:[name,type,alcoholpercent,description,alcoholId]
 	}).then(d=>{
 		if(d.error) throw d.error;
 		window.history.back();
@@ -56,7 +56,7 @@ const checkAddLocationForm = () => {
 	}).then(d=>{
 		if(d.error) throw d.error;
 		window.history.go(-2);
-		// $.mobile.navigate("#alaochol-profile-page");
+		// $.mobile.navigate("#alcohol-profile-page");
 	})
 }
 
@@ -65,6 +65,76 @@ const checkAlcoholDelete = id => {
 	query({
 		type:'delete_alcohol',
 		params:[id]
+	}).then(d=>{
+		if(d.error) throw d.error;
+		window.history.back();
+	})
+}
+
+
+
+
+
+
+
+const checkListSearch = (s) => {
+	query({
+		type:'alcohol_search',
+		params:[`%${s}%`,`%${s}%`,`%${s}%`,sessionStorage.userId]
+	}).then(d=>{
+		console.log(d)
+		ListPage(d)
+	})
+}
+const checkRecentSearch = (s) => {
+	query({
+		type:'alcohol_search_recent',
+		params:[`%${s}%`,`%${s}%`,`%${s}%`,sessionStorage.userId]
+	}).then(d=>{
+		console.log(d)
+		RecentPage(d)
+	})
+}
+
+
+
+const checkListFilter = ({filter,value}) => {
+	(
+		value=="" ?
+		query({
+			type:'alcohols_by_user_id',
+			params:[sessionStorage.userId]
+		}) :
+		query({
+			type:'alcohol_filter',
+			params:[filter,value,sessionStorage.userId]
+		})
+	).then(d=>{
+		console.log(d)
+		ListPage(d)
+	})
+}
+
+
+
+
+
+const checkUpload = async (file) => {
+	let fd = new FormData();
+	fd.append("image",file);
+
+	return fetch('data/api.php',{
+		method:'POST',
+		body:fd
+	}).then(d=>d.json())
+}
+
+const checkSettingsProfileUpload = async (file) => {
+	let upload = $("#settings-profile-src").val();
+	if(upload=="") return;
+	query({
+		type:'update_profile_image',
+		params:[upload,sessionStorage.userId]
 	}).then(d=>{
 		if(d.error) throw d.error;
 		window.history.back();

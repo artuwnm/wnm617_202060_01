@@ -16,7 +16,7 @@ const makeAlcoholList = templater(o=>`
 const makeUserProfile = o =>`
 <div class="backgroundcolor-profile">
 				<div class="flex-none" style="text-align:center">
-					<img src="${o.img}" alt="" class="userimage" id="profilephoto">
+				<a href="#settings-profile-upload-page"><img src="${o.img}" alt="" class="userimage" id="profilephoto"></a>
 					<h2 style="color: white;">${o.name}</h2>
 					<div style="color: white;">${o.username}</div>
 					<div style="color: white;">${o.email}</div>
@@ -30,7 +30,7 @@ const makeAlcoholProfile = o=>`
 		<img src="${o.img}" alt=""/>
 	</div>
 
-	<a href="#list-page"><i class="arrow_white arrowleft"></i></a>
+	<a href="#" data-rel="back"><i class="arrow_white arrowleft"></i></a>
 				<a class="settings ui-link" href="#settings-alcohol-profile-page">
 				<img src="img/edit.svg" alt="" class="icon">
 			</a>
@@ -65,7 +65,7 @@ const makeAlcoholProfile = o=>`
 			
 			
 			</div>
-
+<a href="#" class="form-button js-delete-alcohol" data-id="${o.id}">Delete</a>
 `;
 
 
@@ -127,11 +127,11 @@ const makeSelectOptions = (options,selected) => {
 
 const makeAlcoholProfileInputs = (o,namespace="list-add") => {
 let types = [
-	['dog','Dog'],
-	['cat','Cat'],
-	['horse','Horse'],
-	['turtle','Turtle'],
-	['rabbit','Rabbit']
+	['wine','Wine'],
+	['beer','Beer'],
+	['gin','Gin'],
+	['vodka','Vodka'],
+	['tequila','Tequila']
 ];
 return `
 <div class="form-control">
@@ -155,3 +155,27 @@ return `
 	<textarea class="form-input" id="${namespace}-description" placeholder="Type Alcohol Description" data-role="none">${o.description}</textarea>
 </div>`;
 }
+
+
+const filterList = (alcohols,type) => {
+	let a = [...(new Set(alcohols.map(o=>o[type])))];
+	return templater(o=>`<li><a href="#" data-filter="${type}" data-value="${o}">${o[0].toUpperCase()+o.substr(1)}</a></li>`)(a)
+}
+
+const listFilters = (alcohols) => {
+	return `
+	<li><a href="#" data-filter="type" data-value="">All</a></li>
+	${filterList(alcohols,'type')}
+	${filterList(alcohols,'alcoholpercent')}
+	`;
+}
+
+
+
+
+
+
+
+
+
+

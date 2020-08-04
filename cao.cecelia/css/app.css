@@ -122,9 +122,11 @@ a {
 }
 
 .userimage{
-    max-width: 15vmax;
+    width: 15vmax;
     border-radius: 50%;
     margin-top: 3em;
+    height: 15vmax;
+    object-fit: cover;
 }
 
 .profile{
@@ -223,6 +225,56 @@ a {
 	height:100%;
 }
 
+.scrollable-x {
+   overflow-x:auto;
+   max-width:100%;
+}
+
+.choices-image{
+   list-style-type: none;
+   
+    text-align: center;
+    padding: 0em;
+}
+
+.add-new-alcohol-choice,
+.add-new-location-choice{
+    position: relative;
+    display: inline-block;
+}
+
+.add-new-alcohol-choice img{
+    height: 20em; 
+    width: 18em;
+    margin:1em; 
+    border-radius: 3em;
+    object-fit: cover;
+   opacity: 0.3;
+
+}
+
+.add-new-location-choice img{
+     height: 20em; 
+    width: 18em;
+    margin:1em; 
+    border-radius: 3em;
+    object-fit: cover;
+    opacity: 0.3;
+}
+
+.centered {
+    position: absolute;    
+    height: 100%;
+    text-align: center;    
+    width: 100%;
+}
+.centered:before {
+   content: '';
+   display: inline-block;
+   height: 100%;
+   vertical-align: middle;
+}
+
 .active a{
     font-weight: 800;
 }
@@ -239,6 +291,9 @@ a {
 /*search*/
 .searchstyle{
 	margin: 1em;
+    position: absolute;
+    top: 1%;
+    left: 20%;
 }
 
 .searchbar{
@@ -325,6 +380,11 @@ a {
   -webkit-transform: rotate(135deg);
 }
 
+.arrowright {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
 .profileinfo{
 	background-image: url(../img/mojito.jpg);
     background-repeat: no-repeat;
@@ -369,17 +429,25 @@ a {
 	background-color:white;
 	z-index:1;
 }
+
+
+
 [data-role="header"],
 [data-role="footer"] {
 	flex: none;
-	/*overflow:hidden;*/
-	position:relative;
-	line-height: var(--header-height);
-	border-width:0;
-	background-color:white;
-	box-shadow:0 0 5px rgba(0,0,0,0.2);
-	z-index:2;
+  /* overflow:hidden;*/
+   position:relative;
+   line-height: var(--header-height);
+   border-width:0;
+   background-color:white;
+   z-index:3;
 
+}
+
+[data-role="header"]:last-of-type,
+[data-role="footer"]:first-of-type {
+   box-shadow:0 0 5px rgba(0,0,0,0.2);
+   z-index:2;
 }
 
 [data-role="header"] ul,
@@ -497,18 +565,45 @@ a {
     /*background-color: var(--color-neutral-medium);*/
     border-width: 1px;
     font: inherit;
+    font-size: 1rem;
     padding: 0.5em 1em;
     border-radius: 0.5em;
     /*text-align:left;*/
     outline:0;
-
 }
+
 .hotdog-button {
     background-color: var(--color-main-dark);
     text-align: center;
     color: var(--color-neutral-light);
     width: 100%;
     border-width: 0;
+}
+
+.hotdog.light {
+   background-color:var(--color-white);
+}
+.hotdog.soft {
+   box-shadow:2px 2px 5px rgba(0,0,0,0.2);
+   width: 70%;
+}
+
+
+header .hotdog {
+   line-height:1.5em;
+   margin:0.2em;
+}
+.hotdog input {
+    border-width: 0;
+    display: block;
+    width:100%;
+    font: inherit;
+    padding: 0;
+    border-radius: 0;
+    background-color: transparent;
+    text-align: left;
+    outline:0;
+    margin:0;
 }
 
 .chromeless {
@@ -589,6 +684,26 @@ a {
     height:auto;
     object-fit:cover;
     vertical-align:text-bottom;
+}
+
+.image-uploader.full {
+   position:absolute;
+   top:0;
+   left:0;
+   width:100%;
+   height:100%;
+   background-size:contain;
+   background-position:center; 
+   background-repeat:no-repeat;
+}
+.image-uploader.full::before {
+   position:absolute;
+   top:50%;
+   left:50%;
+   transform:translate(-50%,-50%);
+   opacity:0.6;
+   content:'Click to Upload';
+   z-index: -1;
 }
 
 .profile-map{
