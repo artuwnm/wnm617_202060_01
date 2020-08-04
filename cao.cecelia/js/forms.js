@@ -147,7 +147,7 @@ const checkSettingsAlcoholUpload = async (file) => {
 	if(upload=="") return;
 	query({
 		type:'update_alcohol_image',
-		params:[upload,sessionStorage.userId]
+		params:[upload,sessionStorage.alcoholId]
 	}).then(d=>{
 		if(d.error) throw d.error;
 		window.history.back();
