@@ -61,6 +61,7 @@ a {
 	color:inherit;
 	font-weight:bold;
 	text-decoration:none;
+	vertical-align: text-bottom;
 }
 
 
@@ -122,6 +123,16 @@ a {
 	height:100%;
 }
 
+.scrollable-x {
+	overflow: auto;
+	max-width: 100%;
+}
+
+
+
+
+
+
 
 
 
@@ -151,9 +162,13 @@ a {
 	line-height: var(--header-height);
 	border-width: 0;
 	background-color: #fff;
-	box-shadow: 0 0 5px rgba(0,0,0,0.2);
-	z-index: 2;
+	z-index: 3;
 }
+[data-role=header]:last-of-type,
+[data-role="footer"]:first-of-type {
+	box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
 [data-role="header"] ul,
 [data-role="footer"] ul {
 	display: flex;
@@ -188,11 +203,14 @@ a {
 	padding: 0 1em;
 }
 
+
+
 /*======================== FOOTER =======================*/
 .flex-child { 
 	flex: 1 1 auto;
 	margin-top: 1em;
 }
+
 
 /*================== Signin / Login ====================*/
 .form-input input {
@@ -229,17 +247,60 @@ a {
 	width: 25px; 
 	height: 25px; 
 }
-
-/* ================== FORMS ===============*/
 .form-control-signin,
 .form-control-signup {
 	margin: 0.5em 0;
 }
+.uni-user-signup,
+.uni-pass-signup,
+.uni-conf-signup,
+.uni-user-signin,
+.uni-pass-signin,
+.unisignin-button {
+   display: inline-flex;
+   width: 100%;
+   background-color: var(--color-neutral-light);
+   border-width: 0;
+   font: inherit;
+   padding: 1em 1em;
+   border-radius: 0.5em;
+   text-align: center;
+   outline: 0;
+}
+
+.unisignin-button {
+	background-color: var(--color-pink-medium);
+	margin-bottom: 1em;
+	margin-top: 1em;
+	text-align: center;
+	display: inline;
+}
+.unisignin-button:active {
+	background-color: var(--color-blue-medium);
+}
+input.unisignin-button {
+    text-align: center;
+    font-weight: bold;
+    font-family: var(--font-sans-title);
+    color: white;
+}
+text.unisignin-button {
+    text-align: center;
+}
+
+
+
+/* ================== FORMS ===============*/
+.form-control {
+	margin: 1em 0;
+}
+
 
 .form-label {
 	margin: 0.6em 0 !imprtant;
-	font-size: 0.9em;
+	font-size: 1em;
 	color: var(--color-pink-medium);
+	font-weight: bold;
 }
 .form-input {
 	display: inline-block;
@@ -301,60 +362,54 @@ a {
 }
 
 
-.uni-user-signup,
-.uni-pass-signup,
-.uni-conf-signup,
-.uni-user-signin,
-.uni-pass-signin,
-.unisignin-button {
-   display: inline-flex;
-   width: 100%;
-   background-color: var(--color-neutral-light);
-   border-width: 0;
-   font: inherit;
-   padding: 1em 1em;
-   border-radius: 0.5em;
-   text-align: center;
-   outline: 0;
-}
-
-.unisignin-button {
-	background-color: var(--color-pink-medium);
-	margin-bottom: 1em;
-	margin-top: 1em;
-	text-align: center;
-	display: inline;
-}
-.unisignin-button:active {
-	background-color: var(--color-blue-medium);
-}
-input.unisignin-button {
-    text-align: center;
-    font-weight: bold;
-    font-family: var(--font-sans-title);
-    color: white;
-}
-text.unisignin-button {
-    text-align: center;
-}
 ::placeholder{
-	color: #fff;
+	color: var(--color-neutral-medium);
 }
 
-
-.chromless {
+.hotdog input {
 	border-width: 0;
-	display: inline-block;
-	width: 100%;
+	display: block;
+	background-color: var(--color-neutral-light);
+	padding: 0;
 	font: inherit;
-	padding: 0.5em 1em;
-	border-radius: 0.3em;
-	background-color: var(--color-pink-medium);
-	text-decoration: none;
-	text-align: center;
-	cursor: pointer;
-	outline: 0;
-	align-items: center;
+    width: 100%;
+    outline: 0;
+    margin: 0;
+    border-radius: 0;
+    text-align: left;
+}
+
+header .hotdog {
+    margin: 0.2em;
+	line-height: 1.5em;
+}
+
+.hotdog-button,
+.hotdog {
+    display: inline-flex;
+    width: 100%;
+    background-color: var(--color-neutral-light);
+    border-width: 0;
+    font: inherit;
+    font-size: 1rem;
+    padding: 0.5em 1em;
+    border-radius: 2em;
+    text-align:left;
+    outline:0;
+}
+.hotdog-button {
+    background-color: var(--color-main-light);
+    text-align: center;
+}
+
+.hotdog.light {
+   background-color:var(--color-white);
+}
+.hotdog.soft {
+   box-shadow:2px 2px 5px rgba(0,0,0,0.2);
+}
+input.search {
+	background-color: white;
 }
 
 /* ================== LOGIN PAGE ===============*/
@@ -535,8 +590,14 @@ img.add-icon {
 }
 .modal-head,
 .modal-foot {
-	background-color:var(--color-blue-light);
 	line-height:var(--header-height);
+	color: white;
+}
+.modal-foot {
+	background-color:white;
+}
+.modal-head {
+	background-color:var(--color-pink-medium);
 }
 .modal-body {
 	background-color:var(--color-white);
@@ -581,6 +642,22 @@ img.add-icon {
 }
 
 
+.chromeless {
+	border-width: 0;
+	display: inline-block;
+	width: 100%;
+	font: inherit;
+	padding: 0.5em 1em;
+	border-radius: 0.3em;
+	background-color: var(--color-pink-medium);
+	color: white;
+	text-decoration: none;
+	text-align: center;
+	cursor: pointer;
+	outline: 0;
+	align-items: center;
+	margin: 1em;
+}
 
 /*=============== Add Button On Map =================*/
 
@@ -618,6 +695,7 @@ img.add-icon {
     height: 8em;
     position: relative;
     transition: all 0.3s;
+    margin: 
 }
 .profile-head.active {
     height: 70vh;
@@ -717,7 +795,9 @@ img.back-icon {
 
 
 /*========================== PROFILE PAGE =======================*/
-
+.profile {
+	text-align: center;
+}
 .hero-image {
     height: 25vh;
     position: relative;
@@ -758,6 +838,9 @@ img.back-icon {
 .settings-list li:not(:first-child) a {
     border-top: 1px solid var(--color-neutral-light);
 }
+li.settings-list {
+	 padding-top: 1em;
+}
 
 
 
@@ -780,13 +863,6 @@ img.back-icon {
 }
 
 
-
-
-#animal-profile-page .profile {
-	display:flex;
-	flex-direction:column;
-	height:100%;
-}
 .profile-head {
     flex: none;
     height: 8em;
@@ -806,7 +882,10 @@ img.back-icon {
 	object-fit:cover;
 	vertical-align:text-bottom;
 }
-
+h2.profile-title {
+    padding: 1em;
+    text-align: center;
+}
 
 /*========================== FOOTER =============================*/
 

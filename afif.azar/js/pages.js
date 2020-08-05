@@ -1,16 +1,20 @@
 
-const ListPage = async() => {
+const ListPage = async(d=0) => {
 
-	let d = await query({type:"animals_by_user_id",params:[sessionStorage.userId]})
+	if (!d) d = await query({type:"animals_by_user_id",params:[sessionStorage.userId]})
 
 
 
-	$("#list-page .animallist")
-		.html(
+	$("#list-page .animallist").html(
 			d.result.length ?
 				makeAnimalList(d.result) :
-				"Add some unicorns:)."
+				"Add some unicorns"
 		);
+    
+
+
+    $("#list-page .list-filters").html(listFilters(d.result));
+
 
 	$("list-add-form .inputs").html(makeAnimalProfileInputs({
 		name:'',
@@ -22,8 +26,8 @@ const ListPage = async() => {
 
 
 
-const RecentPage = async() => {
-	let d = await query({type:"recent_locations",params:[sessionStorage.userId]});
+const RecentPage = async(d=0) => {
+	if (!d) d = await query({type:"recent_locations",params:[sessionStorage.userId]});
 
 	let map_el = await makeMap("#recent-page .map");
 
@@ -84,15 +88,15 @@ const SettingsProfilePage = async() => {
 	let d = await query({type:"user_by_id",params:[sessionStorage.userId]});
 
 	$("settings-profile-id").val(sessionStorage.userId);
-	$("#settings-profile-page .form")
+	$("#settings-profile-page .inputs")
 		.html(makeSettingsProfileInputs(d.result[0]));
 }
 const SettingsAnimalProfilePage = async() => {
 	let d = await query({type:"animal_by_id",params:[sessionStorage.animalId]});
 
 
-    $("settings-profile-id").val(sessionStorage.animalId);
-	$("#settings-animal-profile-page .form")
+    $("settings-animal-profile-id").val(sessionStorage.animalId);
+	$("#settings-animal-profile-page .inputs")
 		.html(makeSettingsAnimalProfileInputs(d.result[0],'settings-animal-profile'));
 }
 
@@ -105,4 +109,13 @@ const AddLocationPage = async() => {
 		$("#add-location-lng").val(e.latLng.lng())
 		makeMarkers(map_el,[{lat:e.latLng.lat(),lng:e.latLng.lng(),icon:'https://via.placeholder.com/40?text=PIN'}])
 	})
+}
+
+
+
+const SettingsProfileUploadPage = async() => {
+	let d = await query({type:"user_by_id",params:[sessionStorage.userId]});
+
+	$("#settings-profile-upload-form .image-uploader")
+		.css('background-image',`url('${d.result[0].img}')`);
 }

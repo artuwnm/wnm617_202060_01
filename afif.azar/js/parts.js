@@ -82,7 +82,10 @@ const makeSettingsProfileInputs = (o,namespace="settings-profile") => `
 	<input id="${namespace}-email" type="text" class="form-input" data-role="none" value="${o.email}">
 </div>`;
 
+
+
 // You can also break things into their smaller reusable parts
+
 const makeSettingsAnimalProfileInputs = (o,namespace="settings-animal-profile") => `
 ${FormControl({namespace:namespace,label:"Name",name:"name",value:o.name})}
 ${FormControl({namespace:namespace,label:"Type",name:"type",value:o.type})}
@@ -133,4 +136,18 @@ return `
 	<label for="${namespace}-description" class="form-label">Description</label>
 	<textarea class="form-input" id="${namespace}-description" placeholder="Type Animal Description" data-role="none">${o.description}</textarea>
 </div>`;
+}
+
+
+const filterList = (animals,type) => {
+	let a = [...(new Set(animals.map(o=>o[type])))];
+	return templater(o=>`<li><a href="#" data-filter="${type}" data-value="${o}">${o[0].toUpperCase()+o.substr(1)}</a></li>`)(a)
+}
+
+const listFilters = (animals) => {
+	return `
+	<li><a href="#" data-filter="type" data-value="">All</a></li>
+	${filterList(animals,'type')}
+	${filterList(animals,'breed')}
+	`;
 }

@@ -19,8 +19,8 @@
 	<script src="js/functions.js"></script>
 	<script src="js/pages.js"></script>
 	<script src="js/parts.js"></script>
-	<script src="js/forms.js"></script>
 	<script src="js/maps.js"></script>
+	<script src="js/forms.js"></script>
 
 	<script src="js/app.js"></script>
 
@@ -114,17 +114,7 @@
 <!--------------- Recent: Map Page --------------------->
 
 	<section data-role="page" id="recent-page">
-		<header data-role="header">
-			<h1>Map</h1>
-			<ul>
-				
-			    <li class="flex-stretch"></li>
-				<li class="flex-none">
-						<a href="#add-page"><img src="" max-width="20px" height="20px" class="add-icon"></a>
-				</li>
-		
-			</ul>
-		</header>
+
 
 	    <div data-role="main">
 	    	<div class="map"></div>
@@ -135,6 +125,13 @@
 	    				<div class="anchor bottom right">
 	    					<a href="#recent-add-choose-animal-page"  class="circle">+</a>
 	    				</div>
+
+            <div class="anchor top left" style="width:calc(100% - 2em)">
+				<form id="recent-search" class="hotdog light soft" data-ajax="false">
+					<input type="search" data-role="none" class="search" placeholder="Search For Unicorn">
+				</form>
+			</div>
+
 
 			<div class="modal" id="recent-profile-drawer">
 				<div class="modal-back transparent" data-deactivate="#recent-profile-drawer"></div>
@@ -177,7 +174,7 @@
 
 	<section data-role="page" id="recent-add-choose-animal-page">
 		<header data-role="header">
-			<h1>Choose Unicorn</h1>
+			<h1>Add Unicorn</h1>
 			<ul>
 				<li class="flex-none">
 					<a href="#" data-rel="back"><img src="img/icon/back.svg" max-width="20px" height="20px" class="back-icon"></a>
@@ -197,6 +194,15 @@
 				</div>
 					<div style="padding-top: 2em; padding-bottom: 2em; color: var(--color-neutral-medium)">Or</div>
 					<div class="form-control">
+						<label for="add-location-animal-id" class="form-label">Select Unicorn Type</label>
+						<select id="add-location-animal-id" class="form-input" data-role="none">
+							<option value="1">Designer</option>
+							<option value="22">Programmer</option>
+							<option value="13">Both</option>
+						</select>
+					</div>
+
+					<div class="form-control">
 						<label for="add-location-animal-id" class="form-label">Select Unicorn Trait</label>
 						<select id="add-location-animal-id" class="form-input" data-role="none">
 							<option value="1">Junior</option>
@@ -206,6 +212,7 @@
 							<option value="22">Gitcorn</option>
 						</select>
 					</div>
+
 				</form>
 			</div>
 		</div>
@@ -235,9 +242,13 @@
 							<input type="text" class="form-input" id="add-animal-name" placeholder="Type Animal Name" data-role="none">
 						</div>
 						<div class="form-control">
-							<label for="add-animal-type" class="form-label">Unicorn Type</label>
-							<input type="text" class="form-input" id="add-animal-type" placeholder="Type Animal Type" data-role="none">
-						</div>
+						<label for="add-location-animal-id" class="form-label">Select Unicorn Type</label>
+						<select id="add-location-animal-id" class="form-input" data-role="none">
+							<option value="1">Designer</option>
+							<option value="22">Programmer</option>
+							<option value="13">Both</option>
+						</select>
+					</div>
 						<div class="form-control">
 							<label for="add-animal-breed" class="form-label">Unicorn Trait</label>
 							<select id="add-location-animal-id" class="form-input" data-role="none">
@@ -311,15 +322,14 @@
 
 	<section data-role="page" id="list-page">
 		<header data-role="header">
-			<h1>Unicorn List</h1>
-
 			<ul>
-			
-				
-				<li class="flex-none">
-					<a href="#" data-rel="back"><img src="img/icon/back.svg" max-width="20px" height="20px" class="back-icon"></a>
-				</li>
-			    <li class="flex-stretch"></li>
+				<li class="flex-stretch">
+					
+			    	<form id="list-search" class="hotdog" data-ajax="false">
+			    		<input type="search" data-role="none" class="search" placeholder="Search for unicorn">
+			    	</form>
+			    </li>
+
 				<li class="flex-none">
 						<a href="#" data-activate="#list-add-animal-modal"><img src="img/icon/add.svg" max-width="20px" height="20px" class="add-icon"></a>
 				</li>
@@ -327,14 +337,23 @@
 			</ul>
 		</header>
 
+		<header data-role="header">
+			<ul class="scrollable-x list-filters"></ul>
+		</header>
+
 
 	<div data-role="main">
 		<div class="scrollable">
+
 				<div class="animallist"></div>
 			</div>
 		</div>
 
     <footer data-role="footer" data-template="#footer-template"></footer>
+
+
+
+
 
    <div class="modal" id="list-add-animal-modal">
 			<div class="modal-back" data-deactivate="#list-add-animal-modal"></div>
@@ -374,7 +393,7 @@
 				<div class="modal-foot display-flex">
                    
                     <div class="flex-justify-center">
-                    	<input type="submit" value="Save" class="unisignin-button" data-role="none" style="margin-left: 15%">
+                    	<input type="submit" value="Save" class="chromeless" data-role="none" style="margin-left: 15%">
                     </div>
 
 				</div>
@@ -572,7 +591,7 @@
 		</header>
 		<div data-role="main">
 			<div class="scrollable">
-			<ul>
+			<ul class="settings-list">
 				<li>
 					<a href="#" class="js-logout">Logout</a>
 				</li>
@@ -580,10 +599,7 @@
 					<a href="#settings-password-page">Change Password</a>
 				</li>
 				<li>
-					<a href="#">Change Email</a>
-				</li>
-				<li>
-					<a href="#">Change Profile Info</a>
+					<a href="#settings-profile-page">Change Profile Info</a>
 				</li>
 			</ul>
 		</div>
@@ -605,7 +621,7 @@
 		</header>
 		<div data-role="main">
 			<div class="scrollable">
-				<form data-ajax="false" class="form" style="padding:1em">
+				<form id="settings-password-form" data-ajax="false" class="form" style="padding:1em">
 					<div class="form-control">
 						<label for="settings-change-password-1" class="form-label">Old Password</label>
 						<input id="settings-change-password-1" type="text" class="form-input" data-role="none">
@@ -736,6 +752,30 @@
 
 </div>
 <!------------------------------------>
+
+    <section data-role="page" id="settings-profile-upload-page">
+		<header data-role="header">
+			<h1>Animal Info</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">Cancel</a>
+				</li>
+				<li class="flex-stretch"></li>
+				<li class="flex-none">
+					<a href="#" class="js-submit-settings-profile-upload">Save</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<form id="settings-profile-upload-form" data-ajax="false" class="form">
+				<input type="hidden" id="settings-profile-src">
+				<label class="image-uploader full">
+					<input type="file" data-role="none" class="hidden">
+				</label>
+			</form>
+		</div>
+	</section>
+
 
 
 
