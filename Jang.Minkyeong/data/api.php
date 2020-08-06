@@ -47,6 +47,24 @@ function makeQuery($c,$ps,$p) {
 }
 
 
+
+function makeUpload($file,$folder) {
+	$filename = microtime(true) . "_" .
+		$_FILES[$file]['name'];
+
+	if(@move_uploaded_file(
+		$_FILES[$file]['tmp_name'],
+		$folder.$filename
+	)) return ["result"=>$filename];
+	else return [
+		"error"=>"File Upload Failed",
+		"_FILES"=>$_FILES,
+		"filename"=>$filename
+	];
+}
+
+
+
 function makeStatement($data) {
 	$c = makeConn();
 	$t = $data->type;
@@ -82,6 +100,35 @@ function makeStatement($data) {
 				GROUP BY l.animal_id
 				",$p);
 
+		case "animal_search" : return makeQuery($c,"SELECT *
+			FROM `track_animals`
+			WHERE (
+				`name` LIKE ? OR
+				`breed` LIKE ? OR
+				`color` LIKE ?
+			) AND user_id=?",$p);
+
+		case "animal_search_recent" : return makeQuery($c,"SELECT
+			a.*, l.*
+			FROM `track_animals` a
+			LEFT JOIN (
+				SELECT * FROM `track_locations`
+				ORDER BY `date_create` DESC
+			) l
+			ON a.id = l.animal_id
+			WHERE (
+				a.name LIKE ? OR
+				a.breed LIKE ? OR
+				a.color LIKE ?
+			) AND a.user_id=?
+			GROUP BY l.animal_id",$p);
+
+
+		case "animal_filter" : return makeQuery($c,"SELECT *
+			FROM `track_animals`
+			WHERE (
+				`$p[0]` LIKE ?
+			) AND user_id=?",[$p[1],$p[2]]);
 
 
 
@@ -105,7 +152,7 @@ function makeStatement($data) {
 		case "insert_animal":
 			$r = makeQuery($c,"INSERT INTO
 				`track_animals`
-				(`user_id`,`name`, `type`, `breed`, `description`, `img`, `date_create`)
+				(`user_id`,`name`, `breed`, `color`, `description`, `img`, `date_create`)
 				VALUES
 				(?, ?, ?, ?, ?, 'https://via.placeholder.com/400/?text=ANIMAL', NOW())
 				",$p);
@@ -142,12 +189,21 @@ function makeStatement($data) {
 				`track_animals`
 				SET
 				hcline	`name`=?,
-					`type`=?,
-					`breed`=?,
-					`description`=?
+						`breed`=?,
+						`color`=?,
+						`description`=?
 				WHERE `id`=?
 				",$p);
 			return ["result"=>"success"];
+
+		case "update_profile_image":
+			$r = makeQuery($c,"UPDATE
+				`track_users`
+				SET `img`=?
+				WHERE `id`=?
+				",$p);
+			return ["result"=>"success"];
+
 
 
 
@@ -164,6 +220,12 @@ function makeStatement($data) {
 		default: return ["error"=>"No matched type"];
 	}
 }
+
+if(!empty($_FILES)) {
+	$r = makeUpload("image","../uploads/");
+	die(json_encode($r));
+}
+
 
 
 $data = json_decode(file_get_contents("php://input"));
