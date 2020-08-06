@@ -21,3 +21,42 @@ const checkListAddForm = () => {
 		ListPage();
 	})
 }
+
+const checkListSearch = (s) => {
+	query({
+		type:'food_search',
+		params:[`%${s}%`,`%${s}%`,`%${s}%`,sessionStorage.userId]
+	}).then(d=>{
+		console.log(d)
+		ListPage(d)
+	})
+}
+
+const checkRecentSearch = (s) => {
+	query({
+		type:'food_search_recent',
+		params:[`%${s}%`,`%${s}%`,`%${s}%`,sessionStorage.userId]
+	}).then(d=>{
+		console.log(d)
+		MapPage(d)
+	})
+}
+
+
+
+const checkListFilter = ({filter,value}) => {
+	(
+		value=="" ?
+		query({
+			type:'food_by_user_id',
+			params:[sessionStorage.userId]
+		}) :
+		query({
+			type:'food_filter',
+			params:[filter,value,sessionStorage.userId]
+		})
+	).then(d=>{
+		console.log(d)
+		ListPage(d)
+	})
+}

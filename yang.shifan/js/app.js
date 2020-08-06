@@ -32,6 +32,16 @@ $(()=>{
 		checkListAddForm();
 	})
 
+	.on("submit","#list-search",function(e){
+		e.preventDefault();
+		checkListSearch($(this).find(".search").val());
+	})
+
+	.on("submit","#recent-search",function(e){
+		e.preventDefault();
+		checkRecentSearch($(this).find(".search").val());
+	})
+
 	// CLICKS
 	.on("click",".js-logout",function(e){
 		sessionStorage.removeItem('userId');
@@ -43,6 +53,11 @@ $(()=>{
 
 		sessionStorage.foodId = $(this).data("id");
 		$.mobile.navigate("#food-info-page")
+	})
+
+	.on("click","[data-filter]",function(e){
+		e.preventDefault();
+		checkListFilter($(this).data())
 	})
 
 

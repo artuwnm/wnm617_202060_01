@@ -100,3 +100,15 @@ return `
 </div>
 `;
 }
+
+const filterList = (food,cuisine) => {
+	let a = [...(new Set(food.map(o=>o[cuisine])))];
+	return templater(o=>`<li><a href="#" data-filter="${cuisine}" data-value="${o}">${o[0].toUpperCase()+o.substr(1)}</a></li>`)(a)
+}
+
+const listFilters = (food) => {
+	return `
+	<li><a href="#" data-filter="cuisine" data-value="">All</a></li>
+	${filterList(food,'cuisine')}
+	`;
+} 

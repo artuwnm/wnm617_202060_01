@@ -90,9 +90,9 @@
 	<section data-role="page" id="map-page">
 		<div data-role="main">
 			<div class="map-header">
-				<div class="display-flex" style="margin-top: 20px; align-items: center; justify-content: center;">
+				<div class="display-flex" style="width:calc(100% - 2em); margin-top: 20px; align-items: center; justify-content: center;">
 					<div class="search-hotdog" style="margin-left: 10px;">
-						<form id="food-search">
+						<form id="recent-search" data-ajax="false">
 							<input type="search" class="search" placeholder="Search Food">
 						 </form>
 					</div>
@@ -135,11 +135,20 @@
 		<header data-role="header">
 			<h1>Food List</h1>
 			<ul>
-				<li class="flex-stretch"></li>
+				<li class="flex-stretch">
+					<div class="search-hotdog" style="margin-left: 10px;">
+						<form id="list-search" class="hotdog" data-ajax="false">
+							<input type="search" class="search" placeholder="Search Food">
+						</form>
+					</div>
+				</li>
 				<li class="flex-none">
 					<a href="#" data-activate="#list-add-food-modal" class="ui-add">&plus;</a>
 				</li>
 			</ul>
+		</header>
+		<header data-role="header">
+			<ul class="scrollable-x list-filters"></ul>
 		</header>
 		<div data-role="main">
 			<div class="scrollable">
@@ -190,64 +199,6 @@
 			</div>
 			</form>
 	</div>
-
-	<section data-role="page" id="restaurant-info-page">
-		<header data-role="header">
-			<h1>Restaurant Info</h1>
-			<ul>
-				<li class="flex-none">
-					<a href="#" data-rel="back">
-						<img src="img/icons/left-arrow.svg" style="width: 20px; margin-left: 10px; margin-top: 15px;">
-					</a>
-				</li>
-			</ul>
-		</header>
-		<div data-role="main">
-			<div class="grid scrollable">
-				<div class="col-md-4 col-sm-6 col-xs-6">
-					<div class="food-card">
-						<a href="#food-info-page">
-							<img class="food-thumbnail" src="img/food/placeholder.jpg" alt="">
-						</a>
-						<div class="text-center" style="padding: 10px;">
-							Chili House
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-4 col-sm-6 col-xs-6">
-					<div class="food-card">
-						<a href="#food-info-page">
-							<img class="food-thumbnail" src="img/food/placeholder.jpg" alt="">
-						</a>
-						<div class="text-center" style="padding: 10px;">
-							Old Roof
-						</div>
-					</div>
-				</div>
-				<!-- <div class="col-md-4 col-sm-6 col-xs-6">
-					<div class="food-card">
-						<a href="#food-info-page">
-							<img class="food-thumbnail" src="img/food/placeholder.jpg" alt="">
-						</a>
-						<div class="text-center" style="padding: 10px;">
-							Mr.Szechuan
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-6 col-xs-6">
-					<div class="food-card">
-						<a href="#food-info-page">
-							<img class="food-thumbnail" src="img/food/placeholder.jpg" alt="">
-						</a>
-						<div class="text-center" style="padding: 10px;">
-							Koi Palace
-						</div>
-					</div>
-				</div> -->
-			</div>
-		</div>
-	</section>
 
 	<section data-role="page" id="food-info-page">
 		<header data-role="header">

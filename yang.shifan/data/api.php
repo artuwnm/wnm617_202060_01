@@ -75,6 +75,36 @@ function makeStatement($data) {
 				GROUP BY l.food_id
 				",$p);
 
+		case "food_search" : return makeQuery($c,"SELECT *
+			FROM `track_food`
+			WHERE (
+				`name` LIKE ? OR
+				`cuisine` LIKE ? OR
+				`restaurant` LIKE ?
+			) AND user_id=?",$p);
+
+		case "food_search_recent" : return makeQuery($c,"SELECT
+			a.*, l.*
+			FROM `track_food` a
+			LEFT JOIN (
+				SELECT * FROM `track_locations`
+				ORDER BY `date_create` DESC
+			) l
+			ON a.id = l.food_id
+			WHERE (
+				a.name LIKE ? OR
+				a.cuisine LIKE ? OR
+				a.restaurant LIKE ?
+			) AND a.user_id=?
+			GROUP BY l.food_id",$p);
+
+		case "food_filter" : return makeQuery($c,"SELECT *
+			FROM `track_food`
+			WHERE (
+				`$p[0]` LIKE ?
+			) AND user_id=?",[$p[1],$p[2]]);
+
+
 		case "insert_user":
 			$r = makeQuery($c,"SELECT `id` FROM `track_users` WHERE `username`=? OR `email`=?",[$p[0],$p[1]]);
 			if(count($r['result'])) return ["error"=>"Username or Email already exists"];
@@ -96,8 +126,21 @@ function makeStatement($data) {
 				",$p);
 			return ["result"=>$c->lastInsertId()];
 
+		case "update_profile_image":
+			$r = makeQuery($c,"UPDATE
+				`track_users`
+				SET `img`=?
+				WHERE `id`=?	
+				",$p);
+			return ["result"=>"success"];
+
 		default: return ["error"=>"No matched type"];
 	}
+}
+
+if(!empty($_FILES)) {
+	$r = makeUpload("image","../uploads/");
+	die(json_encode($r));
 }
 
 $data = json_decode(file_get_contents("php://input"));
