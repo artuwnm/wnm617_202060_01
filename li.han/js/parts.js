@@ -13,7 +13,7 @@ const makeAnimalList = templater(o=>`
 const makeUserProfile = o =>`
 <div>
 	<div class="hero-image">
-		<img src="${o.img}" alt="">
+		<a href="#settings-profile-upload-page"><img src="${o.img}" alt=""></a>
 	</div>
 	<h2 class="profile-title">${o.name}</h2>
 	<div class="profile-body">
@@ -34,8 +34,15 @@ const makeAnimalProfile = o=>`
 		<div>${o.type}</div>
 		<div>${o.breed}</div>
 		<div class="display-flex">
-			<div class="flex-none"><button data-toggle=".profile-head" class="form-button">More</button></div>
-			<div class="flex-none"><a href="#settings-animal-profile-page" class="form-button">Edit</a></div>
+			<div class="flex-none">
+				<button data-toggle=".profile-head" class="form-button">More</button>
+			</div>
+			<div class="flex-none">
+				<a href="#settings-animal-profile-page" class="form-button">Edit</a>
+			</div>
+			<div class="flex-none">
+				<a href="#" class="form-button js-delete-animal" data-id="${o.id}">Delete</a>
+			</div>
 		</div>
 	</div>
 </div>
@@ -88,3 +95,60 @@ const FormControl = ({namespace,label,name,value,type="text"}) => `
 	<label for="${namespace}-${name}" class="form-label">${label}</label>
 	<input id="${namespace}-${name}" value="${value}" type="${type}" class="form-input" data-role="none">
 </div>`;
+
+
+
+const makeSelectOptions = (options,selected) => {
+	return templater(o=>`
+		<option value='${o[0]}' ${o[0]==selected?'selected':''}>${o[1]}</option>
+	`)(options);
+}
+
+
+const makeAnimalProfileInputs = (o,namespace="list-add") => {
+let types = [
+	['dog','Dog'],
+	['cat','Cat'],
+	['horse','Horse'],
+	['turtle','Turtle'],
+	['rabbit','Rabbit']
+];
+return `
+<div class="form-control">
+	<label for="${namespace}-name" class="form-label">Name</label>
+	<input type="text" class="form-input" id="${namespace}-name" placeholder="Type Animal Name" data-role="none" value="${o.name}">
+</div>
+<div class="form-control">
+	<label for="${namespace}-type" class="form-label">Type</label>
+	<div class="form-select">
+		<select id="${namespace}-type" data-role="none">
+			${makeSelectOptions(types,o.type)}
+		</select>
+	</div>
+</div>
+<div class="form-control">
+	<label for="${namespace}-breed" class="form-label">Breed</label>
+	<input type="text" class="form-input" id="${namespace}-breed" placeholder="Type Animal Breed" data-role="none" value="${o.breed}">
+</div>
+<div class="form-control">
+	<label for="${namespace}-description" class="form-label">Description</label>
+	<textarea class="form-input" id="${namespace}-description" placeholder="Type Animal Description" data-role="none">${o.description}</textarea>
+</div>`;
+}
+
+
+
+
+
+const filterList = (animals,type) => {
+	let a = [...(new Set(animals.map(o=>o[type])))];
+	return templater(o=>`<li><a href="#" data-filter="${type}" data-value="${o}">${o[0].toUpperCase()+o.substr(1)}</a></li>`)(a)
+}
+
+const listFilters = (animals) => {
+	return `
+	<li><a href="#" data-filter="type" data-value="">All</a></li>
+	${filterList(animals,'type')}
+	${filterList(animals,'breed')}
+	`;
+}

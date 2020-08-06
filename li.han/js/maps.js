@@ -25,6 +25,8 @@ const makeMarkers = (map_el,map_locs) => {
 	let map = map_el.data("map");
 	let markers = map_el.data("markers");
 
+    console.log(map_locs)
+
 	if(markers) markers.forEach(o=>o.setMap(null));
 
 	markers = [];

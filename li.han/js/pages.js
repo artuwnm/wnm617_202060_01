@@ -13,6 +13,8 @@ const ListPage = async() => {
 const RecentPage = async() => {
 	let d = await query({type:"recent_locations",params:[sessionStorage.userId]});
 
+	 console.log(sessionStorage.userId)
+
 	let map_el = await makeMap("#recent-page .map");
 
 	let valid_animals = d.result.reduce((r,o)=>{
@@ -76,18 +78,33 @@ const AnimalProfilePage = async() => {
 const SettingsProfilePage = async() => {
 	let d = await query({type:"user_by_id",params:[sessionStorage.userId]});
 
-	$("#settings-profile-page .form")
+	$("#settings-profile-id").val(sessionStorage.userId);
+	$("#settings-profile-page .inputs")
 		.html(makeSettingsProfileInputs(d.result[0]));
 }
 const SettingsAnimalProfilePage = async() => {
 	let d = await query({type:"animal_by_id",params:[sessionStorage.animalId]});
 
-	$("#settings-animal-profile-page .form")
-		.html(makeSettingsAnimalProfileInputs(d.result[0]));
+	$("#settings-animal-profile-id").val(sessionStorage.animalId);
+	$("#settings-animal-profile-page .inputs")
+		.html(makeAnimalProfileInputs(d.result[0],'settings-animal-profile'));
 }
 
 
 
 const AddLocationPage = async() => {
-	makeMap("#add-location-page .map")
+	let map_el = await makeMap("#add-location-page .map");
+
+	map_el.data("map").addListener("click",function(e) {
+		$("#add-location-lat").val(e.latLng.lat())
+		$("#add-location-lng").val(e.latLng.lng())
+		makeMarkers(map_el,[{lat:e.latLng.lat(),lng:e.latLng.lng(),icon:'https://via.placeholder.com/40?text=PIN'}])
+	})
+}
+
+const SettingsProfileUploadPage = async() => {
+	let d = await query({type:"user_by_id",params:[sessionStorage.userId]});
+
+	$("#settings-profile-upload-form .image-uploader")
+		.css('background-image',`url('${d.result[0].img}')`);
 }
