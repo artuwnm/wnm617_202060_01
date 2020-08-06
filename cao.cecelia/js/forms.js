@@ -82,7 +82,7 @@ const checkAlcoholDelete = id => {
 		params:[id]
 	}).then(d=>{
 		if(d.error) throw d.error;
-		window.history.back();
+		window.history.go(-2);
 	})
 }
 
