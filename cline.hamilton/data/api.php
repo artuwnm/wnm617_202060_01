@@ -1,14 +1,13 @@
 <?php
-ini_set('display_errors', true);
-error_reporting(E_ALL);
 
 include "auth.php";
 function makeConn() {
 	try {
-		return new \PDO(...PDOauth());
-	} catch (\PDOException $e) {
-		die('{"error":"' . $e->getMessage() . '"}');
-	} catch (Exception $e) {
+		$conn = new PDO(...PDOauth());
+		// This line allows PDO errors to be reported correctly.
+		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		return $conn;
+	} catch (PDOException $e) {
 		die('{"error":"' . $e->getMessage() . '"}');
 	}
 }
@@ -47,11 +46,8 @@ function makeQuery($c,$ps,$p) {
 			"result"=>$r
 		];
 	} 
-	catch (\PDOException $e) {
+	catch (PDOException $e) {
 		return ["error"=>"Query Failed: ".$e->getMessage()];
-	} 
-	catch (Exception $e) {
-		return ["error"=>"Error: ".$e->getMessage()];
 	}
 }
 
