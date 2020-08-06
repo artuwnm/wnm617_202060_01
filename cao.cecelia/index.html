@@ -120,8 +120,9 @@
 					</div>
 				</div> -->
 				<div class="modal-body">
-					<div class="scrollable" style="padding:1em"></div>
+					<div class="scrollable">
 						<div class="profile" id="user-profile"></div>
+						
 						<div class="profile-body">
 							<ul class="profile-settings">
 								<li><a href="#settings-profile-page">Profile</a></li>
@@ -130,6 +131,7 @@
 								<li><a href="#">Help</a></li>
 								<li><a href="#">Refer</a></li>
 							</ul>
+						</div>
 						</div>
 				</div>
 				<div class="modal-foot display-flex">
@@ -141,7 +143,7 @@
 			<div class="recent-search"></div>
 			<div class="searchstyle" style="width:calc(100% - 2em)">
 				<form id="recent-search" class="hotdog light soft" data-ajax="false">
-					<input type="search" data-role="none" class="search" placeholder="Search For Alcohol">
+					<input type="search" data-role="none" class="search" placeholder="Search for alcohol">
 				</form>
 			</div>
 			<!-- <div class="anchor top left" style="width:calc(100% - 2em)">
@@ -394,16 +396,14 @@
 				<input type="search" class="searchbar" placeholder="Search" data-role="none">
 			</div> -->
 		<header data-role="header">
-			<ul>
-				<li class="flex-stretch">
-					<form id="list-search" class="hotdog light" data-ajax="false">
-						<input type="search" data-role="none" class="search" placeholder="Search For Alcohol">
+		
+				<div class="">
+
+					<form id="list-search" class="hotdog heavy" data-ajax="false">
+						<input type="search" data-role="none" class="search" placeholder="Search for alcohol">
 					</form>
-				</li>
-				<li class="flex-none">
-					<a href="#" data-activate="#list-add-alcohol-modal">&plus;</a>
-				</li>
-			</ul>
+				</div>
+			
 		</header>
 		<header data-role="header">
 			<ul class="scrollable-x list-filters"></ul>
@@ -449,9 +449,9 @@
 	<section data-role="page" id="alcohol-profile-page">
 
 		<div data-role="main">
-			
+			<div class="scrollable">
 			<div class="profile display-flex">
-				<div class="profile-head">
+				<div class="profile-content">
 					
 				
 				</div>
@@ -465,7 +465,7 @@
 
 				</div>
 			</div>
-
+		</div>
 		</div>
 	</section>
 

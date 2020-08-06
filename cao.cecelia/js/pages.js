@@ -107,7 +107,7 @@ const AlcoholProfilePage = async() => {
 
 	query({type:"alcohol_by_id",params:[sessionStorage.alcoholId]})
 	.then(d=>{
-		$("#alcohol-profile-page .profile-head")
+		$("#alcohol-profile-page .profile-content")
 			.html(makeAlcoholProfile(d.result[0]));
 	});
 

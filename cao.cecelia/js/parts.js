@@ -40,16 +40,26 @@ const makeUserProfile = o =>`
 `;
 
 const makeAlcoholProfile = o=>`
-<div class="display-flex">
-	<div class="alcohol-profile-image">
-		<img src="${o.img}" alt=""/>
-	</div>
 
-	<a href="#" data-rel="back"><i class="arrow_white arrowleft"></i></a>
-				<a class="settings ui-link" href="#settings-alcohol-profile-page">
+<header data-role="header">
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back"><i class="arrow_white arrowleft"></i></a>
+				</li>
+				<li class="flex-stretch"></li>
+				<li class="flex-none">
+					<a class="settings ui-link" href="#settings-alcohol-profile-page">
 				<img src="img/edit.svg" alt="" class="icon">
 			</a>
-</div>
+				</li>
+			</ul>
+			<div class="alcohol-profile-image">
+		<img src="${o.img}" alt=""/>
+	</div>
+		</header>
+
+
+
 
 <div class="display-flex flex-justify-center" style="padding:1em">
 				
@@ -69,18 +79,19 @@ const makeAlcoholProfile = o=>`
 				    <td></td>
 				    <td style="text-align: left;"><strong>${o.alcoholpercent}</strong></td>
 				  </tr>
-				   <tr>
-				    <td style="text-align: right;">Description</td>
-				    <td></td>
-				    <td style="text-align: left; font-size:14px;">${o.description}</td>
-				  </tr>
-				   
 				</tbody>
-			</table>
-			
+			</table>	
 			
 			</div>
 
+			
+
+
+
+<button data-toggle=".profile-head" class="form-button">Description</button>
+			<div class="profile-head">
+				${o.description}
+			</div>
 
 `;
 
@@ -178,7 +189,7 @@ return `
 	</div>
 </div>
 <div class="form-control">
-	<label for="${namespace}-alcoholpercent" class="form-label">alcoholpercent</label>
+	<label for="${namespace}-alcoholpercent" class="form-label">Alcoholpercent</label>
 	<input type="text" class="form-input" id="${namespace}-alcoholpercent" placeholder="Type Alcohol Percent" data-role="none" value="${o.alcoholpercent}">
 </div>
 <div class="form-control">

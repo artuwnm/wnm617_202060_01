@@ -112,7 +112,7 @@ a {
 /*}*/
 
 .map {
-    position:absolute;
+    position:relative;
     top:0;
     left:0;
     width:100%;
@@ -289,6 +289,10 @@ a {
 
 /*List Page*/
 /*search*/
+
+
+
+
 .searchstyle{
 	margin: 1em;
     position: absolute;
@@ -539,7 +543,7 @@ a {
     /* vertical-align: middle; */
     display: block;
     margin: 0 auto;
-    width: 6rem;
+   /* width: 6rem;*/
 }
 
 .info-control{
@@ -588,7 +592,7 @@ a {
     font: inherit;
     font-size: 1rem;
     padding: 0.5em 1em;
-    border-radius: 0.5em;
+    border-radius: 2em;
     /*text-align:left;*/
     outline:0;
 }
@@ -603,10 +607,11 @@ a {
 
 .hotdog.light {
    background-color:var(--color-white);
+    width: 70%;
 }
 .hotdog.soft {
    box-shadow:2px 2px 5px rgba(0,0,0,0.2);
-   width: 70%;
+  
 }
 
 
@@ -625,6 +630,12 @@ header .hotdog {
     text-align: left;
     outline:0;
     margin:0;
+    padding: 0.2em;
+    border-radius: 1em;
+}
+
+.heavy input{
+    background-color: var(--color-neutral-medium);
 }
 
 .chromeless {
@@ -672,16 +683,19 @@ header .hotdog {
     height: 8em;
     position: relative;
     transition: all 0.3s;
+    display: none;
 }
 .profile-head.active {
-    height: 70vh;
+    height: 15vh;
+    display: block;
+    margin: 1em;
 }
 .profile-body {
     /*flex: 1 1 auto;*/
     position: relative;
-    overflow: hidden;
-    width: 18em;
-    height: 20em;
+    /*overflow: hidden;*/
+    /*width: 18em;
+    height: 20em;*/
 }
 
 .profile-body ul{
@@ -729,12 +743,12 @@ header .hotdog {
 
 .profile-map{
     position: relative;
-    overflow: hidden;
+   /* overflow: hidden;*/
     width: 18em;
     height: 12em;
-    /* top: 50%; */
-    margin: 0 auto;
-    top: 29em;
+    /* top: 42%; */
+    margin: 1em auto;
+   
 }
 
 .alcohol-profile-image img{
@@ -746,7 +760,7 @@ header .hotdog {
 
 .settings {
     position: absolute;
-    top: 10px;
+    top: 0px;
     right: 10px;
     display: flex;
     width: 1em;
