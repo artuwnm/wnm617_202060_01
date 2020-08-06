@@ -139,7 +139,7 @@
 				</li>
 				<li class="flex-stretch"></li>
 				<li class="flex-none">
-					<a href="#add-location-page">Next</a>
+					<a href="#" class="js-choose-animal">Next</a>
 				</li>
 			</ul>
 		</header>
@@ -150,11 +150,7 @@
 					<div>Or</div>
 					<div class="form-control">
 						<label for="add-location-animal-id" class="form-label">Select Animal</label>
-						<select id="add-location-animal-id" class="form-input" data-role="none">
-							<option value="1">Cat 1</option>
-							<option value="22">Dog 1</option>
-							<option value="13">Cat 2</option>
-						</select>
+						<select id="add-location-animal-id" class="form-input" data-role="none"></select>
 					</div>
 				</form>
 			</div>
@@ -171,25 +167,14 @@
 				</li>
 				<li class="flex-stretch"></li>
 				<li class="flex-none">
-					<a href="#add-location-page">Next</a>
+					<a href="#add-location-page" class="js-submit-recent-add-animal">Next</a>
 				</li>
 			</ul>
 		</header>
 		<div data-role="main">
 			<div class="scrollable">
 				<form id="add-animal-form" data-ajax="false" class="form" style="padding:1em">
-						<div class="form-control">
-							<label for="add-animal-name" class="form-label">Animal Name</label>
-							<input type="text" class="form-input" id="add-animal-name" placeholder="Type Animal Name" data-role="none">
-						</div>
-						<div class="form-control">
-							<label for="add-animal-type" class="form-label">Animal Type</label>
-							<input type="text" class="form-input" id="add-animal-type" placeholder="Type Animal Type" data-role="none">
-						</div>
-						<div class="form-control">
-							<label for="add-animal-breed" class="form-label">Animal Breed</label>
-							<input type="text" class="form-input" id="add-animal-breed" placeholder="Type Animal Breed" data-role="none">
-						</div>
+					<div class="inputs"></div>
 				</form>
 			</div>
 		</div>
@@ -233,10 +218,17 @@
 		<div data-role="main">
 			<div class="scrollable">
 				<form id="add-location-info-form" data-ajax="false" class="form" style="padding:1em">
-						<div class="form-control">
-							<label for="add-location-description" class="form-label">Description</label>
-							<textarea type="text" class="form-input" id="add-location-description" placeholder="Type Description" data-role="none"></textarea>
-						</div>
+					<div class="form-control">
+						<label for="add-location-description" class="form-label">Add a Photo</label>
+						<input type='hidden' id="add-location-photo" data-role="none">
+						<label class="imagepicker imagepicker-replace thumbnail">
+							<input type='file' id="add-location-photo-upload" data-role="none">
+						</label>
+					</div>
+					<div class="form-control">
+						<label for="add-location-description" class="form-label">Description</label>
+						<textarea type="text" class="form-input" id="add-location-description" placeholder="Type Description" data-role="none"></textarea>
+					</div>
 				</form>
 			</div>
 		</div>

@@ -1,11 +1,14 @@
 <?php
-
+ini_set('display_errors', true);
+error_reporting(E_ALL);
 
 include "auth.php";
 function makeConn() {
 	try {
-		return new PDO(...PDOauth());
-	} catch (PDOException $e) {
+		return new \PDO(...PDOauth());
+	} catch (\PDOException $e) {
+		die('{"error":"' . $e->getMessage() . '"}');
+	} catch (Exception $e) {
 		die('{"error":"' . $e->getMessage() . '"}');
 	}
 }
@@ -17,7 +20,7 @@ function print_p($d) {
 /* $r = PDO result */
 function fetchAll($r) {
 	$a = [];
-	while($row = $r->fetch(PDO::FETCH_OBJ)) $a[] = $row;
+	while($row = $r->fetch(\PDO::FETCH_OBJ)) $a[] = $row;
 	return $a;
 }
 
@@ -43,8 +46,12 @@ function makeQuery($c,$ps,$p) {
 			// "params"=>$p,
 			"result"=>$r
 		];
-	} catch (PDOException $e) {
+	} 
+	catch (\PDOException $e) {
 		return ["error"=>"Query Failed: ".$e->getMessage()];
+	} 
+	catch (Exception $e) {
+		return ["error"=>"Error: ".$e->getMessage()];
 	}
 }
 
@@ -77,9 +84,9 @@ function makeStatement($data) {
 	$p = $data->params;
 	
 	switch($t) {
-		case "users_all" : return makeQuery($c,"SELECT * FROM `track_users`",[]);
-		case "animals_all" : return makeQuery($c,"SELECT * FROM `track_animals`",[]);
-		case "locations_all" : return makeQuery($c,"SELECT * FROM `track_locations`",[]);
+		// case "users_all" : return makeQuery($c,"SELECT * FROM `track_users`",[]);
+		// case "animals_all" : return makeQuery($c,"SELECT * FROM `track_animals`",[]);
+		// case "locations_all" : return makeQuery($c,"SELECT * FROM `track_locations`",[]);
 
 		case "user_by_id" : return makeQuery($c,"SELECT id,name,username,email,date_create,img FROM `track_users` WHERE `id`=?",$p);
 		case "animal_by_id" : return makeQuery($c,"SELECT * FROM `track_animals` WHERE `id`=?",$p);
@@ -87,6 +94,7 @@ function makeStatement($data) {
 
 		case "animals_by_user_id" : return makeQuery($c,"SELECT * FROM `track_animals` WHERE `user_id`=?",$p);
 		case "locations_by_animal_id" : return makeQuery($c,"SELECT * FROM `track_locations` WHERE `animal_id`=?",$p);
+		case "locations_by_user_id" : return makeQuery($c,"SELECT l.* FROM `track_animals` a LEFT JOIN `track_locations` l ON a.id = l.animal_id WHERE a.user_id=? ORDER BY l.date_create DESC",$p);
 
 
 		case "check_signin":
@@ -160,7 +168,7 @@ function makeStatement($data) {
 				`track_animals`
 				(`user_id`,`name`, `type`, `breed`, `description`, `img`, `date_create`)
 				VALUES
-				(?, ?, ?, ?, ?, 'https://via.placeholder.com/400/?text=ANIMAL', NOW())
+				(?, ?, ?, ?, ?, ?, NOW())
 				",$p);
 			if(isset($r['error'])) return $r;
 			return ["result"=>$c->lastInsertId()];
@@ -170,7 +178,7 @@ function makeStatement($data) {
 				`track_locations`
 				(`animal_id`,`lat`, `lng`, `description`, `photo`, `icon`, `date_create`)
 				VALUES
-				(?, ?, ?, ?, 'https://via.placeholder.com/400/?text=LOCATION', 'https://via.placeholder.com/40/?text=ICON', NOW())
+				(?, ?, ?, ?, ?, ?, NOW())
 				",$p);
 			if(isset($r['error'])) return $r;
 			return ["result"=>$c->lastInsertId()];
