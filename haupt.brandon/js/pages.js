@@ -24,8 +24,8 @@ const ListPage = async (d = 0) => {
 
 
 
-const RecentPage = async () => {
-    let d = await query({
+const RecentPage = async (d = 0) => {
+    if (!d) d = await query({
         type: "recent_locations",
         params: [sessionStorage.userId]
     });
@@ -73,6 +73,9 @@ const ProfilePage = async () => {
         .html(makeUserProfile(d.result[0]));
 }
 
+
+
+
 const AnimalProfilePage = async () => {
     if (sessionStorage.animalId === undefined) throw ("No resource ID in Storage");
 
@@ -109,6 +112,8 @@ const SettingsProfilePage = async () => {
     $("#settings-profile-page .inputs")
         .html(makeSettingsProfileInputs(d.result[0]));
 }
+
+
 const SettingsAnimalProfilePage = async () => {
     let d = await query({
         type: "resource_by_id",
@@ -135,6 +140,21 @@ const AddLocationPage = async () => {
         }])
     })
 }
+
+
+const SettingsProfileUploadPage = async () => {
+    let d = await query({
+        type: "user_by_id",
+        params: [sessionStorage.userId]
+    });
+
+    $("#settings-profile-upload-form .image-uploader")
+        .css('background-image', `url('${d.result[0].img}')`);
+}
+
+// const ChooseAnimalPage = async = () => {
+
+// }
 
 
 

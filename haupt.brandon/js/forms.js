@@ -5,7 +5,7 @@ const checkListAddForm = () => {
     let description = $("#list-add-description").val();
 
     query({
-        type: 'insert_resource',
+        type: 'insert_animal',
         params: [sessionStorage.userId, name, type, breed, description]
     }).then(d => {
         if (d.error) throw d.error;
@@ -21,13 +21,14 @@ const checkSettingsAnimalProfileForm = () => {
     let animalId = $("#settings-animal-profile-id").val();
 
     query({
-        type: 'update_resource',
+        type: 'update_animal',
         params: [name, type, breed, description, animalId]
     }).then(d => {
         if (d.error) throw d.error;
         window.history.back();
     })
 }
+
 
 const checkSettingsProfileForm = () => {
     let name = $("#settings-profile-name").val();
@@ -63,7 +64,7 @@ const checkAddLocationForm = () => {
 
 const checkAnimalDelete = id => {
     query({
-        type: 'delete_resource',
+        type: 'delete_animal',
         params: [id]
     }).then(d => {
         if (d.error) throw d.error;
@@ -99,7 +100,7 @@ const checkListFilter = ({
     (
         value == "" ?
         query({
-            type: 'animal_by_user_id',
+            type: 'resource_by_user_id',
             params: [sessionStorage.userId]
         }) :
         query({
@@ -112,7 +113,7 @@ const checkListFilter = ({
     })
 }
 
-const checkUpload = (file) => {
+const checkUpload = async (file) => {
     let fd = new FormData();
     fd.append("image", file);
 
@@ -122,14 +123,16 @@ const checkUpload = (file) => {
     }).then(d => d.json())
 }
 
-const checkSettingsProfileUpload = (file) => {
-    let fd = new FormData();
-    fd.append("image", file);
-
-    return fetch('data/api.php', {
-        method: 'POST',
-        body: fd
-    }).then(d => d.json())
+const checkSettingsProfileUpload = async (file) => {
+    let upload = $("#settings-profile-src").val();
+    if (upload == "") return;
+    query({
+        type: 'update_profile_image',
+        params: [upload, sessionStorage.userId]
+    }).then(d => {
+        if (d.error) throw d.error;
+        window.history.back();
+    })
 }
 
 

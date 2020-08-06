@@ -32,7 +32,9 @@ $(() => {
                 case "settings-animal-profile-page":
                     SettingsAnimalProfilePage();
                     break;
-
+                case "settings-profile-upload-page":
+                    SettingsProfileUploadPage();
+                    break;
             }
         })
 
@@ -63,13 +65,13 @@ $(() => {
         })
 
 
-        // Change
+        /* CHANGE */
         .on("change", "#settings-profile-upload-form input", function (e) {
             console.log(e)
             checkUpload(this.files[0])
                 .then(d => {
                     console.log(d)
-                    $("settings-profile-src").val('uploads/${d.result}' + $d.result);
+                    $("#settings-profile-src").val('uploads/' + d.result);
                     $(".image-uploader").css({
                         'background-image': `url('uploads/${d.result}')`
                     })
@@ -98,9 +100,9 @@ $(() => {
             e.preventDefault();
             checkSettingsProfileForm();
         })
-        .on("click", ".js-submit-settings-u", function (e) {
+        .on("click", ".js-submit-settings-profile-upload", function (e) {
             e.preventDefault();
-            checkSettingsProfileForm();
+            checkSettingsProfileUpload();
         })
         .on("click", ".js-submit-add-location", function (e) {
             e.preventDefault();
@@ -110,11 +112,12 @@ $(() => {
             e.preventDefault();
             checkAnimalDelete($(this).data("id"));
         })
+
+
         .on("click", "[data-filter]", function (e) {
             e.preventDefault();
-            checkListFilter(...$(this).data())
+            checkListFilter($(this).data())
         })
-
 
 
 

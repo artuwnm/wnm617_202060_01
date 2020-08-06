@@ -49,6 +49,28 @@ function makeQuery($c,$ps,$p) {
 }
 
 
+
+
+function makeUpload($file,$folder) {
+	$filename = microtime(true) . "_" .
+		$_FILES[$file]['name'];
+
+	if(@move_uploaded_file(
+		$_FILES[$file]['tmp_name'],
+		$folder.$filename
+	)) return ["result"=>$filename];
+	else return [
+		"error"=>"File Upload Failed",
+		"_FILES"=>$_FILES,
+		"filename"=>$filename
+	];
+}
+
+
+
+
+
+
 function makeStatement($data) {
 	$c = makeConn();
 	$t = $data->type;
@@ -85,27 +107,36 @@ function makeStatement($data) {
 				",$p);
 
 
-			case "animal_search" : return makeQuery($c,"SELECT * 
-				FROM `track_resource` 
-				WHERE (
-				`name` LIKE ? OR 
+		case "animal_search" : return makeQuery($c,"SELECT *
+			FROM `track_resources`
+			WHERE (
+				`name` LIKE ? OR
 				`type` LIKE ? OR
-				`breed` LIKE ? 
-				) AND user_id=?", $p);
+				`breed` LIKE ?
+			) AND user_id=?",$p);
 
-			case "animal_recent_search" : return makeQuery($c,"SELECT * 
-				FROM `track_resource` a
-				WHERE (
-				`name` LIKE ? OR 
-				`type` LIKE ? OR
-				`breed` LIKE ? 
-				) AND user_id=?", $p);
+		case "animal_search_recent" : return makeQuery($c,"SELECT
+			a.*, l.*
+			FROM `track_resources` a
+			LEFT JOIN (
+				SELECT * FROM `track_locations`
+				ORDER BY `date_create` DESC
+			) l
+			ON a.id = l.animal_id
+			WHERE (
+				a.name LIKE ? OR
+				a.type LIKE ? OR
+				a.breed LIKE ?
+			) AND a.user_id=?
+			GROUP BY l.animal_id",$p);
 
-			case "animal_recent_search" : return makeQuery($c,"SELECT * 
-				FROM `track_resources` 
-				WHERE (
+
+		case "animal_filter" : return makeQuery($c,"SELECT *
+			FROM `track_resources`
+			WHERE (
 				`$p[0]` LIKE ?
-				) AND user_id=?", [$p[1], $p[2]]);
+			) AND user_id=?",[$p[1],$p[2]]);
+
 
 		// CRUD
 
@@ -124,12 +155,12 @@ function makeStatement($data) {
 			if(isset($r['error'])) return $r;
 			return ["result"=>$c->lastInsertId()];
 
-		case "insert_resource":
+		case "insert_animal":
 			$r = makeQuery($c,"INSERT INTO
 				`track_resources`
 				(`user_id`,`name`, `type`, `breed`, `description`, `img`, `date_create`)
 				VALUES
-				(?, ?, ?, ?, ?, 'https://via.placeholder.com/400/?text=ANIMAL', NOW())
+				(?, ?, ?, ?, ?, 'https://via.placeholder.com/400/?text=RESOURCE', NOW())
 				",$p);
 			if(isset($r['error'])) return $r;
 			return ["result"=>$c->lastInsertId()];
@@ -159,7 +190,7 @@ function makeStatement($data) {
 				",$p);
 			return ["result"=>"success"];
 
-		case "update_resource":
+		case "update_animal":
 			$r = makeQuery($c,"UPDATE
 				`track_resources`
 				SET
@@ -170,12 +201,20 @@ function makeStatement($data) {
 				WHERE `id`=?
 				",$p);
 			return ["result"=>"success"];
+			
+		case "update_profile_image":
+			$r = makeQuery($c,"UPDATE
+				`track_users`
+				SET `img`=?
+				WHERE `id`=?
+				",$p);
+			return ["result"=>"success"];
 
 
 
 
 		// DELETE STATEMENTS
-		case "delete_resource":
+		case "delete_animal":
 			return makeQuery($c,"DELETE FROM `track_resources` WHERE `id`=?",$p);
 		case "delete_location":
 			return makeQuery($c,"DELETE FROM `track_locations` WHERE `id`=?",$p);
@@ -188,31 +227,19 @@ function makeStatement($data) {
 }
 
 
-$data = json_decode(file_get_contents("php://input"));
-
-echo json_encode(
-	makeStatement($data),
-	JSON_NUMERIC_CHECK
-);
-
-
-function makeUpload($file, $folder) {
-	$filename = microtime(true) . "_" . 
-		$_FILES[$file]['name'];
-
-		if(@move_uploaded_file(
-			$_FILES[$file]['tmp_name'],
-			$folder.$filename
-		)) return ["result"=>$filename];
-		else return [
-			"error"=>"File Upload Failed",
-			"_FILES"=>$_FILES,
-			"filename"=>$filename
-		];
-}
 
 
 if(!empty($_FILES)) {
 	$r = makeUpload("image","../uploads/");
 	die(json_encode($r));
 }
+
+
+
+
+$data = json_decode(file_get_contents("php://input"));
+
+echo json_encode(
+	makeStatement($data),
+	JSON_NUMERIC_CHECK
+);

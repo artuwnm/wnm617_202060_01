@@ -113,11 +113,11 @@ const makeSelectOptions = (options, selected) => {
 
 const makeAnimalProfileInputs = (o, namespace = "list-add") => {
 	let types = [
-		['dog', 'Dog'],
-		['cat', 'Cat'],
-		['horse', 'Horse'],
-		['turtle', 'Turtle'],
-		['rabbit', 'Rabbit']
+		['metal', 'Metal'],
+		['tree', 'Tree'],
+		['plant', 'Plant'],
+		['food', 'Food'],
+		['water', 'Water']
 	];
 	return `
 <div class="form-control">
@@ -134,28 +134,26 @@ const makeAnimalProfileInputs = (o, namespace = "list-add") => {
 </div>
 <div class="form-control">
 	<label for="${namespace}-breed" class="form-label">Breed</label>
-	<input type="text" class="form-input" id="${namespace}-breed" placeholder="Type Animal Breed" data-role="none" value="${o.breed}">
+	<input type="text" class="form-input" id="${namespace}-breed" placeholder="Type Resource Breed" data-role="none" value="${o.breed}">
 </div>
 <div class="form-control">
 	<label for="${namespace}-description" class="form-label">Description</label>
-	<textarea class="form-input" id="${namespace}-description" placeholder="Type Animal Description" data-role="none">${o.description}</textarea>
+	<textarea class="form-input" id="${namespace}-description" placeholder="Type Resource Description" data-role="none">${o.description}</textarea>
 </div>`;
 }
 
-
 const filterList = (animals, type) => {
-	let a = [...templater(new Set(animals.map(o => o[type])))];
-	return templater(o => `<li><a href="#" data-filter="${type}" data-value="${type}">${o.type[0].toUpperCase()+o.type.substr(1)}</a></li>`)(a)
+	let a = [...(new Set(animals.map(o => o[type])))];
+	return templater(o => `<li><a href="#" data-filter="${type}" data-value="${o}">${o[0].toUpperCase()+o.substr(1)}</a></li>`)(a)
 }
 
-const listFilter = (animals) => {
+const listFilters = (animals) => {
 	return `
-	<li><a href="#" data-filter="filter" data-value="">All</a>
-	${filterList(animasl, 'type')}
-	${filterList(animas,'breed')}
+	<li><a href="#" data-filter="type" data-value="">All</a></li>
+	${filterList(animals,'type')}
+	${filterList(animals,'breed')}
 	`;
 }
-
 
 
 
