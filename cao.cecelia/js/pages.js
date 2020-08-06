@@ -158,7 +158,7 @@ const SettingsProfileUploadPage = async() => {
 }
 
 const SettingsAlcoholUploadPage = async() => {
-	let d = await query({type:"alcohol_by_id",params:[sessionStorage.userId]});
+	let d = await query({type:"alcohol_by_id",params:[sessionStorage.alcoholId]});
 
 	$("#settings-alcohol-upload-form .image-uploader")
 		.css('background-image',`url('${d.result[0].img}')`);
