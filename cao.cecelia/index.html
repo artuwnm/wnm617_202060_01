@@ -197,7 +197,7 @@
 			</li>
 			<li class="add-new-location-choice">
 				<div class="centered">Add New Location</div>
-				<a href="#add-location-list-page">
+				<a href="#list-add-location-page">
 					<img src="img/location_bg.jpg">
 				</a>
 			</li>
@@ -274,33 +274,28 @@
 
 
 	<!-- Adding Page -->
-	<section data-role="page" id="recent-add-choose-cancel-alcohol-page">
+	<section data-role="page" id="list-add-location-page">
 		<header data-role="header">
-			<h1>Choose Alcohol</h1>
+			<h1>Add New Location</h1>
 			<ul>
 				<li class="flex-none">
-					<a href="#" data-rel="back">Back</a>
+					<a href="#" data-rel="back"><i class="arrow_black arrowleft"></i></a>
 				</li>
 				<li class="flex-stretch"></li>
 				<li class="flex-none">
-					<a href="#add-location-page">Next</a>
+					
 				</li>
 			</ul>
 		</header>
 		<div data-role="main">
 			<div class="scrollable">
-				<form id="recent-add-choose-alcohol-form" data-ajax="false" class="form" style="padding:1em">
-					<a href="#add-alcohol-page">Add New Alcohol</a>
-					<div>Or</div>
-					<div class="form-control">
-						<label for="add-location-alcohol-id" class="form-label">Select Alcohol</label>
-						<select id="add-location-alcohol-id" class="form-input" data-role="none">
-							<option value="1">Wine</option>
-							<option value="22">Beer</option>
-							<option value="13">Gin</option>
-						</select>
-					</div>
-				</form>
+				<div data-role="main">
+
+			
+				<div class="alcohollist"></div>
+        		
+			
+		</div>
 			</div>
 		</div>
 	</section>
@@ -347,7 +342,7 @@
 				</li>
 				<li class="flex-stretch"></li>
 				<li class="flex-none">
-					<a href="#add-location-info-page">Next</a>
+					<a href="#" class="js-submit-add-location-recent">Save</a>
 				</li>
 			</ul>
 		</header>

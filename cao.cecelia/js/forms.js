@@ -70,7 +70,23 @@ const checkAddLocationForm = () => {
 		params:[alcoholId,lat,lng,description]
 	}).then(d=>{
 		if(d.error) throw d.error;
-		window.history.go(-2);
+		window.history.go(-1);
+		// $.mobile.navigate("#alcohol-profile-page");
+	})
+}
+
+const checkAddLocationRecentForm = () => {
+	let lat = +$("#add-location-lat").val();
+	let lng = +$("#add-location-lng").val();
+	let description = $("#add-location-description").val();
+	let alcoholId = sessionStorage.alcoholId;
+
+	query({
+		type:'insert_location',
+		params:[alcoholId,lat,lng,description]
+	}).then(d=>{
+		if(d.error) throw d.error;
+		window.history.go(-3);
 		// $.mobile.navigate("#alcohol-profile-page");
 	})
 }

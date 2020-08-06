@@ -11,6 +11,21 @@ const makeAlcoholList = templater(o=>`
 </div>
 `);
 
+const makeChooseAlcoholList = templater(o=>`
+<div class="alcohollist-item" display-flex flex-justify-center data-id="${o.id}">
+	<a href="#add-location-page" class="">
+		<figure class="alcohol-figure">
+			<div class="alcohol-image">
+				<img src="${o.img}" alt="" class="list-image" />
+			</div>
+					<h4 class="alcohol_name">${o.name}</h4>
+					<p class="alcohol_type">${o.type}</p>
+		</figure>
+	</a>
+</div>
+`);
+
+
 
 
 const makeUserProfile = o =>`

@@ -17,6 +17,18 @@ const ListPage = async(d=0) => {
 	}))
 }
 
+
+const AddingAlcoholLocationPage = async(d=0) => {
+	if(!d) d = await query({type:"alcohols_by_user_id",params:[sessionStorage.userId]})
+
+	$("#list-add-location-page .alcohollist").html(
+		d.result.length ?
+			makeChooseAlcoholList(d.result) :
+			"You need to add some alcohols, jack."
+	);
+
+}
+
 const AddingPage = async() => {
 	let d = await query({type:"user_by_id",params:[sessionStorage.userId]});
 

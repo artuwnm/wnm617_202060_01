@@ -15,6 +15,7 @@ $(()=>{
 			case "alcohol-profile-page": AlcoholProfilePage(); break;
 
 			case "list-add-alcohol-page": AddingPage(); break;
+			case "list-add-location-page": AddingAlcoholLocationPage(); break;
 
 			case "add-location-page": AddLocationPage(); break;
 
@@ -114,7 +115,7 @@ $(()=>{
 		checkSettingsProfileForm();
 	})
 
-	
+
 
 	// .on("click",".js-submit-settings-profile",function(e){
 	// 	e.preventDefault();
@@ -135,6 +136,13 @@ $(()=>{
 		e.preventDefault();
 		checkAddLocationForm();
 	})
+
+	.on("click",".js-submit-add-location-recent",function(e){
+		e.preventDefault();
+		checkAddLocationRecentForm();
+	})
+
+
 	.on("click",".js-delete-alcohol",function(e){
 		e.preventDefault();
 		checkAlcoholDelete($(this).data("id"));
