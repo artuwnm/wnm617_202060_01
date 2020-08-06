@@ -15,7 +15,7 @@ $(()=>{
 	// FORM SUBMISSIONS
 	.on("submit","#signin-form",function(e){
 		e.preventDefault();
-		checkLoginForm();
+		checkSigninForm();
 	})
 	.on("submit","#signup-form",function(e){
 		e.preventDefault();

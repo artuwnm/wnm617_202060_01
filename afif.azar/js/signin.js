@@ -1,5 +1,5 @@
 
-const checkLoginForm = async() => {
+const checkSigninForm = async() => {
 	let user = $("#signin-username").val();
 	let pass = $("#signin-password").val();
 
