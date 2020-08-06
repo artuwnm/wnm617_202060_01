@@ -127,7 +127,7 @@
 								<li><a href="#settings-profile-page">Profile</a></li>
 								<li><a href="#settings-password-page">Privacy</a></li>
 								<li><a href="#" class="js-logout">Settings</a></li>
-								<li><a href="#settings-profile-upload-page">Help</a></li>
+								<li><a href="#">Help</a></li>
 								<li><a href="#">Refer</a></li>
 							</ul>
 						</div>
@@ -175,11 +175,11 @@
 			<h1>Choose Alcohol</h1>
 			<ul>
 				<li class="flex-none">
-					<a href="#" data-rel="back"><i class="arrow_black arrowleft"></i></a>
+					<a href="#" data-rel="back">&#x2715;</a>
 				</li>
 				<li class="flex-stretch"></li>
 				<li class="flex-none">
-					<a href="#add-location-page"><i class="arrow_black arrowright"></i></a>
+					
 				</li>
 			</ul>
 		</header>
@@ -189,7 +189,7 @@
 		<ul class="scrollable choices-image">
 			<li class="add-new-alcohol-choice">
 				<div class="centered">Add New Alcohol</div>
-				<a href="">
+				<a href="#list-add-alcohol-page">
 
 					<img src="img/product.jpg" >
 
@@ -210,6 +210,61 @@
 
 	
 
+	<section data-role="page" id="list-add-alcohol-page">
+		<header data-role="header">
+			<h1>Add New Alcohol</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">&#x2715;</a>
+				</li>
+				<li class="flex-stretch"></li>
+				<li class="flex-none">
+					
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<div class="scrollable">
+				
+			<form data-ajax="false" id="list-add-alcohol-form" >
+				
+				<div class="">
+					<div class="scrollable" style="padding:1em"><div class="inputs"></div></div>
+				</div>
+				<div class="display-flex">
+					<div class="flex-stretch"></div>
+					<div class="flex-none">
+						
+					</div>
+				</div>
+			</form>
+			</div>
+
+		</div>
+
+	<!-- <div class="modal" id="list-add-alcohol-modal">
+			<div class="modal-back" data-deactivate="#list-add-alcohol-modal"></div>
+			<form data-ajax="false" id="list-add-alcohol-form" class="modal-popup">
+				<div class="modal-head display-flex">
+					<div class="flex-none">
+						<a href="#" data-deactivate="#list-add-alcohol-modal">Cancel</a>
+					</div>
+					<div class="flex-stretch">
+						<h1>Add Animal</h1>
+					</div>
+				</div>
+				<div class="modal-body">
+					<div class="scrollable" style="padding:1em"><div class="inputs"></div></div>
+				</div>
+				<div class="modal-foot display-flex">
+					<div class="flex-stretch"></div>
+					<div class="flex-none">
+						<input type="submit" value="Save" class="chromeless" data-role="none" data-deactivate="#list-add-alcohol-modal">
+					</div>
+				</div>
+			</form>
+		</div> -->
+	</section>
 
 
 	
@@ -219,7 +274,7 @@
 
 
 	<!-- Adding Page -->
-	<section data-role="page" id="recent-add-choose-alcohol-page">
+	<section data-role="page" id="recent-add-choose-cancel-alcohol-page">
 		<header data-role="header">
 			<h1>Choose Alcohol</h1>
 			<ul>
@@ -369,9 +424,9 @@
 		</div>
 		<footer data-role="footer" data-template="#footer-template"></footer>
 		
-		<div class="modal" id="list-add-alcohol-modal">
+		<!-- <div class="modal" id="list-add-alcohol-modal">
 			<div class="modal-back" data-deactivate="#list-add-alcohol-modal"></div>
-			<form data-ajax="false" id="list-add-form" class="modal-popup">
+			<form data-ajax="false" id="list-add-alcohol-form" class="modal-popup">
 				<div class="modal-head display-flex">
 					<div class="flex-none">
 						<a href="#" data-deactivate="#list-add-alcohol-modal">Cancel</a>
@@ -391,12 +446,13 @@
 				</div>
 			</form>
 		</div>
-	
+	 -->
 	</section>
 	
 
 
 	<section data-role="page" id="alcohol-profile-page">
+
 		<div data-role="main">
 			
 			<div class="profile display-flex">
@@ -404,11 +460,14 @@
 					
 				
 				</div>
+
 				<div class="profile-map">
+
 					<div class="map"></div>
 					<div class="anchor bottom right">
 						<a href="#add-location-page" class="circle">+</a>
 					</div>
+
 				</div>
 			</div>
 
@@ -559,14 +618,14 @@
 
 	<section data-role="page" id="settings-password-page">
 		<header data-role="header">
-			<h1>Change Password</h1>
+			<h1>Change Passwords</h1>
 			<ul>
 				<li class="flex-none">
-					<a href="#" data-rel="back">Cancel</a>
+					<a href="#" data-rel="back">&#x2715;</a>
 				</li>
 				<li class="flex-stretch"></li>
 				<li class="flex-none">
-					<a href="#" data-rel="back">Commit</a>
+					
 				</li>
 			</ul>
 		</header>
@@ -586,8 +645,10 @@
 						<input id="settings-change-password-3" type="password" class="form-input" data-role="none">
 					</div>
 				</form>
+				<a href="#" data-rel="back" class="form-button">Commit</a>
 			</div>
 		</div>
+
 	</section>
 
 	<section data-role="page" id="settings-profile-page">
@@ -595,11 +656,11 @@
 			<h1>Profile Info</h1>
 			<ul>
 				<li class="flex-none">
-					<a href="#" data-rel="back">Cancel</a>
+					<a href="#" data-rel="back">&#x2715;</a>
 				</li>
 				<li class="flex-stretch"></li>
 				<li class="flex-none">
-					<a href="#" class="js-submit-settings-profile">Save</a>
+					
 				</li>
 			</ul>
 		</header>
@@ -610,7 +671,10 @@
 					<div class="inputs"></div>
 				</form>
 			</div>
+
 		</div>
+
+
 	</section>
 
 
@@ -685,25 +749,33 @@
 
 	<section data-role="page" id="settings-alcohol-profile-page">
 		<header data-role="header">
-			<h1>Alcohol Info</h1>
+			<h1>Edit Alcohol Info</h1>
 			<ul>
 				<li class="flex-none">
-					<a href="#" data-rel="back">Cancel</a>
+					<a href="#" data-rel="back">&#x2715;</a>
 				</li>
 				<li class="flex-stretch"></li>
 				<li class="flex-none">
-					<a href="#" class="js-submit-settings-alcohol-profile">Save</a>
+					
 				</li>
 			</ul>
 		</header>
+		
 		<div data-role="main">
 			<div class="scrollable">
 				<form id="settings-alcohol-profile-form" data-ajax="false" class="form" style="padding:1em">
 					<input type="hidden" id="settings-alcohol-profile-id">
 					<div class="inputs"></div>
 				</form>
+
+
+
+				<div class="anchor middle right"><a href="#settings-alcohol-upload-page" class="circle_red" ><img src="img/edit_change.svg" style="width: 20px;"></a></div>
+				
 			</div>
+
 		</div>
+
 	</section>
 
 	<script type="text/template" id="footer-template">

@@ -1,3 +1,18 @@
+// const checkListAddForm = () => {
+// 	let name = $("#list-add-name").val();
+// 	let type = $("#list-add-type").val();
+// 	let alcoholpercent = $("#list-add-alcoholpercent").val();
+// 	let description = $("#list-add-description").val();
+
+// 	query({
+// 		type:'insert_alcohol',
+// 		params:[sessionStorage.userId,name,type,alcoholpercent,description]
+// 	}).then(d=>{
+// 		if(d.error) throw d.error;
+// 		ListPage();
+// 	})
+// }
+
 const checkListAddForm = () => {
 	let name = $("#list-add-name").val();
 	let type = $("#list-add-type").val();
@@ -9,7 +24,7 @@ const checkListAddForm = () => {
 		params:[sessionStorage.userId,name,type,alcoholpercent,description]
 	}).then(d=>{
 		if(d.error) throw d.error;
-		ListPage();
+		window.history.go(-2);
 	})
 }
 

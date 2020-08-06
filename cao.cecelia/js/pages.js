@@ -9,7 +9,18 @@ const ListPage = async(d=0) => {
 
 	$("#list-page .list-filters").html(listFilters(d.result));
 
-	$("#list-add-form .inputs").html(makeAlcoholProfileInputs({
+	$("#list-add-alcohol-form .inputs").html(makeAddAlcoholProfileInputs({
+		name:'',
+		type:'',
+		alcoholpercent:'',
+		description:''
+	}))
+}
+
+const AddingPage = async() => {
+	let d = await query({type:"user_by_id",params:[sessionStorage.userId]});
+
+	$("#list-add-alcohol-form .inputs").html(makeAddAlcoholProfileInputs({
 		name:'',
 		type:'',
 		alcoholpercent:'',

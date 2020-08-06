@@ -14,6 +14,8 @@ $(()=>{
 			case "profile-page": ProfilePage(); break;
 			case "alcohol-profile-page": AlcoholProfilePage(); break;
 
+			case "list-add-alcohol-page": AddingPage(); break;
+
 			case "add-location-page": AddLocationPage(); break;
 
 			case "settings-profile-page": SettingsProfilePage(); break;
@@ -21,7 +23,7 @@ $(()=>{
 
 
 			case "settings-profile-upload-page": SettingsProfileUploadPage(); break;
-			
+
 			case "settings-alcohol-upload-page": SettingsAlcoholUploadPage(); break;
 		}
 	})
@@ -41,6 +43,10 @@ $(()=>{
 		checkSignupForm();
 	})
 	.on("submit","#list-add-form",function(e){
+		e.preventDefault();
+		checkListAddForm();
+	})
+	.on("submit","#list-add-alcohol-form",function(e){
 		e.preventDefault();
 		checkListAddForm();
 	})
@@ -98,15 +104,22 @@ $(()=>{
 		checkSettingsAlcoholProfileForm();
 	})
 
-	.on("click",".js-submit-settings-profile",function(e){
+	.on("click",".js-submit-adding-alcohol-profile",function(e){
 		e.preventDefault();
-		checkSettingsProfileForm();
+		checkListAddForm();
 	})
 
 	.on("click",".js-submit-settings-profile",function(e){
 		e.preventDefault();
 		checkSettingsProfileForm();
 	})
+
+	
+
+	// .on("click",".js-submit-settings-profile",function(e){
+	// 	e.preventDefault();
+	// 	checkSettingsProfileForm();
+	// })
 
 	.on("click",".js-submit-settings-profile-upload",function(e){
 		e.preventDefault();
@@ -126,6 +139,7 @@ $(()=>{
 		e.preventDefault();
 		checkAlcoholDelete($(this).data("id"));
 	})
+
 
 
 	.on("click","[data-filter]",function(e){

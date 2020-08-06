@@ -65,9 +65,7 @@ const makeAlcoholProfile = o=>`
 			
 			
 			</div>
-<a href="#" class="form-button js-delete-alcohol" data-id="${o.id}">Delete</a>
 
-<a href="#settings-alcohol-upload-page" class="form-button" >Upload</a>
 
 `;
 
@@ -93,6 +91,15 @@ const makeRecentProfile = o=>`
 
 // Typing out everything is fine
 const makeSettingsProfileInputs = (o,namespace="settings-profile") => `
+
+<div class="flex-none" style="text-align:center">
+				<img src="${o.img}" alt="" class="userimage" id="profilephoto">
+</div>
+<div class="anchor center">
+<a href="#settings-profile-upload-page" class="circle_red" >
+<img src="img/edit_change.svg" style="width: 20px;"></a>
+</div>
+
 <div class="form-control">
 	<label for="${namespace}-name" class="form-label">Name</label>
 	<input id="${namespace}-name" type="text" class="form-input" data-role="none" value="${o.name}">
@@ -104,10 +111,13 @@ const makeSettingsProfileInputs = (o,namespace="settings-profile") => `
 <div class="form-control">
 	<label for="${namespace}-email" class="form-label">Email</label>
 	<input id="${namespace}-email" type="text" class="form-input" data-role="none" value="${o.email}">
-</div>`;
+</div>
+<a href="#" class="js-submit-settings-profile form-button">Update</a>
+`;
 
 // You can also break things into their smaller reusable parts
 const makeSettingsAlcoholProfileInputs = (o,namespace="settings-alcohol-profile") => `
+
 ${FormControl({namespace:namespace,label:"Name",name:"name",value:o.name})}
 ${FormControl({namespace:namespace,label:"Type",name:"type",value:o.type})}
 ${FormControl({namespace:namespace,label:"Alcohol Percent",name:"alcoholpercent",value:o.alcoholpercent})}`;
@@ -137,6 +147,9 @@ let types = [
 	['tequila','Tequila']
 ];
 return `
+<div class="alcohol-profile-image">
+	<img src="${o.img}" alt=""/>
+	</div>
 <div class="form-control">
 	<label for="${namespace}-name" class="form-label">Name</label>
 	<input type="text" class="form-input" id="${namespace}-name" placeholder="Type Alcohol Name" data-role="none" value="${o.name}">
@@ -156,7 +169,53 @@ return `
 <div class="form-control">
 	<label for="${namespace}-description" class="form-label">Description</label>
 	<textarea class="form-input" id="${namespace}-description" placeholder="Type Alcohol Description" data-role="none">${o.description}</textarea>
-</div>`;
+</div>
+	<div class="form-control display-flex info-control">
+				<div class="flex-none">
+					<a href="#" class="js-submit-settings-alcohol-profile form-button">Save</a>
+				</div>
+				<div class="flex-stretch"></div>
+				<div class="flex-none">
+					<a href="#" class="form-button grey js-delete-alcohol" data-id="${o.id}">Delete</a>
+				</div>
+			</div>
+
+`;
+}
+
+const makeAddAlcoholProfileInputs = (o,namespace="list-add") => {
+let types = [
+	['wine','Wine'],
+	['beer','Beer'],
+	['gin','Gin'],
+	['vodka','Vodka'],
+	['tequila','Tequila']
+];
+return `
+
+<div class="form-control">
+	<label for="${namespace}-name" class="form-label">Name</label>
+	<input type="text" class="form-input" id="${namespace}-name" placeholder="Type Alcohol Name" data-role="none" value="${o.name}">
+</div>
+<div class="form-control">
+	<label for="${namespace}-type" class="form-label">Type</label>
+	<div class="form-select">
+		<select id="${namespace}-type" data-role="none">
+			${makeSelectOptions(types,o.type)}
+		</select>
+	</div>
+</div>
+<div class="form-control">
+	<label for="${namespace}-alcoholpercent" class="form-label">alcoholpercent</label>
+	<input type="text" class="form-input" id="${namespace}-alcoholpercent" placeholder="Type Alcohol Percent" data-role="none" value="${o.alcoholpercent}">
+</div>
+<div class="form-control">
+	<label for="${namespace}-description" class="form-label">Description</label>
+	<textarea class="form-input" id="${namespace}-description" placeholder="Type Alcohol Description" data-role="none">${o.description}</textarea>
+</div>
+	<button type="submit" class="js-submit-adding-alcohol-profile form-button" value="Save" data-role="none">Save</button>
+
+`;
 }
 
 
@@ -169,7 +228,7 @@ const listFilters = (alcohols) => {
 	return `
 	<li><a href="#" data-filter="type" data-value="">All</a></li>
 	${filterList(alcohols,'type')}
-	${filterList(alcohols,'alcoholpercent')}
+	
 	`;
 }
 
