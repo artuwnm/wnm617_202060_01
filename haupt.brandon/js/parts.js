@@ -29,11 +29,11 @@ const makeAnimalProfile = o => `
 	<div class="flex-none">
 		<img src="${o.img}" alt="" />
 	</div>
-	<div>
+	<div class="something">
 		<div><strong>${o.name}</strong></div>
 		<div>${o.type}</div>
 		<div>${o.breed}</div>
-		<div class="display-flex">
+		<div class="display-flex buttons">
 			<div class="flex-none">
 				<button data-toggle=".profile-head" class="form-button">More</button>
 			</div>

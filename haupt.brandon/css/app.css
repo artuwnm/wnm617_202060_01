@@ -235,6 +235,12 @@ a {
 
 /* FORMS */
 
+.something {
+  margin: 1em;
+}
+
+
+
 .form-control {
   margin: 1em 0;
 }
@@ -274,6 +280,7 @@ a {
   outline: 0;
   color: white;
 }
+
 
 .form-button:active {
   background-color: var(--color-main-light);
@@ -685,6 +692,11 @@ header .hotdog {
   display: flex;
   flex-direction: column;
   height: 100%;
+}
+
+.profile h2,
+.profile-body {
+  text-align: center;
 }
 
 .profile-head {
