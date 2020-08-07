@@ -1,6 +1,7 @@
 const makeAnimalList = templater(o=>`
 <div class="animallist-item display-flex animal-jump" data-id="${o.id}">
-	<div class="flex-none"><img src="${o.img}" alt="" class="list-image" /></div>
+	<div class="flex-none">
+	<img src="${o.img}" alt="" class="list-image" /></div>
 	<div class="flex-stretch animallist-body">
 		<div>${o.name}</div>
 		<div>${o.breed}</div>
