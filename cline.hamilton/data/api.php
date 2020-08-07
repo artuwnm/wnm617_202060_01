@@ -30,7 +30,7 @@ $c = connection
 $ps = prepared statement
 $p = parameters
 */
-function makeQuery($c,$ps,$p) {
+function makeQuery($c,$ps,$p,$makeResults=true) {
 	try{
 		if(count($p)) {
 			$stmt = $c->prepare($ps);
@@ -38,7 +38,8 @@ function makeQuery($c,$ps,$p) {
 		} else {
 			$stmt = $c->query($ps);
 		}
-		$r = fetchAll($stmt);
+
+		$r = $makeResults ? fetchAll($stmt) : [];
 
 		return [
 			// "statement"=>$ps,
@@ -155,7 +156,7 @@ function makeStatement($data) {
 				(`username`, `email`, `password`, `img`, `date_create`)
 				VALUES
 				(?, ?, md5(?), 'https://via.placeholder.com/400/?text=USER', NOW())
-				",$p);
+				",$p,false);
 			if(isset($r['error'])) return $r;
 			return ["result"=>$c->lastInsertId()];
 
@@ -165,7 +166,7 @@ function makeStatement($data) {
 				(`user_id`,`name`, `type`, `breed`, `description`, `img`, `date_create`)
 				VALUES
 				(?, ?, ?, ?, ?, ?, NOW())
-				",$p);
+				",$p,false);
 			if(isset($r['error'])) return $r;
 			return ["result"=>$c->lastInsertId()];
 
@@ -175,7 +176,7 @@ function makeStatement($data) {
 				(`animal_id`,`lat`, `lng`, `description`, `photo`, `icon`, `date_create`)
 				VALUES
 				(?, ?, ?, ?, ?, ?, NOW())
-				",$p);
+				",$p,false);
 			if(isset($r['error'])) return $r;
 			return ["result"=>$c->lastInsertId()];
 
@@ -191,7 +192,7 @@ function makeStatement($data) {
 					`username`=?,
 					`email`=?
 				WHERE `id`=?
-				",$p);
+				",$p,false);
 			return ["result"=>"success"];
 
 		case "update_animal":
@@ -203,7 +204,7 @@ function makeStatement($data) {
 					`breed`=?,
 					`description`=?
 				WHERE `id`=?
-				",$p);
+				",$p,false);
 			return ["result"=>"success"];
 			
 		case "update_profile_image":
@@ -211,7 +212,7 @@ function makeStatement($data) {
 				`track_users`
 				SET `img`=?
 				WHERE `id`=?
-				",$p);
+				",$p,false);
 			return ["result"=>"success"];
 
 
@@ -219,9 +220,9 @@ function makeStatement($data) {
 
 		// DELETE STATEMENTS
 		case "delete_animal":
-			return makeQuery($c,"DELETE FROM `track_animals` WHERE `id`=?",$p);
+			return makeQuery($c,"DELETE FROM `track_animals` WHERE `id`=?",$p,false);
 		case "delete_location":
-			return makeQuery($c,"DELETE FROM `track_locations` WHERE `id`=?",$p);
+			return makeQuery($c,"DELETE FROM `track_locations` WHERE `id`=?",$p,false);
 
 
 
