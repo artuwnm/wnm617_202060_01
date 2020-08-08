@@ -18,13 +18,15 @@ const checkListAddForm = () => {
 	let type = $("#list-add-type").val();
 	let alcoholpercent = $("#list-add-alcoholpercent").val();
 	let description = $("#list-add-description").val();
+	let img = $("#list-add-photo").val()!=''?$("#list-add-photo").val():'https://via.placeholder.com/400/?text=ALCOHOL';
 
 	query({
 		type:'insert_alcohol',
-		params:[sessionStorage.userId,name,type,alcoholpercent,description]
+		params:[sessionStorage.userId,name,type,alcoholpercent,description,img]
 	}).then(d=>{
 		if(d.error) throw d.error;
-		window.history.go(-2);
+		sessionStorage.alcoholId = d.result;
+		$.mobile.navigate("#list-page");
 	})
 }
 
@@ -48,11 +50,13 @@ const checkSettingsProfileForm = () => {
 	let name = $("#settings-profile-name").val();
 	let username = $("#settings-profile-username").val();
 	let email = $("#settings-profile-email").val();
+	let phone = $("#settings-profile-phone").val();
+	let favoritealcohol = $("#settings-profile-favoritealcohol").val();
 	let userId = $("#settings-profile-id").val();
 
 	query({
 		type:'update_user',
-		params:[name,username,email,userId]
+		params:[name,username,email,phone,favoritealcohol,valid_alcoholsuserId]
 	}).then(d=>{
 		if(d.error) throw d.error;
 		window.history.back();
@@ -63,15 +67,17 @@ const checkAddLocationForm = () => {
 	let lat = +$("#add-location-lat").val();
 	let lng = +$("#add-location-lng").val();
 	let description = $("#add-location-description").val();
+	
+	let icon = 'img/drink.svg';
 	let alcoholId = sessionStorage.alcoholId;
 
 	query({
 		type:'insert_location',
-		params:[alcoholId,lat,lng,description]
+		params:[alcoholId,lat,lng,description,icon]
 	}).then(d=>{
 		if(d.error) throw d.error;
-		window.history.go(-1);
-		// $.mobile.navigate("#alcohol-profile-page");
+		// window.history.go(-2);
+		$.mobile.navigate("#recent-page");
 	})
 }
 
@@ -79,15 +85,17 @@ const checkAddLocationRecentForm = () => {
 	let lat = +$("#add-location-lat").val();
 	let lng = +$("#add-location-lng").val();
 	let description = $("#add-location-description").val();
+	let photo = $("#add-location-photo").val();
+	let icon = 'img/icons/map.svg';
 	let alcoholId = sessionStorage.alcoholId;
 
 	query({
 		type:'insert_location',
-		params:[alcoholId,lat,lng,description]
+		params:[alcoholId,lat,lng,description,photo,icon]
 	}).then(d=>{
 		if(d.error) throw d.error;
-		window.history.go(-3);
-		// $.mobile.navigate("#alcohol-profile-page");
+		// window.history.go(-2);
+		$.mobile.navigate("#recent-page");
 	})
 }
 

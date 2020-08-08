@@ -13,7 +13,7 @@ const makeAlcoholList = templater(o=>`
 
 const makeChooseAlcoholList = templater(o=>`
 <div class="alcohollist-item" display-flex flex-justify-center data-id="${o.id}">
-	<a href="#add-location-page" class="">
+	<a href="#add-location-page" data-id="${o.id}">
 		<figure class="alcohol-figure">
 			<div class="alcohol-image">
 				<img src="${o.img}" alt="" class="list-image" />
@@ -40,7 +40,6 @@ const makeUserProfile = o =>`
 `;
 
 const makeAlcoholProfile = o=>`
-
 <header data-role="header">
 			<ul>
 				<li class="flex-none">
@@ -57,10 +56,6 @@ const makeAlcoholProfile = o=>`
 		<img src="${o.img}" alt=""/>
 	</div>
 		</header>
-
-
-
-
 <div class="display-flex flex-justify-center" style="padding:1em">
 				
 				<table cellspacing="15" class="confirmationtable" style="margin: 1em auto; ">
@@ -83,16 +78,11 @@ const makeAlcoholProfile = o=>`
 			</table>	
 			
 			</div>
-
 			
-
-
-
 <button data-toggle=".profile-head" class="form-button">Description</button>
 			<div class="profile-head">
 				${o.description}
 			</div>
-
 `;
 
 
@@ -108,8 +98,6 @@ const makeRecentProfile = o=>`
 	</div>
 </div>
 `;
-
-
 
 
 
@@ -137,6 +125,14 @@ const makeSettingsProfileInputs = (o,namespace="settings-profile") => `
 <div class="form-control">
 	<label for="${namespace}-email" class="form-label">Email</label>
 	<input id="${namespace}-email" type="text" class="form-input" data-role="none" value="${o.email}">
+</div>
+<div class="form-control">
+	<label for="${namespace}-phone" class="form-label">Phone</label>
+	<input id="${namespace}-phone" type="text" class="form-input" data-role="none" value="${o.phone}">
+</div>
+<div class="form-control">
+	<label for="${namespace}-favoritealcohol" class="form-label">Favorite Alcohol</label>
+	<input id="${namespace}-favoritealcohol" type="text" class="form-input" data-role="none" value="${o.favoritealcohol}">
 </div>
 <a href="#" class="js-submit-settings-profile form-button">Update</a>
 `;
@@ -218,7 +214,13 @@ let types = [
 	['tequila','Tequila']
 ];
 return `
-
+<div class="form-control">
+	<label for="${namespace}-description" class="form-label">Add a Photo</label>
+	<input type='hidden' id="${namespace}-photo" data-role="none">
+	<label class="imagepicker imagepicker-replace thumbnail">
+		<input type='file' id="${namespace}-photo-upload" data-role="none">
+	</label>
+</div>
 <div class="form-control">
 	<label for="${namespace}-name" class="form-label">Name</label>
 	<input type="text" class="form-input" id="${namespace}-name" placeholder="Type Alcohol Name" data-role="none" value="${o.name}">

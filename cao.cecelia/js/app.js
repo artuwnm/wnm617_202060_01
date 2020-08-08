@@ -11,7 +11,7 @@ $(()=>{
 		switch(ui.toPage[0].id) {
 			case "recent-page": RecentPage(); break;
 			case "list-page": ListPage(); break;
-			case "profile-page": ProfilePage(); break;
+			
 			case "alcohol-profile-page": AlcoholProfilePage(); break;
 
 			case "list-add-alcohol-page": AddingPage(); break;
@@ -26,11 +26,23 @@ $(()=>{
 			case "settings-profile-upload-page": SettingsProfileUploadPage(); break;
 
 			case "settings-alcohol-upload-page": SettingsAlcoholUploadPage(); break;
+			// case "user-profile-modal": ProfilePage(); break;
+
 		}
 	})
 
 
-
+	.on("change","#list-add-photo-upload",function(e){
+		console.log(e)
+		checkUpload(this.files[0])
+		.then(d=>{
+			console.log(d)
+			$("#list-add-photo").val('uploads/'+d.result);
+			$("#add-location-info-form .imagepicker")
+      		.addClass("picked")
+      		.css({'background-image':`url('uploads/${d.result}')`})
+		})
+	})
 
 
 	
@@ -142,7 +154,10 @@ $(()=>{
 		checkAddLocationRecentForm();
 	})
 
-
+	.on("click",".js-submit-recent-add-alcohol",function(e){
+		e.preventDefault();
+		checkRecentAddForm();
+	})
 	.on("click",".js-delete-alcohol",function(e){
 		e.preventDefault();
 		checkAlcoholDelete($(this).data("id"));

@@ -51,14 +51,21 @@ const AddingPage = async() => {
 // 		.html(makeAnimalList(d.result))
 // }
 
+const RecentPage = async() => {
+	// if(sessionStorage.alcoholId===undefined) throw("No alcohol ID in Storage");
+
+	
+	let profile = await query({type:"user_by_id",params:[sessionStorage.userId]})
+
+	$("#user-profile-modal .profile")
+				.html(makeUserProfile(profile.result[0]));
 
 
-const RecentPage = async(d=0) => {
-	if(!d) d = await query({type:"recent_locations",params:[sessionStorage.userId]});
 
+	let locations = await query({type:"recent_locations",params:[sessionStorage.userId]})
 	let map_el = await makeMap("#recent-page .map");
 
-	let valid_alcohols = d.result.reduce((r,o)=>{
+	let valid_alcohols = locations.result.reduce((r,o)=>{
 		o.icon = o.img;
 		if(o.lat && o.lng) r.push(o);
 		return r;
@@ -73,21 +80,46 @@ const RecentPage = async(d=0) => {
 			// INFOWINDOW EXAMPLE
 			map_el.data("infoWindow").open(map_el.data("map"),o);
 			map_el.data("infoWindow").setContent(makeRecentProfile(valid_alcohols[i]))
-
-			// SIMPLE NAVIGATION
-			// sessionStorage.alcoholId = valid_alcohols[i].alcohol_id;
-			// $.mobile.navigate("#alcohol-profile-page");
-
-			// DRAWER EXAMPLE
-			// $("#recent-profile-drawer")
-			// 	.toggleClass("active")
-			// 	.find(".modal-body").html(makeRecentProfile(valid_alcohols[i]))
-		})
+})
 	});
 }
 
+// const RecentPage = async(d=0) => {
+// 	if(!d) d = await query({type:"recent_locations",params:[sessionStorage.userId]});
+
+
+// 	let map_el = await makeMap("#recent-page .map");
+
+// 	let valid_alcohols = d.result.reduce((r,o)=>{
+// 		o.icon = o.img;
+// 		if(o.lat && o.lng) r.push(o);
+// 		return r;
+// 	},[]);
+
+
+// 	makeMarkers(map_el,valid_alcohols);
+
+// 	map_el.data("markers").forEach((o,i)=>{
+// 		o.addListener("click",function(){
+// 			// INFOWINDOW EXAMPLE
+// 			map_el.data("infoWindow").open(map_el.data("map"),o);
+// 			map_el.data("infoWindow").setContent(makeRecentProfile(valid_alcohols[i]))
+
+// 			// SIMPLE NAVIGATION
+// 			// sessionStorage.alcoholId = valid_alcohols[i].alcohol_id;
+// 			// $.mobile.navigate("#alcohol-profile-page");
+
+// 			// DRAWER EXAMPLE
+// 			// $("#recent-profile-drawer")
+// 			// 	.toggleClass("active")
+// 			// 	.find(".modal-body").html(makeRecentProfile(valid_alcohols[i]))
+// 		})
+// 	});
+// }
+
 const ProfilePage = async() => {
 	let d = await query({type:"user_by_id",params:[sessionStorage.userId]});
+	
 
 	$("#user-profile-modal .profile")
 				.html(makeUserProfile(d.result[0]));
@@ -101,6 +133,24 @@ const ProfilePage = async() => {
 // 	$("#profile-page .profile")
 // 		.html(makeUserProfile(d.result[0]));
 // }
+
+// const AlcoholProfilePage = async() => {
+// 	if(sessionStorage.alcoholId===undefined) throw("No alcohol ID in Storage");
+
+// 	query({type:"alcohol_by_id",params:[sessionStorage.alcoholId]})
+// 	.then(d=>{
+// 		$("#alcohol-profile-page .profile-content")
+// 			.html(makeAlcoholProfile(d.result[0]));
+// 	});
+
+// 	query({type:"locations_by_alcohol_id",params:[sessionStorage.alcoholId]})
+// 	.then(async (d)=>{
+// 		let map_el = await makeMap("#alcohol-profile-page .map");
+
+// 		makeMarkers(map_el,d.result);
+// 	});
+// }
+
 
 const AlcoholProfilePage = async() => {
 	if(sessionStorage.alcoholId===undefined) throw("No alcohol ID in Storage");
@@ -118,7 +168,6 @@ const AlcoholProfilePage = async() => {
 		makeMarkers(map_el,d.result);
 	});
 }
-
 
 
 

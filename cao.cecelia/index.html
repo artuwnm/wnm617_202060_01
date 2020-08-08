@@ -177,7 +177,7 @@
 			<h1>Choose Alcohol</h1>
 			<ul>
 				<li class="flex-none">
-					<a href="#" data-rel="back">&#x2715;</a>
+					<a href="#" data-rel="back"><i class="arrow_black arrowleft"></i></a>
 				</li>
 				<li class="flex-stretch"></li>
 				<li class="flex-none">
@@ -217,7 +217,7 @@
 			<h1>Add New Alcohol</h1>
 			<ul>
 				<li class="flex-none">
-					<a href="#" data-rel="back">&#x2715;</a>
+					<a href="#" data-rel="back"><i class="arrow_black arrowleft"></i></a>
 				</li>
 				<li class="flex-stretch"></li>
 				<li class="flex-none">
@@ -225,7 +225,9 @@
 				</li>
 			</ul>
 		</header>
+		
 		<div data-role="main">
+			
 			<div class="scrollable">
 				
 			<form data-ajax="false" id="list-add-alcohol-form" >
@@ -244,28 +246,7 @@
 
 		</div>
 
-	<!-- <div class="modal" id="list-add-alcohol-modal">
-			<div class="modal-back" data-deactivate="#list-add-alcohol-modal"></div>
-			<form data-ajax="false" id="list-add-alcohol-form" class="modal-popup">
-				<div class="modal-head display-flex">
-					<div class="flex-none">
-						<a href="#" data-deactivate="#list-add-alcohol-modal">Cancel</a>
-					</div>
-					<div class="flex-stretch">
-						<h1>Add Animal</h1>
-					</div>
-				</div>
-				<div class="modal-body">
-					<div class="scrollable" style="padding:1em"><div class="inputs"></div></div>
-				</div>
-				<div class="modal-foot display-flex">
-					<div class="flex-stretch"></div>
-					<div class="flex-none">
-						<input type="submit" value="Save" class="chromeless" data-role="none" data-deactivate="#list-add-alcohol-modal">
-					</div>
-				</div>
-			</form>
-		</div> -->
+
 	</section>
 
 
@@ -344,7 +325,7 @@
 				</li>
 				<li class="flex-stretch"></li>
 				<li class="flex-none">
-					<a href="#" class="js-submit-add-location-recent">Save</a>
+					<a href="#" class="js-submit-add-location">Save</a>
 				</li>
 			</ul>
 		</header>
@@ -384,17 +365,7 @@
 
 	<!-- List Page -->
 	<section data-role="page" id="list-page">
-		<!-- <header data-role="header"> -->
-			<!-- <h1>Animal List</h1>
-			<ul>
-				<li class="flex-stretch"></li>
-				<li class="flex-none">
-					<a href="#" data-activate="#list-add-animal-modal">&plus;</a>
-				</li>
-			</ul> -->
-			<!-- <div class="searchstyle">
-				<input type="search" class="searchbar" placeholder="Search" data-role="none">
-			</div> -->
+		
 		<header data-role="header">
 		
 				<div class="">
@@ -419,29 +390,6 @@
 		</div>
 		<footer data-role="footer" data-template="#footer-template"></footer>
 		
-		<!-- <div class="modal" id="list-add-alcohol-modal">
-			<div class="modal-back" data-deactivate="#list-add-alcohol-modal"></div>
-			<form data-ajax="false" id="list-add-alcohol-form" class="modal-popup">
-				<div class="modal-head display-flex">
-					<div class="flex-none">
-						<a href="#" data-deactivate="#list-add-alcohol-modal">Cancel</a>
-					</div>
-					<div class="flex-stretch">
-						<h1>Add Animal</h1>
-					</div>
-				</div>
-				<div class="modal-body">
-					<div class="scrollable" style="padding:1em"><div class="inputs"></div></div>
-				</div>
-				<div class="modal-foot display-flex">
-					<div class="flex-stretch"></div>
-					<div class="flex-none">
-						<input type="submit" value="Save" class="chromeless" data-role="none" data-deactivate="#list-add-alcohol-modal">
-					</div>
-				</div>
-			</form>
-		</div>
-	 -->
 	</section>
 	
 
@@ -472,144 +420,8 @@
 
 
 
-	<!-- PROFILE PAGE -->
-	<section data-role="page" id="profile-page">
-		<div data-role="main">
-			<div class="profile">
-			
-			</div>
 
-			<a class="settings" href="#settings-page">
-				<img src="img/icons/shishkabob.svg" alt="" class="icon">
-			</a>
-		</div>
-
-		<a href="#" class="js-logout ui-link">Logout</a>
-
-		<footer data-role="footer" data-template="#footer-template"></footer>
-	</section>
-	
-	<!-- Editing Product Page -->
-	<section data-role="page" id="edit-product">
-		
-		<!-- <header data-role="header" class="addinfo"> -->
-			<!-- <h1>Animal Profile</h1> -->
-			<!-- <ul>
-				<li class="flex-none">
-					<a href="#" data-rel="back"><i class="arrow_black left" style="color:black"></i></a>
-				</li>
-			</ul>
-			
-			<div class="addthumbnail">
-			<h1>+</h1>
-			</div>
-
-		</header> -->
-		<div class="profileinfo">
-				<a href="#" data-rel="back" class="ui-link"><i class="arrow_white left"></i></a>
-				<a class="settings ui-link" href="#edit-product">
-				<!-- <img src="img/edit.svg" alt="" class="icon"> -->
-			</a>
-			</div>
-		<div class="display-flex flex-justify-center" style="padding:1em">
-				
-				<table cellspacing="15" class="confirmationtable" style="margin: 2em auto; ">
-				  <!-- <tr>
-				    <th>Firstname</th>
-				    <th>Lastname</th>
-				  </tr> -->
-				  <tbody><tr>
-				    <td style="text-align: right; ">Name</td>
-				    <td></td>
-				    <td style="text-align: left;"><input type="text" class="hotdog" id="alcohol-name" placeholder="Mojito" data-role="none"></td>
-				  </tr>
-				  <tr>
-				    <td style="text-align: right;">Location</td>
-				    <td></td>
-				    <td style="text-align: left;"><input type="text" class="hotdog" id="alcohol-location" placeholder="4th St, San Francisco;16 Market St, San Francisco;129 Fremont st, San Francisco" data-role="none"></td>
-				  </tr>
-				  <tr>
-				    <td style="text-align: right;">Taste</td>
-				    <td></td>
-				    <td style="text-align: left;"><input type="text" class="hotdog" id="alcohol-taste" placeholder="Little Sweet; Sparkling" data-role="none"></td>
-				  </tr>
-				   <tr>
-				    <td style="text-align: right;">Recipe</td>
-				    <td></td>
-				    <td style="text-align: left;"><input type="text" class="hotdog" id="alcohol-recipe" placeholder="" data-role="none"></td>
-				  </tr>
-				   
-				</tbody>
-			</table>
-			
-			
-			</div>
-			<div class="display-flex flex-justify-center" style="padding:1em">
-			<div class="form-control">
-						<button type="submit" class="form-button" value="Sign In" data-role="none">Save</button>
-			</div>	
-		</div>
-			
-	</section>
-	
-
-	<!-- Settings Page -->
-
-	<section data-role="page" id="settings-page">
-		
-		<header data-role="header" role="banner" class="love-pageheader">
-			<h1 class="ui-title" role="heading" aria-level="1">Settings</h1>
-			<ul>
-				<li class="flex-none">
-					<a href="#" data-rel="back"><i class="arrow_black left" style="color:black"></i></a>
-				</li>
-			</ul>
-		</header>
-		<div data-role="main">
-			<div id="photo" style="text-align: center">
-			  <img style="vertical-align:middle" src="img/profilephoto.jpg" class="profile" id="profilephoto">
-			  <span style="vertical-align:middle; margin-left: 1em;"><input type="text" class="editname"id="edit-profilename" placeholder="Alexander Wang" data-role="none"></span>
-			</div>
-			
-			<div class="display-flex flex-justify-center" style="padding:1em">
-				
-				<table cellspacing="15" class="confirmationtable" style="margin: 2em auto; ">
-				  <!-- <tr>
-				    <th>Firstname</th>
-				    <th>Lastname</th>
-				  </tr> -->
-				  <tbody><tr>
-				    <td style="text-align: right; ">Email</td>
-				    <td></td>
-				    <td style="text-align: left;"><input type="text" class="hotdog" id="profile-email" placeholder="info@gmail.com" data-role="none"></td>
-				  </tr>
-				  <tr>
-				    <td style="text-align: right;">Location</td>
-				    <td></td>
-				    <td style="text-align: left;"><input type="text" class="hotdog" id="profile-location" placeholder="San Francisco, CA" data-role="none"></td>
-				  </tr>
-				  <tr>
-				    <td style="text-align: right;">Achivements</td>
-				    <td></td>
-				    <td style="text-align: left;"><input type="text" class="hotdog" id="profile-taste" placeholder="18 Kinds of Liquor" data-role="none"></td>
-				  </tr>
-				   
-				</tbody>
-			</table>
-			
-			
-			</div>
-			<div class="display-flex flex-justify-center" style="padding:1em">
-			<div class="form-control">
-						<a href="#" class="js-logout"><button class="form-button" value="Logout" data-role="none">Save</button></a>
-			</div>	
-		</div>
-			
-		</div>
-		</div>
-		
-			
-	</section>
+	<!-- Profile Setting Pages -->
 
 	<section data-role="page" id="settings-password-page">
 		<header data-role="header">
@@ -705,7 +517,7 @@
 
 
 
-
+	<!-- Alcohol Settings Page -->
 	
 
 	<section data-role="page" id="settings-alcohol-upload-page">

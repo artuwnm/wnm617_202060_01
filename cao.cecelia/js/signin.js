@@ -18,6 +18,7 @@ const checkSigninForm = async() => {
 		// not logged in
 		console.log("failure");
 		sessionStorage.removeItem('userId');
+		$( ".failure" ).removeClass( "disapear" );
 	}
 
 	checkUserId();
