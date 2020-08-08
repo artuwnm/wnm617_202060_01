@@ -36,11 +36,11 @@
 				<form id="signin-form" data-ajax="false">
 					<div class="form-control">
 						<label for="signin-username" class="form-label">Username</label>
-						<input type="text" class="hotdog" id="signin-username" placeholder="Type your Username" data-role="none">
+						<input type="text" class="signin-form-input" id="signin-username" placeholder="Type your Username" data-role="none">
 					</div>
 					<div class="form-control">
 						<label for="signin-password" class="form-label">Password</label>
-						<input type="password" class="hotdog" id="signin-password" placeholder="Type your Password" data-role="none">
+						<input type="password" class="signin-form-input" id="signin-password" placeholder="Type your Password" data-role="none">
 					</div>
 					<div class="form-control">
 						<input type="submit" class="hotdog-button" value="Sign In" data-role="none">
@@ -61,19 +61,19 @@
 				<form id="signup-form" data-ajax="false">
 					<div class="form-control">
 						<label for="signup-username" class="form-label">Username</label>
-						<input type="text" class="form-input" id="signup-username" placeholder="Type your Username" data-role="none">
+						<input type="text" class="signin-form-input" id="signup-username" placeholder="Type your Username" data-role="none">
 					</div>
 					<div class="form-control">
 						<label for="signup-email" class="form-label">Email</label>
-						<input type="text" class="form-input" id="signup-email" placeholder="Type your Email" data-role="none">
+						<input type="text" class="signin-form-input" id="signup-email" placeholder="Type your Email" data-role="none">
 					</div>
 					<div class="form-control">
 						<label for="signup-password" class="form-label">Password</label>
-						<input type="password" class="form-input" id="signup-password" placeholder="Type your Password" data-role="none">
+						<input type="password" class="signin-form-input" id="signup-password" placeholder="Type your Password" data-role="none">
 					</div>
 					<div class="form-control">
 						<label for="signup-password2" class="form-label">Confirm Password</label>
-						<input type="password" class="form-input" id="signup-password2" placeholder="Type your Password" data-role="none">
+						<input type="password" class="signin-form-input" id="signup-password2" placeholder="Type your Password" data-role="none">
 					</div>
 					<div class="form-control">
 						<input type="submit" class="form-button" value="Sign Up" data-role="none">
@@ -91,13 +91,19 @@
 		<div data-role="main">
 			<div class="map-header">
 				<div class="display-flex" style="width:calc(100% - 2em); margin-top: 20px; align-items: center; justify-content: center;">
-					<div class="search-hotdog" style="margin-left: 10px;">
+					<div class="search-hotdog" style="margin-left: 15px;">
 						<form id="recent-search" data-ajax="false">
 							<input type="search" class="search" placeholder="Search Food">
 						 </form>
 					</div>
 					<div style="margin-left: 20px;">
-						<a href="#" data-activate="#list-add-food-modal" class="ui-add">&plus;</a>
+						<div class="dropdown">
+							<a href="#" class="ui-add mapAddFoodOrLocation">&plus;</a>
+						  	<div id="addDropdown" class="dropdown-content" style="right: 0;">
+							    <a href="#add-food-page">Add New Food</a>
+							    <a href="#map-add-choose-food-page">Add Location</a>
+						  	</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -130,20 +136,136 @@
 		</footer>
 	</section>
 
+	<section data-role="page" id="map-add-choose-food-page">
+		<header data-role="header">
+			<h1>Choose Food</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">
+						<img src="img/icons/left-arrow.svg" style="width: 20px; margin-top: 15px;">
+					</a>
+				</li>
+				<li class="flex-stretch"></li>
+				<li class="flex-none">
+					<a href="#" class="js-choose-food">
+						<img src="img/icons/left-arrow.svg" class="flip-icon" style="width: 20px; margin-top: 15px;">
+					</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<div class="scrollable">
+				<form id="map-add-choose-food-form" data-ajax="false" class="form" style="padding:1em">
+					<div class="form-control">
+						<label for="add-location-food-id" class="form-label">Select Food</label>
+						<select id="add-location-food-id" class="form-input" data-role="none"></select>
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+
+	<section data-role="page" id="add-food-page">
+		<header data-role="header">
+			<h1>New Food</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">
+						<img src="img/icons/left-arrow.svg" style="width: 20px; margin-top: 15px;">
+					</a>
+				</li>
+				<li class="flex-stretch"></li>
+				<li class="flex-none">
+					<a href="#add-location-page" class="js-submit-map-add-food">
+						<img src="img/icons/left-arrow.svg" class="flip-icon" style="width: 20px; margin-top: 15px;">
+					</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<div class="scrollable">
+				<form id="add-food-form" data-ajax="false" class="form" style="padding:1em">
+					<div class="inputs"></div>
+				</form>
+			</div>
+		</div>
+	</section>
+
+
+	<section data-role="page" id="add-location-page">
+		<header data-role="header">
+			<h1>Choose Location</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">
+						<img src="img/icons/left-arrow.svg" style="width: 20px; margin-top: 15px;">
+					</a>
+				</li>
+				<li class="flex-stretch"></li>
+				<li class="flex-none">
+					<a href="#add-location-info-page">
+						<img src="img/icons/left-arrow.svg" class="flip-icon" style="width: 20px; margin-top: 15px;">
+					</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<input type="hidden" id="add-location-lat">
+			<input type="hidden" id="add-location-lng">
+			<div class="map"></div>
+		</div>
+	</section>
+
+	<section data-role="page" id="add-location-info-page">
+		<header data-role="header">
+			<h1>Location Info</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">
+						<img src="img/icons/left-arrow.svg" style="width: 20px; margin-top: 15px;">
+					</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<div class="scrollable">
+				<form id="add-location-info-form" data-ajax="false" class="form" style="padding:1em">
+					<div class="form-control">
+						<label for="add-location-description" class="form-label">Add a Photo</label>
+						<input type="hidden" id="add-location-photo" data-role="none">
+						<label for="add-location-photo-upload" class="photo-upload">
+							<img id="add-location-image-picker" class="imagepicker" src="img/icons/photograph.svg">
+							<img id="add-location-photo-preview" class="image-preview" src="https://via.placeholder.com/400">
+						</label>
+						<input type="file" id="add-location-photo-upload" accept="image/png, image/jpeg"/>
+					</div>
+					<div class="form-control">
+						<label for="add-location-description" class="form-label">Description</label>
+						<textarea type="text" class="form-input" id="add-location-description" placeholder="Type Description" data-role="none"></textarea>
+					</div>
+				</form>
+			</div>
+		</div>
+		<footer data-role="footer">
+			<div class="text-center">
+				<a href="#" class="js-submit-add-location save-bottom-button">Save</a>
+			</div>
+		</footer>
+	</section>
 
 	<section data-role="page" id="list-page">
 		<header data-role="header">
 			<h1>Food List</h1>
 			<ul>
 				<li class="flex-stretch">
-					<div class="search-hotdog" style="margin-left: 10px;">
+					<div class="search-hotdog" style="margin-left: 10px; margin-top: 6.5px;">
 						<form id="list-search" class="hotdog" data-ajax="false">
 							<input type="search" class="search" placeholder="Search Food">
 						</form>
 					</div>
 				</li>
 				<li class="flex-none">
-					<a href="#" data-activate="#list-add-food-modal" class="ui-add">&plus;</a>
+					<a href="#add-food-page" class="ui-add">&plus;</a>
 				</li>
 			</ul>
 		</header>
@@ -206,33 +328,31 @@
 			<ul>
 				<li class="flex-none">
 					<a href="#" data-rel="back">
-						<img src="img/icons/left-arrow.svg" style="width: 20px; margin-left: 10px; margin-top: 15px;">
+						<img src="img/icons/left-arrow.svg" style="width: 20px; margin-top: 15px;">
 					</a>
 				</li>
 			</ul>
 		</header>
 		<div data-role="main">
-			<div class="food-info">
+			<div class="profile">
+				<div class="profile-body">
+					<div class="map"></div>
+				</div>
+				<div class="profile-head" style="display: flex; align-items: center; justify-content: center; box-shadow: 0 0 10px rgb(8 8 8 / 20%);">
+					<div class="food-info"></div>
+				</div>
 			</div>
 		</div>
 	</section>
 
 	<section data-role="page" id="profile-page">
 		<div data-role="main">
-			<div>
-				<img class="user-profile" src="img/food/placeholder.jpg">
+			<div class="profile scrollable">
 			</div>
-			<div class="display-flex flex-column flex-justify-center" style="width: 60%; margin-left: auto; margin-right: auto; margin-top: 50px;">
-				<div class="text-center">
-					Sophie Marceau</br><br>
-					San Francisco</br><br>
-					Saved Restaurant     36<br><br>
-					Favourite      9
-				</div>
-				<div class="form-control" style="margin-top: 50px;">
-					<input type="submit" class="hotdog-button js-logout" value="Sign Out" data-role="none">
-				</div>
-			</div>
+
+			<a class="settings" href="#settings-page">
+				<img src="img/icons/shishkabob.svg" alt="" class="icon">
+			</a>
 		</div>
 		<footer data-role="footer">
 			<ul>
@@ -252,6 +372,146 @@
 					</a>
 				</li>
 			</ul>
+		</footer>
+	</section>
+
+	<section data-role="page" id="settings-page">
+		<header data-role="header">
+			<h1>Settings</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">
+						<img src="img/icons/left-arrow.svg" style="width: 20px; margin-top: 15px;">
+					</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<ul class="settings-list">
+				<li>
+					<a href="#settings-password-page">Change Password</a>
+				</li>
+				<li>
+					<a href="#settings-profile-page">Change Profile Info</a>
+				</li>
+				<li>
+					<a href="#" class="js-logout">Logout</a>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+	<section data-role="page" id="settings-password-page">
+		<header data-role="header">
+			<h1>Change Password</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">
+						<img src="img/icons/left-arrow.svg" style="width: 20px; margin-top: 15px;">
+					</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<div class="scrollable">
+				<form id="settings-password-form" data-ajax="false" class="form" style="padding:1em">
+					<div class="form-control">
+						<label for="settings-change-password-1" class="form-label">Old Password</label>
+						<input id="settings-change-password-1" type="password" class="form-input" data-role="none">
+					</div>
+					<div class="form-control">
+						<label for="settings-change-password-2" class="form-label">New Password</label>
+						<input id="settings-change-password-2" type="password" class="form-input" data-role="none">
+					</div>
+					<div class="form-control">
+						<label for="settings-change-password-3" class="form-label">Confirm New Password</label>
+						<input id="settings-change-password-3" type="password" class="form-input" data-role="none">
+					</div>
+				</form>
+			</div>
+		</div>
+		<footer data-role="footer">
+			<div class="text-center">
+				<a href="#" class="js-submit-change-password save-bottom-button">Commit</a>
+			</div>
+		</footer>
+	</section>
+
+	<section data-role="page" id="settings-profile-page">
+		<header data-role="header">
+			<h1>Profile Info</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">
+						<img src="img/icons/left-arrow.svg" style="width: 20px; margin-top: 15px;">
+					</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<div class="scrollable">
+				<form id="settings-profile-form" data-ajax="false" class="form" style="padding:1em">
+					<input type="hidden" id="settings-profile-id">
+					<div class="inputs"></div>
+				</form>
+			</div>
+		</div>
+		<footer data-role="footer">
+			<div class="text-center">
+				<a href="#" class="js-submit-settings-profile save-bottom-button">Save</a>
+			</div>
+		</footer>
+	</section>
+
+	<section data-role="page" id="settings-food-profile-page">
+		<header data-role="header">
+			<h1>Food Info</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">
+						<img src="img/icons/left-arrow.svg" style="width: 20px; margin-top: 15px;">
+					</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<div class="scrollable">
+				<form id="settings-food-profile-form" data-ajax="false" class="form" style="padding:1em">
+					<input type="hidden" id="settings-food-profile-id">
+					<div class="inputs"></div>
+				</form>
+			</div>
+		</div>
+		<footer data-role="footer">
+			<div class="text-center">
+				<a href="#" class="js-submit-settings-food-profile save-bottom-button">Save</a>
+			</div>
+		</footer>
+	</section>
+
+	<section data-role="page" id="settings-profile-upload-page">
+		<header data-role="header">
+			<h1>Update Profile Image</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">
+						<img src="img/icons/left-arrow.svg" style="width: 20px; margin-top: 15px;">
+					</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<form id="settings-profile-upload-form" data-ajax="false" class="form">
+				<input type="hidden" id="settings-profile-src">
+				<label class="image-uploader full">
+					<input id="profile-upload" type="file" data-role="none" class="hidden">
+				</label>
+			</form>
+		</div>
+		<footer data-role="footer">
+			<div class="text-center">
+				<a href="#" class="js-submit-settings-profile-upload save-bottom-button">Save</a>
+			</div>
 		</footer>
 	</section>
 

@@ -51,28 +51,41 @@ const MapPage = async(d=0) => {
 }
 
 const ProfilePage = async() => {
-	let d = await query({type:"user_by_id",params:[sessionStorage.userId]});
-
-	console.log(d)
+	let user = await query({type:"user_by_id",params:[sessionStorage.userId]});
+	let food = await query({type:"food_by_user_id",params:[sessionStorage.userId]});
+	let locations = await query({type:"locations_by_user_id",params:[sessionStorage.userId]});
 
 	$("#profile-page .profile")
-		.html(makeUserProfile(d.result[0]));
+		.html(makeUserProfile(user.result[0],food.result,locations.result));
 }
 
 const FoodInfoPage = async() => {
 	if(sessionStorage.foodId===undefined) throw("No food ID in Storage");
 
-	query({type:"food_by_id",params:[sessionStorage.foodId]})
-	.then(d=>{
-		$("#food-info-page .food-info").html(makeFoodInfo(d.result[0]));
-	});
+	let food = await query({type:"food_by_id",params:[sessionStorage.foodId]})
+	let locations = await query({type:"locations_by_food_id",params:[sessionStorage.foodId]})
+	
+	$("#food-profile-page h1").html(food.result[0].name)
 
-	// query({type:"locations_by_food_id",params:[sessionStorage.foodId]})
-	// .then(async (d)=>{
-	// 	let map_el = await makeMap("#food-info-page .map");
-	// 	makeMarkers(map_el,d.result);
-	// });
+	$("#food-info-page .food-info").html(makeFoodInfo(food.result[0],locations.result));
+	let map_el = await makeMap("#food-info-page .map");
+	makeMarkers(map_el,locations.result);
 }
+
+const AddLocationPage = async() => {
+	let map_el = await makeMap("#add-location-page .map");
+
+	map_el.data("map").addListener("click",function(e) {
+		$("#add-location-lat").val(e.latLng.lat())
+		$("#add-location-lng").val(e.latLng.lng())
+		makeMarkers(map_el,[{lat:e.latLng.lat(),lng:e.latLng.lng(),icon:'https://via.placeholder.com/40?text=PIN'}])
+	})
+
+	console.log(map_el)
+	console.log(map_el[0])
+	console.log(map_el.data("map"))
+}
+
 
 const SettingsProfileUploadPage = async() => {
 	let d = await query({type:"user_by_id",params:[sessionStorage.userId]});
@@ -80,3 +93,37 @@ const SettingsProfileUploadPage = async() => {
 	$("#settings-profile-upload-form .image-uploader")
 		.css('background-image',`url('${d.result[0].img}')`);
 }
+
+const ChooseFoodPage = async () => {
+	let animals = await query({type:'food_by_user_id',params:[sessionStorage.userId]});
+
+	$("#add-location-food-id").html(makeSelectOptions(animals.result.map(o=>([o.id,o.name]))));
+}
+
+const AddFoodPage = async(d=0) => {
+	$("#add-food-form .inputs").html(makeFoodInfoInputs({
+		name:'',
+		cuisine:'',
+		restaurant:'',
+		description:''
+	},'add-food'))
+}
+
+const SettingsProfilePage = async() => {
+	let d = await query({type:"user_by_id",params:[sessionStorage.userId]});
+
+	$("#settings-profile-id").val(sessionStorage.userId);
+	$("#settings-profile-page .inputs")
+		.html(makeSettingsProfileInputs(d.result[0]));
+}
+
+const SettingsFoodProfilePage = async() => {
+	let d = await query({type:"food_by_id",params:[sessionStorage.foodId]});
+
+	$("#settings-food-profile-id").val(sessionStorage.foodId);
+	$("#settings-food-profile-page .inputs")
+		.html(makeFoodInfoInputs(d.result[0],'settings-food-info'));
+}
+
+
+

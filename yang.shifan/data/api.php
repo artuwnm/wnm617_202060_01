@@ -41,6 +41,21 @@ function makeQuery($c,$ps,$p) {
 	}
 }
 
+function makeUpload($file,$folder) {
+	$filename = microtime(true) . "_" .
+		$_FILES[$file]['name'];
+
+	if(@move_uploaded_file(
+		$_FILES[$file]['tmp_name'],
+		$folder.$filename
+	)) return ["result"=>$filename];
+	else return [
+		"error"=>"File Upload Failed",
+		"_FILES"=>$_FILES,
+		"filename"=>$filename
+	];
+}
+
 
 function makeStatement($data) {
 	$c = makeConn();
@@ -58,6 +73,7 @@ function makeStatement($data) {
 
 		case "food_by_user_id" : return makeQuery($c,"SELECT * FROM `track_food` WHERE `user_id`=?",$p);
 		case "locations_by_food_id" : return makeQuery($c,"SELECT * FROM `track_locations` WHERE `food_id`=?",$p);
+		case "locations_by_user_id" : return makeQuery($c,"SELECT l.* FROM `track_food` a LEFT JOIN `track_locations` l ON a.id = l.food_id WHERE a.user_id=? ORDER BY l.date_create DESC",$p);
 
 		case "check_signin":
 			return makeQuery($c,"SELECT `id` FROM `track_users` WHERE `username`=? AND `password`=md5(?)",$p);
@@ -122,8 +138,18 @@ function makeStatement($data) {
 				`track_food`
 				(`user_id`,`name`, `cuisine`, `restaurant`, `description`, `img`, `date_create`)
 				VALUES
-				(?, ?, ?, ?, ?, 'https://via.placeholder.com/400/?text=FOOD', NOW())
+				(?, ?, ?, ?, ?, ?, NOW())
 				",$p);
+			return ["result"=>$c->lastInsertId()];
+
+		case "insert_location":
+			$r = makeQuery($c,"INSERT INTO
+				`track_locations`
+				(`food_id`,`lat`, `lng`, `description`, `photo`, `icon`, `date_create`)
+				VALUES
+				(?, ?, ?, ?, ?, ?, NOW())
+				",$p,false);
+			if(isset($r['error'])) return $r;
 			return ["result"=>$c->lastInsertId()];
 
 		case "update_profile_image":
@@ -133,6 +159,41 @@ function makeStatement($data) {
 				WHERE `id`=?	
 				",$p);
 			return ["result"=>"success"];
+
+		case "update_user":
+			$r = makeQuery($c,"UPDATE
+				`track_users`
+				SET
+					`name`=?,
+					`username`=?,
+					`email`=?
+				WHERE `id`=?
+				",$p,false);
+			return ["result"=>"success"];
+
+		case "update_food":
+			$r = makeQuery($c,"UPDATE
+				`track_food`
+				SET
+					`name`=?,
+					`cuisine`=?,
+					`restaurant`=?,
+					`description`=?
+				WHERE `id`=?
+				",$p,false);
+			return ["result"=>"success"];
+
+		case "update_password":
+			$r = makeQuery($c,"UPDATE
+				`track_users`
+				SET
+					`password`=md5(?)
+				WHERE `id`=? AND `password`=md5(?)
+				",$p,false);
+			return ["result"=>"success"];
+
+		case "delete_food":
+			return makeQuery($c,"DELETE FROM `track_food` WHERE `id`=?",$p,false);
 
 		default: return ["error"=>"No matched type"];
 	}
