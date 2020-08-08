@@ -11,7 +11,7 @@ const query = (options) => {
 // Currying
 const templater = f => a => 
 	(Array.isArray(a)?a:[a])
-	.reduce((r,o,i,a)=>r+f(o,i,a),"");
+	.reduce((r,o,i,a)=>r+f(o,i,a),'');
 
 
 const checkData = (check_fn) => new Promise((resolve,reject)=>{

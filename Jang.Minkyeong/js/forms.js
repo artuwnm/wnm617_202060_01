@@ -4,6 +4,7 @@ const checkListAddForm = () => {
 	let breed = $("#list-add-breed").val();
 	let color = $("#list-add-color").val();
 	let description = $("#list-add-description").val();
+	let img = $("#list-add-photo").val()!=''?$("#list-add-photo").val():'https://via.placeholder.com/400/?text=ANIMAL';
 
 	query({
 		type:'insert_animal',
@@ -13,6 +14,25 @@ const checkListAddForm = () => {
 		ListPage();
 	})
 }
+
+
+const checkRecentAddForm = () => {
+	let name = $("#add-animal-name").val();
+	let breed = $("#add-animal-breed").val();
+	let color = $("#add-animal-color").val();
+	let description = $("#add-animal-description").val();
+	let img = $("#add-animal-photo").val()!=''?$("#add-animal-photo").val():'https://via.placeholder.com/400/?text=ANIMAL';
+
+	query({
+		type:'insert_animal',
+		params:[sessionStorage.userId,name,breed,color,description,img]
+	}).then(d=>{
+		if(d.error) throw d.error;
+		sessionStorage.animalId = d.result;
+		$.mobile.navigate("#add-location-page")
+	})
+}
+
 
 const checkSettingsAnimalProfileForm = () => {
 	let name = $("#settings-animal-profile-name").val();
@@ -48,12 +68,11 @@ const checkSettingsProfileForm = () => {
 const checkAddLocationForm = () => {
 	let lat = +$("#add-location-lat").val();
 	let lng = +$("#add-location-lng").val();
-	let description = $("#add-location-description").val();
 	let animalId = sessionStorage.animalId;
 
 	query({
 		type:'insert_location',
-		params:[animalId,lat,lng,description]
+		params:[animalId,lat,lng]
 	}).then(d=>{
 		if(d.error) throw d.error;
 		window.history.go(-2);

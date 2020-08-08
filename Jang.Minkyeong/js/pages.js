@@ -27,7 +27,7 @@ const RecentPage = async(d=0) => {
 	if(!d) d = await query({
 		type:"recent_locations",params:[sessionStorage.userId]});
 
-	let map_el = await makeMap("#recent-page .map");
+	let map_el = await makeMap ("#recent-page .map");
 
 	let valid_animals = d.result.reduce((r,o)=>{
 		o.icon = o.img;
@@ -61,12 +61,15 @@ const RecentPage = async(d=0) => {
 
 
 const ProfilePage = async() => {
-	let d = await query({
-		type:"user_by_id",params:[sessionStorage.userId]});
+	let user = await query({type:"user_by_id",params:[sessionStorage.userId]});
+	let animals = await query({type:"animals_by_user_id",params:[sessionStorage.userId]});
+	let locations = await query({type:"locations_by_user_id",params:[sessionStorage.userId]});
 
 	$("#profile-page .profile")
-		.html(makeUserProfile(d.result[0]));
+		.html(makeUserProfile(user.result[0],animals.result,locations.result));
 }
+
+
 
 const AnimalProfilePage = async() => {
 	if(sessionStorage.animalId===undefined) throw("No animal ID in Storage");
@@ -85,6 +88,24 @@ const AnimalProfilePage = async() => {
 	});
 }
 
+//const AnimalProfilePage = async() => {
+//	if(sessionStorage.animalId===undefined) throw("No animal ID in Storage");
+//
+//	let animal = await query({
+//		type:"animal_by_user_id",params:[sessionStorage.animalId]})
+//	let location = await query({
+//		type:"locations_by_animal_id",params:[sessionStorage.animalId]})
+//	
+//	$("#animal-profile-page h1").html(animal.result[0].name)
+//
+//	$("#animal-profile-page .profile-head").removeClass("active")
+//		.html(makeAnimalProfile(animal.result[0],locations.result));
+//
+//	let map_el = await makeMap("#animal-profile-page .map");
+//
+//	makeMarkers(map_el,locations.result);
+//}
+
 
 
 
@@ -96,6 +117,8 @@ const SettingsProfilePage = async() => {
 	$("#settings-profile-page .inputs")
 		.html(makeSettingsProfileInputs(d.result[0]));
 }
+
+
 const SettingsAnimalProfilePage = async() => {
 	let d = await query({
 		type:"animal_by_id",params:[sessionStorage.animalId]});
@@ -123,4 +146,20 @@ const SettingsProfileUploadPage = async() => {
 
 	$("#settings-profile-upload-form .image-uploader")
 		.css('background-image',`url('${d.result[0].img}')`);
+}
+
+
+const ChooseAnimalPage = async () => {
+	let animals = await query({type:'animals_by_user_id',params:[sessionStorage.userId]});
+
+	$("#add-location-animal-id").html(makeSelectOptions(animals.result.map(o=>([o.id,o.breed]))));
+}
+
+const AddAnimalPage = async(d=0) => {
+	$("#add-animal-form .inputs").html(makeAnimalProfileInputs({
+		name:'',
+		breed:'',
+		color:'',
+		description:''
+	},'add-animal'))
 }

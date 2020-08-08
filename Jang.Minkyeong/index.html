@@ -88,6 +88,10 @@
 	</section>
 
 
+
+	<!-- recent page -->
+
+
 	<section data-role="page" id="recent-page">
 		<header data-role="header">
 			<h1>Recent Map</h1>
@@ -102,8 +106,11 @@
 
 		<div data-role="main">
 			<div class="map"></div>
-			<div class="recent-search"></div>
+			
+
+			
 			<div class="anchor top left" style="width:calc(100% - 2em)">
+				<div class="map"></div>
 				<form id="recent-search-1" class="hotdog light soft" data-ajax="false">
 					<input type="search" data-role="none" class="search " placeholder="Search For Animal">
 				</form>
@@ -119,7 +126,7 @@
 		</div>
 		<footer data-role="footer">
 			<ul>
-				<li><a href="#recent-page"><img src="img/paw.png" style="width: 20px; margin-right: 0.3em; margin-top: 0.3em;">Map</a></li>
+				<li><a href="#recent-page"><img src="img/paw.png" style="width: 17px; margin-right: 0.5em; margin-top: 0.3em;">Map</a></li>
 				<li><a href="#list-page"><img src="img/list.png" style="width: 15px; margin-right: 0.3em; margin-top: 0.3em;">List</a></li>
 				<li><a href="#profile-page"><img src="img/user.png" style="width: 20px; margin-right: 0.3em; margin-top: 0.3em;">Profile</a></li>
 			</ul>
@@ -137,22 +144,18 @@
 				</li>
 				<li class="flex-stretch"></li>
 				<li class="flex-none">
-					<a href="#add-location-page">Next</a>
+					<a href="#" class="js-choose-animal">Next</a>
 				</li>
 			</ul>
 		</header>
 		<div data-role="main">
 			<div class="scrollable">
 				<form id="recent-add-choose-animal-form" data-ajax="false" class="form" style="padding:1em">
-					<a href="#add-animal-page">Add New Dog</a>
-					<div>Or</div>
+					<a href="#add-animal-page" class="add-new-dog-click">Add New Dog</a>
+					<div class="or"><strong>Or</strong></div>
 					<div class="form-control">
 						<label for="add-location-animal-id" class="form-label">Select Dog Breed</label>
-						<select id="add-location-animal-id" class="form-input" data-role="none">
-							<option value="1">Labrador</option>
-							<option value="22">Pitbull</option>
-							<option value="13">Mixed</option>
-						</select>
+						<select id="add-location-animal-id" class="form-input" data-role="none"></select>
 					</div>
 				</form>
 			</div>
@@ -164,28 +167,18 @@
 			<h1>New Animal</h1>
 			<ul>
 				<li class="flex-none">
-					<a href="#" data-rel="back">Back</a>
+					<a href="#" data-rel="back"><img src="img/back.png" style="width:15px;"></a>
 				</li>
 				<li class="flex-stretch"></li>
 				<li class="flex-none">
-					<a href="#add-location-page">Next</a>
+					<a href="#add-location-page" class="js-submit-recnet-add-animal">Next</a>
 				</li>
 			</ul>
 		</header>
 		<div data-role="main">
 			<div class="scrollable">
 				<form id="add-animal-form" data-ajax="false" class="form" style="padding:1em">
-						<div class="form-control">
-							<label for="add-animal-name" class="form-label">Dog Name</label>
-							<input type="text" class="form-input" id="add-dog-name" placeholder="Type Animal Name" data-role="none">
-						</div>
-						<div class="form-control">
-							<label for="add-animal-breed" class="form-label">Dog Breed</label>
-							<input type="text" class="form-input" id="add-dog-breed" placeholder="Type Animal Breed" data-role="none">
-						</div>
-						<div class="form-control">
-							<label for="add-animal-color" class="form-label">Dog Color</label>
-							<input type="text" class="form-input" id="add-dog-color" placeholder="Type Animal Color" data-role="none">
+						<div class="inputs">
 						</div>
 				</form>
 			</div>
@@ -228,10 +221,17 @@
 		<div data-role="main">
 			<div class="scrollable">
 				<form id="add-location-info-form" data-ajax="false" class="form" style="padding:1em">
-						<div class="form-control">
-							<label for="add-location-description" class="form-label">Description</label>
-							<textarea type="text" class="form-input" id="add-location-description" placeholder="Type Description" data-role="none"></textarea>
-						</div>
+					<div class="form-control">
+						<label for="add-location-description" class="form-label">Add a Photo</label>
+						<input type='hidden' id="add-location-photo" data-role="none">
+						<label class="imagepicker imagepicker-replace thumbnail">
+							<input type='file' id="add-location-photo-upload" data-role="none">
+						</label>
+					</div>
+					<div class="form-control">
+						<label for="add-location-description" class="form-label">Description</label>
+						<textarea type="text" class="form-input" id="add-location-description" placeholder="Type Description" data-role="none"></textarea>
+					</div>
 				</form>
 			</div>
 		</div>
@@ -251,6 +251,9 @@
 				</li>
 			</ul>
 		</header>
+		<header data-role="header">
+			<ul class="scrollable-x list-filters"></ul>
+		</header>
 
 		
 		<div data-role="main">
@@ -269,7 +272,7 @@
 
 		<footer data-role="footer">
 			<ul>
-				<li><a href="#recent-page"><img src="img/paw.png" style="width: 20px;">Map</a></li>
+				<li><a href="#recent-page"><img src="img/paw.png" style="width: 17px; margin-right: 0.5em; margin-top: 0.3em;">Map</a></li>
 				<li><a href="#list-page"><img src="img/list.png" style="width: 15px; margin-right: 0.3em; margin-top: 0.3em;">List</a></li>
 				<li><a href="#profile-page"><img src="img/user.png" style="width: 20px; margin-right: 0.3em; margin-top: 0.3em;">Profile</a></li>
 			</ul>
@@ -308,7 +311,11 @@
 			<h1>Animal Profile</h1>
 			<ul>
 				<li class="flex-none">
-					<a href="#" data-rel="back"><img src="img/back.png" style="width:15px; margin-left: 0.5em;"></a>
+					<a href="#" data-rel="back"><img src="img/back.png" style="width:15px;"></a>
+				</li>
+				<li class="flex-stretch"></li>
+				<li class="flex-none">
+					<a href="#add-location-page" data-activate="#list-add-animal-modal" class="plus"><img src="img/add.png" style="width:15px; margin-top: 1em;"></a>
 				</li>
 			</ul>
 		</header>
@@ -317,9 +324,6 @@
 				<div class="profile-head"></div>
 				<div class="profile-body">
 					<div class="map"></div>
-					<div class="anchor bottom right">
-						<a href="#add-location-page" class="circle">+</a>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -345,7 +349,7 @@
 
 		<footer data-role="footer">
 			<ul>
-				<li><a href="#recent-page"><img src="img/paw.png" style="width: 20px; margin-right: 0.3em; margin-top: 0.3em;">Map</a></li>
+				<li><a href="#recent-page"><img src="img/paw.png" style="width: 17px; margin-right: 0.5em; margin-top: 0.3em;">Map</a></li>
 				<li><a href="#list-page"><img src="img/list.png" style="width: 15px; margin-right: 0.3em; margin-top: 0.3em;">List</a></li>
 				<li><a href="#profile-page"><img src="img/user.png" style="width: 20px; margin-right: 0.3em; margin-top: 0.3em;">Profile</a></li>
 			</ul>
@@ -458,7 +462,7 @@
 
 	<section data-role="page" id="settings-profile-upload-page">
 		<header data-role="header">
-			<h1>Animal Info</h1>
+			<h1>User Profile Info</h1>
 			<ul>
 				<li class="flex-none">
 					<a href="#" data-rel="back">Cancel</a>

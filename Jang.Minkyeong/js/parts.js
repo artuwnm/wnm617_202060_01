@@ -11,45 +11,57 @@ const makeAnimalList = templater(o=>`
 `);
 
 
-const makeUserProfile = o =>`
+const UserProfileLocationsPhotoList = templater(o=>`<img src="${o.photo}" class="animal-jump" data-id="${o.animal_id}">`);
+const AnimalProfileLocationsPhotoList = templater(o=>`<img src="${o.photo}" data-id="${o.id}">`);
+
+
+const makeUserProfile = (user,animals,locations) =>{return `
 <div>
 	<div class="hero-image">
-		<a href="#settings-profile-upload-page"><img src="${o.img}" alt=""></a>
+		<a href="#settings-profile-upload-page"><img src="${user.img}" alt=""></a>
 	</div>
-	<div class="user-profile-info">
-	<h2 class="profile-title">${o.name}</h2>
-	<div class="profile-body">
-		<div>${o.username}</div>
-		<div>${o.email}</div>
-	</div>
-	</div>
-</div>
-`;
-
-
-const makeAnimalProfile = o=>`
-<div class="display-flex">
-	<div class="flex-none">
-		<img src="${o.img}" alt="/" />
-	</div>
-	<div>
-		<div><strong>${o.name}</strong></div>
-		<div>${o.breed}</div>
-		<div>${o.color}</div>
-		<div class="display-flex">
-			<div class="flex-none">
-				<button data-toggle=".profile-head" class="form-button">More</button>
-			</div>
-			<div class="flex-none">
-				<a href="#settings-animal-profile-page" class="form-button">Edit</a>
-			</div>
-			<div class="flex-none">
-				<a href="#" class="form-button js-delete-animal" data-id="${o.id}">Delete</a>
-			</div>
+	<div class="info-inside-box" style="text-align:center;">
+		<h2 class="profile-title">${user.name}</h2><br>
+		<div class="profile-body" style="text-align:center;">
+			<div><strong>Email</strong><br> ${user.email}</div><br>
+			<div><strong>Dogs</strong><br> ${animals.length}</div><br>
+			<div><strong>Locations</strong><br> ${location.length}</div><br>
 		</div>
 	</div>
 </div>
 `;
+}
+
+
+const makeAnimalProfile = (animal, locations)=>{
+	return `<div>
+<div class="display-flex">
+	<div class="flex-none">
+		<img src="${o.img}" alt="/" />
+	</div>
+	<div class="animal-detail-box">
+		<div><strong>${o.name}</strong></div>
+		<div>${o.breed}</div>
+		<div>${o.color}</div>
+		<div class="display-flex inside-animal-index">
+			<div class="flex-none">
+				<button data-toggle=".profile-head" class="form-button-small">More</button>
+			</div>
+			<div class="flex-none">
+				<a href="#settings-animal-profile-page" class="form-button-small">Edit</a>
+			</div>
+			<div class="flex-none">
+				<a href="#" class="form-button-small js-delete-animal" data-id="${o.id}">Delete</a>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="profile-location-photos">
+	${AnimalProfileLocationsPhotoList(locations)}
+</div>
+</div>
+`;
+}
 
 
 const makeRecentProfile = o=>`
@@ -94,7 +106,7 @@ ${FormControl({namespace:namespace,label:"Color",name:"color",value:o.color})}`;
 const FormControl = ({namespace,label,name,value,type="text"}) => `
 <div class="form-control">
 	<label for="${namespace}-${name}" class="form-label">${label}</label>
-	<input id="${namespace}-${name}" value="${value}" type="${type}" class="form-input" data-role="none">
+	<input id="${namespace}-${name}" value="${value}" breed="${o.breed}" class="form-input" data-role="none">
 </div>`;
 
 
@@ -112,9 +124,21 @@ let breed = [
 	['pug','Pug'],
 	['labrador','Labrador'],
 	['pitbull','Pitbull'],
+	['beagle','Beagle'],
+	['poodle','Poodle'],
+	['husky','Husky'],
+
+
 ];
 
 return `
+<div class="form-control">
+	<label for="${namespace}-description" class="form-label">Add a Photo</label>
+	<input type='hidden' id="${namespace}-photo" data-role="none">
+	<label class="imagepicker imagepicker-replace thumbnail">
+		<input type='file' id="${namespace}-photo-upload" data-role="none">
+	</label>
+</div>
 <div class="form-control">
 	<label for="${namespace}-name" class="form-label">Name</label>
 	<input type="text" class="form-input" id="${namespace}-name" placeholder="Type Animal Name" data-role="none" value="${o.name}">
@@ -149,6 +173,6 @@ const listFilters = (animals) => {
 	return `
 	<li><a href="#" data-filter="type" data-value="">All</a></li>
 	${filterList(animals,'breed')}
-	${filterList(animals,'color')}
+
 	`;
 }
