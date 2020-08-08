@@ -650,6 +650,7 @@ input.search {
     border-radius: 20px;
     border-color: #e6e6e6;
     padding: 0.3em;
+    z-index: 3;
 }
 
 

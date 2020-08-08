@@ -8,7 +8,7 @@ const checkListAddForm = () => {
 
 	query({
 		type:'insert_animal',
-		params:[sessionStorage.userId,name,breed,color,description]
+		params:[sessionStorage.userId,name,breed,color,description,img]
 	}).then(d=>{
 		if(d.error) throw d.error;
 		ListPage();
@@ -68,15 +68,18 @@ const checkSettingsProfileForm = () => {
 const checkAddLocationForm = () => {
 	let lat = +$("#add-location-lat").val();
 	let lng = +$("#add-location-lng").val();
+	let description = $("#add-location-description").val();
+	let photo = $("#add-location-photo").val();
+	let icon = 'img/icons/map.svg';
 	let animalId = sessionStorage.animalId;
 
 	query({
 		type:'insert_location',
-		params:[animalId,lat,lng]
+		params:[animalId,lat,lng,description,photo,icon]
 	}).then(d=>{
 		if(d.error) throw d.error;
-		window.history.go(-2);
-		// $.mobile.navigate("#animal-profile-page");
+		//window.history.go(-2);
+		$.mobile.navigate("#recent-page");
 	})
 }
 
