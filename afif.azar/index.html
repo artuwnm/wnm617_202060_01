@@ -13,6 +13,7 @@
 	<link rel="stylesheet" href="css/unicorn.css">
 
 
+
 	<script src="lib/js/jquery-2.2.4.min.js"></script>
 
 	<script src="js/signin.js"></script>
@@ -25,7 +26,6 @@
 	<script src="js/app.js"></script>
 
 	<script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 	 	<script async defer
 	  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9iWWkbYMnZAj-pP9vhADe-WGoJo_wTeY">
@@ -82,11 +82,11 @@
 			<form id="signup-form" data-ajax="false">
 				<div class="form-control-signup">
 					<label for="signup-username" class="form-label">Username</label>
-					<input type="name" class="uni-user-signup" id="signup-name" placeholder="Choose a username" data-role="none">
+					<input type="name" class="uni-user-signup" id="signup-username" placeholder="Choose a username" data-role="none">
 				</div>
 				<div class="form-control-signup">
-					<label for="signup-email" class="form-label">Email (Username)</label>
-					<input type="text" class="uni-user-signup" id="signup-username" placeholder="Your email address" data-role="none">
+					<label for="signup-email" class="form-label">Email</label>
+					<input type="text" class="uni-user-signup" id="signup-email" placeholder="Your email address" data-role="none">
 				</div>
 				<div class="form-control-signup">
 					<label for="signup-password" class="form-label">Password</label>
@@ -97,7 +97,8 @@
 					<input type="password" class="uni-conf-signup" id="signup-confirm-password" placeholder="Re-type the password" data-role="none">
 				</div>
 				<div class="form-control-signup">
-					<a href="#recent-page"><input type="submit" class="unisignin-button" value="Sign Up" data-role="none"></a></div>
+					<input type="submit" class="unisignin-button" value="Sign Up" data-role="none">
+				</div>
 
 				<div class="link-signup"><a href="#signin-page" style="text-decoration: underline;"> I have an account </a>
 					
@@ -119,12 +120,12 @@
 	    <div data-role="main">
 	    	<div class="map"></div>
 
-	    				<div class="recent-search"></div>
+	    	<div class="recent-search"></div>
 
-	    				<!---- plus button----->
-	    				<div class="anchor bottom right">
-	    					<a href="#recent-add-choose-animal-page"  class="circle">+</a>
-	    				</div>
+
+	        <div class="anchor bottom right">
+	    			<a href="#recent-add-choose-animal-page"  class="circle">+</a>
+	    		</div>
 
             <div class="anchor top left" style="width:calc(100% - 2em)">
 				<form id="recent-search" class="hotdog light soft" data-ajax="false">
@@ -305,9 +306,17 @@
 				</li>
 			</ul>
 		</header>
+
 		<div data-role="main">
 			<div class="scrollable">
 				<form id="add-location-info-form" data-ajax="false" class="form" style="padding:1em">
+					<div class="form-control">
+						<label for="add-location-description" class="form-label">Add a Photo</label>
+						<input type='hidden' id="add-location-photo" data-role="none">
+						<label class="imagepicker imagepicker-replace thumbnail">
+							<input type='file' id="add-location-photo-upload" data-role="none">
+						</label>
+					</div>
 						<div class="form-control">
 							<label for="add-location-description" class="form-label">Description</label>
 							<textarea type="text" class="form-input" id="add-location-description" placeholder="Type Description" data-role="none"></textarea>
@@ -328,8 +337,8 @@
 			    	<form id="list-search" class="hotdog" data-ajax="false">
 			    		<input type="search" data-role="none" class="search" placeholder="Search for unicorn">
 			    	</form>
-			    </li>
 
+			    </li>
 				<li class="flex-none">
 						<a href="#" data-activate="#list-add-animal-modal"><img src="img/icon/add.svg" max-width="20px" height="20px" class="add-icon"></a>
 				</li>
@@ -339,21 +348,20 @@
 
 		<header data-role="header">
 			<ul class="scrollable-x list-filters"></ul>
+
 		</header>
 
 
 	<div data-role="main">
 		<div class="scrollable">
 
-				<div class="animallist"></div>
+
+
+			<div class="animallist"></div>
 			</div>
 		</div>
 
     <footer data-role="footer" data-template="#footer-template"></footer>
-
-
-
-
 
    <div class="modal" id="list-add-animal-modal">
 			<div class="modal-back" data-deactivate="#list-add-animal-modal"></div>
@@ -393,7 +401,7 @@
 				<div class="modal-foot display-flex">
                    
                     <div class="flex-justify-center">
-                    	<input type="submit" value="Save" class="chromeless" data-role="none" style="margin-left: 15%">
+                    	<input type="submit" value="Save" class="chromeless" data-role="none" data-deactivate="#list-add-animal-modal" style="margin-left: 15%">
                     </div>
 
 				</div>
@@ -562,7 +570,6 @@
 
 <!---------------------------- User Profile Page --------------------------------->
 
-<!-------- PROFILE PAGE - Hamilton ---------->
 	<section data-role="page" id="profile-page">
 		<div data-role="main">
 			<div class="profile"></div>
@@ -574,11 +581,11 @@
 		<footer data-role="footer" data-template="#footer-template"></footer>
 	</section>
 
+<!-------- PROFILE PAGE - End ---------->
 
 
 
-
-
+<!-------- SETTINGS PAGES --------------->
 
 	<section data-role="page" id="settings-page">
 		<header data-role="header">
@@ -689,7 +696,7 @@
 
 
 
-<!------ My design--------/////////////////////////
+<!--------------- My design/user profile--------/////////////////////////
 
 	<section data-role="page" id="profile-page">
 		<header data-role="header">

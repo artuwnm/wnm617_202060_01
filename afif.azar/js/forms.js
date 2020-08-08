@@ -16,6 +16,20 @@ const checkListAddForm = () => {
 	})
 }
 
+const checkRecentAddForm = () => {
+	let name = $("#list-add-name").val();
+	let type = $("#list-add-type").val();
+	let trait = $("#list-add-trait").val();
+	let description = $("#list-add-description").val();
+
+	query ({
+		type:'insert_animal',
+		params:[sessionStorage.userId,name,type,trait,description]
+	}).then(d=>{
+		if(d.error) throw d.error;
+		ListPage();
+	})
+}
 
 const checkSettingsAnimalProfileForm = () => {
 	let name = $("#settings-animal-profile-name").val();
@@ -61,8 +75,8 @@ const checkAddLocationForm = () => {
 		if(d.error) throw d.error;
 		window.history.go(-2);
 		// $.mobile.navigate("#animal-profile-page");
-	})
-}
+	});
+};
 
 
 const checkAnimalDelete = id => {
@@ -95,7 +109,7 @@ const checkRecentSearch = (s) => {
 		params:[`%${s}%`,`%${s}%`,`%${s}%`,sessionStorage.userId]
 	}).then(d=>{
 		console.log(d)
-		RcentPage(d)
+		RecentPage(d)
 	})
 }
 
@@ -117,8 +131,6 @@ const checkListFilter = ({filter,value}) => {
 		ListPage(d)
 	})
 }
-
-
 
 
 

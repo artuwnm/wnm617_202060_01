@@ -44,7 +44,7 @@ const checkSignupForm = () => {
 	let username = $("#signup-username").val();
 	let email = $("#signup-email").val();
 	let password = $("#signup-password").val();
-	let password2 = $("#signup-password2").val();
+	let password2 = $("#signup-confirm-password").val();
 
 	if(password!=password2) {
 		throw "Passwords don't match";

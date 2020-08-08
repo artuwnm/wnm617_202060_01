@@ -8,7 +8,25 @@ $(()=>{
 
 
 
-	// ROUTHING //
+	// ROUTING
+	.on( "pagecontainerbeforeshow", function( e, ui ) {
+		switch(ui.toPage[0].id) {
+			case "recent-page": RecentPage(); break;
+			case "list-page": ListPage(); break;
+			case "profile-page": ProfilePage(); break;
+			case "animal-profile-page": AnimalProfilePage(); break;
+
+			case "recent-add-choose-animal-page": ChooseAnimalPage(); break;
+			case "add-animal-page": AddAnimalPage(); break;
+			case "add-location-page": AddLocationPage(); break;
+
+			case "settings-profile-page": SettingsProfilePage(); break;
+			case "settings-animal-profile-page": SettingsAnimalProfilePage(); break;
+
+			case "settings-profile-upload-page": SettingsProfileUploadPage(); break;
+
+		}
+	})
 
 
 
@@ -47,6 +65,19 @@ $(()=>{
 		})
 	})
 
+	.on("change","#add-location-photo-upload",function(e){
+		console.log(e)
+		checkUpload(this.files[0])
+		.then(d=>{
+			console.log(d)
+			$("#add-location-photo").val('uploads/'+d.result);
+			$("#add-location-info-form .imagepicker")
+      	.addClass("picked")
+      	.css({'background-image':`url('uploads/${d.result}')`})
+		})
+	})
+
+
 
 
 
@@ -61,6 +92,10 @@ $(()=>{
 
 		sessionStorage.animalId = $(this).data("id");
 		$.mobile.navigate("#animal-profile-page")
+	})
+	.on("click",".js-choose-animal",function(e){
+		sessionStorage.animalId = $("#add-location-animal-id").val();
+		$.mobile.navigate("#add-location-page");
 	})
 	.on("click",".js-submit-settings-animal-profile",function(e){
 		e.preventDefault();
@@ -77,6 +112,10 @@ $(()=>{
 	.on("click",".js-submit-add-location",function(e){
 		e.preventDefault();
 		checkAddLocationForm();
+	})
+	.on("click",".js-submit-recent-add-animal",function(e){
+		e.preventDefault();
+		checkRecentAddForm();
 	})
 	.on("click",".js-delete-animal",function(e){
 		e.preventDefault();
