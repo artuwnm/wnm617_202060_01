@@ -181,7 +181,7 @@
 					<a href="#" data-rel="back"><img src="img/icon/back.svg" max-width="20px" height="20px" class="back-icon"></a>
 				</li>
 			    <li class="flex-stretch"></li>
-			    <a href="#add-location-page">Save</a>
+			    <a href="#add-location-page">Next</a>
 		
 			</ul>
 		</header>
@@ -193,14 +193,11 @@
 				  <div class="form-control-signup">	
 					<a href="#add-animal-page" class="add-button"><input type="" class="add-button" value="Add New Unicorn" data-role="none"></a>
 				</div>
-					<div style="padding-top: 2em; padding-bottom: 2em; color: var(--color-neutral-medium)">Or</div>
+					<div style="padding-top: 2em; padding-bottom: 2em; color: var(--color-neutral-dark)">Or</div>
 					<div class="form-control">
-						<label for="add-location-animal-id" class="form-label">Select Unicorn Type</label>
-						<select id="add-location-animal-id" class="form-input" data-role="none">
-							<option value="1">Designer</option>
-							<option value="22">Programmer</option>
-							<option value="13">Both</option>
-						</select>
+						<label for="add-location-animal-id" class="form-label">Select Unicorn</label>
+						<input id="add-location-animal-id" class="form-input" data-role="none">
+						
 					</div>
 
 					<div class="form-control">
@@ -238,17 +235,15 @@
 		<div data-role="main">
 			<div class="scrollable">
 				<form id="add-animal-form" data-ajax="false" class="form" style="padding:1em">
-						<div class="form-control">
+						<div class="inputs">
+							<div class="form-control">
 							<label for="add-animal-name" class="form-label">Unicorn Name</label>
 							<input type="text" class="form-input" id="add-animal-name" placeholder="Type Animal Name" data-role="none">
 						</div>
 						<div class="form-control">
 						<label for="add-location-animal-id" class="form-label">Select Unicorn Type</label>
-						<select id="add-location-animal-id" class="form-input" data-role="none">
-							<option value="1">Designer</option>
-							<option value="22">Programmer</option>
-							<option value="13">Both</option>
-						</select>
+						<input id="add-location-animal-id" class="form-input" data-role="none">
+						
 					</div>
 						<div class="form-control">
 							<label for="add-animal-trait" class="form-label">Unicorn Trait</label>
@@ -259,6 +254,7 @@
 							<option value="1">Ninja</option>
 							<option value="22">Gitcorn</option>
 						</select>
+						</div>
 						</div>
 				</form>
 			</div>
@@ -309,7 +305,7 @@
 
 		<div data-role="main">
 			<div class="scrollable">
-				<form id="add-location-info-form" data-ajax="false" class="form" style="padding:1em">
+				<form id="add-location-info-form" data-ajax="false" class="form" style="padding:1em; text-align: center;">
 
 					<div class="form-control">
 						<label for="add-location-description" class="form-label">Add a Photo</label>
@@ -501,6 +497,8 @@
 <div data-role="main">
 			<div class="profile">
 				<div class="profile-head"></div>
+
+
 				<div class="profile-body">
 					<div class="map"></div>
 				</div>

@@ -66,8 +66,10 @@ const checkAddLocationForm = () => {
 	let lat = +$("#add-location-lat").val();
 	let lng = +$("#add-location-lng").val();
 	let description = $("#add-location-description").val();
+	
 	let photo = $("#add-location-photo").val();
-	let icon = 'img/icon/map.svg';
+	let icon = 'img/icons/map.svg';
+
 	let animalId = sessionStorage.animalId;
 
 	query({
@@ -75,10 +77,10 @@ const checkAddLocationForm = () => {
 		params:[animalId,lat,lng,description,photo,icon]
 	}).then(d=>{
 		if(d.error) throw d.error;
-		window.history.go(-2);
+		//window.history.go(-2);
 		$.mobile.navigate("#animal-profile-page");
 	})
-};
+}
 
 
 const checkAnimalDelete = id => {

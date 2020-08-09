@@ -437,12 +437,11 @@ input.search {
 
 .map {
 	position:absolute;
-	top:0;
-	left:0;
-	width:100%;
-	height:100%;
-	background-image:;
-	background-size:cover;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
 }
 
 .map-img{
@@ -694,8 +693,7 @@ img.add-icon {
     flex: none;
     height: 8em;
     position: relative;
-    transition: all 0.3s;
-    margin: 
+    transition: all 0.3s; 
 }
 .profile-head.active {
     height: 70vh;
@@ -710,7 +708,17 @@ img.add-icon {
 	object-fit:cover;
 	vertical-align:text-bottom;
 }
-
+h2.profile-title {
+    padding: 1em;
+    text-align: center;
+}
+.profile-button {
+    padding-top: 1em;
+    padding-left: 1em;
+}
+.animal-profile-info {
+    padding-top: 1em;
+}
 
 /*======================= ADD PAGE =======================*/
 .form-control-add {
@@ -874,31 +882,6 @@ li.settings-list {
 }
 
 
-
-.profile-head {
-    flex: none;
-    height: 8em;
-    position: relative;
-    transition: all 0.3s;
-}
-.profile-head.active {
-    height: 70vh;
-}
-.profile-body {
-	flex:1 1 100%;
-	position:relative;
-}
-.profile-head img {
-	width:6em;
-	height:8em;
-	object-fit:cover;
-	vertical-align:text-bottom;
-}
-h2.profile-title {
-    padding: 1em;
-    text-align: center;
-}
-
 /*========================= IMAGE UPLOADER ======================*/
 .image-uploader.full {
    position:absolute;
@@ -921,12 +904,6 @@ h2.profile-title {
 }
 
 
-
-
-
-
-
-
 .profile-location-photos img {
    width:4em;
    height:4em;
@@ -942,19 +919,19 @@ h2.profile-title {
 
 /* https://codepen.io/bronkula/pen/bvrgxQ */
 /* Create the look of a generic thumbnail */
-.thumbnail {
+.thumbnail  {
   position:relative;
-  display:inline-block;
-  width:6em;
-  height:6em;
-  border-radius:0.6em;
-  border:0.25em solid white;
-  vertical-align:middle;
-  box-shadow:0 0.15em 0.35em 0.1em rgba(0,0,0,0.2);
-  margin:0.5em;
+  display: inline-block;
+  width: 100%;
+  height: 10em;
+  border-radius: 0.6em;
+  border: 0.25em solid white;
+  vertical-align: middle;
+  box-shadow: 0 0.15em 0.35em 0.1em rgba(0,0,0,0.2);
+  margin: 0.5em;
   
-  background-position:center;
-  background-size:cover;
+  background-position: center;
+  background-size: cover;
 }
 
 
@@ -964,18 +941,18 @@ h2.profile-title {
   display:none;
 }
 .imagepicker {
-  cursor:pointer;
-  color:white;
-  background-color:rgba(0,0,0,0.3);
+  cursor: pointer;
+  color: white;
+  background-color: var(--color-blue-medium);
 }
 /* This will add the floating plus symbol to the imagepicker */
 .imagepicker:before {
-  content:'+';
-  position:absolute;
-  font-size:3em;
-  vertical-align:middle;
-  top:50%;
-  left:50%;
+  content: '+';
+  position: absolute;
+  font-size: 3em;
+  vertical-align: middle;
+  top: 50%;
+  left: 50%;
   transform:translate(-50%,-50%);
 }
 /* This will hide the plus symbol behind the background of the imagepicker if the class "picked" is added to the element */

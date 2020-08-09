@@ -49,16 +49,16 @@ const makeAnimalProfile = o =>`
 
 <div class="animal-profile">
 <div class="display-flex">
-  <div class="flex-none">
+  <div class="flex-none ">
 		<img src="${o.img}" alt="" />
 	</div>
-	<div class=>'animal-profile-info'
+	<div class="animal-profile-info">
 		<div><strong>${o.name}</strong></div>
 		<div>${o.type}</div>
 		<div>${o.trait}</div>
-	<div class="display-flex">
+	<div class="display-flex profile-button" style="color:white">
 			<div class="flex-none">
-				<button data-toggle=".profile-head" class="form-button">More</button>
+				<button data-toggle=".profile-head" class="form-button" style="color:white">More</button>
 			</div>
 			<div class="flex-none">
 				<a href="#settings-animal-profile-page" class="form-button">Edit</a>
@@ -76,7 +76,7 @@ const makeAnimalProfile = o =>`
 
 
 const makeRecentProfile = o =>`
-<div class="display-flex animal-jump" data-id="${o.animal_id}">
+<div class="animal-jump" data-id="${o.animal_id}">
 	<div class="flex-none">
 		<img src="${o.img}" class="list-image" alt="" />
 	</div>
