@@ -7,15 +7,15 @@
 }
 
 :root {
-  --color-neutral-light: #eaeeef;
+  --color-neutral-light: #dadada;
   --color-neutral-medium: #0099ff;
   --color-neutral-dark: #363c3e;
 
   --color-main-light: #b9f1fe;
-  --color-main-medium: #28aac7;
+  --color-main-medium: #1b99b6;
   --color-main-dark: #054352;
 
-  --color-white: #fff;
+  --color-white: rgb(236, 236, 236);
   --color-black: #000;
 
   --header-height: 3rem;
@@ -549,12 +549,12 @@ header .hotdog {
 }
 
 .circle {
-  width: 3rem;
-  height: 3rem;
-  background-color: var(--color-white);
-  color: var(--color-black);
+  width: 4rem;
+  height: 4rem;
+  background-color: var(--color-neutral-medium);
+  color: var(--color-white);
   text-align: center;
-  line-height: 3rem;
+  line-height: 4rem;
   display: block;
   border-radius: 50%;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
@@ -666,14 +666,16 @@ header .hotdog {
 .animallist-item {
   position: relative;
   overflow: hidden;
-  border-radius: 0.7em;
+  border-radius: 1em;
   margin: 1em;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .animallist-body {
-  font-size: 0.8em;
+  font-size: 0.9em;
   padding: 0.5em 1em;
+  background-color: var(--color-main-medium);
+  color: white;
 }
 
 .list-image {
@@ -749,5 +751,58 @@ header .hotdog {
   transform: translate(-50%, -50%);
   opacity: 0.6;
   content: 'Click to Upload';
+  z-index: -1;
+}
+
+.profile-location-photos img {
+  width: 4em;
+  height: 4em;
+  object-fit: cover;
+  margin: 0.2em;
+}
+
+/* https://codepen.io/bronkula/pen/bvrgxQ */
+/* Create the look of a generic thumbnail */
+.thumbnail {
+  position: relative;
+  display: inline-block;
+  width: 6em;
+  height: 6em;
+  border-radius: 0.6em;
+  border: 0.25em solid white;
+  vertical-align: middle;
+  box-shadow: 0 0.15em 0.35em 0.1em rgba(0, 0, 0, 0.2);
+  margin: 0.5em;
+
+  background-position: center;
+  background-size: cover;
+}
+
+
+
+/* This will hide the file input */
+.imagepicker input {
+  display: none;
+}
+
+.imagepicker {
+  cursor: pointer;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* This will add the floating plus symbol to the imagepicker */
+.imagepicker:before {
+  content: '+';
+  position: absolute;
+  font-size: 3em;
+  vertical-align: middle;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* This will hide the plus symbol behind the background of the imagepicker if the class "picked" is added to the element */
+.imagepicker.picked:before {
   z-index: -1;
 }

@@ -22,12 +22,6 @@ $(() => {
                     AnimalProfilePage();
                     break;
 
-                case "recent-add-choose-animal-page":
-                    ChooseAnimalPage();
-                    break;
-                case "add-animal-page":
-                    AddAnimalPage();
-                    break;
                 case "add-location-page":
                     AddLocationPage();
                     break;
@@ -38,11 +32,9 @@ $(() => {
                 case "settings-animal-profile-page":
                     SettingsAnimalProfilePage();
                     break;
-
                 case "settings-profile-upload-page":
                     SettingsProfileUploadPage();
                     break;
-
             }
         })
 
@@ -73,9 +65,6 @@ $(() => {
         })
 
 
-
-
-
         /* CHANGE */
         .on("change", "#settings-profile-upload-form input", function (e) {
             console.log(e)
@@ -88,22 +77,6 @@ $(() => {
                     })
                 })
         })
-        .on("change", "#add-location-photo-upload", function (e) {
-            console.log(e)
-            checkUpload(this.files[0])
-                .then(d => {
-                    console.log(d)
-                    $("#add-location-photo").val('uploads/' + d.result);
-                    $("#add-location-info-form .imagepicker")
-                        .addClass("picked")
-                        .css({
-                            'background-image': `url('uploads/${d.result}')`
-                        })
-                })
-        })
-
-
-
 
 
 
@@ -181,3 +154,92 @@ $(() => {
     })
 
 });
+
+
+
+
+// $(() => {
+
+//     checkUserId();
+
+//     // EVENT DELEGATION
+//     $(document)
+
+
+//         // ROUTING
+//         .on("pagecontainerbeforeshow", function (e, ui) {
+//             switch (ui.toPage[0].id) {
+//                 case "map-page":
+//                     MapPage();
+//                     break;
+//                 case "list-page":
+//                     ListPage();
+//                     break;
+//                 case "profile-page":
+//                     ProfilePage();
+//                     break;
+//                 case "resource-profile-page":
+//                     ResourceProfilePage();
+//                     break;
+//             }
+//         })
+
+
+
+
+
+//         // FORM SUBMISSIONS
+//         .on("submit", "#signin-form", function (e) {
+//             e.preventDefault();
+//             checkSigninForm();
+//         })
+//         .on("submit", "#signup-form", function (e) {
+//             e.preventDefault();
+//             checkSignupForm();
+//         })
+//         .on("submit", "#list-add-form,", function (e) {
+//             e.preventDefault();
+//             checkListAddForm();
+//         })
+
+
+
+//         // CLICKS
+//         .on("click", ".js-logout", function (e) {
+//             sessionStorage.removeItem('userId');
+//             checkUserId();
+//         })
+//         .on("click", ".resource-jump", function (e) {
+//             if (!$(this).data("id")) throw ("No data ID on Element");
+
+//             sessionStorage.resourceId = $(this).data("id");
+//             $.mobile.navigate("#resource-profile-page")
+//         })
+
+
+
+
+//         // ACTIVATE TOOLS
+//         .on("click", "[data-activate]", function (e) {
+//             $($(this).data("activate")).addClass("active");
+//         })
+//         .on("click", "[data-deactivate]", function (e) {
+//             $($(this).data("deactivate")).removeClass("active");
+//         })
+//         .on("click", "[data-toggle]", function (e) {
+//             $($(this).data("toggle")).toggleClass("active");
+//         })
+//         .on("click", "[data-activateone]", function (e) {
+//             $($(this).data("activateone")).addClass("active")
+//                 .siblings().removeClass("active");
+//         })
+
+//     ;
+
+
+
+//     $("[data-template]").each(function () {
+//         $(this).html($($(this).data("template")).html());
+//     })
+
+// });

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Resource App</title>
 
   <meta name="viewport"
@@ -26,7 +26,6 @@
 
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHwzlIQIre2VVKrH_tuTJNDD2hRl-4lRo"
     type="text/javascript"></script>
-
 </head>
 
 <body>
@@ -35,9 +34,8 @@
     <div data-role="main" class="display-flex flex-column">
       <div class="flex-stretch"></div>
       <div class="flex-none" style="text-align:center">
-        <img src="./img/png/logo-white.png" alt="Resource apps logo" class="login-logo">
+        <img src="./img/png/logo-white.png" alt="" class="login-logo">
       </div>
-
       <div class="flex-none" style="padding:1em">
         <form id="signin-form" data-ajax="false">
           <div class="form-control">
@@ -140,29 +138,25 @@
 
   <section data-role="page" id="recent-add-choose-animal-page">
     <header data-role="header">
-      <h1>Choose Animal</h1>
+      <h1>Choose Resource</h1>
       <ul>
         <li class="flex-none">
           <a href="#" data-rel="back">Back</a>
         </li>
         <li class="flex-stretch"></li>
         <li class="flex-none">
-          <a href="#add-location-page">Next</a>
+          <a href="#" class="js-choose-animal">Next</a>
         </li>
       </ul>
     </header>
     <div data-role="main">
       <div class="scrollable">
         <form id="recent-add-choose-animal-form" data-ajax="false" class="form" style="padding:1em">
-          <a href="#add-animal-page">Add New Animal</a>
+          <a href="#add-animal-page">Add New Resource</a>
           <div>Or</div>
           <div class="form-control">
-            <label for="add-location-animal-id" class="form-label">Select Animal</label>
-            <select id="add-location-animal-id" class="form-input" data-role="none">
-              <option value="1">Wood</option>
-              <option value="22">Food</option>
-              <option value="13">Metal</option>
-            </select>
+            <label for="add-location-animal-id" class="form-label">Select Resource</label>
+            <select id="add-location-animal-id" class="form-input" data-role="none"></select>
           </div>
         </form>
       </div>
@@ -179,28 +173,14 @@
         </li>
         <li class="flex-stretch"></li>
         <li class="flex-none">
-          <a href="#add-location-page">Next</a>
+          <a href="#add-location-page" class="js-submit-recent-add-animal">Next</a>
         </li>
       </ul>
     </header>
     <div data-role="main">
       <div class="scrollable">
         <form id="add-animal-form" data-ajax="false" class="form" style="padding:1em">
-          <div class="form-control">
-            <label for="add-animal-name" class="form-label">Resource Name</label>
-            <input type="text" class="form-input" id="add-animal-name" placeholder="Type Resource Name"
-              data-role="none">
-          </div>
-          <div class="form-control">
-            <label for="add-animal-type" class="form-label">Resource Type</label>
-            <input type="text" class="form-input" id="add-animal-type" placeholder="Type Resource Type"
-              data-role="none">
-          </div>
-          <div class="form-control">
-            <label for="add-animal-breed" class="form-label">Resource Breed</label>
-            <input type="text" class="form-input" id="add-animal-breed" placeholder="Type Resource Breed"
-              data-role="none">
-          </div>
+          <div class="inputs"></div>
         </form>
       </div>
     </div>
@@ -245,6 +225,13 @@
       <div class="scrollable">
         <form id="add-location-info-form" data-ajax="false" class="form" style="padding:1em">
           <div class="form-control">
+            <label for="add-location-description" class="form-label">Add a Photo</label>
+            <input type='hidden' id="add-location-photo" data-role="none">
+            <label class="imagepicker imagepicker-replace thumbnail">
+              <input type='file' id="add-location-photo-upload" data-role="none">
+            </label>
+          </div>
+          <div class="form-control">
             <label for="add-location-description" class="form-label">Description</label>
             <textarea type="text" class="form-input" id="add-location-description" placeholder="Type Description"
               data-role="none"></textarea>
@@ -271,7 +258,7 @@
       <ul>
         <li class="flex-stretch">
           <form id="list-search" class="hotdog" data-ajax="false">
-            <input type="search" data-role="none" class="search" placeholder="Search For Animal">
+            <input type="search" data-role="none" class="search" placeholder="Search For Resource">
           </form>
         </li>
         <li class="flex-none">
@@ -475,7 +462,7 @@
 
   <section data-role="page" id="settings-profile-upload-page">
     <header data-role="header">
-      <h1>Profile Info</h1>
+      <h1>Resource Info</h1>
       <ul>
         <li class="flex-none">
           <a href="#" data-rel="back">Cancel</a>
@@ -495,6 +482,8 @@
       </form>
     </div>
   </section>
+
+
 
 
   <script type="text/template" id="footer-template">
@@ -523,318 +512,3 @@
 </body>
 
 </html>
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport"
-    content="width=device-width, initial-scale=1.0 user-scalable=no, maximum-scale=1.0, minimum-scale=1.0" />
-
-  <link rel="stylesheet" href="./lib/css/jquery.mobile.structure-1.4.5.min.css" />
-  <link rel="stylesheet" href="./css/app.css" />
-
-  <script src="./lib/js/jquery-2.2.4.min.js"></script>
-
-  <script src="./js/signin.js"></script>
-  <script src="./js/functions.js"></script>
-  <script src="./js/pages.js"></script>
-  <script src="./js/parts.js"></script>
-  <script src="./js/maps.js"></script>
-  <script src="./js/forms.js"></script>
- Needs to come before parts in order for it to work 
-  <script src="./js/app.js"></script>
-
-  <script src="./lib/js/jquery.mobile-1.4.5.min.js"></script>
-
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHwzlIQIre2VVKrH_tuTJNDD2hRl-4lRo"
-    type="text/javascript"></script>
-
-  <title>ResourceApp</title>
-</head>
-
- Pages
-signin-page
-signup-page
-map-page
-list-page
-resource-profile-page
-resource-add-page
-profile-page
-
-
-<body>
-  ------------------ Sign In Page ----------------
-  <section data-role="page" id="signin-page">
-    <div data-role="main">
-      <div class="login-background"></div>
-      
-
-      <div class="signin-box" data-activate="#signin-page .signup-box">
-        <form id="signin-form" data-ajax="false" class="center-child">
-          <div class="form-control">
-            
-            <input type="text" class="form-input" id="signin-username" placeholder="Type your username"
-              data-role="none" />
-          </div>
-
-          <div class="form-control">
-            
-            <input type="password" class="form-input" id="signin-password" placeholder="Type your password"
-              data-role="none" />
-          </div>
-
-          <div class="form-control-sign-in">
-            <input type="submit" class="form-button" value="Sign In" data-role="none" />
-          </div>
-          <a href="#signup-page">Signup</a>
-          <div class="forgot-password">
-            <a href="">Forgot password?</a>
-          </div>
-        </form>
-      </div>
-    </div>
-  </section>
- ------------------- Sign Up Page ---------------
-  <section data-role="page" id="signup-page">
-    <div data-role="main">
-      <div class="login-background">
-        
-      </div>
-      <div class="signup-box">
-
-        <form data-ajax="false" id="signup-form" class="center-child">
-           ----------------USERNAME----------------- 
-          <div class="form-control-sign-up">
-            
-            <input type="text" class="form-input" id="signup-username" placeholder="Type your username"
-              data-role="none" />
-          </div>
-           --------------------EMAIL---------------- 
-          <div class="form-control-sign-up">
-           
-            <input type="text" class="form-input" id="signup-email" placeholder="Type your email" data-role="none" />
-          </div>
-          --------------------PASSWORD------------------ 
-          <div class="form-control-sign-up">
-            
-            <input type="password" class="form-input" id="signup-password" placeholder="Type your password"
-              data-role="none" />
-         
-             ----------------------CONFIRM PASSWORD--------------- 
-            <input type="password" class="form-input" id="signup-password-confirm" placeholder="Confirm your password"
-              data-role="none" />
-          </div>
-
-          <div class="form-control-sign-up-btn">
-            <a href="#" class="back-arrow" data-rel="back">back</a>
-            <input type="submit" class="form-button" value="Sign Up" data-role="none" />
-          </div>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  -------------------------- Map Page -----------------------
-
-  <section data-role="page" id="map-page">
-    <div data-role="main">
-      <ul class="navMenu">
-        <li class="map-icon">
-          <a href="#map-page">
-            <img src="./img/png/treasure-map.png" alt="" />
-          </a>
-
-        <li class="list-icon">
-          <a href="#list-page">
-            <img src="./img/png/bookmarklet_black.png" alt="" />
-          </a>
-        </li>
-
-        <li class="user-profile-icon">
-          <a href="#profile-page">
-            <img src="./img/png/person_black.png" alt="" />
-          </a>
-        </li>
-
-        </li>
-      </ul>
-
-      <div class="map"></div>
-
-      
-
-      <div class="resource-profile-add">
-        <a href="#resource-add-page">
-          <button>&plus;</button>
-        </a>
-      </div>
-
-
-    </div>
-  </section>
-
-  ----------------------- List Page -----------------------
-  <section data-role="page" id="list-page">
-   
-
-    <div class="header">
-      <ul>
-
-        <ul class="navMenu">
-          <li class="map-icon">
-            <a href="#map-page"><img src="./img/png/treasure-map.png" alt="" /></a>
-
-          <li class="list-icon">
-            <a href="#list-page">
-              <img src="./img/png/bookmarklet_black.png" alt="" />
-            </a>
-          </li>
-
-          <li class="user-profile-icon">
-            <a href="#profile-page"><img src="./img/png/person_black.png" alt="" /></a>
-          </li>
-
-          </li>
-        </ul>
-      </ul>
-    </div>
-
-   
-    <div data-role="main">
-      <div class="scrollable">
-        <ul class="container">
-          <div class="resourcelist"></div>
-        </ul>
-      </div>
-    </div>
-
-    <div class="modal" id="list-add-resource-modal">
-      <div class="modal-back" data-deactivate="#list-add-resource-modal"></div>
-
-      <div class="modal-popup">
-        <div class="modal-head">header</div>
-
-        <div class="modal-body">
-          <form data-ajax="false" action=""></form>
-        </div>
-
-        <div class="modal-footer">
-          <div class="form-control">
-            <label for="list-add-name" class="form-label">Name</label>
-            <input type="text" class="form-input" id="list-add-name" placeholder="Add resource name" data-role="none" />
-          </div>
-          <div class="form-control">
-            <label for="list-add-type" class="form-label">Name</label>
-            <input type="text" class="form-input" id="list-add-type" placeholder="Add resource name" data-role="none" />
-          </div>
-          <div class="form-control">
-            <label for="list-add-breed" class="form-label">Name</label>
-            <input type="text" class="form-input" id="list-add-breed" placeholder="Add resource name"
-              data-role="none" />
-          </div>
-          <div class="form-control">
-            <label for="list-add-description" class="form-label">Name</label>
-            <input type="text" class="form-input" id="list-add-description" placeholder="Add resource name"
-              data-role="none" />
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="list-resource-button">
-      <a href="#resource-add-page">
-        <button>&plus;</button>
-      </a>
-    </div>
-
-
-  </section>
-
- ------------------ Resource add Page -------------------
-  <section data-role="page" id="resource-add-page">
-    <div id="resource-add-container">
-      <div class="resource-add-content">
-        <div data-role="main">
-          <div class="resource-add-img">
-            <img src="./img/png/tree-beehive_black.png" alt="A Picture of a beehive" />
-            <div class="add-picture">
-              <p>&plus;</p>
-            </div>
-          </div>
-
-          <textarea name="resource-add-name" id="resource-add-name" placeholder="Resource Name" cols="1"
-            rows="1"></textarea>
-
-          <textarea name="resource-add-description" id="resource-add-description" placeholder="Description" cols="20"
-            rows="20"></textarea>
-
-          <button id="resource-add-save-btn">Save</button>
-
-          <button id="resource-add-page-back-button">
-            <a href="#" class="resource-add-page-back-link" data-rel="back">Back</a>
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  ------------- Resource Profile Page ---------------
-  <section data-role="page" id="resource-profile-page">
-    <div id="resource-profile-container">
-      <div data-role="main">
-        <div class="resource-profile-header">
-          <img src="./img/png/tree-beehive_black.png" alt="A Picture of a beehive" />
-          <h1>Bee Hive</h1>
-        </div>
-
-        <div class="resource-profile-content">
-          <textarea name="resource-profile-name" id="resource-profile-name" placeholder="Last Seen" cols="15"
-            rows="15"></textarea>
-
-          <textarea name="resource-profile-description" id="resource-profile-description" placeholder="Description"
-            cols="15" rows="15"></textarea>
-        </div>
-
-        <div class="profile-head"></div>
-
-        <div class="map"></div>
-      </div>
-
-      <button id="resource-resource-page-back-button">
-        <a href="#" class="resource-profile-page-back" data-rel="back">Back</a>
-      </button>
-
-      <button id="resource-profile-save-button">Save</button>
-    </div>
-  </section>
-
-  ---------------------- User Profile Page ----------------------
-  <section data-role="page" id="profile-page">
-    <div id="profile-page-container">
-      <div class="profile-page-content">
-        <div data-role="main">
-          <div class="profile"></div>
-
-          <div class="user-profile">
-            <img src="./img/Eijirou_Kirishima.png" alt="" />
-          </div>
-
-          <div class="main-info">
-
-          </div>
-
-          <li><a href="#signin-page" class="js-logout">Log Out</a></li>
-          <li>
-            <a href="#" class="user-profile-back-button" data-rel="back">Back</a>
-          </li>
-        </div>
-      </div>
-    </div>
-  </section>
-
-</body>
-
-</html> -->

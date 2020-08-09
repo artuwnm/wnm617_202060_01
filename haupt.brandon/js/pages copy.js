@@ -4,13 +4,12 @@ const ListPage = async (d = 0) => {
         params: [sessionStorage.userId]
     })
 
-    $("#list-page .animallist").html(
-        d.result.length ?
-        makeAnimalList(d.result) :
-        "You need to add some resources!"
-    );
-
-    $("#list-page .list-filters").html(listFilters(d.result));
+    $("#list-page .animallist")
+        .html(
+            d.result.length ?
+            makeAnimalList(d.result) :
+            "Please add some resources."
+        );
 
     $("#list-add-form .inputs").html(makeAnimalProfileInputs({
         name: '',
@@ -65,43 +64,39 @@ const RecentPage = async (d = 0) => {
 
 
 const ProfilePage = async () => {
-    let user = await query({
+    let d = await query({
         type: "user_by_id",
-        params: [sessionStorage.userId]
-    });
-    let animals = await query({
-        type: "resources_by_user_id",
-        params: [sessionStorage.userId]
-    });
-    let locations = await query({
-        type: "locations_by_user_id",
         params: [sessionStorage.userId]
     });
 
     $("#profile-page .profile")
-        .html(makeUserProfile(user.result[0], animals.result, locations.result));
+        .html(makeUserProfile(d.result[0]));
 }
+
+
+
 
 const AnimalProfilePage = async () => {
     if (sessionStorage.animalId === undefined) throw ("No resource ID in Storage");
 
-    let animal = await query({
-        type: "resource_by_id",
-        params: [sessionStorage.animalId]
-    })
-    let locations = await query({
-        type: "locations_by_resource_id",
-        params: [sessionStorage.animalId]
-    })
+    query({
+            type: "resource_by_id",
+            params: [sessionStorage.animalId]
+        })
+        .then(d => {
+            $("#animal-profile-page .profile-head")
+                .html(makeAnimalProfile(d.result[0]));
+        });
 
-    $("#animal-profile-page h1").html(animal.result[0].name)
+    query({
+            type: "locations_by_resource_id",
+            params: [sessionStorage.animalId]
+        })
+        .then(async (d) => {
+            let map_el = await makeMap("#animal-profile-page .map");
 
-    $("#animal-profile-page .profile-head").removeClass("active")
-        .html(makeAnimalProfile(animal.result[0], locations.result));
-
-    let map_el = await makeMap("#animal-profile-page .map");
-
-    makeMarkers(map_el, locations.result);
+            makeMarkers(map_el, d.result);
+        });
 }
 
 
@@ -117,6 +112,8 @@ const SettingsProfilePage = async () => {
     $("#settings-profile-page .inputs")
         .html(makeSettingsProfileInputs(d.result[0]));
 }
+
+
 const SettingsAnimalProfilePage = async () => {
     let d = await query({
         type: "resource_by_id",
@@ -139,10 +136,11 @@ const AddLocationPage = async () => {
         makeMarkers(map_el, [{
             lat: e.latLng.lat(),
             lng: e.latLng.lng(),
-            icon: 'https://via.placeholder.com/50?text=PIN'
+            icon: 'https://via.placeholder.com/40?text=PIN'
         }])
     })
 }
+
 
 const SettingsProfileUploadPage = async () => {
     let d = await query({
@@ -152,28 +150,4 @@ const SettingsProfileUploadPage = async () => {
 
     $("#settings-profile-upload-form .image-uploader")
         .css('background-image', `url('${d.result[0].img}')`);
-}
-
-
-
-
-
-
-
-const ChooseAnimalPage = async () => {
-    let animals = await query({
-        type: 'resources_by_user_id',
-        params: [sessionStorage.userId]
-    });
-
-    $("#add-location-animal-id").html(makeSelectOptions(animals.result.map(o => ([o.id, o.name]))));
-}
-
-const AddAnimalPage = async (d = 0) => {
-    $("#add-animal-form .inputs").html(makeAnimalProfileInputs({
-        name: '',
-        type: '',
-        breed: '',
-        description: ''
-    }, 'add-animal'))
 }

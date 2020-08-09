@@ -97,7 +97,6 @@ const setMapBounds = (map, map_locs) => {
 
 
 
-
 const mapStyles = [{
         "featureType": "administrative",
         "elementType": "labels.text.fill",

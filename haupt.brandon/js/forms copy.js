@@ -3,22 +3,22 @@ const checkListAddForm = () => {
     let type = $("#list-add-type").val();
     let breed = $("#list-add-breed").val();
     let description = $("#list-add-description").val();
-    let img = $("#list-add-photo").val() != '' ? $("#list-add-photo").val() : 'https://via.placeholder.com/400/?text=RESOURCE';
 
     query({
         type: 'insert_animal',
-        params: [sessionStorage.userId, name, type, breed, description, img]
+        params: [sessionStorage.userId, name, type, breed, description]
     }).then(d => {
         if (d.error) throw d.error;
         ListPage();
     })
 }
+
 const checkRecentAddForm = () => {
     let name = $("#add-animal-name").val();
     let type = $("#add-animal-type").val();
     let breed = $("#add-animal-breed").val();
     let description = $("#add-animal-description").val();
-    let img = $("#add-animal-photo").val() != '' ? $("#add-animal-photo").val() : 'https://via.placeholder.com/400/?text=RESOURCE';
+    let img = $("#add-animal-photo").val() != '' ? $("#add-animal-photo").val() : 'https://via.placeholder.com/400/?text=ANIMAL';
 
     query({
         type: 'insert_animal',
@@ -46,6 +46,7 @@ const checkSettingsAnimalProfileForm = () => {
     })
 }
 
+
 const checkSettingsProfileForm = () => {
     let name = $("#settings-profile-name").val();
     let username = $("#settings-profile-username").val();
@@ -65,17 +66,15 @@ const checkAddLocationForm = () => {
     let lat = +$("#add-location-lat").val();
     let lng = +$("#add-location-lng").val();
     let description = $("#add-location-description").val();
-    let photo = $("#add-location-photo").val();
-    let icon = 'img/icons/map.svg';
     let animalId = sessionStorage.animalId;
 
     query({
         type: 'insert_location',
-        params: [animalId, lat, lng, description, photo, icon]
+        params: [animalId, lat, lng, description]
     }).then(d => {
         if (d.error) throw d.error;
-        // window.history.go(-2);
-        $.mobile.navigate("#recent-page");
+        window.history.go(-2);
+        // $.mobile.navigate("#animal-profile-page");
     })
 }
 
@@ -91,11 +90,6 @@ const checkAnimalDelete = id => {
 }
 
 
-
-
-
-
-
 const checkListSearch = (s) => {
     query({
         type: 'animal_search',
@@ -105,17 +99,16 @@ const checkListSearch = (s) => {
         ListPage(d)
     })
 }
+
 const checkRecentSearch = (s) => {
     query({
-        type: 'animal_search_recent',
+        type: 'animal_recent_search',
         params: [`%${s}%`, `%${s}%`, `%${s}%`, sessionStorage.userId]
     }).then(d => {
         console.log(d)
-        RecentPage(d)
+        ListPage(d)
     })
 }
-
-
 
 const checkListFilter = ({
     filter,
@@ -124,7 +117,7 @@ const checkListFilter = ({
     (
         value == "" ?
         query({
-            type: 'resources_by_user_id',
+            type: 'resource_by_user_id',
             params: [sessionStorage.userId]
         }) :
         query({
@@ -136,10 +129,6 @@ const checkListFilter = ({
         ListPage(d)
     })
 }
-
-
-
-
 
 const checkUpload = async (file) => {
     let fd = new FormData();
@@ -162,3 +151,19 @@ const checkSettingsProfileUpload = async (file) => {
         window.history.back();
     })
 }
+
+
+
+// const checkListAddForm = () => {
+//     let name = $("#list-add-name").val()
+//     let type = $("#list-add-type").val()
+//     let breed = $("#list-add-breed").val()
+//     let description = $("#list-add-description").val()
+//     query({
+//         type: 'insert_resource',
+//         params: [sessionStorage.userId, name, type, breed, description]
+//     }).then(d => {
+//         if (d.error) throw d.error;
+//         ListPage();
+//     })
+// }
