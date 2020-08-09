@@ -1,37 +1,34 @@
 
-const makeAnimalList = templater(o=>`
-<div class="flex-justify-center flexbox animal-jump data-id="${o.id}">
-    <div class="animallist-item">
-    <div class="flex-none"><img src="${o.img}" alt="" class="list-image"/></div>
-		<div class="list-text">
+const makeAnimalList = templater(o =>`
+<div class="flex-child">
+<div class="animallist-item animal-jump data-id="${o.id}">
+    <div class="flex"><img src="${o.img}" alt="" class="list-image"/></div>
+    <div class="animallist-body">
 		<div><strong>${o.name}</strong></div>
-		<div>${o.type}</div>
 		<div>${o.trait}</div>
-		</div>
+    </div>
+    </div>
 
 </div>
+
 
 
 `);
 
 
-const UserProfileLocationsPhotoList = templater(o=>`<img src="${o.photo}" class="animal-jump" data-id="${o.animal_id}">`);
-const AnimalProfileLocationsPhotoList = templater(o=>`<img src="${o.photo}" data-id="${o.id}">`);
 
-
-const makeUserProfile = (user,animals,locations) =>{
+const makeUserProfile = o =>{
 return `
 <div>
 	<div class="hero-image">
-		<a href="#settings-profile-upload-page"><img src="${user.img}" alt=""></a>
+		<a href="#settings-profile-upload-page"><img src="${o.img}" alt=""></a>
 	</div>
 	<div style="padding:1em">
-		<h2 class="profile-title">${user.name}</h2>
+		<h2 class="profile-title">${o.name}</h2>
 		<div class="profile-body">
-			<div><strong>Handle</strong> ${user.username}</div>
-			<div><strong>Email</strong> ${user.email}</div>
-			<div><strong>Animals</strong> ${animals.length}</div>
-			<div><strong>Locations</strong> ${locations.length}</div>
+			<div><strong>Handle</strong> ${o.username}</div>
+			<div><strong>Email</strong> ${o.length}</div>
+			<div><strong>Locations</strong> ${o.length}</div>
 		</div>
 		<div class="profile-photos">
 			<h3>Latest Photos</h3>
@@ -45,7 +42,7 @@ return `
 }
 
 
-const makeAnimalProfile = (animal,locations) =>{
+const makeAnimalProfile = o =>{
 
 return `<div>
 <div class="display-flex">
@@ -64,7 +61,7 @@ return `<div>
 				<a href="#settings-animal-profile-page" class="form-button">Edit</a>
 			</div>
 			<div class="flex-none">
-				<a href="#" class="form-button js-delete-animal" data-id="${animal.id}">Delete</a>
+				<a href="#" class="form-button js-delete-animal" data-id="${o.id}">Delete</a>
 			</div>
 		</div>
 	</div>
@@ -74,7 +71,7 @@ return `<div>
 
 
 
-const makeRecentProfile = o=>`
+const makeRecentProfile = o =>`
 <div class="display-flex animal-jump" data-id="${o.animal_id}">
 	<div class="flex-none">
 		<img src="${o.img}" class="list-image" alt="" />
@@ -132,9 +129,7 @@ const makeSelectOptions = (options,selected) => {
 
 const makeAnimalProfileInputs = (o,namespace="list-add") => {
 let types = [
-    ['designer','Designer'],
-    ['programmer','programmer'],
-    ['both','Both']
+    ['unicorn','Unicorn'],
 ];
 let traits = [
 	['junior','Junior'],
