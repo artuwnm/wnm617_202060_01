@@ -1,3 +1,7 @@
+
+UPDATE track_locations SET icon = 'img/drink.svg'
+
+
 // Location Template
 
 [

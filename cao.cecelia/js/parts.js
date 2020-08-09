@@ -35,6 +35,7 @@ const makeUserProfile = o =>`
 					<h2 style="color: white;">${o.name}</h2>
 					<div style="color: white;">${o.username}</div>
 					<div style="color: white;">${o.email}</div>
+					<div style="color: white;">&#x2764;	${o.favoritealcohol}</div>
 				</div>
 </div>
 `;

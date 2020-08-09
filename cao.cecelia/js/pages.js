@@ -195,7 +195,7 @@ const AddLocationPage = async() => {
 	map_el.data("map").addListener("click",function(e) {
 		$("#add-location-lat").val(e.latLng.lat())
 		$("#add-location-lng").val(e.latLng.lng())
-		makeMarkers(map_el,[{lat:e.latLng.lat(),lng:e.latLng.lng(),icon:'https://via.placeholder.com/40?text=PIN'}])
+		makeMarkers(map_el,[{lat:e.latLng.lat(),lng:e.latLng.lng(),icon:'img/pin.svg'}])
 	})
 }
 
