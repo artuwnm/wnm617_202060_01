@@ -1,7 +1,7 @@
 
 const makeAnimalList = templater(o =>`
-<div class="flex-child">
-<div class="animallist-item animal-jump data-id="${o.id}">
+<div class="flex-child animal-jump" data-id="${o.id}" >
+<div class="animallist-item">
     <div class="flex"><img src="${o.img}" alt="" class="list-image"/></div>
     <div class="animallist-body">
 		<div><strong>${o.name}</strong></div>
@@ -10,25 +10,28 @@ const makeAnimalList = templater(o =>`
     </div>
 
 </div>
-
-
-
 `);
 
+const UserProfileLocationsPhotoList = templater(o=>`
+	<img src="${o.photo}" class="animal-jump" data-id="${o.animal_id}">`
+);
 
+const AnimalProfileLocationsPhotoList = templater(o=>`
+	<img src="${o.photo}" data-id="${o.id}">`
+);
 
-const makeUserProfile = o =>{
+const makeUserProfile = (user,animals,locations) =>{
 return `
 <div>
 	<div class="hero-image">
-		<a href="#settings-profile-upload-page"><img src="${o.img}" alt=""></a>
+		<a href="#settings-profile-upload-page"><img src="${user.img}" alt=""></a>
 	</div>
 	<div style="padding:1em">
-		<h2 class="profile-title">${o.name}</h2>
+		<h2 class="profile-title">${user.name}</h2>
 		<div class="profile-body">
-			<div><strong>Handle</strong> ${o.username}</div>
-			<div><strong>Email</strong> ${o.length}</div>
-			<div><strong>Locations</strong> ${o.length}</div>
+			<div><strong>Handle</strong> ${user.username}</div>
+			<div><strong>Email</strong> ${animals.length}</div>
+			<div><strong>Locations</strong> ${animals.length}</div>
 		</div>
 		<div class="profile-photos">
 			<h3>Latest Photos</h3>
@@ -42,14 +45,14 @@ return `
 }
 
 
-const makeAnimalProfile = o =>{
+const makeAnimalProfile = o =>`
 
-return `<div>
+<div class="animal-profile">
 <div class="display-flex">
   <div class="flex-none">
 		<img src="${o.img}" alt="" />
 	</div>
-	<div>
+	<div class=>'animal-profile-info'
 		<div><strong>${o.name}</strong></div>
 		<div>${o.type}</div>
 		<div>${o.trait}</div>
@@ -66,8 +69,9 @@ return `<div>
 		</div>
 	</div>
 </div>
+</div>
 `;
-}
+
 
 
 
@@ -128,9 +132,6 @@ const makeSelectOptions = (options,selected) => {
 
 
 const makeAnimalProfileInputs = (o,namespace="list-add") => {
-let types = [
-    ['unicorn','Unicorn'],
-];
 let traits = [
 	['junior','Junior'],
 	['creative','Creative'],
@@ -140,9 +141,18 @@ let traits = [
 ];
 return `
 <div class="form-control">
+    <label for="${namespace}-description" class="form-label">Add a Photo</label>
+	<input type='hidden' id="${namespace}-photo" data-role="none">
+	<label class="imagepicker imagepicker-replace thumbnail">
+	<input type='file' id="${namespace}-photo-upload" data-role="none">
+	</label>
+</div>
+
+<div class="form-control">
 	<label for="${namespace}-name" class="form-label">Name</label>
 	<input type="text" class="form-input" id="${namespace}-name" placeholder="Type Animal Name" data-role="none" value="${o.name}">
 </div>
+
 <div class="form-control">
 	<label for="${namespace}-type" class="form-label">Type</label>
 	<div class="form-select">
@@ -151,13 +161,15 @@ return `
 		</select>
 	</div>
 </div>
+
 <div class="form-control">
-	<label for="${namespace}-trait" class="form-label">trait</label>
-	<input type="text" class="form-input" id="${namespace}-trait" placeholder="Type Animal trait" data-role="none" value="${o.trait}">
+	<label for="${namespace}-trait" class="form-label">Trait</label>
+	<input type="text" class="form-input" id="${namespace}-trait" placeholder="Unicorn Trait" data-role="none" value="${o.trait}">
 </div>
+
 <div class="form-control">
 	<label for="${namespace}-description" class="form-label">Description</label>
-	<textarea class="form-input" id="${namespace}-description" placeholder="Type Animal Description" data-role="none">${o.description}</textarea>
+	<textarea class="form-input" id="${namespace}-description" placeholder="Unicorn Description" data-role="none">${o.description}</textarea>
 </div>`;
 }
 

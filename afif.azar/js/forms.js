@@ -66,16 +66,18 @@ const checkAddLocationForm = () => {
 	let lat = +$("#add-location-lat").val();
 	let lng = +$("#add-location-lng").val();
 	let description = $("#add-location-description").val();
+	let photo = $("#add-location-photo").val();
+	let icon = 'img/icon/map.svg';
 	let animalId = sessionStorage.animalId;
 
 	query({
 		type:'insert_location',
-		params:[animalId,lat,lng,description]
+		params:[animalId,lat,lng,description,photo,icon]
 	}).then(d=>{
 		if(d.error) throw d.error;
 		window.history.go(-2);
-		// $.mobile.navigate("#animal-profile-page");
-	});
+		$.mobile.navigate("#animal-profile-page");
+	})
 };
 
 

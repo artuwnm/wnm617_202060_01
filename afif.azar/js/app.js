@@ -91,7 +91,8 @@ $(()=>{
 		if(!$(this).data("id")) throw("No data ID on Element");
 
 		sessionStorage.animalId = $(this).data("id");
-		$.mobile.navigate("#animal-profile-page")
+		$.mobile.navigate("#animal-profile-page");
+
 	})
 	.on("click",".js-choose-animal",function(e){
 		sessionStorage.animalId = $("#add-location-animal-id").val();
