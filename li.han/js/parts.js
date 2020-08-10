@@ -1,38 +1,57 @@
 const makeAnimalList = templater(o=>`
 <div class="animallist-item display-flex animal-jump" data-id="${o.id}">
-	<div class="flex-none"><img src="${o.img}" alt="" class="list-image" /></div>
-	<div class="flex-stretch animallist-body">
-		<div>${o.name}</div>
-		<div>${o.type}</div>
-		<div>${o.breed}</div>
+	<div class="flex-none"><img src="${o.img}" alt="" class="list-image">
+	<div class="animallist-body">
+		<div style="font-size:1em;font-weight:bold;">${o.name}</div>
+		<div style="font-size:0.8em;color:#295F3D;">${o.type}</div>
+		<div style="font-style: italic;font-size:0.8em;color:grey;">${o.breed}</div>
+	</div>
 	</div>
 </div>
 `);
 
 
-const makeUserProfile = o =>`
+
+const UserProfileLocationsPhotoList = templater(o=>`<img src="${o.photo}" class="animal-jump" data-id="${o.animal_id}">`);
+const AnimalProfileLocationsPhotoList = templater(o=>`<img src="${o.photo}" data-id="${o.id}">`);
+
+
+const makeUserProfile = (user,animals,locations) =>{
+return `
 <div>
 	<div class="hero-image">
-		<a href="#settings-profile-upload-page"><img src="${o.img}" alt=""></a>
+		<a href="#settings-profile-upload-page"><img src="${user.img}" alt=""></a>
 	</div>
-	<h2 class="profile-title">${o.name}</h2>
-	<div class="profile-body">
-		<div>${o.username}</div>
-		<div>${o.email}</div>
+	<div style="padding:0em 1em;margin-top:0;">
+		<h2 class="profile-title">${user.name}</h2>
+		<div class="profile-body">
+			<div><strong>Username</strong> &nbsp;&nbsp; ${user.username}</div>
+			<div><strong>Email</strong>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;${user.email}</div>
+			<div><strong>Animals</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  ${animals.length}</div>
+			<div><strong>Locations</strong> &nbsp;&nbsp;&nbsp;&nbsp;${locations.length}</div>
+		</div>
+		<div class="profile-photos">
+			<h3>Latest Photos</h3>
+			<div class="profile-location-photos">
+				${UserProfileLocationsPhotoList(locations.slice(0,3))}
+			</div>
+		</div>
 	</div>
 </div>
 `;
+}
 
 
-const makeAnimalProfile = o=>`
+const makeAnimalProfile = (animal,locations)=>{
+
+return `<div>
 <div class="display-flex">
 	<div class="flex-none">
-		<img src="${o.img}" alt="" />
+		<img src="${animal.img}" alt="" />
 	</div>
-	<div>
-		<div><strong>${o.name}</strong></div>
-		<div>${o.type}</div>
-		<div>${o.breed}</div>
+	<div style="padding:1em">
+		<div>${animal.type}</div>
+		<div>${animal.breed}</div>
 		<div class="display-flex">
 			<div class="flex-none">
 				<button data-toggle=".profile-head" class="form-button">More</button>
@@ -41,12 +60,17 @@ const makeAnimalProfile = o=>`
 				<a href="#settings-animal-profile-page" class="form-button">Edit</a>
 			</div>
 			<div class="flex-none">
-				<a href="#" class="form-button js-delete-animal" data-id="${o.id}">Delete</a>
+				<a href="#" class="form-button js-delete-animal" data-id="${animal.id}">Delete</a>
 			</div>
 		</div>
 	</div>
 </div>
+<div class="profile-location-photos">
+	${AnimalProfileLocationsPhotoList(locations)}
+</div>
+</div>
 `;
+}
 
 
 const makeRecentProfile = o=>`
@@ -107,13 +131,18 @@ const makeSelectOptions = (options,selected) => {
 
 const makeAnimalProfileInputs = (o,namespace="list-add") => {
 let types = [
-	['dog','Dog'],
-	['cat','Cat'],
-	['horse','Horse'],
-	['turtle','Turtle'],
-	['rabbit','Rabbit']
+	['alpaca','Alpaca'],
+	['llama','Llama'],
+	['vicuna','Vicuna']
 ];
 return `
+<div class="form-control">
+	<label for="${namespace}-description" class="form-label">Add a Photo</label>
+	<input type='hidden' id="${namespace}-photo" data-role="none">
+	<label class="imagepicker imagepicker-replace thumbnail">
+		<input type='file' id="${namespace}-photo-upload" data-role="none">
+	</label>
+</div>
 <div class="form-control">
 	<label for="${namespace}-name" class="form-label">Name</label>
 	<input type="text" class="form-input" id="${namespace}-name" placeholder="Type Animal Name" data-role="none" value="${o.name}">
@@ -142,7 +171,7 @@ return `
 
 const filterList = (animals,type) => {
 	let a = [...(new Set(animals.map(o=>o[type])))];
-	return templater(o=>`<li><a href="#" data-filter="${type}" data-value="${o}">${o[0].toUpperCase()+o.substr(1)}</a></li>`)(a)
+	return templater(o=>`<li><a href="#" data-filter="${type}" data-value="${o}">${o[0]+o.substr(1)}</a></li>`)(a)
 }
 
 const listFilters = (animals) => {

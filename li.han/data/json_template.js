@@ -38,7 +38,7 @@
       var breeds = {
         alpaca:["huacaya","suri"],
         llama:["ccara sullo","wooly llama"],
-        vicuna:["lama"]
+        vicuna:["lama","guanaco"]
       };
       var chosen_type = breeds[this.type];
       var chosen_index = tags.integer(0,chosen_type.length-1);

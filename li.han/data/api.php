@@ -1,10 +1,12 @@
 <?php
 
-
 include "auth.php";
 function makeConn() {
 	try {
-		return new PDO(...PDOauth());
+		$conn = new PDO(...PDOauth());
+		// This line allows PDO errors to be reported correctly.
+		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		return $conn;
 	} catch (PDOException $e) {
 		die('{"error":"' . $e->getMessage() . '"}');
 	}
@@ -17,7 +19,7 @@ function print_p($d) {
 /* $r = PDO result */
 function fetchAll($r) {
 	$a = [];
-	while($row = $r->fetch(PDO::FETCH_OBJ)) $a[] = $row;
+	while($row = $r->fetch(\PDO::FETCH_OBJ)) $a[] = $row;
 	return $a;
 }
 
@@ -28,7 +30,7 @@ $c = connection
 $ps = prepared statement
 $p = parameters
 */
-function makeQuery($c,$ps,$p) {
+function makeQuery($c,$ps,$p,$makeResults=true) {
 	try{
 		if(count($p)) {
 			$stmt = $c->prepare($ps);
@@ -36,14 +38,16 @@ function makeQuery($c,$ps,$p) {
 		} else {
 			$stmt = $c->query($ps);
 		}
-		$r = fetchAll($stmt);
+
+		$r = $makeResults ? fetchAll($stmt) : [];
 
 		return [
 			// "statement"=>$ps,
 			// "params"=>$p,
 			"result"=>$r
 		];
-	} catch (PDOException $e) {
+	} 
+	catch (PDOException $e) {
 		return ["error"=>"Query Failed: ".$e->getMessage()];
 	}
 }
@@ -77,9 +81,9 @@ function makeStatement($data) {
 	$p = $data->params;
 	
 	switch($t) {
-		case "users_all" : return makeQuery($c,"SELECT * FROM `track_users`",[]);
-		case "animals_all" : return makeQuery($c,"SELECT * FROM `track_animals`",[]);
-		case "locations_all" : return makeQuery($c,"SELECT * FROM `track_locations`",[]);
+		// case "users_all" : return makeQuery($c,"SELECT * FROM `track_users`",[]);
+		// case "animals_all" : return makeQuery($c,"SELECT * FROM `track_animals`",[]);
+		// case "locations_all" : return makeQuery($c,"SELECT * FROM `track_locations`",[]);
 
 		case "user_by_id" : return makeQuery($c,"SELECT id,name,username,email,date_create,img FROM `track_users` WHERE `id`=?",$p);
 		case "animal_by_id" : return makeQuery($c,"SELECT * FROM `track_animals` WHERE `id`=?",$p);
@@ -87,6 +91,7 @@ function makeStatement($data) {
 
 		case "animals_by_user_id" : return makeQuery($c,"SELECT * FROM `track_animals` WHERE `user_id`=?",$p);
 		case "locations_by_animal_id" : return makeQuery($c,"SELECT * FROM `track_locations` WHERE `animal_id`=?",$p);
+		case "locations_by_user_id" : return makeQuery($c,"SELECT l.* FROM `track_animals` a LEFT JOIN `track_locations` l ON a.id = l.animal_id WHERE a.user_id=? ORDER BY l.date_create DESC",$p);
 
 
 		case "check_signin":
@@ -151,7 +156,7 @@ function makeStatement($data) {
 				(`username`, `email`, `password`, `img`, `date_create`)
 				VALUES
 				(?, ?, md5(?), 'https://via.placeholder.com/400/?text=USER', NOW())
-				",$p);
+				",$p,false);
 			if(isset($r['error'])) return $r;
 			return ["result"=>$c->lastInsertId()];
 
@@ -160,8 +165,8 @@ function makeStatement($data) {
 				`track_animals`
 				(`user_id`,`name`, `type`, `breed`, `description`, `img`, `date_create`)
 				VALUES
-				(?, ?, ?, ?, ?, 'https://via.placeholder.com/400/?text=ANIMAL', NOW())
-				",$p);
+				(?, ?, ?, ?, ?, ?, NOW())
+				",$p,false);
 			if(isset($r['error'])) return $r;
 			return ["result"=>$c->lastInsertId()];
 
@@ -170,8 +175,8 @@ function makeStatement($data) {
 				`track_locations`
 				(`animal_id`,`lat`, `lng`, `description`, `photo`, `icon`, `date_create`)
 				VALUES
-				(?, ?, ?, ?, 'https://via.placeholder.com/400/?text=LOCATION', 'https://via.placeholder.com/40/?text=ICON', NOW())
-				",$p);
+				(?, ?, ?, ?, ?, ?, NOW())
+				",$p,false);
 			if(isset($r['error'])) return $r;
 			return ["result"=>$c->lastInsertId()];
 
@@ -187,7 +192,7 @@ function makeStatement($data) {
 					`username`=?,
 					`email`=?
 				WHERE `id`=?
-				",$p);
+				",$p,false);
 			return ["result"=>"success"];
 
 		case "update_animal":
@@ -199,7 +204,7 @@ function makeStatement($data) {
 					`breed`=?,
 					`description`=?
 				WHERE `id`=?
-				",$p);
+				",$p,false);
 			return ["result"=>"success"];
 			
 		case "update_profile_image":
@@ -207,7 +212,7 @@ function makeStatement($data) {
 				`track_users`
 				SET `img`=?
 				WHERE `id`=?
-				",$p);
+				",$p,false);
 			return ["result"=>"success"];
 
 
@@ -215,9 +220,9 @@ function makeStatement($data) {
 
 		// DELETE STATEMENTS
 		case "delete_animal":
-			return makeQuery($c,"DELETE FROM `track_animals` WHERE `id`=?",$p);
+			return makeQuery($c,"DELETE FROM `track_animals` WHERE `id`=?",$p,false);
 		case "delete_location":
-			return makeQuery($c,"DELETE FROM `track_locations` WHERE `id`=?",$p);
+			return makeQuery($c,"DELETE FROM `track_locations` WHERE `id`=?",$p,false);
 
 
 
