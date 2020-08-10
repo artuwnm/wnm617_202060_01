@@ -15,8 +15,9 @@
 	<!-- <link rel="stylesheet" href="public/css/style.css"> -->
 
 	<link rel="stylesheet" href="public/css/system.css">
-	<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8erqiFPDLjaL0jG_EXnAR_Zlf72RDEb8"
-    async defer></script> -->
+	<script async defer
+	  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYwyEDMUp9o1sJcGwjEsWLLHquGRv9BFI">
+	</script>
 
 </head>
 <body>
@@ -43,12 +44,15 @@
 			<header>
 				<div class="flex-center-column login-info">
 					<div class="login-photo-box flex-center">
-						<img src="public/img/logo.png" alt="">
+						<img src="public/img/logo2.png" alt="">
 					</div>
+				</div>
+				<div class="flex-center" id="login-alert">
+					
 				</div>
 			</header>
 			<main class="flex-center">
-
+				
 				<form class="line-style-form" action="" id="signin-form">
 					<div class="">
 					    <label for="login-username">Username</label>
@@ -81,28 +85,34 @@
 	<section data-role="page" id="signup-page">
 		<div data-role="main" class="container">
 			<header>
-				<!-- logo -->
+				<div class="flex-center" id="signup-alert">
+					
+				</div>
 			</header>
 			<main class="flex-center">
 				<form class="line-style-form" action="">
-					<div class="">
+					<!-- <div class="">
 					    <label for="name">Name</label>
 					    <input data-role="none" type="text" name="name" id="name" required>
-					</div>
+					</div> -->
 					<div class="">
 					    <label for="username">Username</label>
-					    <input data-role="none" type="text" name="username" id="username" required>
+					    <input data-role="none" type="text" name="username" id="signup-username" required>
 					</div>
 					<div class="">
 					    <label for="email">Email</label>
-					    <input data-role="none" type="text" name="email" id="email" required>
+					    <input data-role="none" type="text" name="email" id="signup-email" required>
 					</div>
 					<div class="">
 					    <label for="password">Password</label>
-					    <input data-role="none" type="text" name="password" id="password" required>
+					    <input data-role="none" type="password" name="password" id="signup-password" required>
+					</div>
+					<div class="">
+					    <label for="password">Confirm Password</label>
+					    <input data-role="none" type="password" name="password" id="signup-password2" required>
 					</div>
 
-					<div data-role="none" class="button-confirm">Create Account</div>
+					<div data-role="none" class="button-confirm" id="signup-btn">Create Account</div>
 				</form>
 			</main>
 			<footer class="flex-center">
@@ -114,22 +124,27 @@
 
 	<section data-role="page" id="map-page">
 		<header class="map-header">
-			<input type="search" id="site-search" name="search">
-			<div class="button-add" id="add-new-pin"></div>
-		</header>
-		<div data-role="main" class="map">
-			<img src="public/img/map.png" alt="">
-			<div class="pin"></div>
-			<div id="pin-popup" class="flex-center">
-				<div class="butty-photo ">
-					<img src="public/img/icon/icon-map.png" alt="">
-				</div>
-				<div class="buddy-map-intro">
-					<p class="title">location</p>
-					<p>Memory with your<a href=""> Beer buddy</a></p>
-				</div>
+			<form action="" onsubmit="return false;" data-role="none" id="map-search-form">
+				<input type="search" id="map-search" name="search">
+			</form>
+			<div class="button-add flex-center" id="add-new-pin">
+				<img style="width: 100%;" src="public/img/icon/add-pin.png" alt="">
 			</div>
-		</div>
+		</header>
+			<div id="map"></div>
+			<div data-role="main" class="map" id="pin-popup">
+				
+				<!-- <div class="pin"></div> -->
+				<!-- <div id="pin-popup" class="flex-center">
+					<div class="butty-photo ">
+						<img src="public/img/icon/icon-map.png" alt="">
+					</div>
+					<div class="buddy-map-intro">
+						<p class="title">location</p>
+						<p>Memory with your<a href=""> Beer buddy</a></p>
+					</div>
+				</div> -->
+			</div>
 		<nav data-role="nav">
 			<ul class="flex">
 				<li class="flex-center">
@@ -159,14 +174,17 @@
 			</header>
 			
 			<div data-role="main" class="map">
-				<img src="public/img/map.png" alt="">
+				<!-- <img src="public/img/map.png" alt="">
 				<div class="pin flex-center">
 					<img src="public/img/icon/icon-pin.png" alt="">
-				</div>
+				</div> -->
 				
 			</div>
 
-
+			<div>
+				<input type="hidden" id="add-location-lat">
+				<input type="hidden" id="add-location-lng">
+			</div>
 			
 			<footer>
 				<div data-role="none" class="button-confirm" id="pin-confirm-btn">
@@ -176,19 +194,9 @@
 			</footer>
 
 
-			<div class="popup" id="select-buddy-popup">
-				<ul class="buddy-photo-list">
-					<li class="buddy-photo-item">
-						<!-- <img src="public/img/icon/icon-profile.png" alt=""> -->
-					</li>
-					<li class="buddy-photo-item"></li>
-					<li class="buddy-photo-item"></li>
-					<li class="buddy-photo-item"></li>
-					<li class="buddy-photo-item"></li>
-				</ul>
-				
-			</div>
+			
 		</div>
+
 		<div class="popup" id="map-popup">
 			<header class="flex-center">
 				<h4>NEW MEMORY</h4>
@@ -205,17 +213,20 @@
 					
 					<div class="">
 					    <label for="alcohol">Alcohol Today</label>
-					    <input data-role="none" type="text" name="alcohol" id="alcohol" required>
+					    <input data-role="none" type="text" name="alcohol" id="add-today-alcohol" required>
 					</div>
 					<div class="">
 					    <label for="bar">Bar Today</label>
-					    <input data-role="none" type="text" name="bar" id="bar" required>
+					    <input data-role="none" type="text" name="bar" id="add-today-bar" required>
 					</div>
 					<div class="">
 					    <label for="note">Happy note</label>
-					    <input data-role="none" type="text" name="note" id="note" required>
+					    <input data-role="none" type="text" name="note" id="add-today-note" required>
 					</div>
-				
+					<div>
+						<div id="add-location-lat"></div>
+						<div id="add-location-lng"></div>
+					</div>
 				</form>
 			</main>
 			<footer>
@@ -225,6 +236,19 @@
 
 
 			<div class="popup" id="select-buddy-popup">
+				<ul class="buddy-photo-list">
+					<!-- <li class="buddy-photo-item">
+						<img src="public/img/icon/icon-profile.png" alt="">
+					</li>
+					<li class="buddy-photo-item"></li>
+					<li class="buddy-photo-item"></li>
+					<li class="buddy-photo-item"></li>
+					<li class="buddy-photo-item"></li> -->
+				</ul>
+				
+			</div>
+		</div>
+		<div class="popup" id="select-buddy-popup">
 				<ul class="buddy-photo-list">
 					<li class="buddy-photo-item">
 						<!-- <img src="public/img/icon/icon-profile.png" alt=""> -->
@@ -236,8 +260,6 @@
 				</ul>
 				
 			</div>
-		</div>
-
 
 		
 	</section>
@@ -245,8 +267,13 @@
 
 	<section data-role="page" id="buddy-page">
 		<header class="map-header">
-			<input type="search" id="site-search" name="search">
-			<div class="button-add" id="add-new-buddy"></div>
+			<form action="" id="buddy-search-form" onsubmit="return false;">
+				<input type="search" id="buddy-search" name="search">
+			</form>
+			
+			<div class="button-add" id="add-new-buddy">
+				<img style="width: 100%;" src="public/img/icon/add-buddy.png" alt="">
+			</div>
 		</header>
 		<div data-role="main" class="main">
 			<ul class="buddy-photo-list">
@@ -336,22 +363,29 @@
 				<form class="line-style-form" action="">
 					<div class="flex-center-column buddy-info">
 						<div class="buddy-photo-box flex-center">
-							<img src="public/img/icon/icon-profile.png" alt="">
+							<img id="new-buddy-img" src="public/img/icon/icon-profile.png" alt="">
 						</div>
-						<p>Add Photo</p>
+						<p class="flex-center-column">
+							<label for="upload-buddy-img">Add Photo</label>
+							<input type="file" data-role="none" id="upload-buddy-img" style="opacity: 0">
+							<input type="hidden" id="settings-profile-src">
+
+						</p>
+						
+						<!-- <p>Add Photo</p> -->
 
 					</div>
 					<div class="">
 					    <label for="buddy-name">Name</label>
-					    <input data-role="none" type="text" name="buddy-name" id="buddy-name" required>
+					    <input data-role="none" type="text" name="buddy-name" id="new-buddy-name" required>
 					</div>
 					<div class="">
 					    <label for="alcohol">Favorite Alcohol</label>
-					    <input data-role="none" type="text" name="alcohol" id="alcohol" required>
+					    <input data-role="none" type="text" name="alcohol" id="new-fav-alcohol" required>
 					</div>
 					<div class="">
 					    <label for="bar">Favorite Bar</label>
-					    <input data-role="none" type="text" name="bar" id="bar" required>
+					    <input data-role="none" type="text" name="bar" id="new-fav-bar" required>
 					</div>
 					
 				</form>
@@ -363,14 +397,70 @@
 			
 		</div>
 
-		<div class="popup" id="buddy-popup-info">
+		<!-- <div class="popup" id="buddy-popup-info">
 			<header class="flex-center">
 				<p id="buddy-back-btn">Back</p>
 				<h4>Buddy Name</h4>
 				<img id="buddy-edit-btn" src="public/img/icon/icon-edit.png" alt="">
 			</header>
 			<main class="flex-center">
+				 
+			</main>
+			<footer>
+	
+			</footer>
+		</div>
+
+
+		<div class="popup" id="buddy-popup-edit">
+			<header class="flex-center">
+				<h4>Buddy Name</h4>
+			</header>
+			<main class="flex-center">
 				<form class="line-style-form" action="">
+					<div class="flex-center-column buddy-info">
+						<div class="buddy-photo-box flex-center">
+							<img src="public/img/icon/icon-profile.png" alt="">
+						</div>
+						<p>Vodka Buddy</p>
+
+					</div>
+					<div class="">
+					    <label for="buddy-name">Name</label>
+					    <input data-role="none" type="text" name="buddy-name" id="buddy-name" value="Vodka Buddy" required>
+					</div>
+					<div class="">
+					    <label for="alcohol">Favorite Alcohol</label>
+					    <input data-role="none" type="text" name="alcohol" id="alcohol" value="Vodka" required>
+					</div>
+					<div class="">
+					    <label for="bar">Favorite Bar</label>
+					    <input data-role="none" type="text" name="bar" id="bar" value="Vodka Bar" required>
+					</div>
+					
+				</form>
+			</main>
+			<footer>
+				<div data-role="none" class="button-confirm" id="buddy-savechange-btn">Save</div>
+				<div data-role="none" class="button-cancel-hidden" id="buddy-delete-btn">Delete</div>
+			</footer>
+			
+		</div> -->
+	</section>
+
+	<section data-role="page" id="buddy-profile-page">
+		
+		
+
+		<div class="popup" id="buddy-popup-info">
+			<header class="flex-center">
+				<p><a href="#" data-rel="back" class="ui-link">Back</a></p>
+				<!-- <p id="buddy-back-btn">Back</p> -->
+				<h4>Buddy</h4>
+				<img id="buddy-edit-btn" src="public/img/icon/icon-edit.png" alt="">
+			</header>
+			<main class="flex-center">
+				<!-- <form class="line-style-form" action="">
 					<div class="flex-center-column buddy-info">
 						<div class="buddy-photo-box flex-center">
 							<img src="public/img/icon/icon-profile.png" alt="">
@@ -395,28 +485,28 @@
 						<p>You have 3 memories with Vodka Buddy</p>
 					</div>
 					
-				</form>
+				</form> -->
 			</main>
-			<footer>
+			<div class="map"></div>
+			<!-- <footer> -->
 				<!-- <div data-role="none" class="button-confirm">ADD</div> -->
 				<!-- <div data-role="none" class="button-cancel-hidden" id="add-buddy-cancel">Delete</div> -->
-			</footer>
-			
+			<!-- </footer> -->
 		</div>
 
 
 		<div class="popup" id="buddy-popup-edit">
 			<header class="flex-center">
-				<h4>Buddy Name</h4>
+				<h4>Edit Buddy Info</h4>
 				<!-- <img src="public/img/icon/icon-edit.png" alt=""> -->
 			</header>
 			<main class="flex-center">
-				<form class="line-style-form" action="">
+				<!-- <form class="line-style-form" action="">
 					<div class="flex-center-column buddy-info">
 						<div class="buddy-photo-box flex-center">
 							<img src="public/img/icon/icon-profile.png" alt="">
 						</div>
-						<p>Buddy Name</p>
+						<p>Vodka Buddy</p>
 
 					</div>
 					<div class="">
@@ -432,23 +522,32 @@
 					    <input data-role="none" type="text" name="bar" id="bar" value="Vodka Bar" required>
 					</div>
 					
-				</form>
+				</form> -->
 			</main>
+			<div style="position: relative; top: -150px; ">
+				<div data-role="none" class="button-cancel-hidden" id="buddy-delete-btn">Delete this buddy</div>
+			</div>
 			<footer>
 				<div data-role="none" class="button-confirm" id="buddy-savechange-btn">Save</div>
-				<div data-role="none" class="button-cancel-hidden" id="buddy-delete-btn">Delete</div>
+				<!-- <div data-role="none" class="button-cancel-hidden" id="buddy-delete-btn">Delete</div> -->
+				<div data-role="none" class="button-cancel-hidden" id="buddy-cancel-btn">Cancel</div>
 			</footer>
 			
 		</div>
+
 	</section>
 
 	<section data-role="page" id="profile-page">
+		<header>
+			<img id="profile-edit-btn" src="public/img/icon/icon-edit.png" alt="">
+		</header>
 		<div data-role="main" class="main">
-			<div class="flex-center-column profile-info">
+			<!-- <div class="flex-center-column profile-info">
 				<div class="profile-photo-box flex-center">
 					<img src="public/img/icon/icon-profile.png" alt="">
 				</div>
 				<p>Change Profile Photo</p>
+				<p></p>
 
 			</div>
 			<ul class="profile-list">
@@ -474,7 +573,7 @@
 					</a>
 					<span class="item-content"></span>
 				</li>
-			</ul>
+			</ul> -->
 		</div>
 		<nav data-role="nav">
 			<ul class="flex">
@@ -498,8 +597,86 @@
 				</li>
 			</ul>
 		</nav>
+
+
+
+		<div class="popup" id="profile-popup-edit">
+			
+			<div data-role="main" class="main">
+				<div class="flex-center-column profile-info">
+					<div class="profile-photo-box flex-center">
+						<img src="public/img/icon/icon-profile.png" alt="">
+					</div>
+					<p class="flex-center-column">
+						<label for="upload-profile-img">Change Profile Photo</label>
+						<input type="file" data-role="none" id="upload-profile-img" style="opacity: 0">
+						<input type="hidden" id="settings-profile-img-src">
+
+					</p>
+					<!-- <p>Change Profile Photo</p> -->
+
+				</div>
+			
+				<form class="line-style-form" action="">
+					<div class="">
+					    <label for="buddy-name">Username</label>
+					    <input data-role="none" type="text" name="buddy-name" id="user-name" value="username" required>
+					</div>
+					
+					<div class="">
+					    <label for="user-email">Email</label>
+					    <input data-role="none" type="text" name="user-email" id="user-email" value="email" required>
+					</div>
+
+					<div class="">
+					    <label for="user-intro">Intro</label>
+					    <input data-role="none" type="text" name="user-intro" id="user-intro" value="intro" required>
+					</div>
+					
+				</form>
+			</div>
+			<footer>
+				<div data-role="none" class="button-confirm" id="profile-savechange-btn">Save</div>
+				<div data-role="none" class="button-cancel-hidden" id="profile-cancel-btn">Cancel</div>
+			</footer>
+			
+		</div>
+
+		<div class="popup" id="profile-popup-change-password">
+			<header>
+				<div class="flex-center" id="password-alert">
+					
+				</div>
+			</header>
+			<main class="flex-center">
+				<form class="line-style-form" action="">
+					<div class="">
+					    <label for="password">Old Password</label>
+					    <input data-role="none" type="password" name="password" id="old-password" required>
+					</div>
+					
+					<div class="">
+					    <label for="password">New Password</label>
+					    <input data-role="none" type="password" name="password" id="new-password" required>
+					</div>
+					<div class="">
+					    <label for="password">Confirm New Password</label>
+					    <input data-role="none" type="password" name="password" id="new-password2" required>
+					</div>
+
+					
+				</form>
+			</main>
+			<footer>
+				<div data-role="none" class="button-confirm" id="change-password-confirm">ADD</div>
+				<div data-role="none" class="button-cancel-hidden" id="change-password-cancel">CANCEL</div>
+			</footer>
+		</div>
+		
 	</section>
 	<script src="public/js/app.js"></script>
+	<script src="public/js/map.js"></script>
 	<script src="public/js/function.js"></script>
+	<!-- <script src="public/js/map.js"></script> -->
 </body>
 </html>
