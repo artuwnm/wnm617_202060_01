@@ -95,7 +95,7 @@ const AnimalProfilePage = async() => {
 	if(sessionStorage.animalId===undefined) throw("No animal ID in Storage");
 
 	let animal = await query({type:"animal_by_id",params:[sessionStorage.animalId]})
-	let locations = await query({type:"locations_by_animal_id",params:[sessionStorage.animalId]})
+	let locations = await query({type:"locations_by_user_id",params:[sessionStorage.userId]})
 	
 	$("#animal-profile-page h1").html(animal.result[0].name)
 

@@ -27,7 +27,7 @@ const makeUserProfile = (user,animals,locations) =>{return `
 		<div class="profile-body" style="text-align:center;">
 			<div><strong>Email</strong><br> ${user.email}</div><br>
 			<div><strong>Dogs</strong><br> ${animals.length}</div><br>
-			<div><strong>Locations</strong><br> ${location.length}</div><br>
+			<div><strong>Locations</strong><br> ${locations.length}</div><br>
 		</div>
 
 	</div>
@@ -36,17 +36,17 @@ const makeUserProfile = (user,animals,locations) =>{return `
 }
 
 
-const makeAnimalProfile = o =>{
+const makeAnimalProfile = (animal,location) =>{
 	return `<div>
 <div class="display-flex">
 	<div class="flex-none">
-		<img src="${o.img}" alt="/" />
+		<img src="${animal.img}" alt="/" />
 	</div>
 
 	<div class="animal-detail-box">
-		<div><strong>${o.name}</strong></div>
-		<div>${o.breed}</div>
-		<div>${o.color}</div>
+		<div class="info-small"><strong>${animal.name}</stranimalng></div>
+		<div class="info-small">${animal.breed}</div>
+		<div class="info-small">${animal.color}</div>
 		<div class="display-flex inside-animal-index">
 			<div class="flex-none">
 				<button data-toggle=".profile-head" class="form-button-small">More</button>
@@ -55,7 +55,7 @@ const makeAnimalProfile = o =>{
 				<a href="#settings-animal-profile-page" class="form-button-small">Edit</a>
 			</div>
 			<div class="flex-none">
-				<a href="#" class="form-button-small js-delete-animal" data-id="${o.id}">Delete</a>
+				<a href="#" class="form-button-small js-delete-animal" data-id="${animal.id}">Delete</a>
 			</div>
 		</div>
 	</div>

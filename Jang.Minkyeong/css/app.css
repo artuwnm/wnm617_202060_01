@@ -715,8 +715,14 @@ input.search {
 }
 
 .animal-detail-box{
-    display: grid;
+    display: block;
+
 }
+
+.info-small{
+    margin-bottom: 0.5em;
+}
+
 .settings-list {
     list-style-type: none;
     padding-left: 0;

@@ -106,8 +106,10 @@ $(()=>{
 		checkSettingsProfileUpload();
 	})
 	.on("click",".js-submit-add-location",function(e){
-		e.preventDefault();
-		checkAddLocationForm();
+		sessionStorage.animalId = $("#add-location-animal-id").val();
+		$.mobile.navigate("#recent-page");
+		//e.preventDefault();
+		//checkAddLocationForm();
 	})
 	.on("click",".js-submit-recent-add-animal",function(e){
 		e.preventDefault();

@@ -11,7 +11,8 @@ const checkListAddForm = () => {
 		params:[sessionStorage.userId,name,breed,color,description,img]
 	}).then(d=>{
 		if(d.error) throw d.error;
-		ListPage();
+		sessionStorage.animalId = d.result;
+		$.mobile.navigate("#add-location-form");
 	})
 }
 
@@ -67,8 +68,8 @@ const checkSettingsProfileForm = () => {
 
 
 const checkAddLocationForm = () => {
-	let lat = +$("#add-location-lat").val();
-	let lng = +$("#add-location-lng").val();
+	let lat = + $("#add-location-lat").val();
+	let lng = + $("#add-location-lng").val();
 	let description = $("#add-location-description").val();
 	let photo = $("#add-location-photo").val();
 	let icon = 'img/spot.png';
@@ -80,7 +81,7 @@ const checkAddLocationForm = () => {
         params: [animalId, lat, lng, description, photo, icon]
     }).then(d => {
         if (d.error) throw d.error;
-        // window.history.go(-2);
+        window.history.go(-2);
         $.mobile.navigate("#recent-page");
     })
 }
@@ -164,4 +165,18 @@ const checkSettingsProfileUpload = async (file) => {
 		if(d.error) throw d.error;
 		window.history.back();
 	})
+}
+
+const checkSettingsAnimalUpload = async (file) => {
+	let upload = $("#settings-animal-src").val();
+	if(upload=="") return;
+	query({
+		type:'update_animal_image',
+		params:[upload,sessionStorage.animalId]
+	}).then(d=>{
+		if(d.error) throw d.error;
+		window.history.back();
+	})
+
+
 }
