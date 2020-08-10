@@ -1,7 +1,8 @@
 const makeAnimalList = templater(o=>`
 <div class="animallist-item display-flex animal-jump" data-id="${o.id}">
 	<div class="flex-none">
-	<img src="${o.img}" alt="" class="list-image" /></div>
+	<img src="${o.img}" alt="" class="list-image" />
+	</div>
 	<div class="flex-stretch animallist-body">
 		<div>${o.name}</div>
 		<div>${o.breed}</div>
@@ -13,6 +14,7 @@ const makeAnimalList = templater(o=>`
 
 const UserProfileLocationsPhotoList = templater(o=>`<img src="${o.photo}" class="animal-jump" data-id="${o.animal_id}">`);
 const AnimalProfileLocationsPhotoList = templater(o=>`<img src="${o.photo}" data-id="${o.id}">`);
+
 
 
 const makeUserProfile = (user,animals,locations) =>{return `
@@ -27,18 +29,20 @@ const makeUserProfile = (user,animals,locations) =>{return `
 			<div><strong>Dogs</strong><br> ${animals.length}</div><br>
 			<div><strong>Locations</strong><br> ${location.length}</div><br>
 		</div>
+
 	</div>
 </div>
 `;
 }
 
 
-const makeAnimalProfile = (animal, locations)=>{
+const makeAnimalProfile = o =>{
 	return `<div>
 <div class="display-flex">
 	<div class="flex-none">
 		<img src="${o.img}" alt="/" />
 	</div>
+
 	<div class="animal-detail-box">
 		<div><strong>${o.name}</strong></div>
 		<div>${o.breed}</div>
@@ -56,9 +60,8 @@ const makeAnimalProfile = (animal, locations)=>{
 		</div>
 	</div>
 </div>
-<div class="profile-location-photos">
-	${AnimalProfileLocationsPhotoList(locations)}
-</div>
+
+
 </div>
 `;
 }
@@ -106,7 +109,7 @@ ${FormControl({namespace:namespace,label:"Color",name:"color",value:o.color})}`;
 const FormControl = ({namespace,label,name,value,type="text"}) => `
 <div class="form-control">
 	<label for="${namespace}-${name}" class="form-label">${label}</label>
-	<input id="${namespace}-${name}" value="${value}" breed="${o.breed}" class="form-input" data-role="none">
+	<input id="${namespace}-${name}" value="${value}" breed="${breed}" class="form-input" data-role="none">
 </div>`;
 
 
@@ -139,6 +142,7 @@ return `
 		<input type='file' id="${namespace}-photo-upload" data-role="none">
 	</label>
 </div>
+
 <div class="form-control">
 	<label for="${namespace}-name" class="form-label">Name</label>
 	<input type="text" class="form-input" id="${namespace}-name" placeholder="Type Animal Name" data-role="none" value="${o.name}">

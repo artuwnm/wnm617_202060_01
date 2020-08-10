@@ -25,11 +25,11 @@ const checkRecentAddForm = () => {
 
 	query({
 		type:'insert_animal',
-		params:[sessionStorage.userId,name,breed,color,description,img]
+		params:[sessionStorage.animalId,name,breed,color,description,img]
 	}).then(d=>{
 		if(d.error) throw d.error;
 		sessionStorage.animalId = d.result;
-		$.mobile.navigate("#add-location-page")
+		$.mobile.navigate("#add-location-form")
 	})
 }
 
@@ -65,23 +65,29 @@ const checkSettingsProfileForm = () => {
 	})
 }
 
+
 const checkAddLocationForm = () => {
 	let lat = +$("#add-location-lat").val();
 	let lng = +$("#add-location-lng").val();
 	let description = $("#add-location-description").val();
 	let photo = $("#add-location-photo").val();
-	let icon = 'img/icons/map.svg';
+	let icon = 'img/spot.png';
 	let animalId = sessionStorage.animalId;
 
-	query({
-		type:'insert_location',
-		params:[animalId,lat,lng,description,photo,icon]
-	}).then(d=>{
-		if(d.error) throw d.error;
-		//window.history.go(-2);
-		$.mobile.navigate("#recent-page");
-	})
+
+ query({
+        type: 'insert_location',
+        params: [animalId, lat, lng, description, photo, icon]
+    }).then(d => {
+        if (d.error) throw d.error;
+        // window.history.go(-2);
+        $.mobile.navigate("#recent-page");
+    })
 }
+
+
+
+
 
 
 const checkAnimalDelete = id => {

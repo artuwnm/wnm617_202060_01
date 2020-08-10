@@ -19,6 +19,7 @@ const checkSigninForm = async() => {
 		// not logged in
 		console.log("failure");
 		sessionStorage.removeItem('userId');
+		
 	}
 
 	checkUserId();

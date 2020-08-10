@@ -53,7 +53,7 @@ $(()=>{
 	})
 
 
-//CHANGE //
+/* CHANGE */
 	.on("change","#settings-profile-upload-form input",function(e){
 		console.log(e)
 		checkUpload(this.files[0])
@@ -70,10 +70,12 @@ $(()=>{
 			console.log(d)
 			$("#add-location-photo").val('uploads/'+d.result);
 			$("#add-location-info-form .imagepicker")
-      	.addClass("picked")
-      	.css({'background-image':`url('uploads/${d.result}')`})
+      		.addClass("picked")
+      		.css({'background-image':`url('uploads/${d.result}')`})
 		})
 	})
+
+
 
 
 // CLICKS
