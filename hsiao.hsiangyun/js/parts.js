@@ -1,53 +1,138 @@
 
+
+
 const makeAnimalList = templater(o=>`
 <div class="animallist-item display-flex animal-jump" data-id="${o.id}">
 	<div class="flex-none"><img src="${o.img}" alt="" class="list-image" /></div>
 	<div class="flex-stretch animallist-body">
-		<div>${o.name}</div>
-		<div>${o.type}</div>
-		<div>${o.breed}</div>
+		<div class="item_d_t">${o.name}</div>
+	<hr style="border-top:0.5px;">
+		<div class="onevhspace"></div>
+
+		<div class="item_d_a">${o.type}</div>
+		<div class="onevhspace"></div>
+		<div class="item_d_sa">${o.breed}</div>
 	</div>
 </div>
 `);
 
 
-const makeUserProfile = o =>`
-<div>
-	<div class="hero-image">
-		<a href="#settings-profile-upload-page"><img src="${o.img}" alt=""></a>
-	</div>
-	<h2 class="profile-title">${o.name}</h2>
-	<div class="profile-body">
-		<div>${o.username}</div>
-		<div>${o.email}</div>
-	</div>
-</div>
-`;
+
+const UserProfileLocationsPhotoList = templater(o=>`<img src="${o.photo}" class="animal-jump" data-id="${o.animal_id}">`);
+const AnimalProfileLocationsPhotoList = templater(o=>`<img src="${o.photo}" data-id="${o.id}">`);
 
 
-const makeAnimalProfile = o=>`
-<div class="display-flex">
-	<div class="flex-none">
-		<img src="${o.img}" alt="" />
+const makeUserProfile = (user,animals,locations) =>{
+return `<div>
+	<div class="threevhspace"></div>
+
+    <div class="flex-none text-center">
+		<a href="#settings-profile-upload-page">
+		<img src="${user.img}" alt="" class="item_pic"/>
+		</a>
 	</div>
-	<div>
-		<div><strong>${o.name}</strong></div>
-		<div>${o.type}</div>
-		<div>${o.breed}</div>
-		<div class="display-flex">
-			<div class="flex-none">
-				<button data-toggle=".profile-head" class="form-button">More</button>
-			</div>
-			<div class="flex-none">
-				<a href="#settings-animal-profile-page" class="form-button">Edit</a>
-			</div>
-			<div class="flex-none">
-				<a href="#" class="form-button js-delete-animal" data-id="${o.id}">Delete</a>
+	<div class="text-center">
+		<h2 class="user_name">${user.username}</h2>
+		<div class="flex-justify-content">
+			<a href="#settings-page" class="normalbutton" style="	margin-right:2em;">Setting</a>
+		</div>
+		<div class="twovhspace div_shadow2"></div>
+	</div>
+
+	<div class="threevhspace"></div>
+		<div class="item_description"style="margin:0 1.5em;">
+			<a class="item_d_t">Handle</a>
+			<br>
+			<a class="item_d_a">${user.name}</a>
+			<div class="one_fivevhspace"></div>
+			<a class="item_d_t">Email</a>
+			<br>
+			<a class="item_d_a">${user.email}</a>
+			<div class="one_fivevhspace"></div>
+			<a class="item_d_t">Animals</a>
+			<br>
+			<a class="item_d_a">${animals.length}</a>
+			<div class="one_fivevhspace"></div>
+			<a class="item_d_t">Locations</a>
+			<br>
+			<a class="item_d_a">${locations.length}</a>
+			<div class="one_fivevhspace"></div>
+		
+		</div>	
+
+	</div>
+
+
+
+
+	<div style="padding:1em">
+		<div class="profile-photos">
+			<a class="item_d_t">What's new?</a>
+			<div class="profile-location-photos">
+				${UserProfileLocationsPhotoList(locations.slice(0,3))}
 			</div>
 		</div>
 	</div>
 </div>
 `;
+}
+
+
+const makeAnimalProfile = (animal,locations)=>{
+
+return `<div>
+    <div class="threevhspace"></div>
+
+    <div class="flex-none text-center">
+		<img src="${animal.img}" alt="" class="item_pic" />
+	</div>
+
+	<div class="text-center">
+		<h2 class="user_name">${animal.name}</h2>
+
+		<div class="flex-justify-content">
+				
+					<button data-toggle=".profile-head" class="form-button3">Map</button>
+				
+				
+					<a href="#settings-animal-profile-page" class="form-button3">Edit</a>
+				
+				
+					<a href="#" class="form-button3 js-delete-animal" data-id="${animal.id}">Delete</a>
+				
+		</div>
+
+		<div class="twovhspace div_shadow2"></div>
+    </div>
+	<div class="threevhspace"></div>
+		<div class="item_description"style="margin:0 1.5em;">
+			<a class="item_d_t">Ingredient's Type</a>
+			<br>
+			<a class="item_d_a">${animal.type}</a>
+			<div class="one_fivevhspace"></div>
+			<a class="item_d_t">Ingredient's Breed</a>
+			<br>
+			<a class="item_d_a">${animal.breed}</a>
+			<div class="one_fivevhspace"></div>
+			<a class="item_d_t">Note</a>
+			<br>
+			<a class="item_d_a">${animal.description}</a>
+			<div class="one_fivevhspace"></div>
+		
+		</div>	
+					<div class="tenvhspace"></div>
+
+	</div>
+</div>
+<div class="profile-location-photos">
+	${AnimalProfileLocationsPhotoList(locations)}
+</div>
+</div>
+`;
+}
+
+
+
 
 
 const makeRecentProfile = o=>`
@@ -108,13 +193,20 @@ const makeSelectOptions = (options,selected) => {
 
 const makeAnimalProfileInputs = (o,namespace="list-add") => {
 let types = [
-	['dog','Dog'],
-	['cat','Cat'],
-	['horse','Horse'],
-	['turtle','Turtle'],
-	['rabbit','Rabbit']
+	['mushroom','Mushroom'],
+	['seed','Seed'],
+	['fruit','Fruit'],
+	['leef','Leef'],
+	['plant','Plant']
 ];
 return `
+<div class="form-control">
+	<label for="${namespace}-description" class="form-label">Add a Photo</label>
+	<input type='hidden' id="${namespace}-photo" data-role="none">
+	<label class="imagepicker imagepicker-replace thumbnail">
+		<input type='file' id="${namespace}-photo-upload" data-role="none">
+	</label>
+</div>
 <div class="form-control">
 	<label for="${namespace}-name" class="form-label">Name</label>
 	<input type="text" class="form-input" id="${namespace}-name" placeholder="Type Animal Name" data-role="none" value="${o.name}">

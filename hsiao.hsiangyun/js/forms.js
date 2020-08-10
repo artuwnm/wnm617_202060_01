@@ -1,20 +1,39 @@
 
+  
+
 
 const checkListAddForm = () => {
 	let name = $("#list-add-name").val();
 	let type = $("#list-add-type").val();
 	let breed = $("#list-add-breed").val();
 	let description = $("#list-add-description").val();
+	let img = $("#list-add-photo").val()!=''?$("#list-add-photo").val():'https://via.placeholder.com/400/?text=Ingredient';
 
 	query({
 		type:'insert_animal',
-		params:[sessionStorage.userId,name,type,breed,description]
+		params:[sessionStorage.userId,name,type,breed,description,img]
 	}).then(d=>{
 		if(d.error) throw d.error;
 		ListPage();
 	})
 }
-
+const checkRecentAddForm = () => {
+	let name = $("#add-animal-name").val();
+	let type = $("#add-animal-type").val();
+	let breed = $("#add-animal-breed").val();
+	let description = $("#add-animal-description").val();
+	let img = $("#add-animal-photo").val()!=''?$("#add-animal-photo").val():'https://via.placeholder.com/400/?text=Ingredient';
+	
+    // console.log(img);
+	query({
+		type:'insert_animal',
+		params:[sessionStorage.userId,name,type,breed,description,img]
+	}).then(d=>{
+		if(d.error) throw d.error;
+		sessionStorage.animalId = d.result;
+		$.mobile.navigate("#add-location-page")
+	})
+}
 const checkSettingsAnimalProfileForm = () => {
 	let name = $("#settings-animal-profile-name").val();
 	let type = $("#settings-animal-profile-type").val();
@@ -50,15 +69,17 @@ const checkAddLocationForm = () => {
 	let lat = +$("#add-location-lat").val();
 	let lng = +$("#add-location-lng").val();
 	let description = $("#add-location-description").val();
+	let photo = $("#add-location-photo").val();
+	let icon = 'img/icon/leaf.svg';
 	let animalId = sessionStorage.animalId;
 
 	query({
 		type:'insert_location',
-		params:[animalId,lat,lng,description]
+		params:[animalId,lat,lng,description,photo,icon]
 	}).then(d=>{
 		if(d.error) throw d.error;
-		window.history.go(-2);
-		// $.mobile.navigate("#animal-profile-page");
+		// window.history.go(-2);
+		$.mobile.navigate("#map-page");
 	})
 }
 
@@ -72,6 +93,12 @@ const checkAnimalDelete = id => {
 		window.history.back();
 	})
 }
+
+
+
+
+
+
 
 const checkListSearch = (s) => {
 	query({

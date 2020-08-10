@@ -15,6 +15,7 @@
 	<script src="js/pages.js"></script>
 	<script src="js/parts.js"></script>
 	<script src="js/maps.js"></script>
+	<script src="js/forms.js"></script>
 	<script src="js/app.js"></script>
 
 	<script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
@@ -115,9 +116,10 @@
 			---------->
 			<div class="map"></div>
 			<!-- M12 -->
+
 			<div class="anchor top left" style="width:calc(100% - 2em)">
 				<form id="recent-search" class="hotdog light soft" data-ajax="false">
-					<input type="search" data-role="none" class="search" placeholder="Search For Animal">
+					<input type="search" data-role="none" class="search" placeholder="Search For Wild Ingredient">
 				</form>
 			</div>
 			<div class="modal" id="recent-profile-drawer">
@@ -139,7 +141,7 @@
 		</footer>
 	</section>
 
-<!---------- new page ---------->
+<!---------- choose page ---------->
 		<section data-role="page" id="recent-add-choose-animal-page">
 		<header data-role="header">
 			<h1>Choose Animal</h1>
@@ -156,10 +158,10 @@
 		<div data-role="main">
 			<div class="scrollable">
 				<form id="recent-add-choose-animal-form" data-ajax="false" class="form" style="padding:1em">
-					<a href="#add-animal-page">Add New Animal</a>
+					<a href="#add-animal-page">Add New Ingredient</a>
 					<div>Or</div>
 					<div class="form-control">
-						<label for="add-location-animal-id" class="form-label">Select Animal</label>
+						<label for="add-location-animal-id" class="form-label">Select Ingredient</label>
 						<select id="add-location-animal-id" class="form-input" data-role="none">
 							<option value="1">Cat 1</option>
 							<option value="22">Dog 1</option>
@@ -170,41 +172,30 @@
 			</div>
 		</div>
 	</section>
-
-		<section data-role="page" id="add-animal-page">
+<!---------- add new item ---------->
+<section data-role="page" id="add-animal-page">
 		<header data-role="header">
-			<h1>New Animal</h1>
+			<h1>New Ingredient</h1>
 			<ul>
 				<li class="flex-none">
 					<a href="#" data-rel="back">Back</a>
 				</li>
 				<li class="flex-stretch"></li>
 				<li class="flex-none">
-					<a href="#add-location-page">Next</a>
+					<a href="#add-location-page" class="js-submit-recent-add-animal">Next</a>
 				</li>
 			</ul>
 		</header>
 		<div data-role="main">
 			<div class="scrollable">
 				<form id="add-animal-form" data-ajax="false" class="form" style="padding:1em">
-						<div class="form-control">
-							<label for="add-animal-name" class="form-label">Animal Name</label>
-							<input type="text" class="form-input" id="add-animal-name" placeholder="Type Animal Name" data-role="none">
-						</div>
-						<div class="form-control">
-							<label for="add-animal-type" class="form-label">Animal Type</label>
-							<input type="text" class="form-input" id="add-animal-type" placeholder="Type Animal Type" data-role="none">
-						</div>
-						<div class="form-control">
-							<label for="add-animal-breed" class="form-label">Animal Breed</label>
-							<input type="text" class="form-input" id="add-animal-breed" placeholder="Type Animal Breed" data-role="none">
-						</div>
+					<div class="inputs"></div>
 				</form>
 			</div>
 		</div>
 	</section>
 
-
+<!---------- add location page ---------->
 	<section data-role="page" id="add-location-page">
 		<header data-role="header">
 			<h1>Choose Location</h1>
@@ -225,8 +216,8 @@
 		</div>
 	</section>
 
-
-	<section data-role="page" id="add-location-info-page">
+<!---------- add location info page ---------->
+<section data-role="page" id="add-location-info-page">
 		<header data-role="header">
 			<h1>Location Info</h1>
 			<ul>
@@ -242,135 +233,44 @@
 		<div data-role="main">
 			<div class="scrollable">
 				<form id="add-location-info-form" data-ajax="false" class="form" style="padding:1em">
-						<div class="form-control">
-							<label for="add-location-description" class="form-label">Description</label>
-							<textarea type="text" class="form-input" id="add-location-description" placeholder="Type Description" data-role="none"></textarea>
-						</div>
+					<div class="form-control">
+						<label for="add-location-description" class="form-label">Add a Photo</label>
+						<input type='hidden' id="add-location-photo" data-role="none">
+						<label class="imagepicker imagepicker-replace thumbnail">
+							<input type='file' id="add-location-photo-upload" data-role="none">
+						</label>
+					</div>
+					<div class="form-control">
+						<label for="add-location-description" class="form-label">Description</label>
+						<textarea type="text" class="form-input" id="add-location-description" placeholder="Type Description" data-role="none"></textarea>
+					</div>
 				</form>
 			</div>
 		</div>
 	</section>
-<!---------- new page ---------->
-
 
 <!---------- list page ---------->
 	<section data-role="page" id="list-page">
 		<header data-role="header">
-			<div class="text-center">
-					<a class="">Wild Edible List</a>
+			<ul>
+				<li class="flex-stretch">
+					<form id="list-search" class="hotdog" data-ajax="false">
+						<input type="search" data-role="none" class="search" placeholder="Search For Wild Ingredient">
+					</form>
+				</li>
+			</ul>
 		</header>
+		<header data-role="header">
+			<ul class="scrollable-x list-filters"></ul>
+		</header>
+
 
 		<div data-role="main">
 			<div class="scrollable">
-				<ul class="it_category">
-					<li style="background-color:grey">All</li>
-					<li style="background-color:#E79460">Fungus</li>
-					<li style="background-color:#33A6B8">Berry</li>
-					<li style="background-color:#86C166">Herb</li>
-				</ul>
 				<div class="animallist"></div>
-
-				
-
-				<div class="itemshow">
-					<!--<li><a href="#animal-profile-page">Animal 1</a></li>-->
-
-					<div class="pic_sec">
-					<img src="img/mushroom.jpg" alt="" class="list_pic" style="height:100%;">
-					</div>
-					<div class="inf_sec">
-						<div class="title_sec">
-							<li ><a href="#item-page">White Button Mushroom</a></li>
-						</div>
-						<div class="des_sec">
-							<ul>
-								<li>Today, 01:34 PM</li>
-								<li>Presidio of San Francisco</li>
-								<li>Fungus</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-
-				<div class="itemshow">
-					<!--<li><a href="#animal-profile-page">Animal 1</a></li>-->
-					<div class="pic_sec">
-					<img src="img/blueberry.jpg" alt="" class="list_pic" style="height:100%;">
-					</div>
-					<div class="inf_sec">
-						<div class="title_sec">
-							<li><a href="#item-page">Huckleberry</a></li>
-						</div>
-						<div class="des_sec">
-							<ul>
-								<li>Today, 09:11 AM</li>
-								<li>Presidio of San Francisco</li>
-								<li>Berry</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-
-				<div class="itemshow">
-					<!--<li><a href="#animal-profile-page">Animal 1</a></li>-->
-					<div class="pic_sec">
-						<img src="img/Oxalis.jpg" alt="" class="list_pic" style="height:100%;">
-					</div>
-					<div class="inf_sec">
-						<div class="title_sec">
-							<li><a href="#item-page">Oxalis</a></li>
-						</div>
-						<div class="des_sec">
-							<ul>
-								<li>Yesterday, 11:03 AM</li>
-								<li>Presidio Heights</li>
-								<li>Herb</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-
-				<div class="itemshow">
-					<div class="pic_sec">
-					<img src="img/s_mushroom.jpg" alt="" class="list_pic" style="height:100%;">
-					</div>
-					<div class="inf_sec">
-						<div class="title_sec">
-							<li ><a href="#item-page">Sulphur Shelf Mushroom</a></li>
-						</div>
-						<div class="des_sec">
-							<ul>
-								<li>Yesterday, 10:15 AM</li>
-								<li>Jordan Park</li>
-								<li>Fungus</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			
-			<div class="itemshow">
-					<!--<li><a href="#animal-profile-page">Animal 1</a></li>-->
-					<div class="pic_sec">
-					<img src="img/cloudberries.jpg" alt="" class="list_pic" style="height:100%;">
-					</div>
-					<div class="inf_sec">
-						<div class="title_sec">
-							<li><a href="#item-page">Cloudberries</a></li>
-						</div>
-						<div class="des_sec">
-							<ul>
-								<li>Yesterday, 09:33 AM</li>
-								<li>Jordan Park</li>
-								<li>Berry</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-
-				<a  href="#add-item-page"><img src="img/addicon.png" alt="" class="addicon"></a>
+				<a href="#" data-activate="#list-add-animal-modal"><img src="img/addicon.png" alt="" class="addicon"></a>
 			</div> <!--scrollable-->
 		</div> <!--main-->
-
 
 		<footer data-role="footer">
 			<ul>
@@ -379,37 +279,56 @@
 				<li><a href="#profile-page"><img src="img/icon3.png" alt="" class="icon1"></a></li>
 			</ul>
 		</footer>
-
-<!---------- modal page ---------->
+		
 		<div class="modal" id="list-add-animal-modal">
 			<div class="modal-back" data-deactivate="#list-add-animal-modal"></div>
-			<div class="modal-popup">
-				<div class="modal-head text-center">Add New Item</div>
-				<div class="modal-body">
-					<div class="scrollable">
-						<form data-ajax="false" id="list-add-form" style="padding:1em">
-							<div class="form-control">
-							<!--	
-								<label for="list-add-name" class="form-label">Animal Name</label>
-							-->
-								<input type="text" class="form-input" id="list-add-name" placeholder="Item Name" data-role="none">
-							</div>
-							<div class="form-control">
-							<!--
-								<label for="list-add-type" class="form-label">Animal Type</label>
-							-->
-								<input type="text" class="form-input" id="list-add-type" placeholder="Item Type" data-role="none">
-							</div>
-							<div class="form-control">
-							<!--	
-								<label for="list-add-breed" class="form-label">Animal Breed</label>
-							-->
-								<input type="text" class="form-input" id="list-add-breed" placeholder="Item Description" data-role="none">
-							</div>
-						</form>
+			<form data-ajax="false" id="list-add-form" class="modal-popup">
+				<div class="modal-head display-flex">
+					<div class="flex-none">
+						<a href="#" data-deactivate="#list-add-animal-modal">Cancel</a>
+					</div>
+					<div class="flex-stretch">
+						<h1>Add Ingredient</h1>
 					</div>
 				</div>
-				<div class="modal-foot">Footer</div>
+				<div class="modal-body">
+					<div class="scrollable" style="padding:1em"><div class="inputs"></div></div>
+				</div>
+				<div class="modal-foot display-flex">
+					<div class="flex-stretch"></div>
+					<div class="flex-none">
+						<input type="submit" value="Save" class="chromeless" data-role="none" data-deactivate="#list-add-animal-modal">
+					</div>
+				</div>
+			</form>
+		</div>
+	
+</section>
+
+<!---------- animal-profile-page ---------->
+	<section data-role="page" id="animal-profile-page">
+		<header data-role="header">
+			<h1>Wild Edible Profile</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back"><img src="img/backicon.png" alt="" class="backicon"></a>
+				</li>
+			</ul>
+		</header>
+	
+		<div data-role="main">
+			<div class="profile">
+				
+				<div class="profile-body">
+				
+					<div class="map"></div>
+					<div class="anchor bottom right">
+						<a  href="#add-location-page"><img src="img/addicon.png" alt="" class="addicon_nofooter"></a>
+					</div>
+				</div>
+				<div style="overflow:scroll;">
+					<div class="profile-head"></div>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -424,14 +343,14 @@
 				</li>
 			</ul>
 		</header>
-		<div data-role="main">
+		<div data-role="main" class="display-flex flex-column">
 			<div class="profile">
 				<div class="profile-head"></div>
 				<div class="profile-body"></div>
 
 			</div>
 		</div>
-<!--
+
 <div class="scrollable">
 		<div data-role="main" class="display-flex flex-column">
 			<div class="tenvhspace"></div>		
@@ -449,6 +368,9 @@
 			</div>
 			<div class="twovhspace div_shadow"></div>
 			</div>
+
+
+
 			<div class="threevhspace"></div>
 			<div class="item_description"style="margin-left:2em;">
 				<a class="item_d_t">How to eat</a>
@@ -469,9 +391,9 @@
 			</div>
 			<div class="one_fivevhspace"></div>
 			<img src="img/mushroom_location.png" alt="" class="item_map">
-			</div>
+		</div>
 </div>
--->
+
 	</section>
 <!---------- edit item page ---------->
 	<section data-role="page" id="edit-item-page">
@@ -611,15 +533,15 @@
 			<div class="text-center">
 					<a class="">My Profile</a>
 		</header>
+
 		<div data-role="main" class="display-flex flex-column">
+			<div class="scrollable">
 			<div class="fivevhspace"></div>		
-			<div class="flex-none">
-				<img src="img/user.png" alt="" class="user_image">
-			</div>
 			<div class="flex-none">
 				<form id="user_profile" data-ajax="false">
 
-					<div id="profile_top"  style="margin-left:1em; margin-top: 0.5em;">
+					<div id="profile_top"  style=" margin-top: 0.5em;">
+					<!--
 						<a class="user_name">Henry</a>
 						<br>
 						<a class="user_info_top_lo">San Francisco</a>
@@ -629,29 +551,21 @@
 							<div><span class="profile_number">5</span> items</div>
 							<div><span class="profile_number" style="margin-left:0.8em">3</span> categories</div>
 						</div>
+					-->
+						<div class="profile"></div>
 						<div class="one_fivevhspace"></div>
 						<div class="display-flex flex-flex-direction user_info_top">
-							<div>
-								<a href="#settings-page" class="normalbutton" style="	margin-right:2em;">Edit</a>
-							</div>
-							<div>
-								<a href="#" class="normalbutton js-logout"  style="	margin-right:2em;">Logout</a>
-							</div>
+
 						</div>
 					</div>
-					<div class="twovhspace div_shadow"></div>
 					<div id="profile_top"  style="margin-left:1em; margin-top: 1em;">
-						<a class="user_info_top_lo">What's new?</a>
-						<div class="fivevhspace"></div>
-						<div class="display-flex flex-flex-direction">
-							<img src="img/mushroom.jpg" alt="" class="item_pic">
-							<img src="img/blueberry.jpg" alt="" class="item_pic" style="margin-left:1em;">
-						</div>
+						
 					</div>			
 				</form>
 			</div>
 			<div class="flex-stretch"></div>
 		</div>
+	</div>
 		<footer data-role="footer">
 			<ul>
 				<li><a href="#map-page"><img src="img/icon1.png" alt="" class="icon1"></a></li>
@@ -660,6 +574,89 @@
 			</ul>
 		</footer>
 	</section>
+
+<!---------- settings page ---------->
+	<section data-role="page" id="settings-page">
+		<header data-role="header">
+			<h1>Settings</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">Back</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<ul class="settings-list">
+				<li>
+					<a href="#" class="js-logout">Logout</a>
+				</li>
+				<li>
+					<a href="#settings-password-page">Change Password</a>
+				</li>
+				<li>
+					<a href="#settings-profile-page">Change Profile Info</a>
+				</li>
+			</ul>
+		</div>
+	</section>
+<!---------- settings password page ---------->
+	<section data-role="page" id="settings-password-page">
+		<header data-role="header">
+			<h1>Change Password</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">Cancel</a>
+				</li>
+				<li class="flex-stretch"></li>
+				<li class="flex-none">
+					<a href="#" data-rel="back">Commit</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<div class="scrollable">
+				<form id="settings-password-form" data-ajax="false" class="form" style="padding:1em">
+					<div class="form-control">
+						<label for="settings-change-password-1" class="form-label">Old Password</label>
+						<input id="settings-change-password-1" type="password" class="form-input" data-role="none">
+					</div>
+					<div class="form-control">
+						<label for="settings-change-password-2" class="form-label">New Password</label>
+						<input id="settings-change-password-2" type="password" class="form-input" data-role="none">
+					</div>
+					<div class="form-control">
+						<label for="settings-change-password-3" class="form-label">Confirm New Password</label>
+						<input id="settings-change-password-3" type="password" class="form-input" data-role="none">
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+
+<!---------- settings profile page ---------->
+	<section data-role="page" id="settings-profile-page">
+		<header data-role="header">
+			<h1>Profile Info</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">Cancel</a>
+				</li>
+				<li class="flex-stretch"></li>
+				<li class="flex-none">
+					<a href="#" class="js-submit-settings-profile">Save</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<div class="scrollable">
+				<form id="settings-profile-form" data-ajax="false" class="form" style="padding:1em">
+					<input type="hidden" id="settings-profile-id">
+					<div class="inputs"></div>
+				</form>
+			</div>
+		</div>
+	</section>
+
 <!---------- edit profile page ---------->
 	<section data-role="page" id="edit-profile-page">
 		<header data-role="header">
@@ -709,92 +706,10 @@
 		</div>
 
 	</section>
-<section data-role="page" id="settings-page">
-		<header data-role="header">
-			<h1>Settings</h1>
-			<ul>
-				<li class="flex-none">
-					<a href="#" data-rel="back">Back</a>
-				</li>
-			</ul>
-		</header>
-		<div data-role="main">
-			<ul class="settings-list">
-				<li>
-					<a href="#" class="js-logout">Logout</a>
-				</li>
-				<li>
-					<a href="#settings-password-page">Change Password</a>
-				</li>
-				<li>
-					<a href="#settings-profile-page">Change Profile Info</a>
-				</li>
-			</ul>
-		</div>
-	</section>
-
-
-	<section data-role="page" id="settings-password-page">
-		<header data-role="header">
-			<h1>Change Password</h1>
-			<ul>
-				<li class="flex-none">
-					<a href="#" data-rel="back">Cancel</a>
-				</li>
-				<li class="flex-stretch"></li>
-				<li class="flex-none">
-					<a href="#" data-rel="back">Commit</a>
-				</li>
-			</ul>
-		</header>
-		<div data-role="main">
-			<div class="scrollable">
-				<form id="settings-password-form" data-ajax="false" class="form" style="padding:1em">
-					<div class="form-control">
-						<label for="settings-change-password-1" class="form-label">Old Password</label>
-						<input id="settings-change-password-1" type="password" class="form-input" data-role="none">
-					</div>
-					<div class="form-control">
-						<label for="settings-change-password-2" class="form-label">New Password</label>
-						<input id="settings-change-password-2" type="password" class="form-input" data-role="none">
-					</div>
-					<div class="form-control">
-						<label for="settings-change-password-3" class="form-label">Confirm New Password</label>
-						<input id="settings-change-password-3" type="password" class="form-input" data-role="none">
-					</div>
-				</form>
-			</div>
-		</div>
-	</section>
-
-
-	<section data-role="page" id="settings-profile-page">
-		<header data-role="header">
-			<h1>Profile Info</h1>
-			<ul>
-				<li class="flex-none">
-					<a href="#" data-rel="back">Cancel</a>
-				</li>
-				<li class="flex-stretch"></li>
-				<li class="flex-none">
-					<a href="#" class="js-submit-settings-profile">Save</a>
-				</li>
-			</ul>
-		</header>
-		<div data-role="main">
-			<div class="scrollable">
-				<form id="settings-profile-form" data-ajax="false" class="form" style="padding:1em">
-					<input type="hidden" id="settings-profile-id">
-					<div class="inputs"></div>
-				</form>
-			</div>
-		</div>
-	</section>
-
 
 	<section data-role="page" id="settings-animal-profile-page">
 		<header data-role="header">
-			<h1>Animal Info</h1>
+			<h1>Ingredient Info</h1>
 			<ul>
 				<li class="flex-none">
 					<a href="#" data-rel="back">Cancel</a>
@@ -807,18 +722,20 @@
 		</header>
 		<div data-role="main">
 			<div class="scrollable">
+
 				<form id="settings-animal-profile-form" data-ajax="false" class="form" style="padding:1em">
 					<input type="hidden" id="settings-animal-profile-id">
 					<div class="inputs"></div>
 				</form>
+
 			</div>
 		</div>
 	</section>
 
 
-	<section data-role="page" id="settings-profile-upload-page">
+<section data-role="page" id="settings-profile-upload-page">
 		<header data-role="header">
-			<h1>Animal Info</h1>
+			<h1>USer Info</h1>
 			<ul>
 				<li class="flex-none">
 					<a href="#" data-rel="back">Cancel</a>

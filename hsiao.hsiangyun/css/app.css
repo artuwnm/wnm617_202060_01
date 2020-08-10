@@ -52,6 +52,10 @@ li {
 	color:#3D6753;
 	font-size:1.5em;
 }
+.helfvhspace {
+	height:0.5vh;
+	width:100%;
+}
 .onevhspace {
 	height:1vh;
 	width:100%;
@@ -478,6 +482,83 @@ ul{
 .title_sec li {
 	list-style-type:none;
 }
+.animallist-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.7em;
+    margin: 1em;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+.animallist-body {
+   font-size:0.8em;
+   padding:0.5em 1em;
+}
+.scrollable-x {
+   overflow-x:auto;
+   max-width:100%;
+}
+.list-filters a {
+    white-space: nowrap;
+}
+#animal-profile-page .profile {
+	display:flex;
+	flex-direction:column;
+	height:100%;
+}
+.profile-head {
+    flex: none;
+    position: absolute;
+    top:0;
+    height:100%;
+	width:100%;
+    transition: all 0.3s;
+    background-color:#F5EADA;
+    overflow:scroll;
+}
+.profile-head.active {
+        height: 39vh;/*DIS*/
+}
+.profile-body {
+	flex:1 1 100%;
+	position:absolute;
+	top:0;
+	height:100%;
+	width:100%;
+}
+.profile-head img {
+	width:8em;
+	height:8em;
+	border-radius:50%;
+	object-fit:cover;
+	vertical-align:text-bottom;
+}
+.image-uploader.full {
+   position:absolute;
+   top:0;
+   left:0;
+   width:100%;
+   height:100%;
+   background-size:contain;
+   background-position:center; 
+   background-repeat:no-repeat;
+}
+.image-uploader.full::before {
+   position:absolute;
+   top:50%;
+   left:50%;
+   transform:translate(-50%,-50%);
+   opacity:0.6;
+   content:'Click to Upload';
+   z-index: -1;
+}
+.profile-location-photos img {
+   width:4em;
+   height:4em;
+   object-fit:cover;
+   margin:0.2em;
+}
+
+
 /*
 .itemshow
 .pic_sec
@@ -550,7 +631,7 @@ ul{
 /*Item Page*/
 .item_pic {
 	border-radius:50%;
-	width:15vh;
+	width:auto;
 	height:15vh;
 
 }
@@ -576,6 +657,12 @@ ul{
 	font-family: 'Lato', sans-serif;
 	color:#718079;
 	font-size:1em;
+	line-height:1 ;
+}
+.item_d_sa{
+	font-family: 'Lato', sans-serif;
+	color:#718079;
+	font-size:0.8em;
 	line-height:1 ;
 }
 .item_map {
@@ -627,6 +714,12 @@ ul{
 	position: relative;
 	box-shadow: 0px 15px 10px -15px #828282;
 }
+.div_shadow2 {
+	height:2em;
+	width:100%;
+	position: relative;
+	box-shadow: 0px 15px 10px -15px #828282;
+}
 /* Add Item Page*/
 .hotdog_add {
 	display: inline-flex;
@@ -644,6 +737,9 @@ ul{
 	color:#3D6753;
 	font-size:1em;
 	line-height:1.5 ;
+}
+.profile-button {
+	width:80%;
 }
 /*Edit page*/
 .hotdog_edit {
@@ -684,6 +780,15 @@ ul{
 	height:3.5em;
 	width:3.5em;
 }
+.addicon_nofooter
+{
+	right:4vh;
+	top:88vh;
+	position:fixed;
+	height:3.5em;
+	width:3.5em;
+}
+/*map page*/
 .map_point {
 	left:10vh;
 	top:13vh;
@@ -691,7 +796,6 @@ ul{
 	height:3em;
 	width:2.5em;
 }
-
 .map {
 	position:absolute;
 	top:0;
@@ -702,4 +806,86 @@ ul{
 	background-size:cover;
 }
 
+.list-image {
+	vertical-align: text-bottom;
+	width:8em;
+	height:8em;
+	object-fit:cover;
+}
+.list-filters a {
+    white-space: nowrap;
+}
+/* FORMS */
 
+.form-control {
+    margin: 1em 0;
+}
+
+.form-label {
+    margin: 0.6em 0 !important;
+    font-size: 0.8em;
+    color: var(--color-neutral-medium);
+}
+
+.form-input {
+    display: inline-block;
+    width: 100%;
+    border-width: 0;
+    border-bottom: 1px solid var(--color-neutral-medium);
+    padding: 0.5em 1em;
+    background-color: transparent;
+    outline: 0;
+    font:inherit;
+}
+.form-input:focus {
+	border-bottom-color:var(--color-main-medium);
+}
+.form-button2 {
+    border-width: 0;
+    display: inline-block;
+    width: 10%;
+    font: inherit;
+    padding: 0.5em 1em;
+    border-radius: 0.3em;
+    background-color: var(--color-neutral-light);
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    outline:0;
+}
+.form-button3 {
+    display: inline-block;
+
+	font-family: 'Lato', sans-serif;
+	font-weight: bold;
+	font-size:1em;
+	border: 0.1em;
+    border-radius: 0.2em;
+    padding:0.3em 1em;
+    text-align:center;
+	background-color:#E5705C;
+	color:white;
+	text-decoration: none;
+}
+.form-select select {
+    display: inline-block;
+    border-width: 0;
+    width: 100%;
+    background-color: var(--color-neutral-light);
+    padding: 0.5em 1em;
+    border-radius: 0.3em;
+    -webkit-appearance: none;
+    outline:0;
+}
+.form-select {
+    position: relative;
+}
+.form-select::after {
+	content:'▼';
+	position:absolute;
+	top:50%;
+	right:0.4rem;
+	font-size:0.6em;
+	transform:translateY(-50%);
+	color:var(--color-neutral-medium);
+}
