@@ -22,6 +22,13 @@ return `
 	<div class="hero-image">
 		<a href="#settings-profile-upload-page"><img src="${user.img}" alt=""></a>
 	</div>
+
+
+<div class="anchor center">
+<a href="#settings-profile-upload-page" class="circle_cam" >
+<img src="img/wcam.svg" style="width: 30px;padding-top:1em;"></a>
+</div>
+
 	<div style="padding:0em 1em;margin-top:0;">
 		<h2 class="profile-title">${user.name}</h2>
 		<div class="profile-body">
@@ -31,7 +38,7 @@ return `
 			<div><strong>Locations</strong> &nbsp;&nbsp;&nbsp;&nbsp;${locations.length}</div>
 		</div>
 		<div class="profile-photos">
-			<h3>Latest Photos</h3>
+			<h3 style="text-align:center;margin-top:2em;">Photos</h3>
 			<div class="profile-location-photos">
 				${UserProfileLocationsPhotoList(locations.slice(0,3))}
 			</div>
@@ -47,20 +54,25 @@ const makeAnimalProfile = (animal,locations)=>{
 return `<div>
 <div class="display-flex">
 	<div class="flex-none">
-		<img src="${animal.img}" alt="" />
+		<img src="${animal.img}" alt="" style="width: 6em;
+    height: 6em;
+    vertical-align: text-bottom;
+    margin-top: 1em;
+    margin-left: 1em;
+    margin-bottom: 2em;" />
 	</div>
 	<div style="padding:1em">
-		<div>${animal.type}</div>
-		<div>${animal.breed}</div>
+		<div style="font-size:1em;color:#295F3D;">${animal.type}</div>
+		<div style="font-style: italic;font-size:0.9em;color:grey;">${animal.breed}</div>
 		<div class="display-flex">
 			<div class="flex-none">
-				<button data-toggle=".profile-head" class="form-button">More</button>
+				<button data-toggle=".profile-head" style="border:0;background-color:white;padding-top:1.6em;margin-right:1em;"><img src="img/more.svg" alt=""></button>
 			</div>
 			<div class="flex-none">
-				<a href="#settings-animal-profile-page" class="form-button">Edit</a>
+				<a href="#settings-animal-profile-page" style="padding-top:0.2em;margin-right:1em;" ><img src="img/edit.svg" alt="" ></a>
 			</div>
 			<div class="flex-none">
-				<a href="#" class="form-button js-delete-animal" data-id="${animal.id}">Delete</a>
+				<a href="#" js-delete-animal" data-id="${animal.id}"style="padding-top:0.2em"; ><img src="img/delete.svg" alt="" style="width:0.8em;"></a>
 			</div>
 		</div>
 	</div>
@@ -94,6 +106,8 @@ const makeRecentProfile = o=>`
 
 // Typing out everything is fine
 const makeSettingsProfileInputs = (o,namespace="settings-profile") => `
+
+
 <div class="form-control">
 	<label for="${namespace}-name" class="form-label">Name</label>
 	<input id="${namespace}-name" type="text" class="form-input" data-role="none" value="${o.name}">

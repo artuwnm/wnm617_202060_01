@@ -37,7 +37,7 @@ const makeMarkers = (map_el,map_locs) => {
 			map: map_el.data("map"),
 			icon: {
 				// expects location object to have .icon property
-				url: o.icon,
+				url:"img/new.svg",
 				scaledSize: {
 					width:40,
 					height:40

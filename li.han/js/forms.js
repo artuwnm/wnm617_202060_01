@@ -3,7 +3,7 @@ const checkListAddForm = () => {
 	let type = $("#list-add-type").val();
 	let breed = $("#list-add-breed").val();
 	let description = $("#list-add-description").val();
-	let img = $("#list-add-photo").val()!=''?$("#list-add-photo").val():'https://via.placeholder.com/400/?text=ANIMAL';
+	let img = $("#list-add-photo").val()!=''?$("#list-add-photo").val():'img/new.svg';
 
 	query({
 		type:'insert_animal',
@@ -18,7 +18,7 @@ const checkRecentAddForm = () => {
 	let type = $("#add-animal-type").val();
 	let breed = $("#add-animal-breed").val();
 	let description = $("#add-animal-description").val();
-	let img = $("#add-animal-photo").val()!=''?$("#add-animal-photo").val():'https://via.placeholder.com/400/?text=ANIMAL';
+	let img = $("#add-animal-photo").val()!=''?$("#add-animal-photo").val():'img/new.svg';
 
 	query({
 		type:'insert_animal',
