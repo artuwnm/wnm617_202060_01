@@ -36,10 +36,10 @@
 
 <!---------------------------- Sign In Page ------------------------------------->
 
-	<section data-role="page" id="signin-page">
-		<div data-role="main" class="display-flex flex-column">
+	<section data-role="page" id="signin-page" style="background-color: var(--color-blue-light);">
+		<div data-role="main" class="display-flex flex-column" style="background-color: var(--color-blue-light);">
 		<div class="flex-stretch" style="margin-top: 0"></div>
-		<div class="flex-none" style="text-align: center">
+		<div class="flex-none" style="text-align: center; background-color: var(--color-blue-light);">
 			<img src="img/logo.png" alt="" class="login-logo">
 		</div>
 	</div>
@@ -73,8 +73,8 @@
 
 <!-------------------------------- Sign Up Page -------------------------------->
 
-	<section data-role="page" id="signup-page">
-		<div data-role="main" class="display-flex flex-column">
+	<section data-role="page" id="signup-page" style="background-color: var(--color-blue-light);">
+		<div data-role="main" class="display-flex flex-column" style="background-color: var(--color-blue-light);">
 			<div class="flex-stretch"></div>
 
 			<div class="flex-none" style="padding: 1em">
@@ -190,26 +190,10 @@
 			<div class="scrollable">
 				<form id="recent-add-choose-animal-form" data-ajax="false" class="form" style="padding:1em; text-align: center;">
 
-				  <div class="form-control-signup">	
+				  <div class=" form-control form-control-signup">	
 					<a href="#add-animal-page" class="add-button"><input type="" class="add-button" value="Add New Unicorn" data-role="none"></a>
 				</div>
-					<div style="padding-top: 2em; padding-bottom: 2em; color: var(--color-neutral-dark)">Or</div>
-					<div class="form-control">
-						<label for="add-location-animal-id" class="form-label">Select Unicorn</label>
-						<input id="add-location-animal-id" class="form-input" data-role="none">
-						
-					</div>
 
-					<div class="form-control">
-						<label for="add-location-animal-id" class="form-label">Select Unicorn Trait</label>
-						<select id="add-location-animal-id" class="form-input" data-role="none">
-							<option value="1">Junior</option>
-							<option value="22">Creative</option>
-							<option value="13">Specialis</option>
-							<option value="1">Ninja</option>
-							<option value="22">Gitcorn</option>
-						</select>
-					</div>
 
 				</form>
 			</div>
@@ -397,6 +381,8 @@
 					</div>
 				</div>
 				<div class="modal-foot display-flex">
+
+					<div class="flex-none">
                    
                     <div class="flex-justify-center">
                     	<input type="submit" value="Save" class="chromeless" data-role="none" data-deactivate="#list-add-animal-modal" style="margin-left: 15%">
@@ -592,10 +578,13 @@
 			<h1>Settings</h1>
 			<ul>
 				<li class="flex-none">
-					<a href="#" data-rel="back">Back</a>
+					<a href="#" data-rel="back"><img src="img/icon/back.svg" max-width="20px" height="20px" class="back-icon"></a>
+				</li>
+				<li class="flex-stretch"></li>
 				</li>
 			</ul>
 		</header>
+	
 		<div data-role="main">
 			<div class="scrollable">
 			<ul class="settings-list">
@@ -800,14 +789,14 @@
                
 
                 <li>
-                	<a href="#list-page" data-activateone="footer li:nth-child(1)">
+                	<a href="#list-page" data-activateone="footer li:nth-child(2)">
                 		<div class="footer-icon"><img class="icon" src="img/icon/list.svg"></div>
                 		
                 	</a>
                 </li>
 
                 <li>
-                	<a href="#profile-page" data-activateone="footer li:nth-child(1)">
+                	<a href="#profile-page" data-activateone="footer li:nth-child(3)">
                 		<div class="footer-icon"><img class="icon" src="img/icon/profile.svg"/></div>
                 		
                 	</a>

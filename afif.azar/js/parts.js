@@ -149,27 +149,22 @@ return `
 </div>
 
 <div class="form-control">
-	<label for="${namespace}-name" class="form-label">Name</label>
+	<label for="${namespace}-name" class="form-label">Unicorn Name</label>
 	<input type="text" class="form-input" id="${namespace}-name" placeholder="Type Animal Name" data-role="none" value="${o.name}">
 </div>
 
 <div class="form-control">
-	<label for="${namespace}-type" class="form-label">Type</label>
+	<label for="${namespace}-type" class="form-label">Unicorn Type</label>
+	<input type="text" class="form-input" id="${namespace}-type" placeholder="Unicorn Type" data-role="none" value="${o.type}">
+</div>
+
+<div class="form-control">
+	<label for="${namespace}-trait" class="form-label">Unicorn Trait</label>
 	<div class="form-select">
-		<select id="${namespace}-type" data-role="none">
-			${makeSelectOptions(types,o.type)}
+		<select id="${namespace}-trait" data-role="none">
+			${makeSelectOptions(traits,o.trait)}
 		</select>
 	</div>
-</div>
-
-<div class="form-control">
-	<label for="${namespace}-trait" class="form-label">Trait</label>
-	<input type="text" class="form-input" id="${namespace}-trait" placeholder="Unicorn Trait" data-role="none" value="${o.trait}">
-</div>
-
-<div class="form-control">
-	<label for="${namespace}-description" class="form-label">Description</label>
-	<textarea class="form-input" id="${namespace}-description" placeholder="Unicorn Description" data-role="none">${o.description}</textarea>
 </div>`;
 }
 

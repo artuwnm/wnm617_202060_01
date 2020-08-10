@@ -259,7 +259,7 @@ a {
 .unisignin-button {
    display: inline-flex;
    width: 100%;
-   background-color: var(--color-neutral-light);
+   background-color: white;
    border-width: 0;
    font: inherit;
    padding: 1em 1em;
@@ -415,8 +415,8 @@ input.search {
 /* ================== LOGIN PAGE ===============*/
 
 .login-logo {
-    width: 50vmax;
-    max-width: calc(100% - 10em);
+
+    max-width: calc(100% - 7em);
     top: 0;
 }
 

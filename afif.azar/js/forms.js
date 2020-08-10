@@ -78,7 +78,7 @@ const checkAddLocationForm = () => {
 	}).then(d=>{
 		if(d.error) throw d.error;
 		//window.history.go(-2);
-		$.mobile.navigate("#animal-profile-page");
+		$.mobile.navigate("#recent-page");
 	})
 }
 

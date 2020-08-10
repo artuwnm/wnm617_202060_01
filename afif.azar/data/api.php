@@ -1,12 +1,10 @@
 <?php
 
-ini_set('display_errors', true);
-error_reporting(E_ALL);
 
 include "auth.php";
 function makeConn() {
 	try {
-		$conn = new \PDO(...PDOauth());
+		$conn = new PDO(...PDOauth());
 		$conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 		return $conn;
 	} catch (PDOException $e) {
@@ -116,7 +114,7 @@ function makeStatement($data) {
         	     `name` LIKE ? OR
         	     `type` LIKE ? OR
         	     `trait` LIKE ?
-        	) AND uder_id=?",$p);
+        	) AND user_id=?",$p);
 
         case "animal_serch_recent" : return makeQuery($c,"SELECT
         	a.*, l.*
