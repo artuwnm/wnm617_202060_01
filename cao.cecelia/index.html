@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>New Project</title>
+	<title>ALMap</title>
 
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
@@ -66,6 +66,7 @@
 		<div data-role="main" class="display-flex flex-column">
 			<div class="flex-stretch"></div>
 			<div class="flex-none" style="padding:1em">
+				<div class="failure form-control disapear" id="failure_text">Sign up failed. Passwords do not match.</div>
 				<form id="signup-form" data-ajax="false">
 					<div class="form-control">
 						<label for="signup-username" class="form-label">Username</label>
@@ -105,6 +106,7 @@
 	<section data-role="page" id="recent-page">
 		<div data-role="main">
 			<div class="map"></div>
+			<div class="recent-search"></div>
 			<div class="anchor left top">
 				<a href="#"  data-activate="#user-profile-modal" class="ui-link circle">&#8801</a>		
 			</div>
@@ -127,7 +129,7 @@
 							<ul class="profile-settings">
 								<li><a href="#settings-profile-page">Profile</a></li>
 								<li><a href="#settings-password-page">Privacy</a></li>
-								<li><a href="#" class="js-logout">Settings</a></li>
+								<li><a href="#settings-logout-page">Settings</a></li>
 								<li><a href="#">Help</a></li>
 								<li><a href="#">Refer</a></li>
 							</ul>
@@ -140,7 +142,7 @@
 			</form>
 		</div>
 
-			<div class="recent-search"></div>
+			
 			<div class="searchstyle" style="width:calc(100% - 2em)">
 				<form id="recent-search" class="hotdog light soft" data-ajax="false">
 					<input type="search" data-role="none" class="search" placeholder="Search for alcohol">
@@ -165,8 +167,8 @@
 	
 
 
-
-
+	
+	
 
 
 
@@ -274,8 +276,11 @@
 			<div class="scrollable">
 				<div data-role="main">
 
-			
-				<div class="alcohollist"></div>
+				
+				<div class="alcohollist">
+				
+			<div class="failure form-control disapear" id="failure_text">Login failed. Please enter the correct username and/or password.</div>
+				</div>
         		
 			
 		</div>
@@ -422,6 +427,50 @@
 
 
 	<!-- Profile Setting Pages -->
+	<section data-role="page" id="settings-logout-page">
+		<header data-role="header">
+			<h1>Settings</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">&#x2715;</a>
+				</li>
+				<li class="flex-stretch"></li>
+				<li class="flex-none">
+					
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<div class="scrollable">
+				<form id="settings-password-form" data-ajax="false" class="form" >
+					<div class="form-control form-content">
+						<h3>Privacy Policy</h3>
+						<p>Learn more about our privacy policy and control your account security.</p>
+					</div>
+					<div class="form-control form-content">
+						<h3>About Us</h3>
+						<p>Are you interested in us? Here are some more information about us and other applications we made.</p>
+					</div>
+					<div class="form-control form-content">
+						<h3>Comments</h3>
+						<p>Do you like our app? Please leave a comment for us.</p>
+					</div>
+					<div class="form-control form-content">
+						<a href="#" class="js-logout">Log Out</a>
+					</div>
+					
+				</form>
+				
+			</div>
+		</div>
+
+	</section>
+
+
+
+
+
+
 
 	<section data-role="page" id="settings-password-page">
 		<header data-role="header">
@@ -526,7 +575,7 @@
 			<h1>Add New Photo</h1>
 			<ul>
 				<li class="flex-none">
-					<a href="#" data-rel="back"><i class="arrow_black arrowleft"></i></a>
+					<a href="#" data-rel="back">f</a>
 				</li>
 				<li class="flex-stretch"></li>
 				<li class="flex-none">

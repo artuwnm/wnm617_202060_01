@@ -26,7 +26,7 @@ const checkListAddForm = () => {
 	}).then(d=>{
 		if(d.error) throw d.error;
 		sessionStorage.alcoholId = d.result;
-		$.mobile.navigate("#list-page");
+		$.mobile.navigate("#add-location-page");
 	})
 }
 
@@ -56,7 +56,7 @@ const checkSettingsProfileForm = () => {
 
 	query({
 		type:'update_user',
-		params:[name,username,email,phone,favoritealcohol,valid_alcoholsuserId]
+		params:[name,username,email,phone,favoritealcohol,userId]
 	}).then(d=>{
 		if(d.error) throw d.error;
 		window.history.back();

@@ -128,7 +128,6 @@ function makeStatement($data) {
 			) AND a.user_id=?
 			GROUP BY l.alcohol_id",$p);
 
-
 		case "alcohol_filter" : return makeQuery($c,"SELECT *
 			FROM `track_alcohols`
 			WHERE (

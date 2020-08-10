@@ -228,6 +228,7 @@ a {
 .scrollable-x {
    overflow-x:auto;
    max-width:100%;
+   box-shadow:2px 2px 5px rgba(0,0,0,0.2);
 }
 
 .choices-image{
@@ -508,9 +509,17 @@ a {
     margin: 1em 0;
 }
 
+.form-content {
+    border: solid 1px #bfc0c1;
+    border-left: 0px;
+    border-right: 0px;
+    background-color: var(--color-neutral-medium);
+    padding: 1em;
+}
+
 
 .form-control p{
-	color: var(--color-neutral-medium);
+	color: #aaa;
 	margin-bottom: 0;
 }
 
@@ -912,11 +921,16 @@ outline: 0;
 .modal.active .modal-popup {
     transform: translate(-50%,-50%);
 }
-.modal-head,
-.modal-foot {
+.modal-head {
 	background-color:var(--color-neutral-light);
 	line-height:var(--header-height);
 }
+
+.modal-foot{
+background-color:var(--color-neutral-light);
+}
+
+
 .modal-body {
 	background-color:var(--color-white);
 	/*padding:1em;*/

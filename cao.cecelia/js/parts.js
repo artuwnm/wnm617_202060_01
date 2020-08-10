@@ -28,6 +28,42 @@ const makeChooseAlcoholList = templater(o=>`
 
 
 
+const makeAlcoholNone = o =>`
+<div class="modal active" id="list-add-animal-modal">
+			<div class="modal-back" data-deactivate="#list-add-animal-modal"></div>
+			<form data-ajax="false" id="list-add-form" class="modal-popup">
+				<div class="modal-head display-flex">
+					
+					<div class="flex-stretch">
+						<h1>Welcome!</h1>
+					</div>
+				</div>
+				<div class="modal-body">
+					<div class="scrollable" style="padding:1em;">
+
+						<p>ALMap app provides a way for you to record and track the alcohol that they met and drunk on the map. 
+						You  could could create your alcohol maps to track their taste and drink habits.
+						</p>
+						<ul>
+							<li>Use <img src="img/add-button.png" alt="" style="width:3em;"> to add your favorite alcohol experience;</li>
+							<li>On the map page, it will show your recent alcohol record.</li>
+						</ul>
+
+					</div>
+				</div>
+				<div class="modal-foot display-flex">
+					
+					<div class="flex-stretch">
+						<a href="#" data-deactivate="#list-add-animal-modal" class="form-button">I understand.</a>
+					</div>
+				</div>
+			</form>
+		</div>
+`;
+
+
+
+
 const makeUserProfile = o =>`
 <div class="backgroundcolor-profile">
 				<div class="flex-none" style="text-align:center">
@@ -242,7 +278,7 @@ return `
 	<label for="${namespace}-description" class="form-label">Description</label>
 	<textarea class="form-input" id="${namespace}-description" placeholder="Type Alcohol Description" data-role="none">${o.description}</textarea>
 </div>
-	<button type="submit" class="js-submit-adding-alcohol-profile form-button" value="Save" data-role="none">Save</button>
+	<a href="#add-location-page" class="js-submit-adding-alcohol-profile form-button">Next</a>
 
 `;
 }

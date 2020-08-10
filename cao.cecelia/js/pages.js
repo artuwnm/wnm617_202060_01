@@ -4,8 +4,9 @@ const ListPage = async(d=0) => {
 	$("#list-page .alcohollist").html(
 		d.result.length ?
 			makeAlcoholList(d.result) :
-			"You need to add some alcohols, jack."
+			makeAlcoholNone
 	);
+
 
 	$("#list-page .list-filters").html(listFilters(d.result));
 
@@ -24,7 +25,7 @@ const AddingAlcoholLocationPage = async(d=0) => {
 	$("#list-add-location-page .alcohollist").html(
 		d.result.length ?
 			makeChooseAlcoholList(d.result) :
-			"You need to add some alcohols, jack."
+			makeAlcoholNone
 	);
 
 }
@@ -51,8 +52,9 @@ const AddingPage = async() => {
 // 		.html(makeAnimalList(d.result))
 // }
 
-const RecentPage = async() => {
+const RecentPage = async(d=0) => {
 	// if(sessionStorage.alcoholId===undefined) throw("No alcohol ID in Storage");
+	if(!d) d = await query({type:"recent_locations",params:[sessionStorage.userId]});
 
 	
 	let profile = await query({type:"user_by_id",params:[sessionStorage.userId]})
@@ -62,10 +64,10 @@ const RecentPage = async() => {
 
 
 
-	let locations = await query({type:"recent_locations",params:[sessionStorage.userId]})
+	
 	let map_el = await makeMap("#recent-page .map");
 
-	let valid_alcohols = locations.result.reduce((r,o)=>{
+	let valid_alcohols = d.result.reduce((r,o)=>{
 		o.icon = o.img;
 		if(o.lat && o.lng) r.push(o);
 		return r;

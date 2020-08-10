@@ -45,8 +45,10 @@ const checkSignupForm = () => {
 	let password2 = $("#signup-password2").val();
 
 	if(password!=password2) {
-		throw "Passwords don't match";
-		return;
+		console.log("failure");
+		sessionStorage.removeItem('userId');
+		$( ".failure" ).removeClass( "disapear" );
+		
 	} else {
 		query({
 			type:'insert_user',
