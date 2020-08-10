@@ -29,7 +29,7 @@ $c = connection
 $ps = prepared statement
 $p = parameters
 */
-function makeQuery($c,$ps,$p) {
+function makeQuery($c,$ps,$p,$makeResults=true) {
 	try{
 		if(count($p)) {
 			$stmt = $c->prepare($ps);
@@ -37,7 +37,7 @@ function makeQuery($c,$ps,$p) {
 		} else {
 			$stmt = $c->query($ps);
 		}
-		$r = fetchAll($stmt);
+		$r = $makeResults ? fetchAll($stmt) : [];
 
 		return [
 			// "statement"=>$ps,
