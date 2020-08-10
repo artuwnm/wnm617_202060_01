@@ -48,11 +48,6 @@ a {
   text-decoration: none;
 }
 
-
-
-
-
-
 /* Small Classes */
 
 .container {
@@ -64,8 +59,6 @@ a {
 .hidden {
   display: none;
 }
-
-
 
 /* Layout Classes */
 
@@ -109,11 +102,6 @@ a {
   flex-direction: column;
 }
 
-
-
-
-
-
 [data-role="header"] ul,
 [data-role="footer"] ul,
 .nav ul {
@@ -145,24 +133,12 @@ a {
 .scrollable-x {
   overflow-x: auto;
   max-width: 100%;
+  display: inline-block;
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 #recent-add-choose-animal-form .ui-link {
-  padding: .5em 0 1.3em 0;
+  padding: 0.5em 0 1.3em 0;
 }
-
 
 .ui-mobile .ui-page-active {
   display: flex;
@@ -228,18 +204,11 @@ a {
   padding: 0 1em;
 }
 
-
-
-
-
-
 /* FORMS */
 
 .something {
   margin: 1em;
 }
-
-
 
 .form-control {
   margin: 1em 0;
@@ -281,7 +250,6 @@ a {
   color: white;
 }
 
-
 .form-button:active {
   background-color: var(--color-main-light);
 }
@@ -302,7 +270,7 @@ a {
 }
 
 .form-select::after {
-  content: '▼';
+  content: "▼";
   position: absolute;
   top: 50%;
   right: 0.4rem;
@@ -341,7 +309,6 @@ a {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-
 header .hotdog {
   line-height: 1.5em;
   margin: 0.2em;
@@ -360,7 +327,6 @@ header .hotdog {
   margin: 0;
 }
 
-
 .chromeless {
   border-width: 0;
   display: inline-block;
@@ -373,10 +339,6 @@ header .hotdog {
   outline: 0;
   margin: 0;
 }
-
-
-
-
 
 /*  LOGIN PAGE */
 .login-logo {
@@ -464,8 +426,6 @@ header .hotdog {
   padding: 0 1em;
 }
 
-
-
 .modal-drawer {
   position: absolute;
   transition: all 0.3s;
@@ -523,11 +483,6 @@ header .hotdog {
   transform: translate(0, 0);
 }
 
-
-
-
-
-
 .anchor {
   position: absolute;
 }
@@ -561,15 +516,8 @@ header .hotdog {
   font-size: 1.5em;
 }
 
-
-
-
-
-
-
-
 /* ICONS */
-[data-role='footer'] a {
+[data-role="footer"] a {
   display: block;
 }
 
@@ -591,11 +539,6 @@ header .hotdog {
   font-size: 0.7em;
 }
 
-
-
-
-
-
 .map {
   position: absolute;
   top: 0;
@@ -604,9 +547,6 @@ header .hotdog {
   height: 100%;
   background-size: cover;
 }
-
-
-
 
 .hero-image {
   height: 25vh;
@@ -638,8 +578,6 @@ header .hotdog {
   justify-content: center;
 }
 
-
-
 .settings-list {
   list-style-type: none;
   padding-left: 0;
@@ -655,20 +593,12 @@ header .hotdog {
   border-top: 1px solid var(--color-neutral-light);
 }
 
-
-
-
-
-
-
-
-
 .animallist-item {
   position: relative;
   overflow: hidden;
-  border-radius: 1em;
+  border-radius: 2em;
   margin: 1em;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
 }
 
 .animallist-body {
@@ -684,11 +614,6 @@ header .hotdog {
   height: 4.5em;
   object-fit: cover;
 }
-
-
-
-
-
 
 #animal-profile-page .profile {
   display: flex;
@@ -724,15 +649,6 @@ header .hotdog {
   vertical-align: text-bottom;
 }
 
-
-
-
-
-
-
-
-
-
 .image-uploader.full {
   position: absolute;
   top: 0;
@@ -750,7 +666,7 @@ header .hotdog {
   left: 50%;
   transform: translate(-50%, -50%);
   opacity: 0.6;
-  content: 'Click to Upload';
+  content: "Click to Upload";
   z-index: -1;
 }
 
@@ -778,8 +694,6 @@ header .hotdog {
   background-size: cover;
 }
 
-
-
 /* This will hide the file input */
 .imagepicker input {
   display: none;
@@ -793,7 +707,7 @@ header .hotdog {
 
 /* This will add the floating plus symbol to the imagepicker */
 .imagepicker:before {
-  content: '+';
+  content: "+";
   position: absolute;
   font-size: 3em;
   vertical-align: middle;
